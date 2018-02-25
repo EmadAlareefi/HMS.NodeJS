@@ -12,13 +12,13 @@
 }
 
 .exit-btn {
-width:15px;
-height:15px;
-position:absolute;
-right:0;
-top:0;
-cursor:pointer;
-background-color:darkred;
+    width:15px;
+    height:15px;
+    position:absolute;
+    right:0;
+    top:0;
+    cursor:pointer;
+    background-color:darkred;
 }
 .create-user-interface-animation {  
     animation: openingForm 0.5s ease-in-out forwards;
@@ -74,11 +74,11 @@ background-color:darkred;
 }
 
 .hidden {
-        visibility:hidden;      
+    visibility:hidden;      
 }
 
- .myContainer {
-            height: 70%;
-            width: 70%;
-            background-color: #222;          
-        }
+.myContainer {
+    height: 70%;
+    width: 70%;
+    background-color: #222;          
+}

@@ -6,4 +6,3 @@
 
 });
 
-  $("#checkIn").animatedModal();
