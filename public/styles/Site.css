@@ -1,4 +1,5 @@
 ﻿@import url(http://fonts.googleapis.com/earlyaccess/droidarabickufi.css);
+@import url('https://fonts.googleapis.com/css?family=Patua+One');
 /* Move down content because we have a fixed navbar that is 50px tall */
 body {
     padding-top: 0px;
@@ -156,6 +157,7 @@ a, a:hover, a:focus {
 
 i, span {
     display: inline-block;
+    transform: rotateY(180deg);
 }
 
 /* ---------------------------------------------------
@@ -175,7 +177,7 @@ i, span {
     text-align: center;
     min-width: 250px;
     max-width: 250px;
-    background: rgb(183, 131, 77);
+    background: rgb(10, 36, 46);
     color: #fff;
     transition: all 0.3s;
 }
@@ -371,4 +373,8 @@ ul.CTAs {
 
 nav {
 font-family: 'Droid Arabic Kufi', serif;
+}
+
+#logo {
+font-family: 'Patua One', cursive;
 }
