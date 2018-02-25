@@ -1,0 +1,84 @@
+﻿
+.create-user-interface {
+    position: fixed;
+    right: 0;
+    left: 0;
+    margin-right: auto;
+    margin-left: auto;
+    min-height: 10em;
+    width: 0%;
+    height: 0px;
+    background-color:ghostwhite; 
+}
+
+.exit-btn {
+width:15px;
+height:15px;
+position:absolute;
+right:0;
+top:0;
+cursor:pointer;
+background-color:darkred;
+}
+.create-user-interface-animation {  
+    animation: openingForm 0.5s ease-in-out forwards;
+    
+}
+@-moz-keyframes openingForm {
+    0% {
+        width: 0%;
+        height:0px;
+    }
+
+    100% {
+        width: 50%;
+        height:600px;
+    }
+}
+@keyframes openingForm {
+    0% {
+        width: 0%;
+        height:0px;
+    }
+
+    100% {
+        width: 50%;
+        height:600px;
+    }
+}
+@-webkit-keyframes openingForm {
+    0% {
+        width: 0%;
+        height:0px;
+    }
+
+    100% {
+        width: 50%;
+        height:600px;
+    }
+}
+
+.obacity-fade-in {
+    animation: fade-in 1s ease-in-out forwards;
+} 
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 100;
+
+    }
+}
+
+.hidden {
+        visibility:hidden;      
+}
+
+ .myContainer {
+            height: 70%;
+            width: 70%;
+            background-color: #222;          
+        }
