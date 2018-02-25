@@ -48,9 +48,9 @@ app.get('/', function(req,res){
 
 app.get('/Pages/Management/ManageFreeBookings', function(req,res){
  res.render('Pages/Management/ManageFreeBookings', {
-  title: 'ﻞﻴﻤﻋ ﻝﻮﺧﺩ ﻞﻴﺠﺴﺗ',
+  title: 'الشقق والتسكين',
   Page: {
-   title: "ﻞﻴﻤﻋ ﻝﻮﺧﺩ ﻞﻴﺠﺴﺗ"
+   title: "الشقق والتسكين"
   }
  });
 });
@@ -59,7 +59,7 @@ app.get('/Pages/Management/ManageFreeBookings', function(req,res){
 
 app.post('/resedents/check_in', function(req, res){
 
- req.checkBody('contract-number', 'ﺪﻘﻌﻟا ﻢﻗﺭ ﺔﻓﺎﺿا ﻦﻣ ﺪﺑ ﻻ').notEmpty();
+ req.checkBody('contract-number', 'ﻻ ﺑﺪ ﻣﻦ اﺿﺎﻓﺔ ﺭﻗﻢ اﻟﻌﻘﺪ').notEmpty();
 
  var errors = req.validationErrors();
 
