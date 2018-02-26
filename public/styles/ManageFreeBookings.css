@@ -78,23 +78,32 @@
     visibility:hidden;      
 }
 
+
+/*ManageFreeBookings styles*/
+
 .myContainer {
     height: 100%;
     width: 100%;
     background-color:#dfeaf2;
     padding: 20px;
+    box-shadow: inset -10px 0px 0px -6px #7db0e3
 }
 
 .btn-manage-free-booking {
-width: 150px;
-height: 150px;
-margin: 20px;
-border-radius: 10px;
-display: inline-block;
-cursor: pointer;     
-position: relative;  
+    width: 150px;
+    height: 150px;
+    margin: 20px;
+    border-radius: 10px;
+    display: inline-block;
+    cursor: pointer;     
+    position: relative;  
 }
 
+.btn-manage-free-booking:hover
+{
+    box-shadow: 3px 3px 10px 0px;
+    transition: all 0.3s ease-in-out
+}
 .btn-manage-free-booking i {
 
   position: absolute;
@@ -115,22 +124,27 @@ position: relative;
 }
 
 .btn-manage-free-booking:nth-child(1) {
-background-color: #72b6d7;      
+    background-color: #72b6d7;      
 }
 .btn-manage-free-booking:nth-child(1):hover .tooltiptext {
     visibility: visible;
+    animation: fade-in 0.3s ease-in-out forwards;    
 }
 .btn-manage-free-booking:nth-child(2) {
-background-color: #72b6d7;      
+    background-color: #72b6d7;      
 }
 .btn-manage-free-booking:nth-child(2):hover .tooltiptext {
     visibility: visible;
+    animation: fade-in 0.3s ease-in-out forwards;    
+
 }
 .btn-manage-free-booking:nth-child(3) {
-background-color: #72b6d7;      
+    background-color: #72b6d7;      
 }
 .btn-manage-free-booking:nth-child(3):hover .tooltiptext {
     visibility: visible;
+    animation: fade-in 0.3s ease-in-out forwards;    
+
 }
 
 
@@ -150,3 +164,5 @@ background-color: #72b6d7;
     bottom:-5px ;
     left:-5px;
 }
+
+/*End ManageFreeBookings styles*/
