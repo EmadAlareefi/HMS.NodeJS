@@ -1,93 +1,61 @@
 ﻿@import url(http://fonts.googleapis.com/earlyaccess/droidarabickufi.css);
 
-.create-user-interface {
-    position: fixed;
-    right: 0;
-    left: 0;
-    margin-right: auto;
-    margin-left: auto;
-    min-height: 10em;
-    width: 0%;
-    height: 0px;
-    background-color:ghostwhite; 
+.create-user-interface-animation {
+    animation: openingForm 0.5s ease-in-out forwards;
 }
 
-.exit-btn {
-    width:15px;
-    height:15px;
-    position:absolute;
-    right:0;
-    top:0;
-    cursor:pointer;
-    background-color:darkred;
-}
-.create-user-interface-animation {  
-    animation: openingForm 0.5s ease-in-out forwards;
-    
-}
 @-moz-keyframes openingForm {
     0% {
         width: 0%;
-        height:0px;
+        height: 0px;
     }
-
     100% {
         width: 50%;
-        height:600px;
+        height: 600px;
     }
 }
+
 @keyframes openingForm {
     0% {
         width: 0%;
-        height:0px;
+        height: 0px;
     }
-
     100% {
         width: 50%;
-        height:600px;
+        height: 600px;
     }
 }
+
 @-webkit-keyframes openingForm {
     0% {
         width: 0%;
-        height:0px;
+        height: 0px;
     }
-
     100% {
         width: 50%;
-        height:600px;
+        height: 600px;
     }
 }
 
 .obacity-fade-in {
     animation: fade-in 1s ease-in-out forwards;
-} 
+}
 
 @keyframes fade-in {
     0% {
         opacity: 0;
     }
-
     100% {
         opacity: 100;
-
     }
 }
 
 .hidden {
-    visibility:hidden;      
+    visibility: hidden;
 }
 
 
 /*ManageFreeBookings styles*/
-
-.myContainer {
-    height: 100%;
-    width: 100%;
-    background-color:#dfeaf2;
-    padding: 20px;
-    box-shadow: inset -10px 0px 0px -6px #7db0e3
-}
 
 .btn-manage-free-booking {
     width: 150px;
@@ -95,62 +63,62 @@
     margin: 20px;
     border-radius: 10px;
     display: inline-block;
-    cursor: pointer;     
-    position: relative;  
+    cursor: pointer;
+    position: relative;
+    background-color: #7aafe4;
 }
 
-.btn-manage-free-booking:hover
-{
-    box-shadow: 3px 3px 10px 0px;
-    transition: all 0.3s ease-in-out
+.btn-manage-free-booking:hover {
+    transition: all 0.3s ease-in-out   
 }
+
 .btn-manage-free-booking i {
-
-  position: absolute;
-  left: 50%;
-  top: 50%; 
-  transform: translate(-50%, -50%);
-  font-size: 80px;
-  color: #0a233c;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 80px;
+    color: #0a233c;
 }
 
 .btn-manage-free-booking img {
-
-  position: absolute;
-  left: 50%;
-  top: 50%; 
-  transform: translate(-50%, -50%);
-  max-width: 100px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100px;
 }
 
-.btn-manage-free-booking:nth-child(1) {
-    background-color: #72b6d7;      
-}
-.btn-manage-free-booking:nth-child(1):hover .tooltiptext {
-    visibility: visible;
-    animation: fade-in 0.3s ease-in-out forwards;    
-}
 .btn-manage-free-booking:nth-child(2) {
-    background-color: #72b6d7;      
+    /* background-color: #72b6d7; */
 }
+
 .btn-manage-free-booking:nth-child(2):hover .tooltiptext {
     visibility: visible;
-    animation: fade-in 0.3s ease-in-out forwards;    
+    animation: fade-in 0.3s ease-in-out forwards;
+    
+}
 
-}
 .btn-manage-free-booking:nth-child(3) {
-    background-color: #72b6d7;      
+    /* background-color: #73b6d7; */
 }
+
 .btn-manage-free-booking:nth-child(3):hover .tooltiptext {
     visibility: visible;
-    animation: fade-in 0.3s ease-in-out forwards;    
-
+    animation: fade-in 0.3s ease-in-out forwards;
 }
 
+.btn-manage-free-booking:nth-child(4) {
+    /* background-color: #72b6d7; */
+}
+
+.btn-manage-free-booking:nth-child(4):hover .tooltiptext {
+    visibility: visible;
+    animation: fade-in 0.3s ease-in-out forwards;
+}
 
 .btn-manage-free-booking .tooltiptext {
     font-family: 'Droid Arabic Kufi', serif;
-
     visibility: hidden;
     width: 120px;
     background-color: black;
@@ -161,8 +129,30 @@
     transform: rotateX(360deg);
     /* Position the tooltip */
     position: absolute;
-    bottom:-5px ;
-    left:-5px;
+    bottom: -5px;
+    left: -5px;
 }
 
-/*End ManageFreeBookings styles*/
+
+/*Models */
+
+.manageFreeBookingModels {
+    position: fixed; /* or absolute */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    height: 70%;
+    background-color: #72b6d7;
+}
+
+manageFreeBookingModels:nth-child(1){
+
+}
+manageFreeBookingModels:nth-child(2){
+    visibility: hidden;
+}
+manageFreeBookingModels:nth-child(3){
+    visibility: hidden;
+
+}

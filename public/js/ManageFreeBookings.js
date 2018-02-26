@@ -1,15 +1,15 @@
 ﻿        $(function () {
             var dialog, form,
-              // From http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#e-mail-state-%28type=email%29
-              emailRegex = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
-              name = $("#name"),
-              email = $("#email"),
-              password = $("#password"),
-              allFields = $([]).add(name).add(email).add(password),
-              tips = $(".validateTips"),
-              exit_btn=$(".exit-btn"),
-              userPanel = $("#create-user-panel");
-                 
+                // From http://www.whatwg.org/specs/web-apps/current-work/multipage/states-of-the-type-attribute.html#e-mail-state-%28type=email%29
+                emailRegex = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
+                name = $("#name"),
+                email = $("#email"),
+                password = $("#password"),
+                allFields = $([]).add(name).add(email).add(password),
+                tips = $(".validateTips"),
+                exit_btn = $(".exit-btn"),
+                userPanel = $("#create-user-panel");
+
 
             userPanel.find("input").addClass("hidden");
             userPanel.find("label").addClass("hidden");
@@ -18,8 +18,8 @@
 
             function updateTips(t) {
                 tips
-                  .text(t)
-                  .addClass("ui-state-highlight");
+                    .text(t)
+                    .addClass("ui-state-highlight");
                 setTimeout(function () {
                     tips.removeClass("ui-state-highlight", 1500);
                 }, 500);
@@ -29,7 +29,7 @@
                 if (o.val().length > max || o.val().length < min) {
                     o.addClass("ui-state-error");
                     updateTips("Length of " + n + " must be between " +
-                      min + " and " + max + ".");
+                        min + " and " + max + ".");
                     return false;
                 } else {
                     return true;
@@ -44,7 +44,5 @@
                 } else {
                     return true;
                 }
-            }         
+            }
         });
-
-  $("#checkIn").animatedModal();
