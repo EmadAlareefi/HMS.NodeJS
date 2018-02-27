@@ -7,6 +7,7 @@
     "ejs": "^2.5.7",
     "express": "^4.16.2",
     "express-validator": "^5.0.1",
+    "hint.css": "^2.5.0",
     "jquery": "^3.3.1",
     "upper-case": "^1.1.3"
   },

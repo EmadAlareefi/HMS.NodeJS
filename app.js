@@ -23,12 +23,14 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-//jQuery
+// jQuery
 app.use(express.static(__dirname + '/node_modules/jquery/dist'));
 
+// hint.css
+app.use(express.static(__dirname + '/node_modules/hint.css'));
 
 
-app.get('/', function(req,res){
+app.get('/', (req,res) => {
  res.render('index', {
   title: 'Default',
   Page: {
