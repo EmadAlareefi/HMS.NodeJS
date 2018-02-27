@@ -23,17 +23,8 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-app.use('/Pages/Management', express.static(path.join(__dirname, 'public')));
-
-
-
-//bootstrap deleted
-// app.use(express.static(__dirname + '/node_modules/bootstrap/dist'));
-
 //jQuery
 app.use(express.static(__dirname + '/node_modules/jquery/dist'));
-//app.use('/Pages/Management', express.static(__dirname + '/node_modules/jquery/dist'));
-
 
 
 
@@ -46,7 +37,7 @@ app.get('/', function(req,res){
  });
 });
 
-app.get('/Pages/Management/ManageFreeBookings', function(req,res){
+app.get('/ManageFreeBookings', function(req,res){
  res.render('Pages/Management/ManageFreeBookings', {
   title: 'الشقق والتسكين',
   Page: {
@@ -81,5 +72,5 @@ app.post('/resedents/check_in', function(req, res){
 });
 
 app.listen(3000, function(){
- console.log('Hi');
+ console.log('HMS Application');
 })

@@ -5,9 +5,11 @@
 
 
 /* Move down content because we have a fixed navbar that is 50px tall */
+
 :root {
     --footerHeight: 10vh;
 }
+
 body {
     padding: 0px;
     /*background-color: #cfcfcf;*/
@@ -22,11 +24,87 @@ body {
 footer {
     position: fixed;
     bottom: 0vh;
-    width: 100%;
+    /* width: 100%;
     height: var(--footerHeight);
     background-color: #fefcfc;
     box-shadow: inset 0px 10px 0px -6px #077f8b;
-    grid-auto-rows: 0%;
+    grid-auto-rows: 0%; */
+}
+
+
+.footer-distributed{
+	background-color: #001117f2;
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+	box-sizing: border-box;
+    width: 100%;
+    height: var(--footerHeight);
+	text-align: left;
+	font: normal 16px sans-serif;
+
+	padding: 20px 25px;
+}
+
+.footer-distributed .footer-left p{
+	color:  #8f9296;
+	font-size: 14px;
+	margin: 0;
+}
+
+/* Footer links */
+
+.footer-distributed p.footer-links{
+	font-size:18px;
+	font-weight: bold;
+	color:  #ffffff;
+	margin: 0 0 10px;
+	padding: 0;
+}
+
+.footer-distributed p.footer-links a{
+	display:inline-block;
+	line-height: 1.8;
+	text-decoration: none;
+	color:  inherit;
+}
+
+.footer-distributed .footer-right{
+	float: right;
+	margin-top: 6px;
+	max-width: 180px;
+}
+
+.footer-distributed .footer-right a{
+	display: inline-block;
+	width: 35px;
+	height: 35px;
+	background-color:  #33383b;
+	border-radius: 2px;
+
+	font-size: 20px;
+	color: #ffffff;
+	text-align: center;
+	line-height: 35px;
+
+	margin-left: 3px;
+}
+
+/* If you don't want the footer to be responsive, remove these media queries */
+
+@media (max-width: 600px) {
+
+	.footer-distributed .footer-left,
+	.footer-distributed .footer-right{
+		text-align: center;
+	}
+
+	.footer-distributed .footer-right{
+		float: none;
+		margin: 0 auto 20px;
+	}
+
+	.footer-distributed .footer-left p.footer-links{
+		line-height: 1.8;
+	}
 }
 
 
@@ -42,7 +120,6 @@ a, a:hover, a:focus {
     text-decoration: none;
     transition: all 0.3s;
 }
-
 
 i, span {
     display: inline-block;
@@ -75,7 +152,7 @@ i, span {
 
 .content {
     padding: 20px;
-    min-height: calc(100vh - var(--footerHeight)) ;
+    min-height: calc(100vh - var(--footerHeight));
     transition: all 0.3s;
 }
 
