@@ -1,5 +1,4 @@
-﻿
-.create-user-interface-animation {
+﻿.create-user-interface-animation {
     animation: openingForm 0.5s ease-in-out forwards;
 }
 
@@ -141,29 +140,47 @@
 }
 
 .manageFreeBookingModels div{
-    width:50%;
-    display:table-cell;
+    width:100%;
 }
 
 #checkIn{
 
     display:grid;
-    grid-template-columns:25% 25% 50%;
-    grid-template-rows: 50% 50%;
+    grid-template-columns:repeat(2,1fr);
+    grid-auto-columns: minmax(20px , auto)
 
 }
 
-#checkIn label{
+.ui-dialog-title{
+    font-size: 150% !important;
+    font-family: 'Droid Arabic Kufi', serif !important;
+    text-align: center !important;    
+}
+
+.manageFreeBookingModels label {
+    font-size:1.5em;
+    font-family:'Droid Arabic Kufi', serif !important;
+    /* font: Droid Arabic Kufi, serif, !important; */
+    display: block;
+    /* width: 140px; */
+    text-align: right;
+    width: 100px;
+
 }
 
 #checkIn input{
-    width: 200px;
+    display: inline-block;
+    text-align: right;
+    border-radius: 6px;
+    height: 34px;
+    width: 100%;
 }
 
 
 .mybtn-dialog {
  width: auto;
  font-family: 'Droid Arabic Kufi', serif !important;
+ 
 
 }
 .mybtn-dialog:hover {
@@ -176,3 +193,22 @@
 .ui-dialog-buttonset{
     float: left !important;
 }
+
+
+/* ComboBox Jquary */
+.custom-combobox {
+    position: relative;
+    display: inline-block;
+  }
+  .custom-combobox-toggle {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin-left: -1px;
+    padding: 0;
+  }
+  .custom-combobox-input {
+    margin: 0;
+    padding: 5px 10px;
+  }
+  /*End of Jquary ComboBox */

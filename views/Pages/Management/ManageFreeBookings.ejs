@@ -1,4 +1,5 @@
 <% include ../../partials/header %>
+
   <% include ../../partials/sideNav %>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="styles/ManageFreeBookings.css">
@@ -31,36 +32,58 @@
 
     <div id="checkIn" class="manageFreeBookingModels">
       <div>
-          <form>
-              <fieldset>
-                <label for="name">الاسم</label>
-                <input type="text" name="name" id="name1" value="Jane Smith" class="text ui-widget-content ui-corner-all">
-                <label for="email">الايميل</label>
-                <input type="text" name="email" id="email2" value="jane@smith.com" class="text ui-widget-content ui-corner-all">
-                <label for="password">كلمة المرور</label>
-                <input type="password" name="password" id="password1" value="xxxxxxx" class="text ui-widget-content ui-corner-all">
-    
-                <!-- Allow form submission with keyboard without duplicating the dialog button -->
-                <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
-              </fieldset>
-            </form>
-      </div>
-      <div>
-          <form>
-              <fieldset>
-                <label for="name">الاسم</label>
-                <input type="text" name="name" id="name" value="Jane Smith" class="text ui-widget-content ui-corner-all">
-                <label for="email">الايميل</label>
-                <input type="text" name="email" id="email" value="jane@smith.com" class="text ui-widget-content ui-corner-all">
-                <label for="password">كلمة المرور</label>
-                <input type="password" name="password" id="password" value="xxxxxxx" class="text ui-widget-content ui-corner-all">
-    
-                <!-- Allow form submission with keyboard without duplicating the dialog button -->
-                <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
-              </fieldset>
-            </form>
+        <form>
+          <fieldset>
+            <label for="name">الاسم</label>
+            <input type="text" name="name" id="name1" value="Jane Smith" class="text ui-widget-content ui-corner-all">
+            <label for="email">الايميل</label>
+            <input type="text" name="email" id="email2" value="jane@smith.com" class="text ui-widget-content ui-corner-all">
+            <label for="password">كلمة المرور</label>
+            <input type="password" name="password" id="password1" value="xxxxxxx" class="text ui-widget-content ui-corner-all">
+
+            <!-- Allow form submission with keyboard without duplicating the dialog button -->
+            <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+          </fieldset>
+        </form>
       </div>
 
+
+      <div class="ui-widget">
+        <select id="combobox" style="display: none;">
+          <option value="">Select one...</option>
+          <option value="ActionScript">ActionScript</option>
+          <option value="AppleScript">AppleScript</option>
+          <option value="Asp">Asp</option>
+          <option value="BASIC">BASIC</option>
+          <option value="C">C</option>
+          <option value="C++">C++</option>
+          <option value="Clojure">Clojure</option>
+          <option value="COBOL">COBOL</option>
+          <option value="ColdFusion">ColdFusion</option>
+          <option value="Erlang">Erlang</option>
+          <option value="Fortran">Fortran</option>
+          <option value="Groovy">Groovy</option>
+          <option value="Haskell">Haskell</option>
+          <option value="Java">Java</option>
+          <option value="JavaScript">JavaScript</option>
+          <option value="Lisp">Lisp</option>
+          <option value="Perl">Perl</option>
+          <option value="PHP">PHP</option>
+          <option value="Python">Python</option>
+          <option value="Ruby">Ruby</option>
+          <option value="Scala">Scala</option>
+          <option value="Scheme">Scheme</option>
+        </select>
+        <span class="custom-combobox">
+          <input title="" class="custom-combobox-input ui-widget ui-widget-content ui-state-default ui-corner-left ui-autocomplete-input"
+            autocomplete="off">
+          <a tabindex="-1" title="Show All Items" class="ui-button ui-widget ui-button-icon-only custom-combobox-toggle ui-corner-right"
+            role="button">
+            <span class="ui-button-icon ui-icon ui-icon-triangle-1-s"></span>
+            <span class="ui-button-icon-space"> </span>
+          </a>
+        </span>
+      </div>
     </div>
     <!-- <div class="manageFreeBookingModels"></div>  -->
 
