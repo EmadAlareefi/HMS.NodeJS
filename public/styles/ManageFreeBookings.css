@@ -90,7 +90,7 @@
 }
 
 .btn-manage-free-booking:nth-child(2) {
-    /* background-color: #72b6d7; */
+     background-color: #72b6d7; 
 }
 
 .btn-manage-free-booking:nth-child(2):hover .tooltiptext {
@@ -100,7 +100,7 @@
 }
 
 .btn-manage-free-booking:nth-child(3) {
-    /* background-color: #73b6d7; */
+     background-color: #73b6d7;
 }
 
 .btn-manage-free-booking:nth-child(3):hover .tooltiptext {
@@ -109,7 +109,7 @@
 }
 
 .btn-manage-free-booking:nth-child(4) {
-    /* background-color: #72b6d7; */
+     background-color: #72b6d7; 
 }
 
 .btn-manage-free-booking:nth-child(4):hover .tooltiptext {
@@ -137,9 +137,5 @@
 /*Models */
 
 .manageFreeBookingModels {
-    /* position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: #72b6d7; */
+    background-color: #72b6d7;
 }

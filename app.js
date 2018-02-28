@@ -20,14 +20,16 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
 // Set Static Path
-app.use(express.static(path.join(__dirname, 'public')));
+ app.use(express.static(path.join(__dirname, 'public')));
+// or this app.use(express.static(__dirname + '/public'));
 
 
 // jQuery
 app.use(express.static(__dirname + '/node_modules/jquery/dist'));
 
 // hint.css
-app.use(express.static(__dirname + '/node_modules/hint.css'));
+app.use(express.static(path.join(__dirname, 'node_modules','hint.css')));
+// or this app.use(express.static(__dirname + '/node_modules/hint.css'));
 
 
 app.get('/', (req,res) => {
@@ -36,8 +38,12 @@ app.get('/', (req,res) => {
   Page: {
    title: "DefaultTitle"
   }
+
+  
  });
 });
+
+
 
 app.get('/ManageFreeBookings', function(req,res){
  res.render('Pages/Management/ManageFreeBookings', {

@@ -176,8 +176,12 @@ i, span {
 .top-nav a span[aria-label="متصل"]{
 color: green;
 font-family: 'Droid Arabic Kufi', serif;
-
 }
+/* #nav_wifi_icon span[aria-label="متصل"]{
+    color: green;
+    font-family: 'Droid Arabic Kufi', serif;
+    
+    } */
 
 
 .top-nav a i{
@@ -268,8 +272,8 @@ a[aria-expanded="false"]::before {
 
 ul ul a {
     font-size: 0.9em !important;
-    padding-left: 30px !important;
-    background: #07162b;
+    padding-right: 44px  !important;
+    background: #000208;
 }
 
 .right-to-left {
@@ -322,3 +326,13 @@ nav {
 #logo {
     font-family: 'Patua One', cursive;
 }
+
+
+.online > span {
+  color: green !important;
+}
+
+.offline > span {
+  color: red !important;
+}
+
