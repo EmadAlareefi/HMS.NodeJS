@@ -1,52 +1,70 @@
 <% include ../../partials/header %>
   <% include ../../partials/sideNav %>
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="styles/ManageFreeBookings.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="styles/ManageFreeBookings.css">
 
     <div class="myContainer">
       <div class="content">
-              <% include ../../partials/topNav %>
+        <% include ../../partials/topNav %>
 
-      <div id="clickme" class="btn-manage-free-booking" href="#animatedModal">
-        <img  src="imgs/buildings.png">
-        <span class="tooltiptext">اﺩاﺭﺓ اﻟﺸﻘﻖ</span>
+          <div id="clickme" class="btn-manage-free-booking" href="#animatedModal">
+            <img src="imgs/buildings.png">
+            <span class="tooltiptext">اﺩاﺭﺓ اﻟﺸﻘﻖ</span>
 
-      </div>
-      <div class="btn-manage-free-booking" href="#animatedModal">
-        <i class="far fa-address-book"></i>
-        <span class="tooltiptext">ﺗﺴﺠﻴﻞ ﺩﺧﻮﻝ</span>
+          </div>
+          <div class="btn-manage-free-booking" href="#animatedModal">
+            <i class="far fa-address-book"></i>
+            <span class="tooltiptext">ﺗﺴﺠﻴﻞ ﺩﺧﻮﻝ</span>
 
-      </div>
-      <div class="btn-manage-free-booking" href="#animatedModal">
-        <i class="fas fa-sign-out-alt"></i>
-        <span class="tooltiptext">ﺗﺴﺠﻴﻞ ﺧﺮﻭﺝ</span>
-      </div>
+          </div>
+          <div class="btn-manage-free-booking" href="#animatedModal">
+            <i class="fas fa-sign-out-alt"></i>
+            <span class="tooltiptext">ﺗﺴﺠﻴﻞ ﺧﺮﻭﺝ</span>
+          </div>
 
-      
+
       </div>
     </div>
 
     <!-- End of Wrapper -->
     </div>
 
-    <div id="checkIn" class="manageFreeBookingModels">    
-        <form>
-            <fieldset>
-              <label for="name">Name</label>
-              <input type="text" name="name" id="name" value="Jane Smith" class="text ui-widget-content ui-corner-all">
-              <label for="email">Email</label>
-              <input type="text" name="email" id="email" value="jane@smith.com" class="text ui-widget-content ui-corner-all">
-              <label for="password">Password</label>
-              <input type="password" name="password" id="password" value="xxxxxxx" class="text ui-widget-content ui-corner-all">
-         
-              <!-- Allow form submission with keyboard without duplicating the dialog button -->
-              <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
-            </fieldset>
-          </form>
+    <div id="checkIn" class="manageFreeBookingModels">
+      <div>
+          <form>
+              <fieldset>
+                <label for="name">الاسم</label>
+                <input type="text" name="name" id="name1" value="Jane Smith" class="text ui-widget-content ui-corner-all">
+                <label for="email">الايميل</label>
+                <input type="text" name="email" id="email2" value="jane@smith.com" class="text ui-widget-content ui-corner-all">
+                <label for="password">كلمة المرور</label>
+                <input type="password" name="password" id="password1" value="xxxxxxx" class="text ui-widget-content ui-corner-all">
+    
+                <!-- Allow form submission with keyboard without duplicating the dialog button -->
+                <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+              </fieldset>
+            </form>
       </div>
-      <!-- <div class="manageFreeBookingModels"></div>  -->
+      <div>
+          <form>
+              <fieldset>
+                <label for="name">الاسم</label>
+                <input type="text" name="name" id="name" value="Jane Smith" class="text ui-widget-content ui-corner-all">
+                <label for="email">الايميل</label>
+                <input type="text" name="email" id="email" value="jane@smith.com" class="text ui-widget-content ui-corner-all">
+                <label for="password">كلمة المرور</label>
+                <input type="password" name="password" id="password" value="xxxxxxx" class="text ui-widget-content ui-corner-all">
+    
+                <!-- Allow form submission with keyboard without duplicating the dialog button -->
+                <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+              </fieldset>
+            </form>
+      </div>
 
-      
+    </div>
+    <!-- <div class="manageFreeBookingModels"></div>  -->
+
+
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script type="text/javascript" src="js/ManageFreeBookings.js"></script>

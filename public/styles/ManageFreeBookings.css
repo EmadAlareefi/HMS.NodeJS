@@ -1,5 +1,4 @@
-﻿@import url(http://fonts.googleapis.com/earlyaccess/droidarabickufi.css);
-
+﻿
 .create-user-interface-animation {
     animation: openingForm 0.5s ease-in-out forwards;
 }
@@ -138,4 +137,42 @@
 
 .manageFreeBookingModels {
     background-color: #72b6d7;
+    
+}
+
+.manageFreeBookingModels div{
+    width:50%;
+    display:table-cell;
+}
+
+#checkIn{
+
+    display:grid;
+    grid-template-columns:25% 25% 50%;
+    grid-template-rows: 50% 50%;
+
+}
+
+#checkIn label{
+}
+
+#checkIn input{
+    width: 200px;
+}
+
+
+.mybtn-dialog {
+ width: auto;
+ font-family: 'Droid Arabic Kufi', serif !important;
+
+}
+.mybtn-dialog:hover {
+    background-color: #e0e0e0;
+   }
+
+.mybtn-dialog-save{
+
+}
+.ui-dialog-buttonset{
+    float: left !important;
 }

@@ -2,6 +2,7 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var path = require('path');
 var expressValidator = require('express-validator');
+var MongoClient = require('mongodb').MongoClient;
 
 
 var app = express();
@@ -43,7 +44,9 @@ app.get('/', (req,res) => {
  });
 });
 
-
+app.get('/emad/ali', (req,res) => {
+    res.send('Admin Homepage');
+});
 
 app.get('/ManageFreeBookings', function(req,res){
  res.render('Pages/Management/ManageFreeBookings', {
@@ -51,12 +54,15 @@ app.get('/ManageFreeBookings', function(req,res){
   Page: {
    title: "الشقق والتسكين"
   }
+
+
+
  });
 });
 
 
 
-app.post('/resedents/check_in', function(req, res){
+app.post('/check_in', function(req, res){
 
  req.checkBody('contract-number', 'ﻻ ﺑﺪ ﻣﻦ اﺿﺎﻓﺔ ﺭﻗﻢ اﻟﻌﻘﺪ').notEmpty();
 
