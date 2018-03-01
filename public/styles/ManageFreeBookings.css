@@ -116,7 +116,7 @@
 }
 
 .btn-manage-free-booking .tooltiptext {
-    font-family: 'Droid Arabic Kufi', serif;
+    font-family: Droid_Regular;
     visibility: hidden;
     width: 120px;
     background-color: black;
@@ -153,33 +153,44 @@
 
 .ui-dialog-title{
     font-size: 150% !important;
-    font-family: 'Droid Arabic Kufi', serif !important;
-    text-align: center !important;    
+    font-family: Droid_Regular !important;
+    text-align: center !important; 
+    padding-left: 97px;   
 }
 
 .manageFreeBookingModels label {
-    font-size:1.5em;
-    font-family:'Droid Arabic Kufi', serif !important;
+    font-size:1.1em;
+    font-family: Droid_Regular !important;
     /* font: Droid Arabic Kufi, serif, !important; */
     display: block;
     /* width: 140px; */
     text-align: right;
-    width: 100px;
+    width: 150px;
 
 }
 
-#checkIn input{
+#checkIn input:not(.bookingSrc){
     display: inline-block;
     text-align: right;
     border-radius: 6px;
     height: 34px;
+    padding: 7px;
     width: 100%;
+    font-family: Droid_Regular;
+    font-size: 1em;
+    margin-bottom: 7px;
+    /* margin: 4px; */
 }
 
+.bookingSrc{
+
+}
+.k-dropdown-wrap{
+}
 
 .mybtn-dialog {
  width: auto;
- font-family: 'Droid Arabic Kufi', serif !important;
+ font-family: Droid_Regular !important;
  
 
 }
@@ -187,28 +198,7 @@
     background-color: #e0e0e0;
    }
 
-.mybtn-dialog-save{
-
-}
 .ui-dialog-buttonset{
     float: left !important;
 }
 
-
-/* ComboBox Jquary */
-.custom-combobox {
-    position: relative;
-    display: inline-block;
-  }
-  .custom-combobox-toggle {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    margin-left: -1px;
-    padding: 0;
-  }
-  .custom-combobox-input {
-    margin: 0;
-    padding: 5px 10px;
-  }
-  /*End of Jquary ComboBox */

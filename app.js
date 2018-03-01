@@ -13,15 +13,20 @@ app.use(expressValidator());
 
 
 // View Engine
-app.set('view engine','ejs');
-app.set('views',path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
 
 // Body Parser Middleware
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({
+    extended: false
+}));
+
+// app.use(require('./public/js/ManageFreeBookings'));  
+
 
 // Set Static Path
- app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
 // or this app.use(express.static(__dirname + '/public'));
 
 
@@ -29,62 +34,65 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(__dirname + '/node_modules/jquery/dist'));
 
 // hint.css
-app.use(express.static(path.join(__dirname, 'node_modules','hint.css')));
+app.use(express.static(path.join(__dirname, 'node_modules', 'hint.css')));
 // or this app.use(express.static(__dirname + '/node_modules/hint.css'));
 
 
-app.get('/', (req,res) => {
- res.render('index', {
-  title: 'Default',
-  Page: {
-   title: "DefaultTitle"
-  }
-
-  
- });
-});
-
-app.get('/emad/ali', (req,res) => {
-    res.send('Admin Homepage');
-});
-
-app.get('/ManageFreeBookings', function(req,res){
- res.render('Pages/Management/ManageFreeBookings', {
-  title: 'الشقق والتسكين',
-  Page: {
-   title: "الشقق والتسكين"
-  }
+app.get('/', (req, res) => {
+    res.render('index', {
+        title: 'Default',
+        Page: {
+            title: "DefaultTitle"
+        }
 
 
-
- });
+    });
 });
 
 
+app.get('/ManageFreeBookings', function (req, res) {
 
-app.post('/check_in', function(req, res){
+    var typesOfBooking = {
+       "1":"عن طريق الموقع",
+       "2":"خارجي",
+       "3":"الاستقبال"          
+    }
 
- req.checkBody('contract-number', 'ﻻ ﺑﺪ ﻣﻦ اﺿﺎﻓﺔ ﺭﻗﻢ اﻟﻌﻘﺪ').notEmpty();
+    res.render('Pages/Management/ManageFreeBookings', {
+        title: 'الشقق والتسكين',
+        Page: {
+            title: "الشقق والتسكين"
+        },
+        typesOfBooking
+    });
 
- var errors = req.validationErrors();
-
- if (errors) {
-  console.log('errors');
- } else {
-  var new_resedent = {
-   contract_number: 001,
-   reservation_source: null,
-   rent_type:null,
-   days:1,
-   room:null,
-   customer:null,
-   notes:''
-  }
-  console.log('sucess');
-
- }
 });
 
-app.listen(3000, function(){
- console.log('HMS Application');
+
+
+app.post('/check_in', function (req, res) {
+
+    req.checkBody('contract-number', 'ﻻ ﺑﺪ ﻣﻦ اﺿﺎﻓﺔ ﺭﻗﻢ اﻟﻌﻘﺪ').notEmpty();
+
+    var errors = req.validationErrors();
+
+    if (errors) {
+        console.log('errors');
+    } else {
+        var new_resedent = {
+            contract_number: 001,
+            reservation_source: null,
+            rent_type: null,
+            days: 1,
+            room: null,
+            customer: null,
+            notes: ''
+        }
+        console.log('sucess');
+
+    }
+});
+
+app.listen(3000, function () {
+    console.log('HMS Application');
 })

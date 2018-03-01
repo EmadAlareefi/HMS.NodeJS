@@ -1,110 +1,109 @@
-﻿@import url(http://fonts.googleapis.com/earlyaccess/droidarabickufi.css);
-@import url('https://fonts.googleapis.com/css?family=Patua+One');
+﻿@import url('https://fonts.googleapis.com/css?family=Patua+One');
 
-/* Responsive: Portrait tablets and up */
-
-
-/* Move down content because we have a fixed navbar that is 50px tall */
+/* Variables */
 
 :root {
     --footerHeight: 10vh;
 }
 
-body {
-    padding: 0px;
-    /*background-color: #cfcfcf;*/
+
+/*
+ * Droid Arabic Kufi (Arabic) http://www.google.com/fonts/earlyaccess
+ */
+
+@font-face {
+    font-family: 'Droid_Regular';
+    font-style: normal;
+    font-weight: 400;
+    src: url(/fonts/Droid/DroidKufi-Regular.eot);
+    src: url(/fonts/Droid/DroidKufi-Regular.eot?#iefix) format('embedded-opentype'), url(/fonts/Droid/DroidKufi-Regular.woff2) format('woff2'), url(/fonts/Droid/DroidKufi-Regular.woff) format('woff'), url(/fonts/Droid/DroidKufi-Regular.ttf) format('truetype');
 }
 
+@font-face {
+    font-family: 'Droid_Bold';
+    font-style: normal;
+    font-weight: 700;
+    src: url(/fonts/Droid/DroidKufi-Bold.eot);
+    src: url(/fonts/Droid/DroidKufi-Bold.eot?#iefix) format('embedded-opentype'), url(/fonts/Droid/DroidKufi-Bold.woff2) format('woff2'), url(/fonts/Droid/DroidKufi-Bold.woff) format('woff'), url(/fonts/Droid/DroidKufi-Bold.ttf) format('truetype');
+}
 
-/* Wrapping element */
-
-
-/* Set some basic padding to keep content from hitting the edges */
+body {
+    padding: 0px;
+}
 
 footer {
     position: fixed;
     bottom: 0vh;
-    /* width: 100%;
-    height: var(--footerHeight);
-    background-color: #fefcfc;
-    box-shadow: inset 0px 10px 0px -6px #077f8b;
-    grid-auto-rows: 0%; */
 }
 
-
-.footer-distributed{
-	background-color: #001117f2;
-	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
-	box-sizing: border-box;
+.footer-distributed {
+    background-color: #001117f2;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+    box-sizing: border-box;
     width: 100%;
     height: var(--footerHeight);
-	text-align: left;
-	font: normal 16px sans-serif;
-
-	padding: 20px 25px;
+    text-align: left;
+    font: normal 16px sans-serif;
+    padding: 20px 25px;
 }
 
-.footer-distributed .footer-left p{
-	color:  #8f9296;
-	font-size: 14px;
-	margin: 0;
+.footer-distributed .footer-left p {
+    color: #8f9296;
+    font-size: 14px;
+    margin: 0;
 }
 
-/* Footer links */
 
-.footer-distributed p.footer-links{
-	font-size:18px;
-	font-weight: bold;
-	color:  #ffffff;
-	margin: 0 0 10px;
-	padding: 0;
+/* Footer links ==================================*/
+
+.footer-distributed p.footer-links {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff;
+    margin: 0 0 10px;
+    padding: 0;
 }
 
-.footer-distributed p.footer-links a{
-	display:inline-block;
-	line-height: 1.8;
-	text-decoration: none;
-	color:  inherit;
+.footer-distributed p.footer-links a {
+    display: inline-block;
+    line-height: 1.8;
+    text-decoration: none;
+    color: inherit;
 }
 
-.footer-distributed .footer-right{
-	float: right;
-	margin-top: 6px;
-	max-width: 180px;
+.footer-distributed .footer-right {
+    float: right;
+    margin-top: 6px;
+    max-width: 180px;
 }
 
-.footer-distributed .footer-right a{
-	display: inline-block;
-	width: 35px;
-	height: 35px;
-	background-color:  #33383b;
-	border-radius: 2px;
-
-	font-size: 20px;
-	color: #ffffff;
-	text-align: center;
-	line-height: 35px;
-
-	margin-left: 3px;
+.footer-distributed .footer-right a {
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    background-color: #33383b;
+    border-radius: 2px;
+    font-size: 20px;
+    color: #ffffff;
+    text-align: center;
+    line-height: 35px;
+    margin-left: 3px;
 }
+
 
 /* If you don't want the footer to be responsive, remove these media queries */
 
 @media (max-width: 600px) {
-
-	.footer-distributed .footer-left,
-	.footer-distributed .footer-right{
-		text-align: center;
-	}
-
-	.footer-distributed .footer-right{
-		float: none;
-		margin: 0 auto 20px;
-	}
-
-	.footer-distributed .footer-left p.footer-links{
-		line-height: 1.8;
-	}
+    .footer-distributed .footer-left, .footer-distributed .footer-right {
+        text-align: center;
+    }
+    .footer-distributed .footer-right {
+        float: none;
+        margin: 0 auto 20px;
+    }
+    .footer-distributed .footer-left p.footer-links {
+        line-height: 1.8;
+    }
 }
 
 
@@ -168,29 +167,24 @@ i, span {
     padding-left: 30px;
 }
 
-.top-nav a{
+.top-nav a {
     float: left;
-
 }
 
-.top-nav a span[aria-label="متصل"]{
-color: green;
-font-family: 'Droid Arabic Kufi', serif;
-}
-/* #nav_wifi_icon span[aria-label="متصل"]{
+.top-nav a span[aria-label="متصل"] {
     color: green;
-    font-family: 'Droid Arabic Kufi', serif;
-    
-    } */
+    font-family: Droid_Regular;
+}
 
 
-.top-nav a i{
+
+.top-nav a i {
     padding: 17px 10px 14px 10px;
     font-size: 27px;
 }
 
-.top-nav a i:hover{
-   color: rgb(114, 114, 114);
+.top-nav a i:hover {
+    color: rgb(114, 114, 114);
 }
 
 #sidebar.active {
@@ -272,7 +266,7 @@ a[aria-expanded="false"]::before {
 
 ul ul a {
     font-size: 0.9em !important;
-    padding-right: 44px  !important;
+    padding-right: 44px !important;
     background: #000208;
 }
 
@@ -320,19 +314,17 @@ ul ul a {
 }
 
 nav {
-    font-family: 'Droid Arabic Kufi', serif;
+    font-family: Droid_Regular;
 }
 
 #logo {
     font-family: 'Patua One', cursive;
 }
 
-
 .online > span {
-  color: green !important;
+    color: green !important;
 }
 
 .offline > span {
-  color: red !important;
+    color: red !important;
 }
-

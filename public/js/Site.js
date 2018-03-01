@@ -39,6 +39,8 @@
 //     })
 // }
 
+
+// Check internet connection
 window.addEventListener('load', function () {
     var wifi = document.getElementById("nav_wifi_icon");
     var log = document.getElementById("log");
