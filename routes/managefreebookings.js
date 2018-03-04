@@ -3,7 +3,8 @@ var router = express.Router();
 var mongojs = require('mongojs');
 var MongoClient = require('mongodb').MongoClient;
 
-var db = mongojs('mongodb://EmadAlareefi:emadalareefi@ds255588.mlab.com:55588/hmsdb', ['bookingTypes']);
+// var db = mongojs('mongodb://EmadAlareefi:emadalareefi@ds255588.mlab.com:55588/hmsdb', ['bookingTypes']);
+var db = mongojs('mongodb://localhost:27017/hmsdb', ['bookingTypes']);
 
 
 router.get('/', function (req, res, next) {

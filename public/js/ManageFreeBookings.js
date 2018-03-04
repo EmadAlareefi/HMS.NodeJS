@@ -25,7 +25,7 @@
                         text: "الغاء الأمر",
                         class: 'mybtn-dialog mybtn-dialog-save',
                         click: () => {
-                            dialog.dialog("close");
+                            logIn_dialog.dialog("close");
                         }
                     }
                 },
