@@ -2,10 +2,16 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var path = require('path');
 var expressValidator = require('express-validator');
-var MongoClient = require('mongodb').MongoClient;
+var mongojs = require('mongojs');
 
+//routes
 
+var index = require('./routes/index');
+var ManageFreeBookings = require('./routes/managefreebookings');
+
+var port = 3000;
 var app = express();
+
 
 
 // Express Validator Middleware
@@ -15,7 +21,7 @@ app.use(expressValidator());
 // View Engine
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
-
+app.engine('html',require('ejs').renderFile)
 // Body Parser Middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -36,37 +42,6 @@ app.use(express.static(__dirname + '/node_modules/jquery/dist'));
 // hint.css
 app.use(express.static(path.join(__dirname, 'node_modules', 'hint.css')));
 // or this app.use(express.static(__dirname + '/node_modules/hint.css'));
-
-
-app.get('/', (req, res) => {
-    res.render('index', {
-        title: 'Default',
-        Page: {
-            title: "DefaultTitle"
-        }
-
-
-    });
-});
-
-
-app.get('/ManageFreeBookings', function (req, res) {
-
-    var typesOfBooking = {
-       "1":"عن طريق الموقع",
-       "2":"خارجي",
-       "3":"الاستقبال"          
-    }
-
-    res.render('Pages/Management/ManageFreeBookings', {
-        title: 'الشقق والتسكين',
-        Page: {
-            title: "الشقق والتسكين"
-        },
-        typesOfBooking
-    });
-
-});
 
 
 
@@ -93,6 +68,10 @@ app.post('/check_in', function (req, res) {
     }
 });
 
-app.listen(3000, function () {
-    console.log('HMS Application');
+app.use('/',index);
+app.use('/ManageFreeBookings' , ManageFreeBookings);
+
+
+app.listen(port, function () {
+    console.log('Application is running on port '+port);
 })

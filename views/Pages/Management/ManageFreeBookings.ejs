@@ -45,14 +45,13 @@
             <label for="bookingSrc">مصدر الحجز</label>
             <select id="bookingSrc" style="width: 100%; font-family: Droid_Regular" class="bookingSrc">
 
-
-              <% for(instance in typesOfBooking ){ %>
-                <option value="1">
+              <% for(instance in typesOfBooking ){ 
+                  if(instance != "_id"){
+                %>
+                <option value= instance>
                   <%= typesOfBooking[instance]  %>
                 </option>
-                <% } %>
-
-
+                <%}} %>
 
             </select>
             <!-- Allow form submission with keyboard without duplicating the dialog button -->

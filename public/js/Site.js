@@ -59,3 +59,7 @@ window.addEventListener('load', function () {
     window.addEventListener('online', updateOnlineStatus);
     window.addEventListener('offline', updateOnlineStatus);
 });
+
+$('#nav_settings_icon').on('click', () =>{
+  alert('clicked'); 
+})
