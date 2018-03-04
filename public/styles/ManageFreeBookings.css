@@ -53,84 +53,6 @@
 }
 
 
-/*ManageFreeBookings styles*/
-
-.btn-manage-free-booking {
-    width: 120px;
-    height: 120px;
-    margin: 12px;
-    border-radius: 10px;
-    display: inline-block;
-    cursor: pointer;
-    position: relative;
-    background-color: #7aafe4;
-}
-
-.btn-manage-free-booking:hover {
-    transition: all 0.3s ease-in-out   
-}
-
-.btn-manage-free-booking i {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 65px;
-    color: #0a233c;
-}
-
-.btn-manage-free-booking img {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    max-width: 80px;
-}
-
-.btn-manage-free-booking:nth-child(2) {
-     background-color: #72b6d7; 
-}
-
-.btn-manage-free-booking:nth-child(2):hover .tooltiptext {
-    visibility: visible;
-    animation: fade-in 0.3s ease-in-out forwards;
-    
-}
-
-.btn-manage-free-booking:nth-child(3) {
-     background-color: #73b6d7;
-}
-
-.btn-manage-free-booking:nth-child(3):hover .tooltiptext {
-    visibility: visible;
-    animation: fade-in 0.3s ease-in-out forwards;
-}
-
-.btn-manage-free-booking:nth-child(4) {
-     background-color: #72b6d7; 
-}
-
-.btn-manage-free-booking:nth-child(4):hover .tooltiptext {
-    visibility: visible;
-    animation: fade-in 0.3s ease-in-out forwards;
-}
-
-.btn-manage-free-booking .tooltiptext {
-    font-family: Droid_Regular;
-    visibility: hidden;
-    width: 120px;
-    background-color: black;
-    color: #fff;
-    text-align: center;
-    border-radius: 6px;
-    padding: 5px 0;
-    transform: rotateX(360deg);
-    /* Position the tooltip */
-    position: absolute;
-    bottom: -5px;
-    left: -5px;
-}
-
 
 /*Models */
 
@@ -151,12 +73,6 @@
 
 }
 
-.ui-dialog-title{
-    font-size: 150% !important;
-    font-family: Droid_Regular !important;
-    text-align: center !important; 
-    padding-left: 97px;   
-}
 
 .manageFreeBookingModels label {
     font-size:1.1em;
@@ -188,17 +104,5 @@
 .k-dropdown-wrap{
 }
 
-.mybtn-dialog {
- width: auto;
- font-family: Droid_Regular !important;
- 
 
-}
-.mybtn-dialog:hover {
-    background-color: #e0e0e0;
-   }
-
-.ui-dialog-buttonset{
-    float: left !important;
-}
 

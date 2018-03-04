@@ -8,6 +8,7 @@ var mongojs = require('mongojs');
 
 var index = require('./routes/index');
 var ManageFreeBookings = require('./routes/managefreebookings');
+var settings = require('./routes/settings');
 
 var port = 3000;
 var app = express();
@@ -70,6 +71,7 @@ app.post('/check_in', function (req, res) {
 
 app.use('/',index);
 app.use('/ManageFreeBookings' , ManageFreeBookings);
+app.use('/settings' , settings);
 
 
 app.listen(port, function () {

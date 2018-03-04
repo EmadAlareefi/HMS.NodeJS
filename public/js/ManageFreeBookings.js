@@ -1,4 +1,4 @@
-﻿      var dialog = $("#checkIn").dialog({
+﻿      var logIn_dialog = $("#checkIn").dialog({
                 title: "تسجيل دخول",
                 autoOpen: false,
                 draggable: false,
@@ -35,8 +35,8 @@
                 }
             });
 
-            $("#clickme").click(function () {
-                dialog.dialog("open");
+            $(".btn-logIn").click(function () {
+                logIn_dialog.dialog("open");
             });
 
            
