@@ -3,7 +3,7 @@
                 autoOpen: false,
                 draggable: false,
                 height: 700,
-                width: 850,
+                width: 950,
                 show: {
                     effect: "fade",
                     duration: 500
@@ -50,6 +50,8 @@
                 }
               });
               
+            $(".combobox").kendoComboBox();
+            
             $("#bookingSrc").kendoComboBox({
                 placeholder: "اختر مصدر الحجز",
                 // dataTextField: "ProductName",

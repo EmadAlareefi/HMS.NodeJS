@@ -412,7 +412,7 @@ nav {
 
 [class*="page-btn"]:hover .tooltiptext {
   visibility: visible;
-  animation: fade-in 0.3s ease-in-out forwards;    
+  animation: fade-in 0.3s ease-in-out forwards;
 }
 
 /* Dialog Properties */
@@ -426,10 +426,85 @@ nav {
 .mybtn-dialog:hover {
   background-color: #e0e0e0;
 }
+
+.ui-dialog {
+  background-color: #fff !important;
+}
+
+.ui-dialog fieldset {
+  border-top: 3px solid #2371a9;
+  padding-right: 12px;
+}
+.ui-dialog fieldset .field-row {
+  margin-bottom: 6px;
+  display: grid;
+}
+
+.ui-dialog fieldset .field-row .field-cell{
+  padding: 0px 7px;
+}
+
+.ui-dialog fieldset .field-row .field-cell *:not(label[for]){
+  display: block;
+}
+.ui-dialog fieldset .title {
+  /* display: block; */
+  /* margin:10px 10px; */
+  margin-bottom: 14px;
+}
+.title h4 {
+  font-family: Droid_Bold;
+  font-size: 10px;
+  background-color: #2371a9;
+  display: initial;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding: 2px 10px;
+  color: #dee4f7;
+  /* margin-right: 0px; */
+}
+
+/*Models */
+.model {
+  background-color: #72b6d7;
+  height: auto !important;
+}
+.model div {
+  width: 100%;
+}
+.model label {
+  font-size: 10px;
+  font-family: Droid_Regular !important;
+  /* font: Droid Arabic Kufi, serif, !important; */
+  text-align: right;
+  /* width: 150px; */
+}
+.model input:not(.k-input) {
+  display: inline-block;
+  text-align: right;
+  border-radius: 4px;
+  height: 21px;
+  padding: 7px;
+  /* width: 100%; */
+  font-family: Droid_Regular;
+  font-size: 0.7em;
+  margin-left: 9px;
+  /* margin: 4px; */
+}
+/* .k-widget{
+  height: 21px !important;
+  font-family: Droid_Regular !important;
+  font-size: 0.8 !important;
+} */
+.k-item{
+  font-size: 9px !important;
+}
+
+
 .ui-dialog-buttonset {
   float: left !important;
 }
-.ui-dialog-buttonpane{
+.ui-dialog-buttonpane {
   padding: 0px 10px !important;
 }
 

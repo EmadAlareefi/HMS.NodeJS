@@ -12,7 +12,7 @@ router.get('/', function (req, res, next) {
             if (err) {
                 res.send(err);
             }
-            var typesOfBooking = bookingTypes[0];
+            var typesOfBooking = bookingTypes;
 
             res.render('Pages/Management/ManageFreeBookings', {
                 title: 'الشقق والتسكين',
@@ -38,12 +38,14 @@ router.get('/typesOfBookings', function (req, res, next) {
         if (err) {
             res.send(err);
         }
-        for (var key in bookingTypes[0]) {
-            if (key != '_id') {
-                console.log(bookingTypes[0][key]);
-            }
-        }
+        // for (var obj in bookingTypes) {
+        //         console.log(obj[1].type);           
+        // }
         // console.log(bookingTypes);
+
+        bookingTypes.forEach(element => {
+            console.log(element.type)
+        });
         res.json(bookingTypes);
     });
 });

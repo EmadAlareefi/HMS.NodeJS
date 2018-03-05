@@ -34,32 +34,149 @@
     <!-- End of Wrapper -->
     </div>
 
-    <div id="checkIn" class="manageFreeBookingModels">
-      <div>
-        <form>
-          <fieldset>
-            <label for="name">الاسم</label>
-            <input type="text" name="name" id="name"  class="text ui-widget-content ui-corner-all">
-            <label for="email">الايميل</label>
-            <input type="text" name="email" id="email"  class="text ui-widget-content ui-corner-all">
-            <label for="bookingSrc">مصدر الحجز</label>
-            <select id="bookingSrc" style="width: 100%; font-family: Droid_Regular" class="bookingSrc">
+    <form>
+      <div id="checkIn" class="model">
+        <fieldset>
+          <div class="title">
+            <h4>معلومات الحجز</h4>
+          </div>
+          <div class="field-row" style="grid-template-columns:6.5% 10% 7% 38.5%;">
+            <div class="field-cell">
+              <label for="lbl_contractNum">رقم العقد</label>
+            </div>
 
-              <% for(instance in typesOfBooking ){ 
-                  if(instance != "_id"){
-                %>
-                <option value= instance>
-                  <%= typesOfBooking[instance]  %>
-                </option>
-                <%}} %>
+            <div class="field-cell">
+              <label id="lbl_contractNum" style="margin-left:40px;">--.--.--</label>
+            </div>
 
-            </select>
-            <!-- Allow form submission with keyboard without duplicating the dialog button -->
-            <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
-          </fieldset>
-        </form>
+            <div class="field-cell">
+              <label for="bookingSrc">مصدر الحجز</label>
+            </div>
+            <div class="field-cell">
+              <select id="bookingSrc" class="bookingSrc" style="height: 21px;font-family: Droid_Regular;font-size:0.8em;">
+                <% typesOfBooking.forEach(element => { %>
+                  <option value=i nstance>
+                    <%= element.type  %>
+                  </option>
+                  <%}) %>
+              </select>
+            </div>
+          </div>
+          <!-- Allow form submission with keyboard without duplicating the dialog button -->
+          <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+        </fieldset>
+
+        <fieldset>
+          <div class="title">
+            <h4>الفترة</h4>
+          </div>
+          <div class="field-row" style="grid-template-columns:30% 16.3% 16.3% 1.3fr 2fr;">
+            <div class="field-cell"></div>
+            <div class="field-cell">
+              <label>من</label>
+
+            </div>
+            <div class="field-cell">
+              <label>الى</label>
+
+
+            </div>
+            <div class="field-cell">
+              <label>الوقت</label>
+
+
+            </div>
+            <div class="field-cell"></div>
+
+          </div>
+          <div class="field-row" style="grid-template-columns:repeat(8 , 1fr);">
+            <div class="field-cell">
+              <label>نوع الايجار</label>
+              <label>التقويم</label>
+            </div>
+            <div class="field-cell">
+              <select id="" class="combobox" style="height: 19px;font-family: Droid_Regular;font-size:0.8em;margin-bottom:3px">
+
+              </select>
+              <select id="" class="combobox" style="height: 19px;font-family: Droid_Regular;font-size:0.8em;margin-bottom:3px">
+
+              </select>
+            </div>
+            <div class="field-cell">
+              <label>ميلادي</label>
+              <label>هجري</label>
+            </div>
+            <div class="field-cell">
+                <select id="" class="combobox" style="height: 19px;font-family: Droid_Regular;font-size:0.8em;margin-bottom:3px">
+
+                  </select>
+                  <select id="" class="combobox" style="height: 19px;font-family: Droid_Regular;font-size:0.8em;margin-bottom:3px">
+    
+                  </select>
+            </div>
+            <div class="field-cell">
+                <select id="" class="combobox" style="height: 19px;font-family: Droid_Regular;font-size:0.8em;margin-bottom:3px">
+
+                  </select>
+                  <select id="" class="combobox" style="height: 19px;font-family: Droid_Regular;font-size:0.8em;margin-bottom:3px">
+    
+                  </select>
+
+            </div>
+            <div class="field-cell">
+                <label>00:00</label>
+                <label>00:00</label>
+            </div>
+            <div class="field-cell">
+                <label for="input_daysNum">عدد الأيام</label>
+            </div>
+            <div class="field-cell">
+              <div style="width:211px">
+              <input id="input_daysNum" class="text ui-widget-content ui-corner-all" type="text" value="1" style="width:40px" >
+             </div>
+            </div>
+          </div>
+          <!-- Allow form submission with keyboard without duplicating the dialog button -->
+        </fieldset>
+        <fieldset>
+          <div class="title">
+            <h4>معلومات الحجز</h4>
+          </div>
+
+          <label for="name">الاسم</label>
+          <input type="text" name="name" id="name" class="text ui-widget-content ui-corner-all">
+          <label for="email">الايميل</label>
+          <input type="text" name="email" id="email" class="text ui-widget-content ui-corner-all">
+
+          <!-- Allow form submission with keyboard without duplicating the dialog button -->
+        </fieldset>
+        <fieldset>
+          <div class="title">
+            <h4>معلومات الحجز</h4>
+          </div>
+
+          <label for="name">الاسم</label>
+          <input type="text" name="name" id="name" class="text ui-widget-content ui-corner-all">
+          <label for="email">الايميل</label>
+          <input type="text" name="email" id="email" class="text ui-widget-content ui-corner-all">
+
+          <!-- Allow form submission with keyboard without duplicating the dialog button -->
+        </fieldset>
+        <fieldset>
+          <div class="title">
+            <h4>معلومات الحجز</h4>
+          </div>
+
+          <label for="name">الاسم</label>
+          <input type="text" name="name" id="name" class="text ui-widget-content ui-corner-all">
+          <label for="email">الايميل</label>
+          <input type="text" name="email" id="email" class="text ui-widget-content ui-corner-all">
+
+          <!-- Allow form submission with keyboard without duplicating the dialog button -->
+        </fieldset>
       </div>
-    </div>
+    </form>
+
 
     <script src="https://kendo.cdn.telerik.com/2018.1.221/js/jquery.min.js"></script>
     <script src="https://kendo.cdn.telerik.com/2018.1.221/js/kendo.all.min.js"></script>

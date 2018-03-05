@@ -1,108 +1,65 @@
 .create-user-interface-animation {
-    animation: openingForm 0.5s ease-in-out forwards;
+  animation: openingForm 0.5s ease-in-out forwards;
 }
 
 @-moz-keyframes openingForm {
-    0% {
-        width: 0%;
-        height: 0px;
-    }
-    100% {
-        width: 50%;
-        height: 600px;
-    }
+  0% {
+    width: 0%;
+    height: 0px;
+  }
+  100% {
+    width: 50%;
+    height: 600px;
+  }
 }
 
 @keyframes openingForm {
-    0% {
-        width: 0%;
-        height: 0px;
-    }
-    100% {
-        width: 50%;
-        height: 600px;
-    }
+  0% {
+    width: 0%;
+    height: 0px;
+  }
+  100% {
+    width: 50%;
+    height: 600px;
+  }
 }
 
 @-webkit-keyframes openingForm {
-    0% {
-        width: 0%;
-        height: 0px;
-    }
-    100% {
-        width: 50%;
-        height: 600px;
-    }
+  0% {
+    width: 0%;
+    height: 0px;
+  }
+  100% {
+    width: 50%;
+    height: 600px;
+  }
 }
 
 .obacity-fade-in {
-    animation: fade-in 1s ease-in-out forwards;
+  animation: fade-in 1s ease-in-out forwards;
 }
 
 @keyframes fade-in {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 100;
-    }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100;
+  }
 }
 
 .hidden {
-    visibility: hidden;
+  visibility: hidden;
 }
 
-
-
-/*Models */
-
-.manageFreeBookingModels {
-    background-color: #72b6d7;
-    
+#checkIn {
+  display: grid;
+  grid-gap: 15px;
+  padding: 20px 5px;
+  background-color: #efefef;
 }
 
-.manageFreeBookingModels div{
-    width:100%;
+.k-widget{
+    /* position: relative;
+    top:-5px; */
 }
-
-#checkIn{
-
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    grid-auto-columns: minmax(20px , auto)
-
-}
-
-
-.manageFreeBookingModels label {
-    font-size:1.1em;
-    font-family: Droid_Regular !important;
-    /* font: Droid Arabic Kufi, serif, !important; */
-    display: block;
-    /* width: 140px; */
-    text-align: right;
-    width: 150px;
-
-}
-
-#checkIn input:not(.bookingSrc){
-    display: inline-block;
-    text-align: right;
-    border-radius: 6px;
-    height: 34px;
-    padding: 7px;
-    width: 100%;
-    font-family: Droid_Regular;
-    font-size: 1em;
-    margin-bottom: 7px;
-    /* margin: 4px; */
-}
-
-.bookingSrc{
-
-}
-.k-dropdown-wrap{
-}
-
-
-
