@@ -34,7 +34,7 @@
     <!-- End of Wrapper -->
     </div>
 
-    <form>
+    <form id="frmCheckIn" action="/ManageFreeBookings/checkIn" method="POST">
       <div id="checkIn" class="model">
         <fieldset>
           <div class="title">
@@ -53,9 +53,9 @@
               <label for="bookingSrc">مصدر الحجز</label>
             </div>
             <div class="field-cell">
-              <select id="bookingSrc" class="bookingSrc" style="height: 21px;font-family: Droid_Regular;font-size:0.8em;">
-                <% typesOfBooking.forEach(element => { %>
-                  <option value=i nstance>
+              <select id="bookingSrc" name="bookingSrc" form="frmCheckIn" class="bookingSrc" style="height: 21px;font-family: Droid_Regular;font-size:0.8em;">
+                <% bookingSrc.forEach(element => { %>
+                  <option value=<%=element.id %> >
                     <%= element.type  %>
                   </option>
                   <%}) %>
@@ -70,7 +70,7 @@
           <div class="title">
             <h4>الفترة</h4>
           </div>
-          <div class="field-row" style="grid-template-columns:30% 16.3% 16.3% 1.3fr 2fr;">
+          <!-- <div class="field-row" style="grid-template-columns:30% 16.3% 16.3% 1.3fr 2fr;">
             <div class="field-cell"></div>
             <div class="field-cell">
               <label>من</label>
@@ -88,90 +88,202 @@
             </div>
             <div class="field-cell"></div>
 
-          </div>
+          </div> -->
           <div class="field-row" style="grid-template-columns:repeat(8 , 1fr);">
             <div class="field-cell">
-              <label>نوع الايجار</label>
-              <label>التقويم</label>
+              <label for="bookingType">نوع الايجار</label>
+              <label for="calander">التقويم</label>
             </div>
             <div class="field-cell">
-              <select id="" class="combobox" style="height: 19px;font-family: Droid_Regular;font-size:0.8em;margin-bottom:3px">
-
+              <select id="bookingType" name="bookingType" form="frmCheckIn" class="combobox">
+                <% bookingTypes.forEach(element => { %>
+                  <option value=<%=element.id %> >
+                    <%= element.type  %>
+                  </option>
+                  <%}) %>
               </select>
-              <select id="" class="combobox" style="height: 19px;font-family: Droid_Regular;font-size:0.8em;margin-bottom:3px">
+              <select id="" name="calander" form="frmCheckIn" class="combobox">
 
               </select>
             </div>
             <div class="field-cell">
+               
               <label>ميلادي</label>
               <label>هجري</label>
             </div>
             <div class="field-cell">
-                <select id="" class="combobox" style="height: 19px;font-family: Droid_Regular;font-size:0.8em;margin-bottom:3px">
-
-                  </select>
-                  <select id="" class="combobox" style="height: 19px;font-family: Droid_Regular;font-size:0.8em;margin-bottom:3px">
-    
-                  </select>
+                <label style="position:relative;bottom:15px">من</label>
+              <!-- <div class='input-group date' id='datetimepicker1'>
+                <input type='text' class="form-control" />
+                <span class="input-group-addon">
+                  <span class="glyphicon glyphicon-time"></span>
+                </span>
+              </div>
+              <div class='input-group date' class='datePicker'>
+                <input type='text' class="form-control" />
+                <span class="input-group-addon">
+                  <span class="glyphicon glyphicon-time"></span>
+                </span>
+              </div>     -->
             </div>
             <div class="field-cell">
-                <select id="" class="combobox" style="height: 19px;font-family: Droid_Regular;font-size:0.8em;margin-bottom:3px">
-
-                  </select>
-                  <select id="" class="combobox" style="height: 19px;font-family: Droid_Regular;font-size:0.8em;margin-bottom:3px">
-    
-                  </select>
+                <label style="position:relative;bottom:15px">إلى</label>
+              <!-- <div class='input-group date' class='datePicker'>
+                <input type='text' class="form-control" />
+                <span class="input-group-addon">
+                  <span class="glyphicon glyphicon-time"></span>
+                </span>
+              </div>
+              <div class='input-group date' class='datePicker'>
+                <input type='text' class="form-control" />
+                <span class="input-group-addon">
+                  <span class="glyphicon glyphicon-time"></span>
+                </span> -->
+              <!-- </div> -->
 
             </div>
             <div class="field-cell">
-                <label>00:00</label>
-                <label>00:00</label>
+                <label style="position:relative;bottom:15px">الوقت</label>
+              <label>00:00</label>
+              <label>00:00</label>
             </div>
             <div class="field-cell">
-                <label for="input_daysNum">عدد الأيام</label>
+              <label for="input_daysNum">عدد الأيام</label>
             </div>
             <div class="field-cell">
               <div style="width:211px">
-              <input id="input_daysNum" class="text ui-widget-content ui-corner-all" type="text" value="1" style="width:40px" >
-             </div>
+                <input id="input_daysNum" class="text ui-widget-content ui-corner-all" type="text" name="daysNum" form="frmCheckIn" value="1"
+                  style="width:40px">
+              </div>
             </div>
           </div>
           <!-- Allow form submission with keyboard without duplicating the dialog button -->
         </fieldset>
         <fieldset>
           <div class="title">
-            <h4>معلومات الحجز</h4>
+            <h4>الشفة والعميل</h4>
           </div>
+          <div class="field-row" style="grid-template-columns:repeat(8 , 1fr);">
 
-          <label for="name">الاسم</label>
-          <input type="text" name="name" id="name" class="text ui-widget-content ui-corner-all">
-          <label for="email">الايميل</label>
-          <input type="text" name="email" id="email" class="text ui-widget-content ui-corner-all">
+            <div class="field-cell">
+              <label>الشقة</label>
+              <label>سعر الشقة</label>
+              <label>سعر الذروة</label>
+            </div>
+            <div class="field-cell">
+              <label>:100</label>
+              <label>:100</label>
+              <label>:150</label>
+
+
+            </div>
+            <div class="field-cell">
+              <label>العميل</label>
+              <label>الشركة</label>
+              <label>المرافقون</label>
+
+            </div>
+            <div class="field-cell">
+              <label>:-- -- --</label>
+              <label>:-- -- --</label>
+              <select></select>
+            </div>
+            <div class="field-cell">
+              <i></i>
+              <i></i>
+              <i></i>
+            </div>
+            <div class="field-cell">
+              <i></i>
+              <i></i>
+              <i></i>
+            </div>
+            <div class="field-cell">
+              <i></i>
+              <i></i>
+              <i></i>
+            </div>
+            <div class="field-cell">
+              <i></i>
+              <i></i>
+            </div>
+
+          </div>
 
           <!-- Allow form submission with keyboard without duplicating the dialog button -->
         </fieldset>
         <fieldset>
           <div class="title">
-            <h4>معلومات الحجز</h4>
+            <h4>المالية</h4>
           </div>
 
-          <label for="name">الاسم</label>
+          <div class="field-row" style="grid-template-columns:repeat(7 , 1fr);">
+
+            <div class="field-cell">
+              <label>المقبوضات</label>
+              <label>المصروفات</label>
+              <label>الخدمات</label>
+              <label>الايجار اليومي</label>
+              <label>نوع الخصم</label>
+              <label>مبلغ الخصم</label>
+            </div>
+            <div class="field-cell">
+              <select name="" id="" class="combobox"></select>
+              <select name="" id="" class="combobox"></select>
+              <select name="" id="" class="combobox"></select>
+              <input type='text' class="form-control" style="display:inline-block" />
+              <button style="display:inline-block" class="mybtn-dialog ui-button ui-corner-all ui-widget">تغيير</button>
+              <select name="" id="" class="combobox"></select>
+              <select name="" id="" style="display:inline-block"></select>
+              <input type='text' class="form-control" style="display:inline-block" />
+              <button style="display:inline-block" class="mybtn-dialog ui-button ui-corner-all ui-widget">تغيير</button>
+            </div>
+            <div class="field-cell">
+              <i></i>
+              <i></i>
+              <i></i>
+            </div>
+            <div class="field-cell">
+              <i></i>
+              <i></i>
+              <i></i>
+            </div>
+            <div class="field-cell">
+              <i></i>
+            </div>
+            <div class="field-cell">
+              <label>المقبوض</label>
+              <label>بدل الإيجار</label>
+              <label>التأمين</label>
+              <label>التكلفة الكلية</label>
+              <label>التكلفة النهائية</label>
+              <label>الرصيد</label>
+            </div>
+            <div class="field-cell">
+              <label>:0</label>
+              <label>:0</label>
+              <label>:0</label>
+              <label>:0</label>
+              <label>:0</label>
+              <label>:0</label>
+            </div>
+
+          </div>
+
+
+          <!-- <label for="name">الاسم</label>
           <input type="text" name="name" id="name" class="text ui-widget-content ui-corner-all">
           <label for="email">الايميل</label>
-          <input type="text" name="email" id="email" class="text ui-widget-content ui-corner-all">
+          <input type="text" name="email" id="email" class="text ui-widget-content ui-corner-all"> -->
+
 
           <!-- Allow form submission with keyboard without duplicating the dialog button -->
         </fieldset>
         <fieldset>
           <div class="title">
-            <h4>معلومات الحجز</h4>
+            <h4>ملاحظات</h4>
           </div>
-
-          <label for="name">الاسم</label>
-          <input type="text" name="name" id="name" class="text ui-widget-content ui-corner-all">
-          <label for="email">الايميل</label>
-          <input type="text" name="email" id="email" class="text ui-widget-content ui-corner-all">
-
+          <textarea name="notes" id="notes" form="frmCheckIn" cols="30" rows="2" style="width:100%"></textarea>
           <!-- Allow form submission with keyboard without duplicating the dialog button -->
         </fieldset>
       </div>

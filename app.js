@@ -23,6 +23,7 @@ app.use(expressValidator());
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.engine('html',require('ejs').renderFile)
+
 // Body Parser Middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -36,6 +37,9 @@ app.use(bodyParser.urlencoded({
 app.use(express.static(path.join(__dirname, 'public')));
 // or this app.use(express.static(__dirname + '/public'));
 
+//bower_componants
+ app.use(express.static(__dirname + '/bower_components'));
+
 
 // jQuery
 app.use(express.static(__dirname + '/node_modules/jquery/dist'));
@@ -45,29 +49,6 @@ app.use(express.static(path.join(__dirname, 'node_modules', 'hint.css')));
 // or this app.use(express.static(__dirname + '/node_modules/hint.css'));
 
 
-
-app.post('/check_in', function (req, res) {
-
-    req.checkBody('contract-number', 'ﻻ ﺑﺪ ﻣﻦ اﺿﺎﻓﺔ ﺭﻗﻢ اﻟﻌﻘﺪ').notEmpty();
-
-    var errors = req.validationErrors();
-
-    if (errors) {
-        console.log('errors');
-    } else {
-        var new_resedent = {
-            contract_number: 001,
-            reservation_source: null,
-            rent_type: null,
-            days: 1,
-            room: null,
-            customer: null,
-            notes: ''
-        }
-        console.log('sucess');
-
-    }
-});
 
 app.use('/',index);
 app.use('/ManageFreeBookings' , ManageFreeBookings);
