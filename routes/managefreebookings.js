@@ -15,20 +15,24 @@ router.get("/", function(req, res, next) {
     if (err) {
       res.send(err);
     }
-    console.log(bookingSrc);
     db.bookingTypes.find((err, bookingTypes) => {
         if (err) {
           res.send(err);
         }
-        console.log(bookingTypes);
+        db.rooms.find((err, rooms) => {
+            if (err) {
+              res.send(err);
+            }
         res.render("Pages/Management/ManageFreeBookings", {
             title: "الشقق والتسكين",
             Page: {
               title: "الشقق والتسكين"
             },
             bookingSrc,
-            bookingTypes
+            bookingTypes,
+            rooms
           });
+        });
       });
 });
 
@@ -124,4 +128,11 @@ router.post("/check_in", function(req, res) {
     console.log("sucess");
   }
 });
+
+
+router.post("/addingRoom", function(req, res) {
+    
+});
+
+
 module.exports = router;

@@ -1,13 +1,24 @@
-﻿$(document).ready(function () {
-
-    $('#sidebarCollapse').on('click', function () {
-        $('#sidebar').toggleClass('active');
-    });
-
-
-   
+﻿$(window).load(function() {
+  // Animate loader off screen
+  //    if ($("#loadingScreen").css('display') == 'none') {
+  //     $("#loadingScreen").css({"display":"block"})
+  //    }
+  $(".loadingScreen").fadeOut("slow");
 });
 
+$(document).ready(function() {
+  $("#sidebarCollapse").on("click", function() {
+    $("#sidebar").toggleClass("active");
+  });
+
+  $("#btn_adding_a_room").on("click", () =>{
+    
+  });
+
+  // $('#modelAddRoom').on('shown.bs.modal', function () {
+  //   $('#myInput').trigger('focus')
+  // })
+});
 
 // setTimeout(function a() {
 //     Offline.check();
@@ -39,24 +50,21 @@
 //     })
 // }
 
-
 // Check internet connection
-window.addEventListener('load', function () {
-    var wifi = document.getElementById("nav_wifi_icon");
-    var log = document.getElementById("log");
+window.addEventListener("load", function() {
+  var wifi = document.getElementById("nav_wifi_icon");
+  var log = document.getElementById("log");
 
-    function updateOnlineStatus(event) {
-        var condition = navigator.onLine ? "online" : "offline";
+  function updateOnlineStatus(event) {
+    var condition = navigator.onLine ? "online" : "offline";
 
-        wifi.className = condition;
-        if (condition == "online") {
-            wifi.firstElementChild.setAttribute("aria-label", "متصل")
-
-        } else {
-            wifi.firstElementChild.setAttribute("aria-label", "غير متصل")
-        }
+    wifi.className = condition;
+    if (condition == "online") {
+      wifi.firstElementChild.setAttribute("aria-label", "متصل");
+    } else {
+      wifi.firstElementChild.setAttribute("aria-label", "غير متصل");
     }
-    window.addEventListener('online', updateOnlineStatus);
-    window.addEventListener('offline', updateOnlineStatus);
+  }
+  window.addEventListener("online", updateOnlineStatus);
+  window.addEventListener("offline", updateOnlineStatus);
 });
-

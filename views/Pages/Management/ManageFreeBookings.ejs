@@ -1,17 +1,19 @@
 <% include ../../partials/header %>
 
+
+
   <% include ../../partials/sideNav %>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="styles/ManageFreeBookings.css">
     <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.1.221/styles/kendo.common-material.min.css" />
     <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.1.221/styles/kendo.material.min.css" />
     <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.1.221/styles/kendo.material.mobile.min.css" />
-
     <div class="myContainer">
       <div class="content">
         <% include ../../partials/topNav %>
 
-          <div class="page-btn btn-manageFreeBooking" href="#animatedModal">
+
+          <!-- <div class="page-btn btn-manageFreeBooking" href="#animatedModal">
             <img src="imgs/buildings.png">
             <span class="tooltiptext">اﺩاﺭﺓ اﻟﺸﻘﻖ</span>
 
@@ -19,281 +21,89 @@
           <div class="page-btn btn-logIn" href="#animatedModal">
             <i class="far fa-address-book"></i>
             <span class="tooltiptext">ﺗﺴﺠﻴﻞ ﺩﺧﻮﻝ</span>
-
           </div>
           <div class="page-btn btn-logOut" href="#animatedModal">
             <i class="fas fa-sign-out-alt"></i>
             <span class="tooltiptext">ﺗﺴﺠﻴﻞ ﺧﺮﻭﺝ</span>
-          </div>
-
-
-      </div>
-    </div>
-
-
-    <!-- End of Wrapper -->
-    </div>
-
-    <form id="frmCheckIn" action="/ManageFreeBookings/checkIn" method="POST">
-      <div id="checkIn" class="model">
-        <fieldset>
-          <div class="title">
-            <h4>معلومات الحجز</h4>
-          </div>
-          <div class="field-row" style="grid-template-columns:6.5% 10% 7% 38.5%;">
-            <div class="field-cell">
-              <label for="lbl_contractNum">رقم العقد</label>
-            </div>
-
-            <div class="field-cell">
-              <label id="lbl_contractNum" style="margin-left:40px;">--.--.--</label>
-            </div>
-
-            <div class="field-cell">
-              <label for="bookingSrc">مصدر الحجز</label>
-            </div>
-            <div class="field-cell">
-              <select id="bookingSrc" name="bookingSrc" form="frmCheckIn" class="bookingSrc" style="height: 21px;font-family: Droid_Regular;font-size:0.8em;">
-                <% bookingSrc.forEach(element => { %>
-                  <option value=<%=element.id %> >
-                    <%= element.type  %>
-                  </option>
-                  <%}) %>
-              </select>
-            </div>
-          </div>
-          <!-- Allow form submission with keyboard without duplicating the dialog button -->
-          <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
-        </fieldset>
-
-        <fieldset>
-          <div class="title">
-            <h4>الفترة</h4>
-          </div>
-          <!-- <div class="field-row" style="grid-template-columns:30% 16.3% 16.3% 1.3fr 2fr;">
-            <div class="field-cell"></div>
-            <div class="field-cell">
-              <label>من</label>
-
-            </div>
-            <div class="field-cell">
-              <label>الى</label>
-
-
-            </div>
-            <div class="field-cell">
-              <label>الوقت</label>
-
-
-            </div>
-            <div class="field-cell"></div>
-
           </div> -->
-          <div class="field-row" style="grid-template-columns:repeat(8 , 1fr);">
-            <div class="field-cell">
-              <label for="bookingType">نوع الايجار</label>
-              <label for="calander">التقويم</label>
-            </div>
-            <div class="field-cell">
-              <select id="bookingType" name="bookingType" form="frmCheckIn" class="combobox">
-                <% bookingTypes.forEach(element => { %>
-                  <option value=<%=element.id %> >
-                    <%= element.type  %>
-                  </option>
-                  <%}) %>
-              </select>
-              <select id="" name="calander" form="frmCheckIn" class="combobox">
-
-              </select>
-            </div>
-            <div class="field-cell">
-               
-              <label>ميلادي</label>
-              <label>هجري</label>
-            </div>
-            <div class="field-cell">
-                <label style="position:relative;bottom:15px">من</label>
-              <!-- <div class='input-group date' id='datetimepicker1'>
-                <input type='text' class="form-control" />
-                <span class="input-group-addon">
-                  <span class="glyphicon glyphicon-time"></span>
-                </span>
-              </div>
-              <div class='input-group date' class='datePicker'>
-                <input type='text' class="form-control" />
-                <span class="input-group-addon">
-                  <span class="glyphicon glyphicon-time"></span>
-                </span>
-              </div>     -->
-            </div>
-            <div class="field-cell">
-                <label style="position:relative;bottom:15px">إلى</label>
-              <!-- <div class='input-group date' class='datePicker'>
-                <input type='text' class="form-control" />
-                <span class="input-group-addon">
-                  <span class="glyphicon glyphicon-time"></span>
-                </span>
-              </div>
-              <div class='input-group date' class='datePicker'>
-                <input type='text' class="form-control" />
-                <span class="input-group-addon">
-                  <span class="glyphicon glyphicon-time"></span>
-                </span> -->
-              <!-- </div> -->
-
-            </div>
-            <div class="field-cell">
-                <label style="position:relative;bottom:15px">الوقت</label>
-              <label>00:00</label>
-              <label>00:00</label>
-            </div>
-            <div class="field-cell">
-              <label for="input_daysNum">عدد الأيام</label>
-            </div>
-            <div class="field-cell">
-              <div style="width:211px">
-                <input id="input_daysNum" class="text ui-widget-content ui-corner-all" type="text" name="daysNum" form="frmCheckIn" value="1"
-                  style="width:40px">
-              </div>
-            </div>
-          </div>
-          <!-- Allow form submission with keyboard without duplicating the dialog button -->
-        </fieldset>
-        <fieldset>
-          <div class="title">
-            <h4>الشفة والعميل</h4>
-          </div>
-          <div class="field-row" style="grid-template-columns:repeat(8 , 1fr);">
-
-            <div class="field-cell">
-              <label>الشقة</label>
-              <label>سعر الشقة</label>
-              <label>سعر الذروة</label>
-            </div>
-            <div class="field-cell">
-              <label>:100</label>
-              <label>:100</label>
-              <label>:150</label>
 
 
-            </div>
-            <div class="field-cell">
-              <label>العميل</label>
-              <label>الشركة</label>
-              <label>المرافقون</label>
+
+
+
+          <ul class="nav nav-tabs pdr10">
+            <li class="active pull-right fontDroid">
+              <a data-toggle="tab" href="#manageRooms">إدارة الشقق</a>
+            </li>
+            <li class="pull-right fontDroid">
+              <a data-toggle="tab" href="#checkIn">تسجيل الدخول</a>
+            </li>
+            <li class="pull-right fontDroid">
+              <a data-toggle="tab" href="#checkOut">تسجيل الخروج</a>
+            </li>
+            <li class="fontDroid">
+                <a id="btn_add_a_room" class="hint--right hint--rounded" type="button"aria-label="إضافة غرفة" style="cursor:pointer" data-toggle="modal" data-target="#modelAddRoom">
+                  <i class="fas fa-plus"></i>
+                </a>
+            </li>
+            <li>
+                
+            </li>
+          </ul>
+
+          <div class="tab-content" style="padding-top: 30px;">
+            <div id="manageRooms" class="tab-pane fade active in">
+
+              <% rooms.forEach(room => { %>
+                <div class="page-btn btn-room" data-roomnumber=<%=room.roomNumber %>>
+                  <label class="lbl-room_number">
+                    <%= room.roomNumber%>
+                  </label>
+                  <img src="imgs/room.png">
+                  <span class="tooltiptext">رقم الشقة:
+                    <%=room.roomNumber%>
+                  </span>
+                </div>
+                <% }) %>
 
             </div>
-            <div class="field-cell">
-              <label>:-- -- --</label>
-              <label>:-- -- --</label>
-              <select></select>
-            </div>
-            <div class="field-cell">
-              <i></i>
-              <i></i>
-              <i></i>
-            </div>
-            <div class="field-cell">
-              <i></i>
-              <i></i>
-              <i></i>
-            </div>
-            <div class="field-cell">
-              <i></i>
-              <i></i>
-              <i></i>
-            </div>
-            <div class="field-cell">
-              <i></i>
-              <i></i>
-            </div>
 
-          </div>
 
-          <!-- Allow form submission with keyboard without duplicating the dialog button -->
-        </fieldset>
-        <fieldset>
-          <div class="title">
-            <h4>المالية</h4>
-          </div>
-
-          <div class="field-row" style="grid-template-columns:repeat(7 , 1fr);">
-
-            <div class="field-cell">
-              <label>المقبوضات</label>
-              <label>المصروفات</label>
-              <label>الخدمات</label>
-              <label>الايجار اليومي</label>
-              <label>نوع الخصم</label>
-              <label>مبلغ الخصم</label>
+            <div id="checkIn" class="tab-pane fade">
+              <h3>Menu 2</h3>
+              <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem
+                aperiam.</p>
             </div>
-            <div class="field-cell">
-              <select name="" id="" class="combobox"></select>
-              <select name="" id="" class="combobox"></select>
-              <select name="" id="" class="combobox"></select>
-              <input type='text' class="form-control" style="display:inline-block" />
-              <button style="display:inline-block" class="mybtn-dialog ui-button ui-corner-all ui-widget">تغيير</button>
-              <select name="" id="" class="combobox"></select>
-              <select name="" id="" style="display:inline-block"></select>
-              <input type='text' class="form-control" style="display:inline-block" />
-              <button style="display:inline-block" class="mybtn-dialog ui-button ui-corner-all ui-widget">تغيير</button>
+            <div id="checkOut" class="tab-pane fade">
+              <h3>Menu 3</h3>
+              <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
             </div>
-            <div class="field-cell">
-              <i></i>
-              <i></i>
-              <i></i>
-            </div>
-            <div class="field-cell">
-              <i></i>
-              <i></i>
-              <i></i>
-            </div>
-            <div class="field-cell">
-              <i></i>
-            </div>
-            <div class="field-cell">
-              <label>المقبوض</label>
-              <label>بدل الإيجار</label>
-              <label>التأمين</label>
-              <label>التكلفة الكلية</label>
-              <label>التكلفة النهائية</label>
-              <label>الرصيد</label>
-            </div>
-            <div class="field-cell">
-              <label>:0</label>
-              <label>:0</label>
-              <label>:0</label>
-              <label>:0</label>
-              <label>:0</label>
-              <label>:0</label>
-            </div>
-
           </div>
 
 
-          <!-- <label for="name">الاسم</label>
-          <input type="text" name="name" id="name" class="text ui-widget-content ui-corner-all">
-          <label for="email">الايميل</label>
-          <input type="text" name="email" id="email" class="text ui-widget-content ui-corner-all"> -->
-
-
-          <!-- Allow form submission with keyboard without duplicating the dialog button -->
-        </fieldset>
-        <fieldset>
-          <div class="title">
-            <h4>ملاحظات</h4>
-          </div>
-          <textarea name="notes" id="notes" form="frmCheckIn" cols="30" rows="2" style="width:100%"></textarea>
-          <!-- Allow form submission with keyboard without duplicating the dialog button -->
-        </fieldset>
       </div>
-    </form>
+    </div>
+
+    <!-- working
+    <script type="text/javascript" src="/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/moment/min/moment.min.js"></script>
+    <script type="text/javascript" src="/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script language="javascript" src="js/Site.js"></script> -->
+
+    <% include ../../models/checkInModel %>
+    <% include ../../models/addingARoom %>
+
+      <% include ../../partials/footer %>
+        </body>
+
+        <script src="https://kendo.cdn.telerik.com/2018.1.221/js/jquery.min.js"></script>
+        <script src="https://kendo.cdn.telerik.com/2018.1.221/js/kendo.all.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        <script type="text/javascript" src="js/ManageFreeBookings.js"></script>
 
 
-    <script src="https://kendo.cdn.telerik.com/2018.1.221/js/jquery.min.js"></script>
-    <script src="https://kendo.cdn.telerik.com/2018.1.221/js/kendo.all.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script type="text/javascript" src="js/ManageFreeBookings.js"></script>
-
-
-    <% include ../../partials/footer %>
+        </html>
+        <!-- End of Wrapper -->
+        </div>

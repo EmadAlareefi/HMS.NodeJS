@@ -32,11 +32,59 @@
     url(/fonts/Droid/DroidKufi-Bold.woff) format("woff"),
     url(/fonts/Droid/DroidKufi-Bold.ttf) format("truetype");
 }
-
-body {
-  padding: 0px;
+.hidden {
+  visibility: hidden;
 }
 
+.fontDroid {
+  font-family: Droid_Regular !important;
+}
+.fontDroidBold {
+  font-family: Droid_Bold !important;
+}
+.fltr {
+  float: right !important;
+}
+.fltl {
+  float: left !important;
+}
+.wid35 {
+  width: 35% !important;
+}
+.wid65 {
+  width: 65% !important;
+}
+.wid100 {
+  width: 100% !important;
+}
+.pdlr10 {
+  padding: 0 10px !important;
+}
+
+.pdr10 {
+  padding-right: 10px !important;
+}
+.pdr20 {
+  padding-right: 20px !important;
+}
+.pdr80 {
+  padding-right: 80px !important;
+}
+
+.dsp-block {
+  display: block;
+}
+.dsp-inblock {
+  display: inline-block;
+}
+body {
+  padding: 0px;
+  background: linear-gradient(to top, #8e9eab, #eef2f3);
+}
+
+.tab-content {
+  padding: 0px 37px;
+}
 /* a{
   color:inherit !important;
 }
@@ -57,6 +105,7 @@ textarea {
 footer {
   position: fixed;
   bottom: 0vh;
+  z-index: 99;
 }
 
 .footer-distributed {
@@ -164,19 +213,37 @@ span {
 /* ---------------------------------------------------
     SIDEBAR STYLE
     ----------------------------------------------------- */
+#sidebar::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #f5f5f5;
+}
 
+#sidebar::-webkit-scrollbar {
+  width: 6px;
+  background-color: #f5f5f5;
+}
+
+#sidebar::-webkit-scrollbar-thumb {
+  background-color: #000000;
+}
 .wrapper {
   display: flex;
   align-items: stretch;
 }
 
 #sidebar {
+  direction: ltr;
   text-align: center;
   min-width: 187px;
   max-width: 180px;
   background: rgb(10, 36, 46);
   color: #fff;
   transition: all 0.3s;
+  z-index: 98;
+  min-height: calc(100vh - var(--footerHeight));
+  height: calc(100vh - var(--footerHeight));
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .myContainer {
@@ -195,7 +262,8 @@ span {
 .top-nav {
   position: relative;
   display: table;
-  width: 100%; /* height: 49px; */
+  width: 100%;
+  /* height: 49px; */
   margin-bottom: 20px;
   background-color: rgb(255, 255, 255);
   box-shadow: 0px 2px 1px -1px;
@@ -222,6 +290,9 @@ span {
   font-family: Droid_Bold;
   padding-right: 20px;
   color: #2e677c;
+  float: right;
+  
+   */
 }
 #sidebar.active {
   min-width: 50px;
@@ -242,7 +313,6 @@ span {
   font-size: 10px;
 }
 #sidebar.active ul li a i {
-  margin-right: 0;
   display: block;
   font-size: 1.8em;
   margin-bottom: 5px;
@@ -272,20 +342,22 @@ span {
   padding: 10px;
   font-size: 11px;
   display: block;
+  direction: rtl;
 }
 #sidebar ul li a:hover {
   color: #7386d5 !important;
   background: #fff;
 }
 #sidebar ul li a i {
-  margin-right: 10px;
+  margin-right: 6px;
+  padding-left: 6px;
 }
 
 a[data-toggle="collapse"] {
   position: relative;
 }
 
-a[aria-expanded="false"]::before {
+a[aria-expanded="false"]:not([data-toggle="tab"])::before {
   content: "\e259";
   display: block;
   position: absolute;
@@ -294,7 +366,7 @@ a[aria-expanded="false"]::before {
   font-family: "Glyphicons Halflings";
   font-size: 0.6em;
 }
-a[aria-expanded="true"]::before {
+a[aria-expanded="true"]:not([data-toggle="tab"])::before{
   content: "\e260";
   display: block;
   position: absolute;
@@ -324,7 +396,7 @@ ul ul a {
 /* ---------------------------------------------------
     MEDIAQUERIES
     ----------------------------------------------------- */
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   #sidebar {
     min-width: 80px;
     max-width: 80px;
@@ -352,11 +424,12 @@ ul ul a {
   }
   #sidebar ul ul a {
     padding: 10px !important;
+
   }
   #sidebarCollapse {
     display: inline-block;
   }
-}
+} */
 nav {
   font-family: Droid_Regular;
 }
@@ -384,7 +457,13 @@ nav {
   position: relative;
   background-color: #7aafe4;
 }
-
+.page-btn .lbl-room_number{
+  position: absolute;
+  left: 44%;
+  top: 29%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+}
 .page-btn:nth-child(odd) {
   background-color: #5796d4;
 }
@@ -407,7 +486,7 @@ nav {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  max-width: 80px;
+  max-width: 104px;
 }
 
 .page-btn .tooltiptext {
@@ -448,26 +527,21 @@ nav {
   background-color: #fff !important;
 }
 
-.ui-dialog fieldset {
+.ui-dialog fieldset , .modal fieldset{
   border-top: 3px solid #2371a9;
   padding-right: 12px;
 }
-.ui-dialog fieldset .field-row {
+.ui-dialog fieldset .field-row , .modal fieldset .field-row{
   margin-bottom: 6px;
   display: grid;
 }
 
-.ui-dialog fieldset .field-row .field-cell {
+.ui-dialog fieldset .field-row .field-cell ,.modal fieldset .field-row .field-cell {
   padding: 0px 7px;
 }
-/* :not(label[for]) */
-.field-cell label:not([for]) {
-  display: block !important;
-}
-.ui-dialog fieldset .title {
-  /* display: block; */
-  /* margin:10px 10px; */
-  margin-bottom: 14px;
+
+fieldset .title {
+  margin-bottom: 14px !important;
 }
 .title h4 {
   font-family: Droid_Bold;
@@ -488,20 +562,25 @@ nav {
 }
 .model div {
   width: 100%;
+  display: inline-block;
 }
 .model label {
-  font-size: 10px;
+  font-size: 11px;
   font-family: Droid_Regular !important;
   /* font: Droid Arabic Kufi, serif, !important; */
   text-align: right;
   /* width: 150px; */
+  /* width: 100%; */
 }
 .combobox {
-  width: 100% !important;
-  height: 18px !important;
+  /* width: 100% !important; */
+  /* height: 18px !important; */
+  float: left;
   font-family: Droid_Regular !important;
   font-size: 0.6em !important;
   margin-bottom: 3px;
+  padding: 0px 3px !important;
+  height: 23px !important;
 }
 .model input:not(.k-input) {
   display: inline-block;
@@ -512,7 +591,7 @@ nav {
   /* width: 100%; */
   font-family: Droid_Regular;
   font-size: 0.7em;
-  margin-left: 9px;
+  /* margin-left: 9px; */
   /* margin: 4px; */
 }
 /* .k-widget{
@@ -537,3 +616,140 @@ nav {
   text-align: center !important;
   width: 100% !important;
 }
+
+
+
+.modal-dialog-centered {
+  min-height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow: auto;
+  width: 75% !important;
+}
+@media(max-width: 768px) {
+.modal-dialog-centered {
+  min-height: calc(100vh - 20px);
+}
+}
+
+/* loading CSS ====================== */
+.loadingScreen {
+  width: 100%;
+  height: 100%;
+  background-color: #0c0c0c;
+  position: fixed;
+  z-index: 97;
+}
+
+.loadingSents {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+}
+.sk-folding-cube {
+  width: 57px;
+  height: 57px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 18vh;
+  right: 4vw;
+  margin: auto;
+  -webkit-transform: rotateZ(45deg);
+  transform: rotateZ(45deg);
+}
+
+.sk-folding-cube .sk-cube {
+  float: left;
+  width: 50%;
+  height: 50%;
+  position: relative;
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+}
+.sk-folding-cube .sk-cube:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #1bb1b1;
+  -webkit-animation: sk-foldCubeAngle 2.4s infinite linear both;
+  animation: sk-foldCubeAngle 2.4s infinite linear both;
+  -webkit-transform-origin: 100% 100%;
+  -ms-transform-origin: 100% 100%;
+  transform-origin: 100% 100%;
+}
+.sk-folding-cube .sk-cube2 {
+  -webkit-transform: scale(1.1) rotateZ(90deg);
+  transform: scale(1.1) rotateZ(90deg);
+}
+.sk-folding-cube .sk-cube3 {
+  -webkit-transform: scale(1.1) rotateZ(180deg);
+  transform: scale(1.1) rotateZ(180deg);
+}
+.sk-folding-cube .sk-cube4 {
+  -webkit-transform: scale(1.1) rotateZ(270deg);
+  transform: scale(1.1) rotateZ(270deg);
+}
+.sk-folding-cube .sk-cube2:before {
+  -webkit-animation-delay: 0.3s;
+  animation-delay: 0.3s;
+}
+.sk-folding-cube .sk-cube3:before {
+  -webkit-animation-delay: 0.6s;
+  animation-delay: 0.6s;
+}
+.sk-folding-cube .sk-cube4:before {
+  -webkit-animation-delay: 0.9s;
+  animation-delay: 0.9s;
+}
+@-webkit-keyframes sk-foldCubeAngle {
+  0%,
+  10% {
+    -webkit-transform: perspective(140px) rotateX(-180deg);
+    transform: perspective(140px) rotateX(-180deg);
+    opacity: 0;
+  }
+  25%,
+  75% {
+    -webkit-transform: perspective(140px) rotateX(0deg);
+    transform: perspective(140px) rotateX(0deg);
+    opacity: 1;
+  }
+  90%,
+  100% {
+    -webkit-transform: perspective(140px) rotateY(180deg);
+    transform: perspective(140px) rotateY(180deg);
+    opacity: 0;
+  }
+}
+
+@keyframes sk-foldCubeAngle {
+  0%,
+  10% {
+    -webkit-transform: perspective(140px) rotateX(-180deg);
+    transform: perspective(140px) rotateX(-180deg);
+    opacity: 0;
+  }
+  25%,
+  75% {
+    -webkit-transform: perspective(140px) rotateX(0deg);
+    transform: perspective(140px) rotateX(0deg);
+    opacity: 1;
+  }
+  90%,
+  100% {
+    -webkit-transform: perspective(140px) rotateY(180deg);
+    transform: perspective(140px) rotateY(180deg);
+    opacity: 0;
+  }
+}
+
+/* End loading CSS ============================= */

@@ -48,18 +48,5 @@
   }
 }
 
-.hidden {
-  visibility: hidden;
-}
 
-#checkIn {
-  display: grid;
-  grid-gap: 15px;
-  padding: 20px 5px;
-  background-color: #efefef;
-}
 
-.k-widget{
-    /* position: relative;
-    top:-5px; */
-}

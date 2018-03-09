@@ -1,12 +1,11 @@
-﻿
+
 var form = $("#frmCheckIn");
 
-var logIn_dialog = $("#checkIn").dialog({
+var logIn_dialog = $("#modelCheckIn").dialog({
   title: "تسجيل دخول",
   autoOpen: false,
   draggable: false,
-  height: 700,
-  width: 950,
+  width: "70vw",
   show: {
     effect: "fade",
     duration: 500
@@ -40,7 +39,9 @@ var logIn_dialog = $("#checkIn").dialog({
   }
 });
 
-$(".btn-logIn").click(function() {
+$(".btn-room").click(function() {
+  $("#lbl_roomNumber").text(":" + $(this).attr("data-roomnumber"));
+  $("#frmCheckIn").removeClass("hidden");
   logIn_dialog.dialog("open");
 });
 
