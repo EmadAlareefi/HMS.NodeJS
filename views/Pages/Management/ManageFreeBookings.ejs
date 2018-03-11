@@ -53,7 +53,7 @@
             <div id="manageRooms" class="tab-pane fade show active" role="tabpanel">
 
               <% rooms.forEach(room => { %>
-                <div class="page-btn btn-room" data-roomnumber=<%=room.roomNumber %>>
+                <div class="page-btn btn-room" data-roomnumber=<%= room.roomNumber %> data-dailyPrice=<%= room.dailyPrice %> data-peakPrice=<%= room.peakPrice %>>
                   <label class="lbl-room_number">
                     <%= room.roomNumber%>
                   </label>

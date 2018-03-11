@@ -98,16 +98,26 @@ router.post("/checkIn", (req, res, net) => {
 
   MongoClient.connect(url, (err, db) => {
     if (err) throw err;
+
     dbo = db.db(dbName);
+    var new_checkIn = {
+      contract_number: 001,
+      bookingType: body.bookingType,
+      bookingSrc: body.bookingSrc,
+      days: 1,
+      roomNumber: null,
+      customer: null,
+      notes: ""
+    };
+
     dbo.collection("checkIns").save(checkIn, (err, result) => {
       if (err) throw err;
-      console.log(checkIn);
-      console.log("1 document inserted");
       res.redirect("/ManageFreeBookings");
       db.close();
     });
   });
 });
+
 
 router.post("/check_in", function(req, res) {
   req.checkBody("contract-number", "ﻻ ﺑﺪ ﻣﻦ اﺿﺎﻓﺔ ﺭﻗﻢ اﻟﻌﻘﺪ").notEmpty();
@@ -116,7 +126,7 @@ router.post("/check_in", function(req, res) {
   if (errors) {
     console.log("errors");
   } else {
-    var new_resedent = {
+    var new_checkIn = {
       contract_number: 001,
       reservation_source: null,
       rent_type: null,

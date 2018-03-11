@@ -41,7 +41,9 @@ var logIn_dialog = $("#modelCheckIn").dialog({
 
 $(".btn-room").click(function() {
   $("#lbl_roomNumber").text(":" + $(this).attr("data-roomnumber"));
-  $("#frmCheckIn").removeClass("hidden");
+  $("#lbl_dailyPrice").text(":" + $(this).attr("data-dailyPrice"));
+  $("#lbl_peakPrice").text(":" + $(this).attr("data-peakPrice"));
+
   logIn_dialog.dialog("open");
 });
 

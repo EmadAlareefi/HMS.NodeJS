@@ -48,5 +48,24 @@
   }
 }
 
+#FsAddRoomBasicInfo label:not([class="title"]),
+.FsAddRoomLeft label:not([class="title"]) {
+  font-size: 16px !important;
+  padding-top: 3px;
+}
+#FsAddRoomBasicInfo label:not([class="title"]) {
+  margin-bottom: 0.3rem !important;
+}
 
+.FsAddRoomLeft label:not([class="title"]),.FsAddRoomLeft input[type="checkbox"] {
+cursor: pointer ;
+}
+#FsAddRoomBasicInfo input,
+#FsAddRoomBasicInfo select {
+  height: 25px;
+}
 
+.FsAddRoomLeft .form-check-input {
+  width: 25px !important;
+  height: 25px !important;
+}
