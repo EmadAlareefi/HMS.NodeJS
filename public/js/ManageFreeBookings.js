@@ -1,5 +1,16 @@
 
-var form = $("#frmCheckIn");
+var frmCheckIn = $("#frmCheckIn");
+var frmAddingRoom = $("#frmAddingRoom");
+
+
+$("#btnAddRoom").on('click', () => {
+  frmAddingRoom.submit();
+  alert('dd')
+})
+$("#btnAddRoomClose").on('click', () => {
+  frmAddingRoom[0].reset();
+})
+
 
 var logIn_dialog = $("#modelCheckIn").dialog({
   title: "تسجيل دخول",
@@ -22,7 +33,7 @@ var logIn_dialog = $("#modelCheckIn").dialog({
     //   type: "submit",
     //   form: "frmCheckIn",
       click: () => {
-        form.submit();
+        frmCheckIn.submit();
       }
     },
     {
