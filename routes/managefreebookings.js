@@ -1,11 +1,12 @@
 var express = require("express");
+const { check, validationResult } = require("express-validator/check");
+const { matchedData, sanitize } = require("express-validator/filter");
 var router = express.Router();
 var mongojs = require("mongojs");
 var MongoClient = require("mongodb").MongoClient;
 
 // var url = 'mongodb://EmadAlareefi:emadalareefi@ds255588.mlab.com:55588/hmsdb';
 // var db = mongojs('mongodb://EmadAlareefi:emadalareefi@ds255588.mlab.com:55588/hmsdb', ['bookingTypes']);
-
 var url = "mongodb://localhost:27017/";
 var dbName = "hmsdb";
 var db = mongojs(url + dbName, ["bookingSrc"]);
@@ -16,81 +17,26 @@ router.get("/", function(req, res, next) {
       res.send(err);
     }
     db.bookingTypes.find((err, bookingTypes) => {
+      if (err) {
+        res.send(err);
+      }
+      db.rooms.find((err, rooms) => {
         if (err) {
           res.send(err);
         }
-        db.rooms.find((err, rooms) => {
-            if (err) {
-              res.send(err);
-            }
         res.render("Pages/Management/ManageFreeBookings", {
-            title: "الشقق والتسكين",
-            Page: {
-              title: "الشقق والتسكين"
-            },
-            bookingSrc,
-            bookingTypes,
-            rooms
-          });
+          title: "الشقق والتسكين",
+          Page: {
+            title: "الشقق والتسكين"
+          },
+          bookingSrc,
+          bookingTypes,
+          rooms
         });
       });
+    });
+  });
 });
-
- 
-
-  
-  //   MongoClient.connect(url, (err, db) => {
-  //     var bookingSrc = [];
-  //     var bookingTypes = [];
-
-  //     if (err) throw err;
-  //     dbo = db.db(dbName);
-  //     dbo.collection("bookingSrc").find((err, result) => {
-  //       if (err) throw err;
-  //       bookingSrc = result;
-  //       console.log(result);
-  //     });
-  //     console.log(bookingSrc);
-
-  //     dbo.collection("bookingTypes").find((err, result) => {
-  //       if (err) throw err;
-  //       bookingTypes = result;
-  //       console.log(result);
-  //     });
-  //     console.log(bookingTypes);
-
-  //     res.render("Pages/Management/ManageFreeBookings", {
-  //       title: "الشقق والتسكين",
-  //       Page: {
-  //         title: "الشقق والتسكين"
-  //       },
-  //       bookingSrc: [],
-  //       bookingTypes: []
-  //     });
-  //   });
-});
-
-// router.get("/typesOfBookings", function(req, res, next) {
-//   // var typesOfBookings = {
-//   //    "1":"عن طريق الموقع",
-//   //    "2":"خارجي",
-//   //    "3":"الاستقبال"
-//   // }
-//   db.bookingSrc.find((err, bookingSrc) => {
-//     if (err) {
-//       res.send(err);
-//     }
-//     // for (var obj in bookingTypes) {
-//     //         console.log(obj[1].type);
-//     // }
-//     // console.log(bookingTypes);
-
-//     bookingSrc.forEach(element => {
-//       console.log(element.type);
-//     });
-//     res.json(bookingSrc);
-//   });
-// });
 
 router.post("/checkIn", (req, res, net) => {
   var checkIn = req.body;
@@ -118,7 +64,6 @@ router.post("/checkIn", (req, res, net) => {
   });
 });
 
-
 router.post("/check_in", function(req, res) {
   req.checkBody("contract-number", "ﻻ ﺑﺪ ﻣﻦ اﺿﺎﻓﺔ ﺭﻗﻢ اﻟﻌﻘﺪ").notEmpty();
   var errors = req.validationErrors();
@@ -139,10 +84,55 @@ router.post("/check_in", function(req, res) {
   }
 });
 
-
 router.post("/addingRoom", function(req, res) {
-    
-});
+  req.checkBody("name", "ﻻ ﺑﺪ ﻣﻦ اﺿﺎﻓﺔ اسم الغرفة").notEmpty();
+  req.checkBody("floor", "لا بد من اضافة رقم الطابق").notEmpty();
 
+  var errors = req.validationErrors();
+  if (errors) {
+    console.log(errors);
+  } else {
+    dbo = db.db(dbName);
+    var newRoom = {
+      name: body.name,
+      floor: body.floor,
+      bookingSrc: body.bookingSrc,
+      GeneralFeatures: [
+        {
+          internet: body.internet,
+          parking: body.parking,
+          elevator: body.elevator,
+          cleaning: body.cleaning
+        }
+      ],
+      SpecialFeatures: [
+        {
+          phoneguide: body.phoneguide,
+          oven: body.oven,
+          paper: body.paper,
+          microwave: body.microwave,
+          elevator: body.elevator,
+          qiblah: body.qiblah,
+          restaurantslist: body.restaurantslist,
+          iron: body.iron,
+          refrigerator: body.refrigerator,
+          foodtable: body.foodtable,
+          hall: body.hall,
+          kitchen: body.kitchen
+        }
+      ],
+      notes: body.notes
+    };
+    dbo.collection("rooms").save(newRoom, (err, result) => {
+      if (err) {
+        throw err;
+        return false;
+      }
+      res.redirect("/ManageFreeBookings");
+      dbo.close();
+    });
+    console.log("Inserted");
+  }
+});
 
 module.exports = router;
