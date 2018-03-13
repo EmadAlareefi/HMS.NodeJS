@@ -53,6 +53,7 @@
             <div id="manageRooms" class="tab-pane fade show active" role="tabpanel">
 
               <% rooms.forEach(room => { %>
+                <a data-toggle="modal" data-target="#modelCheckIn">
                 <div class="page-btn btn-room" data-roomnumber=<%= room.roomNumber %> data-dailyPrice=<%= room.dailyPrice %> data-peakPrice=<%= room.peakPrice %>>
                   <label class="lbl-room_number">
                     <%= room.roomNumber%>
@@ -62,6 +63,7 @@
                     <%=room.roomNumber%>
                   </span>
                 </div>
+              </a>
                 <% }) %>
 
             </div>
@@ -90,8 +92,8 @@
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script language="javascript" src="js/Site.js"></script> -->
 
-    <% include ../../models/checkInModel %>
-    <% include ../../models/addingARoom %>
+    <% include ../../models/checkInModal %>
+    <% include ../../models/addingARoomModal %>
 
       <% include ../../partials/footer %>
         </body>
