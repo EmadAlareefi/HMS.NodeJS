@@ -4,19 +4,18 @@ const { matchedData, sanitize } = require("express-validator/filter");
 var router = express.Router();
 var mongojs = require("mongojs");
 var MongoClient = require("mongodb").MongoClient;
-
-// var globals = require("./globals");
+var globals = require("./globals");
 // var url = 'mongodb://EmadAlareefi:emadalareefi@ds255588.mlab.com:55588/hmsdb';
 // var db = mongojs('mongodb://EmadAlareefi:emadalareefi@ds255588.mlab.com:55588/hmsdb', ['bookingTypes']);
-var url = "mongodb://localhost:27017/";
-var dbName = "hmsdb";
+// var url = "mongodb://localhost:27017/";
+// var dbName = "hmsdb";
 // var db = mongojs(url + dbName, ["bookingSrc"]);
 
 router.get("/", function(req, res, next) {
-  MongoClient.connect(url, (err, db) => {
+  MongoClient.connect(globals.url, (err, db) => {
     if (err) throw err;
 
-    dbo = db.db(dbName);
+    dbo = db.db(globals.dbName);
     dbo
       .collection("rooms")
       .find({})
@@ -116,9 +115,9 @@ router.post("/addingRoom", function(req, res) {
   if (errors) {
     console.log(errors);
   } else {
-    MongoClient.connect(url, (err, db) => {
+    MongoClient.connect(globals.url, (err, db) => {
       if (err) throw err;
-      dbo = db.db(dbName);
+      dbo = db.db(globals.dbName);
       var newRoom = {
         roomNumber: req.body.name,
         floor: req.body.floor,

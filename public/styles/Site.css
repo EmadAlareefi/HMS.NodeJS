@@ -34,16 +34,23 @@
 }
 
 @font-face {
-	font-family: 'Glyphicons Halflings';
-	src: url('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/fonts/glyphicons-halflings-regular.eot');
-	src: url('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),	url('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/fonts/glyphicons-halflings-regular.woff') format('woff'),	url('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/fonts/glyphicons-halflings-regular.ttf') format('truetype'),	url('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
+  font-family: "Glyphicons Halflings";
+  src: url("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/fonts/glyphicons-halflings-regular.eot");
+  src: url("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/fonts/glyphicons-halflings-regular.eot?#iefix")
+      format("embedded-opentype"),
+    url("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/fonts/glyphicons-halflings-regular.woff")
+      format("woff"),
+    url("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/fonts/glyphicons-halflings-regular.ttf")
+      format("truetype"),
+    url("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/fonts/glyphicons-halflings-regular.svg#glyphicons-halflingsregular")
+      format("svg");
 }
 
 .hidden {
   visibility: hidden;
 }
 
-.frmControlsFs{
+.frmControlsFs {
   font-size: 0.8em !important;
 }
 .fontDroid {
@@ -67,19 +74,19 @@
 .wid100 {
   width: 100% !important;
 }
-.pd10{
+.pd10 {
   padding: 10px !important;
 }
-.pd20{
+.pd20 {
   padding: 20px !important;
 }
-.pd30{
-  padding: 30px !important; 
+.pd30 {
+  padding: 30px !important;
 }
-.pdt5{
+.pdt5 {
   padding-top: 5px !important;
 }
-.pdt20{
+.pdt20 {
   padding-top: 20px !important;
 }
 
@@ -92,7 +99,7 @@
 .pdlr30 {
   padding: 0 30px !important;
 }
-.pdb5{
+.pdb5 {
   padding-bottom: 5px !important;
 }
 .pdb20 {
@@ -105,7 +112,7 @@
 .pdr20 {
   padding-right: 20px !important;
 }
-.pdr30{
+.pdr30 {
   padding-right: 30px !important;
 }
 .pdr80 {
@@ -121,12 +128,11 @@
 .pdl80 {
   padding-left: 80px !important;
 }
-.ver-align-center{
+.ver-align-center {
   position: relative;
   top: 50%;
   transform: translateY(-25%);
 }
-
 
 .dsp-block {
   display: block;
@@ -452,7 +458,7 @@ ul ul a {
 }
 #sidebarCollapse {
   padding: 0px 8px !important;
-  margin-top:  10px;
+  margin-top: 10px;
 }
 
 /* ---------------------------------------------------
@@ -573,6 +579,15 @@ nav {
   animation: fade-in 0.3s ease-in-out forwards;
 }
 
+[data-btn-type="checkOut"] {
+  background-color: #f96868 !important;
+}
+[data-btn-type="checkIn"] {
+  background-color: #1cdf37  !important;
+}
+[data-btn-type="clean"] {
+  background-color: #f1f9ff !important;
+}
 /* Dialog Properties */
 .mybtn-dialog {
   width: auto;
@@ -598,9 +613,8 @@ text-align: right;
   padding: 0 !important;
   margin: 0 !important;
   color: #fff;
-
 }
-.modal-header{
+.modal-header {
   padding: 6px 20px !important;
   background-color: #2c72a3;
   color: #e4efff;
@@ -658,10 +672,10 @@ fieldset .title {
   margin-bottom: 0 !important;
 }
 
-.k-list-scroller{
+.k-list-scroller {
   text-align: right !important;
 }
-.combobox{
+.combobox {
   /* width: 100% !important; */
   /* height: 18px !important; */
   float: left;
@@ -672,7 +686,6 @@ fieldset .title {
   height: 27px !important;
   /* padding: 0px 10px !important; */
 }
-
 
 /* .model input:not(.k-input) {
   display: inline-block;

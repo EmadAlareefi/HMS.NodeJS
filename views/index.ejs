@@ -1,6 +1,16 @@
 <% include partials/header %>
 
         <% include partials/sideNav %>
+        <% 
+        var empty = 0;
+        var used = 0;
+        var clean = 0;
+        rooms.forEach(room => { 
+                if (room.status == "فارغة") empty++; 
+                if (room.status == "مؤجرة") used++;     
+                if (room.status == "تنظيف") clean++;     
+    
+        }); %>
                 <script>
                         window.onload = function () {
                                 var chart = new CanvasJS.Chart("chartContainer", {
@@ -26,75 +36,76 @@
                                                 indexLabel: "{label} - {y}",
                                                 indexLabelFontFamily: "Droid_Regular",
                                                 dataPoints: [{
-                                                                y: 20,
-                                                                label: "عدد الغرف الفارغة"
+                                                                y: "<%= empty %>",
+                                                                label: "عدد الغرف الفارغة",
+                                                                color: "#1cdf37"
                                                         },
                                                         {
-                                                                y: 2,
-                                                                label: "عدد الغرف المؤجرة"
+                                                                y: "<%= used %>",
+                                                                label: "عدد الغرف المؤجرة",
+                                                                color: "#f96868"
                                                         },
                                                         {
-                                                                y: 1,
-                                                                label: "عدد الغرف تحت التنظيف"
+                                                                y: "<%= clean %>",
+                                                                label: "عدد الغرف تحت التنظيف",
+                                                                color: "#f1f9ff"
                                                         }
                                                 ]
                                         }],
                                         backgroundColor: "transparent"
                                 });
                                 chart.render();
-
-
-                                Highcharts.chart('container', {
-                                        chart: {
-                                                plotBackgroundColor: null,
-                                                plotBorderWidth: null,
-                                                plotShadow: false,
-                                                type: 'pie'
-                                        },
-                                        title: {
-                                                text: 'إحصائات الغرف'
-                                        },
-                                        tooltip: {
-                                                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
-                                        },
-                                        plotOptions: {
-                                                pie: {
-                                                        allowPointSelect: true,
-                                                        cursor: 'pointer',
-                                                        dataLabels: {
-                                                                enabled: true,
-                                                                format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-                                                                style: {
-                                                                        color: (Highcharts.theme &&
-                                                                                Highcharts
-                                                                                .theme.contrastTextColor
-                                                                        ) || 'black'
-                                                                }
-                                                        }
-                                                }
-                                        },
-                                        series: [{
-                                                name: 'Brands',
-                                                colorByPoint: true,
-                                                data: [{
-                                                        name: 'عدد الغرف الفارغة',
-                                                        y: 20,
-                                                        sliced: true,
-                                                        selected: true
-                                                }, {
-                                                        name: 'عدد الغرف المؤجرة',
-                                                        y: 2
-                                                }, {
-                                                        name: 'عدد الغرف تحت التنظيف',
-                                                        y: 1
-                                                }]
-                                        }]
-                                });
                                 $('.canvasjs-chart-credit').remove();
-                                $('.highcharts-credits').remove();
 
 
-                                // $("div:contains()").remove();
+                                // Highcharts.chart('container', {
+                                //         chart: {
+                                //                 plotBackgroundColor: null,
+                                //                 plotBorderWidth: null,
+                                //                 plotShadow: false,
+                                //                 type: 'pie'
+                                //         },
+                                //         title: {
+                                //                 text: 'إحصائات الغرف'
+                                //         },
+                                //         tooltip: {
+                                //                 pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                                //         },
+                                //         plotOptions: {
+                                //                 pie: {
+                                //                         allowPointSelect: true,
+                                //                         cursor: 'pointer',
+                                //                         dataLabels: {
+                                //                                 enabled: true,
+                                //                                 format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                                //                                 style: {
+                                //                                         color: (Highcharts.theme &&
+                                //                                                 Highcharts
+                                //                                                 .theme.contrastTextColor
+                                //                                         ) || 'black'
+                                //                                 }
+                                //                         }
+                                //                 }
+                                //         },
+                                //         series: [{
+                                //                 name: 'Brands',
+                                //                 colorByPoint: true,
+                                //                 data: [{
+                                //                         name: 'عدد الغرف الفارغة',
+                                //                         y: 20,
+                                //                         sliced: true,
+                                //                         selected: true
+                                //                 }, {
+                                //                         name: 'عدد الغرف المؤجرة',
+                                //                         y: 2
+                                //                 }, {
+                                //                         name: 'عدد الغرف تحت التنظيف',
+                                //                         y: 1
+                                //                 }]
+                                //         }]
+                                // });
+                                // $('.highcharts-credits').remove();
+
                         }
                 </script>
                 <div class="myContainer">

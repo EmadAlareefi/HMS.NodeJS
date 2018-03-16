@@ -53,8 +53,8 @@
             <div id="manageRooms" class="tab-pane fade show active" role="tabpanel">
 
               <% rooms.forEach(room => { %>
-                <a data-toggle="modal" data-target="#modelCheckIn">
-                <div class="page-btn btn-room" data-roomnumber=<%= room.roomNumber %> data-dailyPrice=<%= room.dailyPrice %> data-peakPrice=<%= room.peakPrice %>>
+                <a data-toggle="modal" data-target="">
+                <div class="page-btn btn-room" data-roomnumber=<%= room.roomNumber %> data-dailyPrice=<%= room.dailyPrice %> data-peakPrice=<%= room.peakPrice %> data-btn-type=<% if(room.status == "فارغة"){ %> "checkIn" <% };if(room.status == "مؤجرة"){ %> "checkOut" <% };if(room.status == "تنظيف"){ %> "clean" <% } %> %>>
                   <label class="lbl-room_number">
                     <%= room.roomNumber%>
                   </label>
@@ -71,7 +71,7 @@
             <div id="checkIn" class="tab-pane fade" role="tabpanel">
               <% emptyRooms.forEach(room => { %>
                 <a data-toggle="modal" data-target="#modelCheckIn">
-                <div class="page-btn btn-room" data-roomnumber=<%= room.roomNumber %> data-dailyPrice=<%= room.dailyPrice %> data-peakPrice=<%= room.peakPrice %>>
+                <div class="page-btn btn-room" data-roomnumber=<%= room.roomNumber %> data-dailyPrice=<%= room.dailyPrice %> data-peakPrice=<%= room.peakPrice %> data-btn-type="checkIn">
                   <label class="lbl-room_number">
                     <%= room.roomNumber%>
                   </label>
@@ -87,8 +87,8 @@
             </div>
             <div id="checkOut" class="tab-pane fade" role="tabpanel">
               <% usedRooms.forEach(room => { %>
-                <a data-toggle="modal" data-target="#modelCheckIn">
-                <div class="page-btn btn-room" data-roomnumber=<%= room.roomNumber %> data-dailyPrice=<%= room.dailyPrice %> data-peakPrice=<%= room.peakPrice %>>
+                <a data-toggle="modal" data-target="">
+                <div class="page-btn btn-room" data-roomnumber=<%= room.roomNumber %> data-dailyPrice=<%= room.dailyPrice %> data-peakPrice=<%= room.peakPrice %> data-btn-type="checkOut">
                   <label class="lbl-room_number">
                     <%= room.roomNumber%>
                   </label>
