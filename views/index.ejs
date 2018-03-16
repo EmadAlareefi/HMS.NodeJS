@@ -1,16 +1,116 @@
 <% include partials/header %>
 
         <% include partials/sideNav %>
-        
+                <script>
+                        window.onload = function () {
+                                var chart = new CanvasJS.Chart("chartContainer", {
+                                        theme: "light2", // "light1", "light2", "dark1", "dark2"
+                                        exportEnabled: true,
+                                        animationEnabled: true,
+                                        title: {
+                                                text: "إحصائيات الغرف",
+                                                fontFamily: "Droid_Regular",
+                                        },
+                                        legend: {
+                                                horizontalAlign: "left",
+                                                verticalAlign: "center",
+                                                fontFamily: "Droid_Regular",
+                                        },
+                                        data: [{
+                                                type: "pie",
+                                                startAngle: 25,
+                                                toolTipContent: "<b>{label}</b>: {y}",
+                                                showInLegend: "true",
+                                                legendText: "{label}",
+                                                indexLabelFontSize: 16,
+                                                indexLabel: "{label} - {y}",
+                                                indexLabelFontFamily: "Droid_Regular",
+                                                dataPoints: [{
+                                                                y: 20,
+                                                                label: "عدد الغرف الفارغة"
+                                                        },
+                                                        {
+                                                                y: 2,
+                                                                label: "عدد الغرف المؤجرة"
+                                                        },
+                                                        {
+                                                                y: 1,
+                                                                label: "عدد الغرف تحت التنظيف"
+                                                        }
+                                                ]
+                                        }],
+                                        backgroundColor: "transparent"
+                                });
+                                chart.render();
+
+
+                                Highcharts.chart('container', {
+                                        chart: {
+                                                plotBackgroundColor: null,
+                                                plotBorderWidth: null,
+                                                plotShadow: false,
+                                                type: 'pie'
+                                        },
+                                        title: {
+                                                text: 'إحصائات الغرف'
+                                        },
+                                        tooltip: {
+                                                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                                        },
+                                        plotOptions: {
+                                                pie: {
+                                                        allowPointSelect: true,
+                                                        cursor: 'pointer',
+                                                        dataLabels: {
+                                                                enabled: true,
+                                                                format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                                                                style: {
+                                                                        color: (Highcharts.theme &&
+                                                                                Highcharts
+                                                                                .theme.contrastTextColor
+                                                                        ) || 'black'
+                                                                }
+                                                        }
+                                                }
+                                        },
+                                        series: [{
+                                                name: 'Brands',
+                                                colorByPoint: true,
+                                                data: [{
+                                                        name: 'عدد الغرف الفارغة',
+                                                        y: 20,
+                                                        sliced: true,
+                                                        selected: true
+                                                }, {
+                                                        name: 'عدد الغرف المؤجرة',
+                                                        y: 2
+                                                }, {
+                                                        name: 'عدد الغرف تحت التنظيف',
+                                                        y: 1
+                                                }]
+                                        }]
+                                });
+                                $('.canvasjs-chart-credit').remove();
+                                $('.highcharts-credits').remove();
+
+
+                                // $("div:contains()").remove();
+                        }
+                </script>
                 <div class="myContainer">
                         <div class="content">
                                 <% include partials/topNav %>
+                                        <div id="chartContainer" style="height: 370px; width: 50%;direction: ltr;float:right">
 
-
-
-
+                                        </div>
+                                        <div id="container" style="height: 400px; width: 40%;float:left"></div>
 
                         </div>
-                </div>          
+                </div>
+                <script src="https://code.highcharts.com/highcharts.js"></script>
+                <script src="https://code.highcharts.com/modules/exporting.js"></script>
+
+                <script language="javascript" src="js/canvasjs.min.js"></script>
+
+
                 <% include partials/footer %>
-                

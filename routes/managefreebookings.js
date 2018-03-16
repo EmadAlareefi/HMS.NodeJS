@@ -18,23 +18,23 @@ router.get("/", function(req, res, next) {
 
     dbo = db.db(dbName);
     dbo
-      .collection("bookingSrc")
+      .collection("rooms")
       .find({})
-      .toArray((err, bookingSrc) => {
+      .toArray((err, rooms) => {
         if (err) {
           res.send(err);
         }
         dbo
-          .collection("bookingTypes")
-          .find({})
-          .toArray((err, bookingTypes) => {
+          .collection("rooms")
+          .find({ status: "فارغة" })
+          .toArray((err, emptyRooms) => {
             if (err) {
               res.send(err);
             }
             dbo
               .collection("rooms")
-              .find({})
-              .toArray((err, rooms) => {
+              .find({ status: "مؤجرة" })
+              .toArray((err, usedRooms) => {
                 if (err) {
                   res.send(err);
                 }
@@ -50,9 +50,9 @@ router.get("/", function(req, res, next) {
                       Page: {
                         title: "الشقق والتسكين"
                       },
-                      bookingSrc,
-                      bookingTypes,
                       rooms,
+                      emptyRooms,
+                      usedRooms,
                       settings
                     });
                   });

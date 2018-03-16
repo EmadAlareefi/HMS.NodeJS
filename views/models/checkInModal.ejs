@@ -25,11 +25,11 @@
                 <label for="bookingSrc">مصدر الحجز</label>
                 <select id="bookingSrc" name="bookingSrc" form="frmCheckIn" class="bookingSrc" style="height: 21px;font-family: Droid_Regular;font-size:0.8em;padding-bottom: 3px">
 
-                  <% bookingSrc.forEach(element => { %>
-                    <option value=<%=element.id %> >
-                      <%= element.type  %>
+                  <% settings[0].bookingSrc.forEach(type => { %>
+                    <option value=<%=type %> >
+                        <%= type  %>
                     </option>
-                    <%}) %>
+                    <% }) %>
 
                 </select>
               </div>
@@ -52,11 +52,11 @@
                     </td>
                     <td>
                       <select id="bookingType" name="bookingType" form="frmCheckIn" class="form-control wid100 combobox">
-                        <% bookingTypes.forEach(element => { %>
-                          <option value=<%=element.id %> >
-                            <%= element.type  %>
+                        <% settings[0].bookingTypes.forEach(type => { %>
+                          <option value=<%=type %> >
+                              <%= type  %>
                           </option>
-                          <%}) %>
+                          <% }) %>
 
                       </select>
                   </tr>
@@ -67,6 +67,8 @@
                     </td>
                     <td>
                       <select id="" name="calander" form="frmCheckIn" class="form-control wid100 combobox">
+                        <option value="ميلادي">ميلادي</option>
+                        <option value="هجري">هجري</option>
                       </select>
                     </td>
                   </tr>

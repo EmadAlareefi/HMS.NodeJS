@@ -316,6 +316,7 @@ span {
   transition: all 0.3s;
   background: linear-gradient(to top, #8e9eab, #eef2f3);
   box-shadow: inset -3px 0px 0px 0px #1166bb;
+  text-align: right;
 }
 .top-nav {
   position: relative;

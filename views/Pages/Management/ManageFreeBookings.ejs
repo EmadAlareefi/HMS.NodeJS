@@ -64,19 +64,41 @@
                   </span>
                 </div>
               </a>
-                <% }) %>
+                <% }); %>
 
             </div>
-
 
             <div id="checkIn" class="tab-pane fade" role="tabpanel">
-              <h3>Menu 2</h3>
-              <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem
-                aperiam.</p>
+              <% emptyRooms.forEach(room => { %>
+                <a data-toggle="modal" data-target="#modelCheckIn">
+                <div class="page-btn btn-room" data-roomnumber=<%= room.roomNumber %> data-dailyPrice=<%= room.dailyPrice %> data-peakPrice=<%= room.peakPrice %>>
+                  <label class="lbl-room_number">
+                    <%= room.roomNumber%>
+                  </label>
+                  <img src="imgs/room.png">
+                  <span class="tooltiptext">رقم الشقة:
+                    <%=room.roomNumber%>
+                  </span>
+                </div>
+              </a>
+                <% }); %>
+
+          
             </div>
             <div id="checkOut" class="tab-pane fade" role="tabpanel">
-              <h3>Menu 3</h3>
-              <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+              <% usedRooms.forEach(room => { %>
+                <a data-toggle="modal" data-target="#modelCheckIn">
+                <div class="page-btn btn-room" data-roomnumber=<%= room.roomNumber %> data-dailyPrice=<%= room.dailyPrice %> data-peakPrice=<%= room.peakPrice %>>
+                  <label class="lbl-room_number">
+                    <%= room.roomNumber%>
+                  </label>
+                  <img src="imgs/room.png">
+                  <span class="tooltiptext">رقم الشقة:
+                    <%=room.roomNumber%>
+                  </span>
+                </div>
+              </a>
+                <% }); %>
             </div>
           </div>
 

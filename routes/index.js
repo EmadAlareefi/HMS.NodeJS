@@ -8,7 +8,7 @@ router.get("/", (req, res, next) => {
     title: "الرئيسية",
     Page: {
       title: "الرئيسية"
-    }
+    },
   });
 });
 
