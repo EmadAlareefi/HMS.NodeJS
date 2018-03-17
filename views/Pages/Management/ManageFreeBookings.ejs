@@ -32,9 +32,12 @@
 
 
           <div class="nav nav-tabs pdr10">
-              <a class="nav-item nav-link active fontDroid" id="nav-home-tab" data-toggle="tab" href="#manageRooms" role="tab" aria-controls="manageRooms" aria-selected="true">إدارة الشقق</a>
-              <a class="nav-item nav-link fontDroid" id="nav-profile-tab" data-toggle="tab" href="#checkIn" role="tab" aria-controls="checkIn" aria-selected="false">تسجيل الدخول</a>
-              <a class="nav-item nav-link fontDroid" id="nav-contact-tab" data-toggle="tab" href="#checkOut" role="tab" aria-controls="checkOut" aria-selected="false">تسجيل الخروج</a>
+            <a class="nav-item nav-link active fontDroid" id="nav-home-tab" data-toggle="tab" href="#manageRooms" role="tab" aria-controls="manageRooms"
+              aria-selected="true">إدارة الشقق</a>
+            <a class="nav-item nav-link fontDroid" id="nav-profile-tab" data-toggle="tab" href="#checkIn" role="tab" aria-controls="checkIn"
+              aria-selected="false">تسجيل الدخول</a>
+            <a class="nav-item nav-link fontDroid" id="nav-contact-tab" data-toggle="tab" href="#checkOut" role="tab" aria-controls="checkOut"
+              aria-selected="false">تسجيل الخروج</a>
             <!-- <li class="active pull-right fontDroid">
               <a data-toggle="tab" href="#manageRooms">إدارة الشقق</a>
             </li>
@@ -44,26 +47,28 @@
             <li class="pull-right fontDroid">
               <a data-toggle="tab" href="#checkOut">تسجيل الخروج</a>
             </li> -->
-                <a id="btn_add_a_room" class="hint--right hint--rounded nav-item nav-link" role="tab" aria-label="إضافة غرفة" style="cursor:pointer" data-toggle="modal" data-target="#modelAddRoom">
-                  <i class="fas fa-plus"></i>
-                </a>
+            <a id="btn_add_a_room" class="hint--right hint--rounded nav-item nav-link" role="tab" aria-label="إضافة غرفة" style="cursor:pointer"
+              data-toggle="modal" data-target="#modelAddRoom">
+              <i class="fas fa-plus"></i>
+            </a>
           </div>
 
           <div class="tab-content" style="padding-top: 30px;">
             <div id="manageRooms" class="tab-pane fade show active" role="tabpanel">
 
               <% rooms.forEach(room => { %>
-                <a data-toggle="modal" data-target="">
-                <div class="page-btn btn-room" data-roomnumber=<%= room.roomNumber %> data-dailyPrice=<%= room.dailyPrice %> data-peakPrice=<%= room.peakPrice %> data-btn-type=<% if(room.status == "فارغة"){ %> "checkIn" <% };if(room.status == "مؤجرة"){ %> "checkOut" <% };if(room.status == "تنظيف"){ %> "clean" <% } %> %>>
-                  <label class="lbl-room_number">
-                    <%= room.roomNumber%>
-                  </label>
-                  <img src="imgs/room.png">
-                  <span class="tooltiptext">الحالة: 
-                    <%=room.status%>
-                  </span>
-                </div>
-              </a>
+                <a data-toggle="modal" data-target="#updateRoomModal">
+                  <div class="page-btn btn-room" data-_id="<%=room._id%>" data-status="<%=room.status%>">
+                      
+                         <label class="lbl-room_number">
+                           <%= room.roomNumber%>
+                         </label>
+                         <img src="imgs/room.png">
+                         <span class="tooltiptext">الحالة:
+                         <%=room.status%>
+                          </span>
+                  </div>
+                </a>
                 <% }); %>
 
             </div>
@@ -71,33 +76,33 @@
             <div id="checkIn" class="tab-pane fade" role="tabpanel">
               <% emptyRooms.forEach(room => { %>
                 <a data-toggle="modal" data-target="#modelCheckIn">
-                <div class="page-btn btn-room" data-roomnumber=<%= room.roomNumber %> data-dailyPrice=<%= room.dailyPrice %> data-peakPrice=<%= room.peakPrice %> data-btn-type="checkIn">
-                  <label class="lbl-room_number">
-                    <%= room.roomNumber%>
-                  </label>
-                  <img src="imgs/room.png">
-                  <span class="tooltiptext">الحالة: 
-                    <%=room.status%>
-                  </span>
-                </div>
-              </a>
+                  <div class="page-btn btn-room" data-_id="<%=room._id%>" data-status="<%=room.status%>">
+                            <label class="lbl-room_number">
+                              <%= room.roomNumber%>
+                            </label>
+                            <img src="imgs/room.png">
+                            <span class="tooltiptext">الحالة:
+                              <%=room.status%>
+                            </span>
+                  </div>
+                </a>
                 <% }); %>
 
-          
+
             </div>
             <div id="checkOut" class="tab-pane fade" role="tabpanel">
               <% usedRooms.forEach(room => { %>
                 <a data-toggle="modal" data-target="">
-                <div class="page-btn btn-room" data-roomnumber=<%= room.roomNumber %> data-dailyPrice=<%= room.dailyPrice %> data-peakPrice=<%= room.peakPrice %> data-btn-type="checkOut">
-                  <label class="lbl-room_number">
-                    <%= room.roomNumber%>
-                  </label>
-                  <img src="imgs/room.png">
-                  <span class="tooltiptext">الحالة: 
-                    <%=room.status%>
-                  </span>
-                </div>
-              </a>
+                  <div class="page-btn btn-room" data-_id="<%=room._id%>" data-status="<%=room.status%>">
+                          <label class="lbl-room_number">
+                            <%= room.roomNumber %>
+                          </label>
+                          <img src="imgs/room.png">
+                          <span class="tooltiptext">الحالة:
+                            <%=room.status %>
+                          </span>
+                  </div>
+                </a>
                 <% }); %>
             </div>
           </div>
@@ -105,6 +110,7 @@
 
       </div>
     </div>
+
 
     <!-- working
     <script type="text/javascript" src="/jquery/dist/jquery.min.js"></script>
@@ -115,17 +121,36 @@
     <script language="javascript" src="js/Site.js"></script> -->
 
     <% include ../../models/checkInModal %>
-    <% include ../../models/addingARoomModal %>
+      <% include ../../models/addRoomModal %>
+        <% include ../../models/updateRoomModal %>
 
-      <% include ../../partials/footer %>
-        </body>
-
-        <script src="https://kendo.cdn.telerik.com/2018.1.221/js/jquery.min.js"></script>
-        <script src="https://kendo.cdn.telerik.com/2018.1.221/js/kendo.all.min.js"></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-        <script type="text/javascript" src="js/ManageFreeBookings.js"></script>
+          <% include ../../partials/footer %>
+            </body>
 
 
-        </html>
-        <!-- End of Wrapper -->
-        </div>
+            <script src="https://kendo.cdn.telerik.com/2018.1.221/js/jquery.min.js"></script>
+            <script src="https://kendo.cdn.telerik.com/2018.1.221/js/kendo.all.min.js"></script>
+            <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+            <script type="text/javascript" src="js/ManageFreeBookings.js"></script>
+
+
+            <script>
+              //  rooms = JSON.parse(rooms);  
+              // for (let i = 0; i < "<%= rooms.length %>"; i++) {
+              //   var rooms = "<%= rooms[2].roomNumber %>";
+              //   var floor = "<%= rooms[2].floor %>";
+              //   var dailyPrice = "<%= rooms[2].dailyPrice %>";
+              //   var peakPrice = "<%= rooms[2].peakPrice %>";
+              //   var status = "<%= rooms[2].status %>";
+              //   var GeneralFeatures = "<%= rooms[2].GeneralFeatures[0] %>";
+              //   var SpecialFeatures = "<%= rooms[2].SpecialFeatures[0] %>";
+              //   var notes = "<%= rooms[2].notes %>";
+              //   console.log(notes);
+              // }
+
+
+            </script>
+
+            </html>
+            <!-- End of Wrapper -->
+            </div>

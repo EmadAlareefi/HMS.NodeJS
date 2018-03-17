@@ -579,13 +579,13 @@ nav {
   animation: fade-in 0.3s ease-in-out forwards;
 }
 
-[data-btn-type="checkOut"] {
+[data-status="مؤجرة"] {
   background-color: #f96868 !important;
 }
-[data-btn-type="checkIn"] {
+[data-status="فارغة"] {
   background-color: #1cdf37  !important;
 }
-[data-btn-type="clean"] {
+[data-status="تنظيف"] {
   background-color: #f1f9ff !important;
 }
 /* Dialog Properties */

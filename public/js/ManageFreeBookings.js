@@ -1,8 +1,7 @@
-
 var frmCheckIn = $("#frmCheckIn");
 var frmAddingRoom = $("#frmAddingRoom");
+var frmUpdateRoom = $("#frmUpdateRoom");
 // var modelAddRoom = $("#modelAddRoom");
-
 
 // $("#btnAddRoom").on('click', () => {
 //   frmAddingRoom.submit();
@@ -12,10 +11,9 @@ var frmAddingRoom = $("#frmAddingRoom");
 //     frmAddingRoom.get(0).reset();
 //   }
 // })
-$(".formClose").on('click', () => {
+$(".formClose").on("click", () => {
   frmAddingRoom.get(0).reset();
-})
-
+});
 
 // var logIn_dialog = $("#modelCheckIn").dialog({
 //   title: "تسجيل دخول",
@@ -56,9 +54,16 @@ $(".formClose").on('click', () => {
 // });
 
 $(".btn-room").click(function() {
-  $("#lbl_roomNumber").text(":" + $(this).attr("data-roomnumber"));
-  $("#lbl_dailyPrice").text(":" + $(this).attr("data-dailyPrice"));
-  $("#lbl_peakPrice").text(":" + $(this).attr("data-peakPrice"));
+  id = $(this).data()._id;
+  $.ajax({
+    url: "/managefreebookings/room/" + id,
+    success: function(result) {
+      var room = result[0];
+      $("#lbl_roomNumber").text(":" + room.roomNumber);
+      $("#lbl_dailyPrice").text(":" + room.dailyPrice);
+      $("#lbl_peakPrice").text(":" + room.peakPrice);
+    }
+  });
 });
 
 var dataSource = new kendo.data.DataSource({
@@ -84,3 +89,21 @@ $("#bookingSrc").kendoComboBox({
 
 var select = $("#bookingSrc").data("kendoComboBox");
 /*====================================================================End of ComboBox Jquary */
+
+$("a[data-target='#updateRoomModal']").click(event => {
+  frmUpdateRoom.get(0).reset();
+  var target = $(event.target);
+  if (target.is("div")) {
+    var id = target.data()._id;
+  } else {
+    var id = target.parent().data()._id;
+  }
+  $.ajax({
+    url: "/managefreebookings/room/" + id,
+    success: function(result) {
+      var room = result[0];
+      alert(room._id);
+    }
+  });
+});
+// $(".btn-room")

@@ -4,6 +4,7 @@ const { matchedData, sanitize } = require("express-validator/filter");
 var router = express.Router();
 var mongojs = require("mongojs");
 var MongoClient = require("mongodb").MongoClient;
+var ObjectId = require('mongodb').ObjectId; 
 var globals = require("./globals");
 // var url = 'mongodb://EmadAlareefi:emadalareefi@ds255588.mlab.com:55588/hmsdb';
 // var db = mongojs('mongodb://EmadAlareefi:emadalareefi@ds255588.mlab.com:55588/hmsdb', ['bookingTypes']);
@@ -162,4 +163,17 @@ router.post("/addingRoom", function(req, res) {
   }
 });
 
+router.get("/room/:id", function(req, res) {
+  MongoClient.connect(globals.url, (err, db) => {
+    if (err)  res.send(err);
+    dbo = db.db(globals.dbName);
+    var o_id = new ObjectId(req.params.id);
+
+    dbo.collection('rooms').find({"_id":o_id}).toArray((err,room) => {
+      if (err)  res.send(err);
+      // console.log(room);
+       res.json(room);
+    });
+  });
+});
 module.exports = router;
