@@ -58,8 +58,16 @@
 
               <% rooms.forEach(room => { %>
                 <a data-toggle="modal" data-target="#updateRoomModal">
-                  <div class="page-btn btn-room" data-_id="<%=room._id%>" data-status="<%=room.status%>">
-                      
+                  <div class="page-btn btn-room btn-room-update"
+                      <% for(var propertyName in room) { if(propertyName != "GeneralFeatures" && propertyName != "SpecialFeatures"){ %>
+                        data-<%=propertyName %> = <%=room[propertyName]%> 
+                        <% } else if(propertyName == "GeneralFeatures"){ %>
+                         <% for(var property in room["GeneralFeatures"][0]){ %>
+                         data-<%= property %> = <%=room["GeneralFeatures"][0][property] %> 
+                         <% }}else if(propertyName == "SpecialFeatures"){ %>
+                           <% for(var property in room["SpecialFeatures"][0]){ %>
+                           data-<%= property %> = <%=room["SpecialFeatures"][0][property] %> 
+                           <% }}} %>>
                          <label class="lbl-room_number">
                            <%= room.roomNumber%>
                          </label>
@@ -76,7 +84,17 @@
             <div id="checkIn" class="tab-pane fade" role="tabpanel">
               <% emptyRooms.forEach(room => { %>
                 <a data-toggle="modal" data-target="#modelCheckIn">
-                  <div class="page-btn btn-room" data-_id="<%=room._id%>" data-status="<%=room.status%>">
+                  <div class="page-btn btn-room btn-room-checkIn" 
+                          <% for(var propertyName in room) { if(propertyName != "GeneralFeatures" && propertyName != "SpecialFeatures"){ %>
+                           data-<%=propertyName %> = <%=room[propertyName]%> 
+                           <% } else if(propertyName == "GeneralFeatures"){ %>
+                            <% for(var property in room["GeneralFeatures"][0]){ %>
+                            data-<%= property %> = <%=room["GeneralFeatures"][0][property] %> 
+                            <% }}else if(propertyName == "SpecialFeatures"){ %>
+                              <% for(var property in room["SpecialFeatures"][0]){ %>
+                              data-<%= property %> = <%=room["SpecialFeatures"][0][property] %> 
+                              <% }}} %>>
+                         
                             <label class="lbl-room_number">
                               <%= room.roomNumber%>
                             </label>
@@ -93,7 +111,16 @@
             <div id="checkOut" class="tab-pane fade" role="tabpanel">
               <% usedRooms.forEach(room => { %>
                 <a data-toggle="modal" data-target="">
-                  <div class="page-btn btn-room" data-_id="<%=room._id%>" data-status="<%=room.status%>">
+                  <div class="page-btn btn-room"
+                  <% for(var propertyName in room) { if(propertyName != "GeneralFeatures" && propertyName != "SpecialFeatures"){ %>
+                    data-<%=propertyName %> = <%=room[propertyName]%> 
+                    <% } else if(propertyName == "GeneralFeatures"){ %>
+                     <% for(var property in room["GeneralFeatures"][0]){ %>
+                     data-<%= property %> = <%=room["GeneralFeatures"][0][property] %> 
+                     <% }}else if(propertyName == "SpecialFeatures"){ %>
+                       <% for(var property in room["SpecialFeatures"][0]){ %>
+                       data-<%= property %> = <%=room["SpecialFeatures"][0][property] %> 
+                       <% }}} %>>
                           <label class="lbl-room_number">
                             <%= room.roomNumber %>
                           </label>
@@ -134,22 +161,7 @@
             <script type="text/javascript" src="js/ManageFreeBookings.js"></script>
 
 
-            <script>
-              //  rooms = JSON.parse(rooms);  
-              // for (let i = 0; i < "<%= rooms.length %>"; i++) {
-              //   var rooms = "<%= rooms[2].roomNumber %>";
-              //   var floor = "<%= rooms[2].floor %>";
-              //   var dailyPrice = "<%= rooms[2].dailyPrice %>";
-              //   var peakPrice = "<%= rooms[2].peakPrice %>";
-              //   var status = "<%= rooms[2].status %>";
-              //   var GeneralFeatures = "<%= rooms[2].GeneralFeatures[0] %>";
-              //   var SpecialFeatures = "<%= rooms[2].SpecialFeatures[0] %>";
-              //   var notes = "<%= rooms[2].notes %>";
-              //   console.log(notes);
-              // }
-
-
-            </script>
+          
 
             </html>
             <!-- End of Wrapper -->

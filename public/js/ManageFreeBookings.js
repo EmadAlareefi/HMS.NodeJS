@@ -53,17 +53,79 @@ $(".formClose").on("click", () => {
 //   }
 // });
 
-$(".btn-room").click(function() {
-  id = $(this).data()._id;
+$(".btn-room-update").click(function() {
+  $("#lbl_roomNumber").text(":" + $(this).data().roomnumber);
+  $("#lbl_dailyPrice").text(":" + $(this).data().dailyprice);
+  $("#lbl_peakPrice").text(":" + $(this).data().peakprice);
+});
+
+$(".btn-room-update").click(event => {
+  frmUpdateRoom.get(0).reset();
+  var target = $(event.target);
+  if (target.is("div")) {
+    var id = target.data()._id;
+  } else {
+    var id = target.parent().data()._id;
+  }
+
+  // JQuary Ajax
   $.ajax({
     url: "/managefreebookings/room/" + id,
+    beforeSend: function() {
+      $("#frmUpdateRoom").addClass("hidden");
+
+      var name = $("#frmUpdateRoom").find("input[name='name']");
+      name.text("text");
+    },
     success: function(result) {
       var room = result[0];
-      $("#lbl_roomNumber").text(":" + room.roomNumber);
-      $("#lbl_dailyPrice").text(":" + room.dailyPrice);
-      $("#lbl_peakPrice").text(":" + room.peakPrice);
+      for (var prop in room) {
+        if (
+          prop != "_id"
+        ) {
+          input = $("#frmUpdateRoom").find("input[name='" + prop + "']");
+          if (input.attr("type") == "text") {
+            input.val(room[prop]);
+          }
+          if (prop == "GeneralFeatures") {
+          // if (input.attr("type") == "checkbox") {
+              for (var pro in room[prop][0]) {
+                  input = $("#frmUpdateRoom").find("input[name='" + pro + "']");
+                  input.attr("checked",room[prop][0][pro]);
+                // }
+              }
+          }
+          if (prop == "SpecialFeatures") {
+                for (var pro in room[prop][0]) {
+                    input = $("#frmUpdateRoom").find("input[name='" + pro + "']");
+                    input.attr("checked",room[prop][0][pro]);                 
+                }
+            }
+          $("#frmUpdateRoom")
+            .find("select[name='" + prop + "']")
+            .val(room[prop]);
+          
+            
+            // alert(room[prop][0]["internet"]);
+          
+        }
+      }
+      $("#frmUpdateRoom").removeClass("hidden");
     }
   });
+
+  // JavaScript Ajax
+  // var xhttp = new XMLHttpRequest();
+  // xhttp.onreadystatechange = function() {
+  //   if (this.readyState == 4 && this.status == 200) {
+  //     obj = JSON.parse(this.responseText);
+  //     var room = obj[0];
+  //     alert(room._id);
+
+  //   }
+  // };
+  // xhttp.open("GET", "/managefreebookings/room/" + id, true);
+  // xhttp.send();
 });
 
 var dataSource = new kendo.data.DataSource({
@@ -90,20 +152,4 @@ $("#bookingSrc").kendoComboBox({
 var select = $("#bookingSrc").data("kendoComboBox");
 /*====================================================================End of ComboBox Jquary */
 
-$("a[data-target='#updateRoomModal']").click(event => {
-  frmUpdateRoom.get(0).reset();
-  var target = $(event.target);
-  if (target.is("div")) {
-    var id = target.data()._id;
-  } else {
-    var id = target.parent().data()._id;
-  }
-  $.ajax({
-    url: "/managefreebookings/room/" + id,
-    success: function(result) {
-      var room = result[0];
-      alert(room._id);
-    }
-  });
-});
 // $(".btn-room")
