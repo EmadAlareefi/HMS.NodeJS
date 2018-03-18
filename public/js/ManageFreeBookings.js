@@ -72,13 +72,17 @@ $(".btn-room-update").click(event => {
   $.ajax({
     url: "/managefreebookings/room/" + id,
     beforeSend: function() {
-      $("#frmUpdateRoom").addClass("hidden");
+      $("#updateRoomModal").find(".loading").toggleClass("hidden");
+      $("#frmUpdateRoom").toggleClass("hidden");
+      $("#frmUpdateRoom").removeClass("showen");
+
 
       var name = $("#frmUpdateRoom").find("input[name='name']");
       name.text("text");
     },
     success: function(result) {
       var room = result[0];
+      $(frmUpdateRoom).attr("action","/ManageFreeBookings/updateRoom/" + room._id)
       for (var prop in room) {
         if (
           prop != "_id"
@@ -110,7 +114,10 @@ $(".btn-room-update").click(event => {
           
         }
       }
-      $("#frmUpdateRoom").removeClass("hidden");
+      $("#frmUpdateRoom").toggleClass("hidden");
+      $("#frmUpdateRoom").addClass("showen");
+      $("#updateRoomModal").find(".loading").toggleClass("hidden");
+      
     }
   });
 

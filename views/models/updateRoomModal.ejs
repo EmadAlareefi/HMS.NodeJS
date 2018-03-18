@@ -7,7 +7,9 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body" style="position: relative;">
+                    <div class="loading hidden">Loading&#8230;</div>
+                    <% var id = 1 %>
                 <form id="frmUpdateRoom" action="/ManageFreeBookings/updateRoom" method="POST">
                     <div class="field-row" style="grid-template-columns:50% 50%;">
                         <div class="field-cell">

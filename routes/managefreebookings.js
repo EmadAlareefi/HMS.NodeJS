@@ -109,7 +109,7 @@ router.post("/checkIn", (req, res, net) => {
 // });
 
 router.post("/addingRoom", function(req, res) {
-  req.checkBody("name", "ﻻ ﺑﺪ ﻣﻦ اﺿﺎﻓﺔ اسم الغرفة").notEmpty();
+  req.checkBody("roomNumber", "ﻻ ﺑﺪ ﻣﻦ اﺿﺎﻓﺔ اسم الغرفة").notEmpty();
   req.checkBody("floor", "لا بد من اضافة رقم الطابق").notEmpty();
 
   var errors = req.validationErrors();
@@ -120,7 +120,7 @@ router.post("/addingRoom", function(req, res) {
       if (err) throw err;
       dbo = db.db(globals.dbName);
       var newRoom = {
-        roomNumber: req.body.name,
+        roomNumber: req.body.roomNumber,
         floor: req.body.floor,
         roomsNumber: req.body.roomsNumber,
         bathrooms: req.body.bathrooms,
@@ -166,10 +166,73 @@ router.post("/addingRoom", function(req, res) {
         res.redirect("/ManageFreeBookings");
         db.close();
       });
-      console.log("Inserted");
     });
   }
 });
+
+router.post("/updateRoom/:id", function(req, res) {
+  req.checkBody("roomNumber", "ﻻ ﺑﺪ ﻣﻦ اﺿﺎﻓﺔ اسم الغرفة").notEmpty();
+  req.checkBody("floor", "لا بد من اضافة رقم الطابق").notEmpty();
+
+  var errors = req.validationErrors();
+  if (errors) {
+    res.send(errors);
+  } else {
+    MongoClient.connect(globals.url, (err, db) => {
+      if (err) throw err;
+      dbo = db.db(globals.dbName);
+      var newRoom = {
+        roomNumber: req.body.roomNumber,
+        floor: req.body.floor,
+        roomsNumber: req.body.roomsNumber,
+        bathrooms: req.body.bathrooms,
+        singleBeds: req.body.singleBeds,
+        doubleBeds: req.body.doubleBeds,
+        closets: req.body.closets,
+        tvs: req.body.tvs,
+        acType : req.body.acType,
+        roomType : req.body.roomType,
+        dailyPrice: 100,
+        peakPrice: 150,
+        status: req.body.status,
+        GeneralFeatures: [
+          {
+            internet: req.body.internet ? true : false,
+            parking: req.body.parking ? true : false,
+            elevator: req.body.elevator ? true : false,
+            cleaning: req.body.cleaning ? true : false
+          }
+        ],
+        SpecialFeatures: [
+          {
+            phoneguide: req.body.phoneguide ? true : false,
+            oven: req.body.oven ? true : false,
+            paper: req.body.paper ? true : false,
+            microwave: req.body.microwave ? true : false,
+            washer: req.body.washer ? true : false,
+            qiblah: req.body.qiblah ? true : false,
+            restaurantslist: req.body.restaurantslist ? true : false,
+            iron: req.body.iron ? true : false,
+            refrigerator: req.body.refrigerator ? true : false,
+            foodtable: req.body.foodtable ? true : false,
+            hall: req.body.hall ? true : false,
+            kitchen: req.body.kitchen ? true : false
+          }
+        ],
+        notes: req.body.notes
+      };
+      var o_id = new ObjectId(req.params.id);
+      dbo.collection("rooms").update({ _id: o_id},newRoom, (err, result) => {
+        if (err) {
+          throw err;
+        }
+        res.redirect("/ManageFreeBookings");
+        db.close();
+      });
+    });
+  }
+});
+
 
 router.get("/room/:id", function(req, res) {
   MongoClient.connect(globals.url, (err, db) => {
@@ -180,6 +243,7 @@ router.get("/room/:id", function(req, res) {
     dbo.collection('rooms').find({"_id":o_id}).toArray((err,room) => {
       if (err)  res.send(err);
       // console.log(room);
+      // res.send(id = o_id);
        res.json(room);
     });
   });
