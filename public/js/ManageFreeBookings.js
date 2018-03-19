@@ -72,52 +72,50 @@ $(".btn-room-update").click(event => {
   $.ajax({
     url: "/managefreebookings/room/" + id,
     beforeSend: function() {
-      $("#updateRoomModal").find(".loading").toggleClass("hidden");
+      $("#updateRoomModal")
+        .find(".lds-ellipsis")
+        .toggleClass("hidden");
       $("#frmUpdateRoom").toggleClass("hidden");
       $("#frmUpdateRoom").removeClass("showen");
-
-
-      var name = $("#frmUpdateRoom").find("input[name='name']");
-      name.text("text");
     },
     success: function(result) {
       var room = result[0];
-      $(frmUpdateRoom).attr("action","/ManageFreeBookings/updateRoom/" + room._id)
+      $(frmUpdateRoom).attr(
+        "action",
+        "/ManageFreeBookings/updateRoom/" + room._id
+      );
       for (var prop in room) {
-        if (
-          prop != "_id"
-        ) {
+        if (prop != "_id") {
           input = $("#frmUpdateRoom").find("input[name='" + prop + "']");
           if (input.attr("type") == "text") {
             input.val(room[prop]);
           }
           if (prop == "GeneralFeatures") {
-          // if (input.attr("type") == "checkbox") {
-              for (var pro in room[prop][0]) {
-                  input = $("#frmUpdateRoom").find("input[name='" + pro + "']");
-                  input.attr("checked",room[prop][0][pro]);
-                // }
-              }
+            // if (input.attr("type") == "checkbox") {
+            for (var pro in room[prop][0]) {
+              input = $("#frmUpdateRoom").find("input[name='" + pro + "']");
+              input.attr("checked", room[prop][0][pro]);
+              // }
+            }
           }
           if (prop == "SpecialFeatures") {
-                for (var pro in room[prop][0]) {
-                    input = $("#frmUpdateRoom").find("input[name='" + pro + "']");
-                    input.attr("checked",room[prop][0][pro]);                 
-                }
+            for (var pro in room[prop][0]) {
+              input = $("#frmUpdateRoom").find("input[name='" + pro + "']");
+              input.attr("checked", room[prop][0][pro]);
             }
+          }
           $("#frmUpdateRoom")
             .find("select[name='" + prop + "']")
             .val(room[prop]);
-          
-            
-            // alert(room[prop][0]["internet"]);
-          
+
+          // alert(room[prop][0]["internet"]);
         }
       }
       $("#frmUpdateRoom").toggleClass("hidden");
       $("#frmUpdateRoom").addClass("showen");
-      $("#updateRoomModal").find(".loading").toggleClass("hidden");
-      
+      $("#updateRoomModal")
+        .find(".lds-ellipsis")
+        .toggleClass("hidden");
     }
   });
 
@@ -158,5 +156,12 @@ $("#bookingSrc").kendoComboBox({
 
 var select = $("#bookingSrc").data("kendoComboBox");
 /*====================================================================End of ComboBox Jquary */
+$("#sandbox-container input").datepicker({
+  weekStart: 6,
+  maxViewMode: 3,
+  todayBtn: "linked",
+  language: "ar",
+  orientation: "bottom left",
+  todayHighlight: true
+});
 
-// $(".btn-room")

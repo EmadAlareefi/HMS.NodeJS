@@ -39,6 +39,7 @@ $(document).ready(function() {
   });
 
   $("#btnCheckIn").on("click", () =>{
+
     if(window.location.pathname == "/ManageFreeBookings"){
       $("#checkIn-tab").addClass("active show" , () => {
         $("#checkIn-tab").attr("aria-selected","true");
@@ -63,6 +64,7 @@ $(document).ready(function() {
   });
 
   $("#btnCheckOut").on("click", () =>{
+
     if(window.location.pathname == "/ManageFreeBookings"){
       $("#checkOut-tab").addClass("active show" , () => {
         $("#checkOut-tab").attr("aria-selected","true");

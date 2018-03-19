@@ -17,7 +17,7 @@
   src: url(/fonts/Droid/DroidKufi-Regular.eot);
   src: url(/fonts/Droid/DroidKufi-Regular.eot?#iefix)
       format("embedded-opentype"),
-    url(/fonts/Droid/DroidKufi-Regular.woff2) format("woff2"),
+    /* url(/fonts/Droid/DroidKufi-Regular.woff2) format("woff2"), */
     url(/fonts/Droid/DroidKufi-Regular.woff) format("woff"),
     url(/fonts/Droid/DroidKufi-Regular.ttf) format("truetype");
 }
@@ -28,7 +28,7 @@
   font-weight: 700;
   src: url(/fonts/Droid/DroidKufi-Bold.eot);
   src: url(/fonts/Droid/DroidKufi-Bold.eot?#iefix) format("embedded-opentype"),
-    url(/fonts/Droid/DroidKufi-Bold.woff2) format("woff2"),
+    /* url(/fonts/Droid/DroidKufi-Bold.woff2) format("woff2"), */
     url(/fonts/Droid/DroidKufi-Bold.woff) format("woff"),
     url(/fonts/Droid/DroidKufi-Bold.ttf) format("truetype");
 }
@@ -80,6 +80,9 @@
 .wid65 {
   width: 65% !important;
 }
+.wid80{
+  width: 80% !important;
+}
 .wid100 {
   width: 100% !important;
 }
@@ -107,6 +110,10 @@
 }
 .pdlr30 {
   padding: 0 30px !important;
+}
+
+.pdtd10{
+  padding: 10px 0px !important;
 }
 .pdb5 {
   padding-bottom: 5px !important;
@@ -615,7 +622,7 @@ text-align: right;
   background-color: #fff !important;
 }
 .modal-dialog {
-  max-width: 65% !important;
+  max-width: 55% !important;
 }
 
 .modal-header .close {
@@ -627,6 +634,12 @@ text-align: right;
   padding: 6px 20px !important;
   background-color: #2c72a3;
   color: #e4efff;
+}
+#modelCheckIn .modal-body{
+  padding: 6px !important;
+}
+#modelCheckIn .modal-dialog {
+  max-width: 65% !important;
 }
 .modal-footer {
   justify-content: space-between !important;
@@ -642,18 +655,15 @@ text-align: right;
   text-align: right;
 }
 .field-row {
-  margin-bottom: 6px;
+  padding-right: 20px;
   display: grid;
 }
 
 .ui-dialog fieldset .field-row .field-cell,
 .modal fieldset .field-row .field-cell {
-  padding: 0px 7px;
+  padding: 10px 5px;
 }
 
-fieldset .title {
-  margin-bottom: 14px !important;
-}
 .title h4 {
   font-family: Droid_Bold;
   font-size: 10px;
@@ -685,15 +695,13 @@ fieldset .title {
   text-align: right !important;
 }
 .combobox {
-  /* width: 100% !important; */
-  /* height: 18px !important; */
-  float: left;
+  
+  float: right;
   font-family: Droid_Regular !important;
   font-size: 0.8em !important;
   margin-bottom: 3px;
   padding: 0px 9px !important;
   height: 27px !important;
-  /* padding: 0px 10px !important; */
 }
 
 /* .model input:not(.k-input) {
@@ -990,5 +998,76 @@ fieldset .title {
     -ms-transform: rotate(360deg);
     -o-transform: rotate(360deg);
     transform: rotate(360deg);
+  }
+}
+
+
+
+
+
+
+
+
+
+/*================================*/
+.lds-ellipsis {
+  display: inline-block;
+  position: absolute;
+  width: 64px;
+  height: 64px;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+.lds-ellipsis div {
+  position: absolute;
+  top: 27px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: rgb(0, 0, 0);
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+.lds-ellipsis div:nth-child(1) {
+  left: 6px;
+  animation: lds-ellipsis1 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(2) {
+  left: 6px;
+  animation: lds-ellipsis2 0.6s infinite;
+
+}
+.lds-ellipsis div:nth-child(3) {
+  left: 26px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(4) {
+  left: 45px;
+  animation: lds-ellipsis3 0.6s infinite;
+}
+@keyframes lds-ellipsis1 {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes lds-ellipsis3 {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes lds-ellipsis2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(19px, 0);
   }
 }

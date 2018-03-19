@@ -27,7 +27,7 @@
 
                   <% settings[0].bookingSrc.forEach(type => { %>
                     <option value=<%=type %> >
-                        <%= type  %>
+                      <%= type  %>
                     </option>
                     <% }) %>
 
@@ -54,7 +54,7 @@
                       <select id="bookingType" name="bookingType" form="frmCheckIn" class="form-control wid100 combobox">
                         <% settings[0].bookingTypes.forEach(type => { %>
                           <option value=<%=type %> >
-                              <%= type  %>
+                            <%= type  %>
                           </option>
                           <% }) %>
 
@@ -83,21 +83,15 @@
                       <label class="">ميلادي</label>
                     </td>
                     <td style="position:relative;">
-                      <label style="position:absolute;top:-22px;right:30px;">من</label>
-                      <div class='input-group date pdlr30' id='datetimepicker1'>
-                        <input type='text' class="form-control combobox" />
-                        <span class="input-group-addon">
-                          <span class="glyphicon glyphicon-time"></span>
-                        </span>
+                      <label style="position:absolute;top:-22px;">من</label>
+                      <div id="sandbox-container">
+                        <input type="text" class="form-control combobox wid80">
                       </div>
                     </td>
                     <td style="position:relative;">
                       <label style="position:absolute;top:-22px">إلى</label>
-                      <div class='input-group date' class='datePicker'>
-                        <input type='text' class="form-control combobox" />
-                        <span class="input-group-addon">
-                          <span class="glyphicon glyphicon-time"></span>
-                        </span>
+                      <div id="sandbox-container">
+                        <input type="text" class="form-control combobox wid80">
                       </div>
                     </td>
                     <td class="pdr20" style="position:relative;">
@@ -110,19 +104,13 @@
                       <label class="">هجري</label>
                     </td>
                     <td>
-                      <div class='input-group date pdlr30' class='datePicker'>
-                        <input type='text' class="form-control combobox" />
-                        <span class="input-group-addon">
-                          <span class="glyphicon glyphicon-time"></span>
-                        </span>
+                      <div id="sandbox-container">
+                        <input type="text" class="form-control combobox wid80">
                       </div>
                     </td>
                     <td>
-                      <div class='input-group date' class='datePicker'>
-                        <input type='text' class="form-control combobox" />
-                        <span class="input-group-addon">
-                          <span class="glyphicon glyphicon-time"></span>
-                        </span>
+                      <div id="sandbox-container">
+                        <input type="text" class="form-control combobox wid80">
                       </div>
                     </td>
                     <td class="pdr20">
@@ -184,8 +172,8 @@
               <div class="field-cell ">
                 <table class="wid100">
                   <tr>
-                      <td style="width: 27%;">
-                          <label class="">العميل</label>
+                    <td style="width: 27%;">
+                      <label class="">العميل</label>
                     </td>
                     <td>
                       <label class="">:-- -- --</label>

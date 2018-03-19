@@ -8,7 +8,8 @@
                 </button>
             </div>
             <div class="modal-body" style="position: relative;">
-                    <div class="loading hidden">Loading&#8230;</div>
+                    <!-- <div class="loading hidden">Loading&#8230;</div> -->
+                    <div class="lds-ellipsis hidden"><div></div><div></div><div></div><div></div></div>
                     <% var id = 1 %>
                 <form id="frmUpdateRoom" action="/ManageFreeBookings/updateRoom" method="POST">
                     <div class="field-row" style="grid-template-columns:50% 50%;">
@@ -140,25 +141,25 @@
                                     <table class="wid100">
                                         <tr>
                                             <td>
-                                                <input class="form-check-input" type="checkbox" form="frmUpdateRoom" name="internet" id="internet">
-                                                <label class="pdr30 form-check-label" for="internet">
+                                                <input class="form-check-input" type="checkbox" form="frmUpdateRoom" name="internet" id="uinternet">
+                                                <label class="pdr30 form-check-label" for="uinternet">
                                                     انترنت </label>
                                             </td>
                                             <td>
-                                                <input class="form-check-input" type="checkbox" form="frmUpdateRoom" name="parking" id="parking">
-                                                <label class="pdr30 form-check-label" for="parking">
+                                                <input class="form-check-input" type="checkbox" form="frmUpdateRoom" name="parking" id="uparking">
+                                                <label class="pdr30 form-check-label" for="uparking">
                                                     مواقف السيارات </label>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <input class="form-check-input" type="checkbox" form="frmUpdateRoom" name="elevator" id="elevator">
-                                                <label class="pdr30 form-check-label" for="elevator">
+                                                <input class="form-check-input" type="checkbox" form="frmUpdateRoom" name="elevator" id="uelevator">
+                                                <label class="pdr30 form-check-label" for="uelevator">
                                                     مصعد </label>
                                             </td>
                                             <td>
-                                                <input class="form-check-input" type="checkbox" form="frmUpdateRoom" name="cleaning" id="cleaning">
-                                                <label class="pdr30 form-check-label" for="cleaning">
+                                                <input class="form-check-input" type="checkbox" form="frmUpdateRoom" name="cleaning" id="ucleaning">
+                                                <label class="pdr30 form-check-label" for="ucleaning">
                                                     تنظيف الغرف </label>
                                             </td>
                                         </tr>
@@ -174,73 +175,73 @@
                                     <table style="width: 63.5%;">
                                         <tr>
                                             <td>
-                                                <input class="form-check-input" type="checkbox" form="frmUpdateRoom" name="phoneguide" id="phoneguide">
-                                                <label class="pdr30 form-check-label" for="phoneguide">
+                                                <input class="form-check-input" type="checkbox" form="frmUpdateRoom" name="phoneguide" id="uphoneguide">
+                                                <label class="pdr30 form-check-label" for="uphoneguide">
                                                     دليل الهاتف </label>
                                             </td>
                                             <td>
-                                                <input class="form-check-input" type="checkbox" form="frmUpdateRoom" name="oven" id="oven">
-                                                <label class="pdr30 form-check-label" for="oven">
+                                                <input class="form-check-input" type="checkbox" form="frmUpdateRoom" name="oven" id="uoven">
+                                                <label class="pdr30 form-check-label" for="uoven">
                                                     فرن </label>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <input class="form-check-input" type="checkbox" form="frmUpdateRoom" name="paper" id="paper">
-                                                <label class="pdr30 form-check-label" for="paper">
+                                                <input class="form-check-input" type="checkbox" form="frmUpdateRoom" name="paper" id="upaper">
+                                                <label class="pdr30 form-check-label" for="upaper">
                                                     الصحيفة </label>
                                             </td>
                                             <td>
-                                                <input class="form-check-input" type="checkbox" form="frmUpdateRoom" name="microwave" id="microwave">
-                                                <label class="pdr30 form-check-label" for="microwave">
+                                                <input class="form-check-input" type="checkbox" form="frmUpdateRoom" name="microwave" id="umicrowave">
+                                                <label class="pdr30 form-check-label" for="umicrowave">
                                                     مايكرويف </label>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <input class="form-check-input" type="checkbox" form="frmUpdateRoom" name="qiblah" id="qiblah">
-                                                <label class="pdr30 form-check-label" for="qiblah">
+                                                <input class="form-check-input" type="checkbox" form="frmUpdateRoom" name="qiblah" id="uqiblah">
+                                                <label class="pdr30 form-check-label" for="uqiblah">
                                                     تحديد القبلة </label>
                                             </td>
                                             <td>
-                                                <input class="form-check-input" type="checkbox" form="frmUpdateRoom" name="washer" id="washer">
-                                                <label class="pdr30 form-check-label" for="washer">
+                                                <input class="form-check-input" type="checkbox" form="frmUpdateRoom" name="washer" id="uwasher">
+                                                <label class="pdr30 form-check-label" for="uwasher">
                                                     غسالة </label>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <input class="form-check-input" type="checkbox" form="frmUpdateRoom" name="restaurantslist" id="restaurantslist">
-                                                <label class="pdr30 form-check-label" for="restaurantslist">
+                                                <input class="form-check-input" type="checkbox" form="frmUpdateRoom" name="restaurantslist" id="urestaurantslist">
+                                                <label class="pdr30 form-check-label" for="urestaurantslist">
                                                     قائمة المطاعم </label>
                                             </td>
                                             <td>
-                                                <input class="form-check-input" type="checkbox" form="frmUpdateRoom" name="iron" id="iron">
-                                                <label class="pdr30 form-check-label" for="iron">
+                                                <input class="form-check-input" type="checkbox" form="frmUpdateRoom" name="iron" id="uiron">
+                                                <label class="pdr30 form-check-label" for="uiron">
                                                     مكوى </label>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <input class="form-check-input" type="checkbox" form="frmUpdateRoom" name="refrigerator" id="refrigerator">
-                                                <label class="pdr30 form-check-label" for="refrigerator">
+                                                <input class="form-check-input" type="checkbox" form="frmUpdateRoom" name="refrigerator" id="urefrigerator">
+                                                <label class="pdr30 form-check-label" for="urefrigerator">
                                                     ثلاجة </label>
                                             </td>
                                             <td>
-                                                <input class="form-check-input" type="checkbox" form="frmUpdateRoom" name="foodtable" id="foodtable">
-                                                <label class="pdr30 form-check-label" for="foodtable">
+                                                <input class="form-check-input" type="checkbox" form="frmUpdateRoom" name="foodtable" id="ufoodtable">
+                                                <label class="pdr30 form-check-label" for="ufoodtable">
                                                     طاولة طعام </label>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
-                                                <input class="form-check-input" type="checkbox" form="frmUpdateRoom" name="hall" id="hall">
-                                                <label class="pdr30 form-check-label" for="hall">
+                                                <input class="form-check-input" type="checkbox" form="frmUpdateRoom" name="hall" id="uhall">
+                                                <label class="pdr30 form-check-label" for="uhall">
                                                     صالة </label>
                                             </td>
                                             <td>
-                                                <input class="form-check-input" type="checkbox" form="frmUpdateRoom" name="kitchen" id="kitchen">
-                                                <label class="pdr30 form-check-label" for="kitchen">
+                                                <input class="form-check-input" type="checkbox" form="frmUpdateRoom" name="kitchen" id="ukitchen">
+                                                <label class="pdr30 form-check-label" for="ukitchen">
                                                     مطبخ </label>
                                             </td>
                                         </tr>
