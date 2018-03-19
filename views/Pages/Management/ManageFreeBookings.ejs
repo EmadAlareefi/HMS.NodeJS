@@ -32,9 +32,12 @@
 
 
           <div class="nav nav-tabs pdr10">
-              <a class="nav-item nav-link active fontDroid" id="nav-home-tab" data-toggle="tab" href="#manageRooms" role="tab" aria-controls="manageRooms" aria-selected="true">إدارة الشقق</a>
-              <a class="nav-item nav-link fontDroid" id="nav-profile-tab" data-toggle="tab" href="#checkIn" role="tab" aria-controls="checkIn" aria-selected="false">تسجيل الدخول</a>
-              <a class="nav-item nav-link fontDroid" id="nav-contact-tab" data-toggle="tab" href="#checkOut" role="tab" aria-controls="checkOut" aria-selected="false">تسجيل الخروج</a>
+            <a class="nav-item nav-link active fontDroid" id="nav-home-tab" data-toggle="tab" href="#manageRooms" role="tab" aria-controls="manageRooms"
+              aria-selected="true">إدارة الشقق</a>
+            <a class="nav-item nav-link fontDroid" id="nav-profile-tab" data-toggle="tab" href="#checkIn" role="tab" aria-controls="checkIn"
+              aria-selected="false">تسجيل الدخول</a>
+            <a class="nav-item nav-link fontDroid" id="nav-contact-tab" data-toggle="tab" href="#checkOut" role="tab" aria-controls="checkOut"
+              aria-selected="false">تسجيل الخروج</a>
             <!-- <li class="active pull-right fontDroid">
               <a data-toggle="tab" href="#manageRooms">إدارة الشقق</a>
             </li>
@@ -44,43 +47,97 @@
             <li class="pull-right fontDroid">
               <a data-toggle="tab" href="#checkOut">تسجيل الخروج</a>
             </li> -->
-                <a id="btn_add_a_room" class="hint--right hint--rounded nav-item nav-link" role="tab" aria-label="إضافة غرفة" style="cursor:pointer" data-toggle="modal" data-target="#modelAddRoom">
-                  <i class="fas fa-plus"></i>
-                </a>
+            <a id="btn_add_a_room" class="hint--right hint--rounded nav-item nav-link" role="tab" aria-label="إضافة غرفة" style="cursor:pointer"
+              data-toggle="modal" data-target="#modelAddRoom">
+              <i class="fas fa-plus"></i>
+            </a>
           </div>
 
           <div class="tab-content" style="padding-top: 30px;">
             <div id="manageRooms" class="tab-pane fade show active" role="tabpanel">
 
               <% rooms.forEach(room => { %>
-                <div class="page-btn btn-room" data-roomnumber=<%= room.roomNumber %> data-dailyPrice=<%= room.dailyPrice %> data-peakPrice=<%= room.peakPrice %>>
-                  <label class="lbl-room_number">
-                    <%= room.roomNumber%>
-                  </label>
-                  <img src="imgs/room.png">
-                  <span class="tooltiptext">رقم الشقة:
-                    <%=room.roomNumber%>
-                  </span>
-                </div>
-                <% }) %>
+                <a data-toggle="modal" data-target="#updateRoomModal">
+                  <div class="page-btn btn-room btn-room-update"
+                      <% for(var propertyName in room) { if(propertyName != "GeneralFeatures" && propertyName != "SpecialFeatures"){ %>
+                        data-<%=propertyName %> = <%=room[propertyName]%> 
+                        <% } else if(propertyName == "GeneralFeatures"){ %>
+                         <% for(var property in room["GeneralFeatures"][0]){ %>
+                         data-<%= property %> = <%=room["GeneralFeatures"][0][property] %> 
+                         <% }}else if(propertyName == "SpecialFeatures"){ %>
+                           <% for(var property in room["SpecialFeatures"][0]){ %>
+                           data-<%= property %> = <%=room["SpecialFeatures"][0][property] %> 
+                           <% }}} %>>
+                         <label class="lbl-room_number">
+                           <%= room.roomNumber%>
+                         </label>
+                         <img src="imgs/room.png">
+                         <span class="tooltiptext">الحالة:
+                         <%=room.status%>
+                          </span>
+                  </div>
+                </a>
+                <% }); %>
 
             </div>
-
 
             <div id="checkIn" class="tab-pane fade" role="tabpanel">
-              <h3>Menu 2</h3>
-              <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem
-                aperiam.</p>
+              <% emptyRooms.forEach(room => { %>
+                <a data-toggle="modal" data-target="#modelCheckIn">
+                  <div class="page-btn btn-room btn-room-checkIn" 
+                          <% for(var propertyName in room) { if(propertyName != "GeneralFeatures" && propertyName != "SpecialFeatures"){ %>
+                           data-<%=propertyName %> = <%=room[propertyName]%> 
+                           <% } else if(propertyName == "GeneralFeatures"){ %>
+                            <% for(var property in room["GeneralFeatures"][0]){ %>
+                            data-<%= property %> = <%=room["GeneralFeatures"][0][property] %> 
+                            <% }}else if(propertyName == "SpecialFeatures"){ %>
+                              <% for(var property in room["SpecialFeatures"][0]){ %>
+                              data-<%= property %> = <%=room["SpecialFeatures"][0][property] %> 
+                              <% }}} %>>
+                         
+                            <label class="lbl-room_number">
+                              <%= room.roomNumber%>
+                            </label>
+                            <img src="imgs/room.png">
+                            <span class="tooltiptext">الحالة:
+                              <%=room.status%>
+                            </span>
+                  </div>
+                </a>
+                <% }); %>
+
+
             </div>
             <div id="checkOut" class="tab-pane fade" role="tabpanel">
-              <h3>Menu 3</h3>
-              <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+              <% usedRooms.forEach(room => { %>
+                <a data-toggle="modal" data-target="">
+                  <div class="page-btn btn-room"
+                  <% for(var propertyName in room) { if(propertyName != "GeneralFeatures" && propertyName != "SpecialFeatures"){ %>
+                    data-<%=propertyName %> = <%=room[propertyName]%> 
+                    <% } else if(propertyName == "GeneralFeatures"){ %>
+                     <% for(var property in room["GeneralFeatures"][0]){ %>
+                     data-<%= property %> = <%=room["GeneralFeatures"][0][property] %> 
+                     <% }}else if(propertyName == "SpecialFeatures"){ %>
+                       <% for(var property in room["SpecialFeatures"][0]){ %>
+                       data-<%= property %> = <%=room["SpecialFeatures"][0][property] %> 
+                       <% }}} %>>
+                          <label class="lbl-room_number">
+                            <%= room.roomNumber %>
+                          </label>
+                          <img src="imgs/room.png">
+                          <span class="tooltiptext">الحالة:
+                            <%=room.status %>
+                          </span>
+                  </div>
+                </a>
+                <% }); %>
             </div>
           </div>
 
 
       </div>
     </div>
+
 
     <!-- working
     <script type="text/javascript" src="/jquery/dist/jquery.min.js"></script>
@@ -90,18 +147,22 @@
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script language="javascript" src="js/Site.js"></script> -->
 
-    <% include ../../models/checkInModel %>
-    <% include ../../models/addingARoom %>
+    <% include ../../models/checkInModal %>
+      <% include ../../models/addRoomModal %>
+        <% include ../../models/updateRoomModal %>
 
-      <% include ../../partials/footer %>
-        </body>
-
-        <script src="https://kendo.cdn.telerik.com/2018.1.221/js/jquery.min.js"></script>
-        <script src="https://kendo.cdn.telerik.com/2018.1.221/js/kendo.all.min.js"></script>
-        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-        <script type="text/javascript" src="js/ManageFreeBookings.js"></script>
+          <% include ../../partials/footer %>
+            </body>
 
 
-        </html>
-        <!-- End of Wrapper -->
-        </div>
+            <script src="https://kendo.cdn.telerik.com/2018.1.221/js/jquery.min.js"></script>
+            <script src="https://kendo.cdn.telerik.com/2018.1.221/js/kendo.all.min.js"></script>
+            <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+            <script type="text/javascript" src="js/ManageFreeBookings.js"></script>
+
+
+          
+
+            </html>
+            <!-- End of Wrapper -->
+            </div>

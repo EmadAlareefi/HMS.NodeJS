@@ -2,6 +2,8 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var path = require('path');
 var expressValidator = require('express-validator');
+// const { check, validationResult } = require('express-validator/check');
+// const { matchedData, sanitize } = require('express-validator/filter');
 var mongojs = require('mongojs');
 
 //routes

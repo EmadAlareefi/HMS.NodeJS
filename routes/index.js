@@ -2,13 +2,28 @@ var express = require("express");
 var router = express.Router();
 var mongo = require("mongodb");
 var MongoClient = require("mongodb").MongoClient;
+var globals = require("./globals");
 
 router.get("/", (req, res, next) => {
-  res.render("index", {
-    title: "الرئيسية",
-    Page: {
-      title: "الرئيسية"
-    }
+  MongoClient.connect(globals.url, (err, db) => {
+    if (err) throw err;
+
+    dbo = db.db(globals.dbName);
+    dbo
+    .collection("rooms")
+    .find({})
+    .toArray((err, rooms) => {
+      if (err) {
+        res.send(err);
+      }
+      res.render("index", {
+        title: "الرئيسية",
+        Page: {
+          title: "الرئيسية"
+        },
+        rooms
+      });
+    });
   });
 });
 
@@ -31,16 +46,16 @@ router.get("/createDB/:dbname/:collection", (req, res, next) => {
 });
 
 router.get("/dropDB/:dbname", (req, res, next) => {
-    if (req.params.dbname) {
-      url = "mongodb://localhost:27017/" + req.params.dbname + "";
-      MongoClient.connect(url, function(err, db) {
-        if (err) throw err;
-        var dbo = db.db(req.params.dbname);
-        dbo.dropDatabase();
-        res.send("Database " + req.params.dbname + " Deleted!");
-      });
-    }
-  });
+  if (req.params.dbname) {
+    url = "mongodb://localhost:27017/" + req.params.dbname + "";
+    MongoClient.connect(url, function(err, db) {
+      if (err) throw err;
+      var dbo = db.db(req.params.dbname);
+      dbo.dropDatabase();
+      res.send("Database " + req.params.dbname + " Deleted!");
+    });
+  }
+});
 
 //========Needs plan upgrade============//
 // router.get('/createDB/:dbname', (req,res,next) => {
