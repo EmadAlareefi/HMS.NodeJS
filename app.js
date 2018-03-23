@@ -9,7 +9,8 @@ var mongojs = require('mongojs');
 //routes
 
 var index = require('./routes/index');
-var ManageFreeBookings = require('./routes/managefreebookings');
+var manageFreeBookings = require('./routes/managefreebookings');
+var reservations = require('./routes/Reservations');
 var settings = require('./routes/settings');
 
 var port = 3000;
@@ -53,7 +54,8 @@ app.use(express.static(path.join(__dirname, 'node_modules', 'hint.css')));
 
 
 app.use('/',index);
-app.use('/ManageFreeBookings' , ManageFreeBookings);
+app.use('/ManageFreeBookings' , manageFreeBookings);
+app.use('/Reservations' , reservations);
 app.use('/settings' , settings);
 
 
