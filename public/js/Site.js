@@ -1,4 +1,4 @@
-﻿$(window).load(function() {
+﻿$(window).on("load",function() {
   // Animate loader off screen
   //    if ($("#loadingScreen").css('display') == 'none') {
   //     $("#loadingScreen").css({"display":"block"})

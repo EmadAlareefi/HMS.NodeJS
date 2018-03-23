@@ -60,9 +60,8 @@
 .FsAddRoomLeft label:not([class="title"]),.FsAddRoomLeft input[type="checkbox"] {
 cursor: pointer ;
 }
-#FsAddRoomBasicInfo input,
-#FsAddRoomBasicInfo select {
-  height: 27px;
+.modal-content input, .modal-content select {
+  height: 27px !important;
 }
 
 .FsAddRoomLeft .form-check-input {

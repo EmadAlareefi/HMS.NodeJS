@@ -6,24 +6,33 @@ var globals = require("./globals");
 
 router.get("/", (req, res, next) => {
   MongoClient.connect(globals.url, (err, db) => {
-    if (err) throw err;
-
-    dbo = db.db(globals.dbName);
-    dbo
-    .collection("rooms")
-    .find({})
-    .toArray((err, rooms) => {
-      if (err) {
-        res.send(err);
-      }
+    if (err) {
       res.render("index", {
         title: "الرئيسية",
         Page: {
           title: "الرئيسية"
         },
-        rooms
+        rooms: []
       });
-    });
+      console.log("Error connecting the database" + err);
+    } else {
+      dbo = db.db(globals.dbName);
+      dbo
+        .collection("rooms")
+        .find({})
+        .toArray((err, rooms) => {
+          if (err) {
+            console.log("Error connecting the database" + err);
+          }
+          res.render("index", {
+            title: "الرئيسية",
+            Page: {
+              title: "الرئيسية"
+            },
+            rooms
+          });
+        });
+    }
   });
 });
 
