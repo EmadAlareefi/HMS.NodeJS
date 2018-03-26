@@ -1,1 +1,3 @@
 https://www.youtube.com/watch?v=gnsO8-xJ8rs&t=3115s
+
+cd 'C:\Program Files\MongoDB\Server\3.6\bin'
