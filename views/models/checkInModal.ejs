@@ -8,6 +8,7 @@
         </button>
       </div>
       <div class="modal-body">
+          <div class="lds-ellipsis hidden"><div></div><div></div><div></div><div></div></div>
         <form id="frmCheckIn" action="/ManageFreeBookings/checkIn" method="POST">
           <fieldset>
             <div class="title">
@@ -15,8 +16,8 @@
             </div>
             <div class="field-row" style="grid-template-columns:11% 35%;">
               <div class="field-cell">
-                <label for="lbl_contractNum">رقم العقد</label>
-                <label id="lbl_contractNum" class="pdr10">--.--.--</label>
+                <label for="contractNum">رقم العقد</label>
+                <label id="contractNum" name="contractNum" class="pdr10">--.--.--</label>
 
               </div>
 
@@ -25,11 +26,11 @@
                 <label for="bookingSrc">مصدر الحجز</label>
                 <select id="bookingSrc" name="bookingSrc" form="frmCheckIn" class="bookingSrc" style="height: 21px;font-family: Droid_Regular;font-size:0.8em;padding-bottom: 3px">
 
-                  <% settings[0].bookingSrc.forEach(type => { %>
+                  <% if(settings[0]){settings[0].bookingSrc.forEach(type => { %>
                     <option value=<%=type %> >
                       <%= type  %>
                     </option>
-                    <% }) %>
+                    <% })} %>
 
                 </select>
               </div>
@@ -52,11 +53,11 @@
                     </td>
                     <td>
                       <select id="bookingType" name="bookingType" form="frmCheckIn" class="form-control wid100 combobox">
-                        <% settings[0].bookingTypes.forEach(type => { %>
+                        <% if(settings[0]){settings[0].bookingTypes.forEach(type => { %>
                           <option value=<%=type %> >
                             <%= type  %>
                           </option>
-                          <% }) %>
+                          <% })} %>
 
                       </select>
                   </tr>
@@ -84,14 +85,14 @@
                     </td>
                     <td style="position:relative;">
                       <label style="position:absolute;top:-22px;">من</label>
-                      <div id="sandbox-container">
-                        <input type="text" class="form-control combobox wid80">
+                      <div class="sandbox-container">
+                        <input type="text" class="form-control combobox wid80" name="checkIn">
                       </div>
                     </td>
                     <td style="position:relative;">
                       <label style="position:absolute;top:-22px">إلى</label>
-                      <div id="sandbox-container">
-                        <input type="text" class="form-control combobox wid80">
+                      <div class="sandbox-container">
+                        <input type="text" class="form-control combobox wid80" name="checkOut">
                       </div>
                     </td>
                     <td class="pdr20" style="position:relative;">
@@ -146,7 +147,7 @@
                       <label class="">الشقة</label>
                     </td>
                     <td>
-                      <label name="lbl_roomNumber" id="lbl_roomNumber">:100</label>
+                      <label name="roomNumber" id="roomNumber">:100</label>
                     </td>
                   </tr>
                   <tr>
@@ -154,7 +155,7 @@
                       <label class="">سعر الشقة</label>
                     </td>
                     <td>
-                      <label name="lbl_dailyPrice" id="lbl_roomNumber" class="">:100</label>
+                      <label name="dailyPrice" id="dailyPrice" class="">:100</label>
                     </td>
                   </tr>
                   <tr>
@@ -163,7 +164,7 @@
 
                     </td>
                     <td>
-                      <label name="lbl_peakPrice" id="lbl_peakPrice" class="">:150</label>
+                      <label name="peakPrice" id="peakPrice" class="">:150</label>
                     </td>
                   </tr>
                 </table>
@@ -176,7 +177,7 @@
                       <label class="">العميل</label>
                     </td>
                     <td>
-                      <label class="">:-- -- --</label>
+                      <label class="" name="customer">:-- -- --</label>
                     </td>
                   </tr>
                   <tr>
@@ -316,7 +317,7 @@
                       <label class="">التكلفة الكلية</label>
                     </td>
                     <td>
-                      <label class="">:0</label>
+                      <label class="" name="finalPrice">:0</label>
                     </td>
                   </tr>
                   <tr>
@@ -324,7 +325,7 @@
                       <label class="">التكلفة النهائية</label>
                     </td>
                     <td>
-                      <label class="">:0</label>
+                      <label class="" name="total">:0</label>
                     </td>
                   </tr>
                   <tr>
@@ -350,7 +351,7 @@
         </form>
       </div>
       <div class="modal-footer">
-        <button id="btnCheckIn" type="button" class="btn btn-primary">حفظ</button>
+        <button id="btnCheckIn" type="submit" form="frmCheckIn" class="btn btn-primary">حفظ</button>
         <button id="btnCheckInClose" type="button" class="btn btn-secondary formClose" data-dismiss="modal"> الغاء الأمر</button>
       </div>
     </div>

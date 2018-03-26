@@ -48,7 +48,7 @@
 th {
   padding: 8px;
 }
-.tblHeader1 th{
+.tblHeader1 th {
   border: #457db4 1.5px solid;
   padding-right: 30px;
   padding-top: 10px;
@@ -69,7 +69,6 @@ th {
   /* font-family: Droid_Regular; */
   font-size: 13px;
   border: #457db4 1px solid;
-
 }
 
 .tbldatarow td {
@@ -78,7 +77,6 @@ th {
   font-size: 12px;
   padding: 5px;
   border: #b6d8fa 1.5px solid;
-
 }
 .hidden {
   visibility: hidden;
@@ -737,7 +735,7 @@ text-align: right;
   font-family: Droid_Regular !important;
   font-size: 0.8em !important;
   padding: 0px 9px !important;
-  /* height: 27px !important; */
+  height: 27px !important;
 }
 
 /* .model input:not(.k-input) {
@@ -976,4 +974,160 @@ text-align: right;
   #modelCheckIn .modal-dialog {
     max-width: 90% !important;
   }
+}
+
+/* customers */
+.frmpd {
+  padding: 0 20px 3px 0 !important;
+}
+.DefOut {
+  width: 100%;
+  overflow: hidden;
+  background-color: #fff;
+  padding: 8px 8px 0 0;
+  background-color: white;
+  border-radius: 7px 7px 0px 0px;
+}
+.form-column {
+  display: inline-flex;
+}
+.form-column button {
+  height: 30px;
+  margin: 0px 5px;
+  padding: 0px 12px;
+}
+.InpCtl input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  top: 6px;
+}
+.InpCtl select {
+  height: 30px !important;
+  display: block;
+  width: 100%;
+  height: 30px;
+  padding: 0px 5px;
+  font-size: 14px;
+  font-family: Droid_Regular;
+  line-height: 1.42857143;
+}
+.InpCtl input:not([type="checkbox"]) {
+  display: block;
+  width: 100%;
+  height: 30px;
+  padding: 6px 12px;
+  font-size: 14px;
+  font-family: Droid_Regular;
+  line-height: 1.42857143;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+}
+
+.DefOut .InpCtl {
+  padding-left: 10px;
+  margin-bottom: 10px;
+}
+
+.MinBig {
+  /* background: black; */
+  width: 14px;
+  height: 14px;
+}
+#MainContent_dPager2 {
+  list-style: none;
+  margin-bottom: 0;
+}
+
+/* #MainContent_dPager2 li {
+  float: left;
+  list-style: none;
+  text-align: center;
+  background-color: #e6e6e6;
+  margin-right: 0px;
+  border-style: solid;
+  border-width: 1px;  
+  width: 60;
+  line-height: 36px;
+  font-family: Droid_Regular;
+  padding:0px 15px
+} */
+
+.navButton {
+  width: 99px;
+  height: 40px;
+  background: linear-gradient(to bottom, #85c6e5 0%, #85a9bc 100%); /* W3C */
+  border: none;
+  border-radius: 5px;
+  position: relative;
+  color: #f5f5f5;
+  font-weight: 600;
+  font-family: Droid_Regular;
+  text-align: left;
+  text-indent: 5px;
+  cursor: pointer;
+
+  /* Just for presentation */
+  display: block;
+  margin: 0 2px auto;
+  padding: 7px 17px;
+}
+
+.navButton:active {
+  box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.2);
+  top: 1px;
+}
+
+.navButton:after {
+  content: "";
+  width: 0;
+  height: 0;
+  display: block;
+  border-top: 20px solid #187dbc;
+  border-bottom: 20px solid #187dbc;
+  border-left: 16px solid transparent;
+  border-right: 20px solid #187dbc;
+  position: absolute;
+  opacity: 0.6;
+  right: 0;
+  top: 0;
+  border-radius: 0 5px 5px 0;
+}
+
+/* .navButton pointing left */
+
+.navButton.back {
+  text-align: right;
+  padding-right: 12px;
+  box-sizing: border-box;
+}
+.navButton.back:before {
+  content: "";
+  width: 0;
+  height: 0;
+  display: block;
+  border-top: 20px solid #187dbc;
+  border-bottom: 20px solid #187dbc;
+  border-right: 16px solid transparent;
+  border-left: 20px solid #187dbc;
+  position: absolute;
+  opacity: 0.6;
+  left: 0;
+  top: 0;
+  border-radius: 5px 0 0 5px;
+}
+.navButton.back:after {
+  opacity: 0 !important;
+}
+
+/* Single .navButtons */
+
+.navButton.site {
+  width: 40px;
+  text-align: center;
+  text-indent: 0;
+}
+.navButton.site:after {
+  display: none;
 }

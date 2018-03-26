@@ -1,8 +1,4 @@
 ﻿$(window).on("load",function() {
-  // Animate loader off screen
-  //    if ($("#loadingScreen").css('display') == 'none') {
-  //     $("#loadingScreen").css({"display":"block"})
-  //    }
   $(".loadingScreen").fadeOut("slow");
 });
 

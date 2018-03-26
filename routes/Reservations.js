@@ -2,8 +2,7 @@ var express = require("express");
 var router = express.Router();
 var MongoClient = require("mongodb").MongoClient;
 var globals = require("./globals");
-var ObjectId = require('mongodb').ObjectId; 
-
+var ObjectId = require("mongodb").ObjectId;
 
 router.get("/", (req, res, next) => {
   MongoClient.connect(globals.url, (err, db) => {
@@ -13,7 +12,8 @@ router.get("/", (req, res, next) => {
         Page: {
           title: "التأجير والحجوزات"
         },
-        checkIns 
+        checkIns: [],
+        settings: []
       });
       console.log("Error connecting the database" + err);
     } else {
@@ -25,13 +25,22 @@ router.get("/", (req, res, next) => {
           if (err) {
             console.log("Error connecting the database" + err);
           }
-          res.render("Pages/Management/reservations", {
-            title: "التأجير والحجوزات",
-            Page: {
-              title: "التأجير والحجوزات"
-            },
-            checkIns 
-          });
+          dbo
+            .collection("settings")
+            .find({})
+            .toArray((err, settings) => {
+              if (err) {
+                res.send(err);
+              }
+              res.render("Pages/Management/reservations", {
+                title: "التأجير والحجوزات",
+                Page: {
+                  title: "التأجير والحجوزات"
+                },
+                checkIns,
+                settings
+              });
+            });
         });
     }
   });

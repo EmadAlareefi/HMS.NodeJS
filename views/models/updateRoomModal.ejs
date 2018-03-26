@@ -91,11 +91,11 @@
                                             </td>
                                             <td>
                                                 <select class="form-control wid100 fltl combobox" name="acType" id="acType" form="frmUpdateRoom">
-                                                        <% settings[0].acTypes.forEach(type => { %>
+                                                        <% if(settings[0]){settings[0].acTypes.forEach(type => { %>
                                                             <option value=<%=type %> >
                                                                 <%= type  %>
                                                             </option>
-                                                            <% }) %>
+                                                            <% })} %>
                                                 </select>
                                             </td>
                                         </tr>
@@ -105,11 +105,11 @@
                                             </td>
                                             <td>
                                                 <select class="form-control wid100 fltl combobox" name="roomType" id="roomType" form="frmUpdateRoom">
-                                                    <% settings[0].roomTypes.forEach(type => { %>
+                                                    <% if(settings[0]){settings[0].roomTypes.forEach(type => { %>
                                                         <option value=<%=type %> >
                                                             <%= type  %>
                                                         </option>
-                                                        <% }) %>
+                                                        <% })} %>
                                                 </select>
                                             </td>
                                         </tr>
@@ -119,11 +119,11 @@
                                             </td>
                                             <td>
                                                 <select class="form-control wid100 fltl combobox" name="status" id="status" form="frmUpdateRoom">
-                                                        <% settings[0].statuses.forEach(type => { %>
+                                                        <% if(settings[0]){settings[0].statuses.forEach(type => { %>
                                                             <option value=<%=type %> >
                                                                 <%= type  %>
                                                             </option>
-                                                            <% }) %>
+                                                            <% })} %>
                                                 </select>
                                             </td>
                                         </tr>
