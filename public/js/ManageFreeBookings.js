@@ -53,10 +53,42 @@ $(".formClose").on("click", () => {
 //   }
 // });
 
-$(".btn-room-update").click(function() {
-  $("#lbl_roomNumber").text(":" + $(this).data().roomnumber);
-  $("#lbl_dailyPrice").text(":" + $(this).data().dailyprice);
-  $("#lbl_peakPrice").text(":" + $(this).data().peakprice);
+$(".btn-room-checkIn").click(function() {
+  frmCheckIn.get(0).reset();
+  var target = $(event.target);
+  if (target.is("div")) {
+    var id = target.data()._id;
+  } else {
+    var id = target.parent().data()._id;
+  }
+  $.ajax({
+    url: "/managefreebookings/room/" + id,
+    beforeSend: function() {
+      $("#modelCheckIn")
+        .find(".lds-ellipsis")
+        .toggleClass("hidden");
+      frmCheckIn.toggleClass("hidden");
+      frmCheckIn.removeClass("showen");
+    },
+    success: function(result) {
+      var room = result[0];
+      for (var prop in room) {
+        if (prop == "roomNumber" || prop == "dailyPrice" || prop == "peakPrice" ) {
+          input = frmCheckIn.find("label[name='" + prop + "']");
+          input.text(":" + room[prop])
+        }      
+      }
+      frmCheckIn.toggleClass("hidden");
+      frmCheckIn.addClass("showen");
+      $("#modelCheckIn")
+        .find(".lds-ellipsis")
+        .toggleClass("hidden");
+    }
+  });
+  
+  // $("#lbl_roomNumber").text(":" + $(this).data().roomnumber);
+  // $("#lbl_dailyPrice").text(":" + $(this).data().dailyprice);
+  // $("#lbl_peakPrice").text(":" + $(this).data().peakprice);
 });
 
 $(".btn-room-update").click(event => {
@@ -156,7 +188,7 @@ $("#bookingSrc").kendoComboBox({
 
 var select = $("#bookingSrc").data("kendoComboBox");
 /*====================================================================End of ComboBox Jquary */
-$("#sandbox-container input").datepicker({
+$(".sandbox-container input").datepicker({
   weekStart: 6,
   maxViewMode: 3,
   todayBtn: "linked",
