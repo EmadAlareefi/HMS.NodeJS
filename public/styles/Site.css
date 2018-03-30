@@ -87,7 +87,6 @@ th {
 .showen {
   visibility: visible !important;
   opacity: 1 !important;
-
   transition: opacity 500ms linear, visibility 0s linear !important;
 }
 
@@ -644,9 +643,9 @@ nav {
 .mybtn-dialog {
   width: auto;
   font-family: Droid_Regular !important;
-  font-size: 0.9em !important;
+  font-size: 13px !important;
   padding: 0px 14px !important;
-  /* margin: 5px 6px !important; */
+  /* margin: 0px 1px !important; */
 }
 .mybtn-dialog:hover {
   background-color: #e0e0e0;
@@ -692,14 +691,17 @@ text-align: right;
 }
 .field-row {
   padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   display: grid;
 }
 
 .ui-dialog fieldset .field-row .field-cell,
 .modal fieldset .field-row .field-cell {
-  padding: 10px 5px;
 }
-
+.title{
+  position:relative;
+}
 .title h4 {
   font-family: Droid_Bold;
   font-size: 10px;
@@ -707,9 +709,11 @@ text-align: right;
   display: initial;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
-  padding: 5px 10px;
+  padding: 3px 10px;
   color: #dee4f7;
-  /* margin-right: 0px; */
+  margin-bottom: 0px;
+  top: 0px;
+  position: absolute;
 }
 
 /*Models */
@@ -724,7 +728,7 @@ text-align: right;
   font-size: 11px;
   font-family: Droid_Regular !important;
   text-align: right;
-  margin-bottom: 0 !important;
+  margin: 0 !important;
 }
 
 .k-list-scroller {
@@ -733,9 +737,9 @@ text-align: right;
 .combobox {
   float: right;
   font-family: Droid_Regular !important;
-  font-size: 0.8em !important;
-  padding: 0px 9px !important;
-  height: 27px !important;
+  font-size: 11px !important;
+  padding: 0px 4px !important;
+  height: 24px !important;
 }
 
 /* .model input:not(.k-input) {
@@ -972,7 +976,7 @@ text-align: right;
     max-width: 75% !important;
   }
   #modelCheckIn .modal-dialog {
-    max-width: 90% !important;
+    max-width: 70% !important;
   }
 }
 
@@ -1130,4 +1134,10 @@ text-align: right;
 }
 .navButton.site:after {
   display: none;
+}
+
+.checkInIcons i{
+  margin: 0px 12px;
+  cursor: pointer;
+  color: #004b5a;
 }

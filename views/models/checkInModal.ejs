@@ -8,7 +8,12 @@
         </button>
       </div>
       <div class="modal-body">
-          <div class="lds-ellipsis hidden"><div></div><div></div><div></div><div></div></div>
+        <div class="lds-ellipsis hidden">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
         <form id="frmCheckIn" action="/ManageFreeBookings/checkIn" method="POST">
           <fieldset>
             <div class="title">
@@ -22,7 +27,7 @@
               </div>
 
 
-              <div class="field-cell pdb20">
+              <div class="field-cell">
                 <label for="bookingSrc">مصدر الحجز</label>
                 <select id="bookingSrc" name="bookingSrc" form="frmCheckIn" class="bookingSrc" style="height: 21px;font-family: Droid_Regular;font-size:0.8em;padding-bottom: 3px">
 
@@ -44,7 +49,7 @@
               <h4>الفترة</h4>
             </div>
 
-            <div class="field-row" style="grid-template-columns:20% 40% 20%;">
+            <div class="field-row pdt20" style="grid-template-columns:20% 40% 20%;">
               <div class="field-cell">
                 <table class="wid100">
                   <tr>
@@ -84,19 +89,19 @@
                       <label class="">ميلادي</label>
                     </td>
                     <td style="position:relative;">
-                      <label style="position:absolute;top:-22px;">من</label>
+                      <label style="position:absolute;top:-16px;">من</label>
                       <div class="sandbox-container">
                         <input type="text" class="form-control combobox wid80" name="checkIn">
                       </div>
                     </td>
                     <td style="position:relative;">
-                      <label style="position:absolute;top:-22px">إلى</label>
+                      <label style="position:absolute;top:-16px">إلى</label>
                       <div class="sandbox-container">
                         <input type="text" class="form-control combobox wid80" name="checkOut">
                       </div>
                     </td>
                     <td class="pdr20" style="position:relative;">
-                      <label style="position:absolute;top:-22px">الوقت</label>
+                      <label style="position:absolute;top:-16px">الوقت</label>
                       <label class="">00:00</label>
                     </td>
                   </tr>
@@ -138,7 +143,7 @@
             <div class="title">
               <h4>الشقة والعميل</h4>
             </div>
-            <div class="field-row pdr20" style="grid-template-columns:15% 20% 30%;">
+            <div class="field-row" style="grid-template-columns:25% 20% 30%;">
 
               <div class="field-cell">
                 <table class="wid100">
@@ -202,9 +207,51 @@
               </div>
 
               <div class="field-cell">
-                <i></i>
-                <i></i>
-                <i></i>
+                <table class="checkInIcons">
+                  <tr>
+                    <td>
+                      <i class="fas fa-search"></i>
+                    </td>
+                    <td>
+                      <i class="fas fa-plus" data-toggle="modal" data-target="#createCustomerModal"></i>
+                    </td>
+                    <td>
+                      <i class="fas fa-pencil-alt"></i>
+
+                    </td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <i class="fas fa-search"></i>
+                    </td>
+                    <td>
+                      <i class="fas fa-plus"></i>
+                    </td>
+                    <td>
+                      <i class="fas fa-pencil-alt"></i>
+
+                    </td>
+                    <td>
+                      <i class="fas fa-times"></i>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <i class="fas fa-search"></i>
+                    </td>
+                    <td>
+                      <i class="fas fa-plus"></i>
+                    </td>
+                    <td>
+                      <i class="fas fa-pencil-alt"></i>
+
+                    </td>
+                    <td>
+                      <i class="fas fa-times"></i>
+                    </td>
+                  </tr>
+                </table>
               </div>
 
             </div>
@@ -216,7 +263,7 @@
               <h4>المالية</h4>
             </div>
 
-            <div class="field-row pdb20 pdr20" style="grid-template-columns:2fr repeat(4 , 1fr) 1fr;">
+            <div class="field-row" style="grid-template-columns:40% 1fr 1fr 1fr;">
 
               <table class="wid100">
                 <tr>
@@ -249,7 +296,7 @@
                   </td>
                   <td>
                     <input type='text' class="form-control fltr wid65 combobox" style="display:inline-block" />
-                    <button style="display:inline-block" class="mybtn-dialog ui-button ui-corner-all ui-widget">تغيير</button>
+                    <button style="display:inline-block" class="mybtn-dialog btn btn-primary" type="button">تغيير</button>
 
                   </td>
                 </tr>
@@ -268,23 +315,54 @@
                   <td>
                     <select name="" id="" class="form-control combobox fltr wid35"></select>
                     <input type='text' class="form-control combobox fltr wid35" />
-                    <button style="display:inline-block" class="mybtn-dialog ui-button ui-corner-all ui-widget">تغيير</button>
+                    <button style="display:inline-block" class="mybtn-dialog btn btn-primary" type="button">تغيير</button>
                   </td>
                 </tr>
 
               </table>
               <div class="field-cell">
-                <i></i>
-                <i></i>
-                <i></i>
-              </div>
-              <div class="field-cell">
-                <i></i>
-                <i></i>
-                <i></i>
-              </div>
-              <div class="field-cell">
-                <i></i>
+                <table class="checkInIcons">
+                  <tr>
+                    <td>
+                      <i class="fas fa-print"></i>
+                    </td>
+                    <td>
+                      <i class="fas fa-plus" data-toggle="modal" data-target="#"></i>
+                    </td>
+                    <td>
+                      <i class="fas fa-search"></i>
+
+                    </td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <i class="fas fa-print"></i>
+                    </td>
+                    <td>
+                      <i class="fas fa-plus"></i>
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+                      <i></i>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <i class="fas fa-print"></i>
+                    </td>
+                    <td>
+                      <i class="fas fa-plus"></i>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                      <i></i>
+                    </td>
+                  </tr>
+                </table>
               </div>
               <div class="field-cell">
                 <table class="wid100">
@@ -341,10 +419,10 @@
             </div>
           </fieldset>
           <fieldset>
-            <label class="title">
+            <div class="title">
               <h4>ملاحظات</h4>
-            </label>
-            <div class="wid100 pdt20">
+            </div>
+            <div class="wid100">
               <textarea class="form-control frmControlsFs" form="frmCheckIn" name="notes" id="notes" rows="2"></textarea>
             </div>
           </fieldset>
