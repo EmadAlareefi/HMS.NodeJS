@@ -35,4 +35,30 @@ router.get("/", (req, res, next) => {
   });
 });
 
+router.post("/addCustomer", function(req, res) {
+  // req.checkBody("roomNumber", "ﻻ ﺑﺪ ﻣﻦ اﺿﺎﻓﺔ اسم الغرفة").notEmpty();
+  // req.checkBody("floor", "لا بد من اضافة رقم الطابق").notEmpty();
+
+  var errors = req.validationErrors();
+  if (errors) {
+    console.log(errors);
+  } else {
+    MongoClient.connect(globals.url, (err, db) => {
+      if (err) throw err;
+      dbo = db.db(globals.dbName);
+      var newCustomer = {
+        id:1
+      };
+      dbo.collection("customers").save(newCustomer, (err, result) => {
+        if (err) {
+          throw err;
+        }
+        // res.redirect("/ManageFreeBookings");
+        db.close();
+        res.end();
+      });
+    });
+  }
+});
+
 module.exports = router;

@@ -692,7 +692,7 @@ text-align: right;
 .field-row {
   padding-right: 20px;
   padding-top: 10px;
-  padding-bottom: 10px;
+  padding-bottom: 3px;
   display: grid;
 }
 

@@ -6,6 +6,9 @@
 //mongodump //as administrator
 //mongorestore -h ds255588.mlab.com:55588 -d hmsdb -u EmadAlareefi -p emadalareefi "C:\Program Files\MongoDB\Server\3.6\bin\dump\hmsdb"
 
+//to export database
+//mongodump -h ds255588.mlab.com:55588 -d hmsdb -u EmadAlareefi -p emadalareefi "C:\Program Files\MongoDB\Server\3.6\bin\dump\hmsdb"
+
 var Globals = {
     url:'mongodb://localhost:27017/',
     dbName:"hmsdb"
