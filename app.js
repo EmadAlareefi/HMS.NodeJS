@@ -58,7 +58,7 @@ app.use('/',index);
 app.use('/ManageFreeBookings' , manageFreeBookings);
 app.use('/Reservations' , reservations);
 app.use('/Customers' , customers);
-app.use('/settings' , settings);
+app.use('/Settings' , settings);
 
 
 app.listen(port, function () {
