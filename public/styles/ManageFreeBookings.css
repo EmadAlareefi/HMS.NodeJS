@@ -62,7 +62,7 @@ cursor: pointer ;
 }
 #FsAddRoomBasicInfo input,
 #FsAddRoomBasicInfo select {
-  height: 27px;
+  height: 27px !important;
 }
 
 .FsAddRoomLeft .form-check-input {

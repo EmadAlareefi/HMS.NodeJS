@@ -1,8 +1,8 @@
-<% include ../../partials/header %>
+<% include ../partials/header %>
 
 
 
-  <% include ../../partials/sideNav %>
+  <% include ../partials/sideNav %>
     <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
     <link rel="stylesheet" href="styles/ManageFreeBookings.css">
     <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.1.221/styles/kendo.common-material.min.css" />
@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.1.221/styles/kendo.material.mobile.min.css" />
     <div class="myContainer">
       <div class="content">
-        <% include ../../partials/topNav %>
+        <% include ../partials/topNav %>
 
 
           <!-- <div class="page-btn btn-manageFreeBooking" href="#animatedModal">
@@ -35,9 +35,9 @@
             <a class="nav-item nav-link active fontDroid" id="manageRooms-tab" data-toggle="tab" href="#manageRooms" role="tab" aria-controls="manageRooms"
               aria-selected="true">إدارة الشقق</a>
             <a class="nav-item nav-link fontDroid" id="checkIn-tab" data-toggle="tab" href="#checkIn" role="tab" aria-controls="checkIn"
-              aria-selected="false">تسجيل الدخول</a>
+              aria-selected="false">تسكين عميل</a>
             <a class="nav-item nav-link fontDroid" id="checkOut-tab" data-toggle="tab" href="#checkOut" role="tab" aria-controls="checkOut"
-              aria-selected="false">تسجيل الخروج</a>
+              aria-selected="false">مغادرة عميل</a>
             <!-- <li class="active pull-right fontDroid">
               <a data-toggle="tab" href="#manageRooms">إدارة الشقق</a>
             </li>
@@ -110,8 +110,8 @@
             </div>
             <div id="checkOut" class="tab-pane fade" role="tabpanel">
               <% usedRooms.forEach(room => { %>
-                <a data-toggle="modal" data-target="">
-                  <div class="page-btn btn-room"
+                <a data-toggle="modal" data-target="#modelCheckIn">
+                  <div class="page-btn btn-room btn-room-checkOut"
                   <% for(var propertyName in room) { if(propertyName != "GeneralFeatures" && propertyName != "SpecialFeatures"){ %>
                     data-<%=propertyName %> = <%=room[propertyName]%> 
                     <% } else if(propertyName == "GeneralFeatures"){ %>
@@ -147,12 +147,12 @@
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script language="javascript" src="js/Site.js"></script> -->
 
-    <% include ../../models/checkInModal %>
-      <% include ../../models/addRoomModal %>
-        <% include ../../models/updateRoomModal %>
-           <% include ../../models/createCustomerModal %>
+    <% include ../models/checkInModal %>
+      <% include ../models/addRoomModal %>
+        <% include ../models/updateRoomModal %>
+           <% include ../models/createCustomerModal %>
 
-          <% include ../../partials/footer %>
+          <% include ../partials/footer %>
             </body>
 
 

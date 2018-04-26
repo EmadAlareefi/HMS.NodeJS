@@ -1,12 +1,12 @@
-<% include ../../partials/header %>
+<% include ../partials/header %>
 
 
 
-    <% include ../../partials/sideNav %>
+    <% include ../partials/sideNav %>
 
         <div class="myContainer">
             <div class="content">
-                <% include ../../partials/topNav %>
+                <% include ../partials/topNav %>
 
                     <div class="DefOut">
                         <div class="form-column" style="display: inline-flex">
@@ -58,14 +58,14 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <% customers.forEach(checkIn => { %>
+                                <% customers.forEach(customer => { %>
                                     <tr class="tbldatarow">
-                                        <td data-title="Name">يوسف نور</td>
-                                        <td data-title="ID Type">إقامة</td>
-                                        <td data-title="ID Number">2367981947</td>
-                                        <td data-title="ID Issue Place">جده</td>
-                                        <td data-title="Mobile">0555756320</td>
-                                        <td data-title="Email"></td>
+                                        <td data-title="Name"><%=customer.firstName %> <%=customer.secondName %> <%=customer.thirdName %> <%=customer.lastName %> </td>
+                                        <td data-title="ID Type"><%=customer.idType %></td>
+                                        <td data-title="ID Number"><%=customer.idNum %></td>    
+                                        <td data-title="ID Issue Place"><%=customer.issuingPlace %></td>
+                                        <td data-title="Mobile"><%=customer.phone %></td>
+                                        <td data-title="Email"><%=customer.email %></td>
                                         <td data-title="Actions">
                                             <a id="MainContent_lstvw_customers_btnView_0" title="View customer" class="ViewIco TblIco" data-href="/Pages/Management/Popups/View/ViewCustomer.aspx?id=3747766&amp;cid=68"
                                                 href="javascript:__doPostBack('ctl00$MainContent$lstvw_customers$ctrl0$btnView','')"></a>
@@ -98,7 +98,7 @@
             </div>
         </div>
 
-        <% include ../../partials/footer %>
+        <% include ../partials/footer %>
             </body>
 
 

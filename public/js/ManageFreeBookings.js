@@ -165,6 +165,63 @@ $(".btn-room-update").click(event => {
   // xhttp.send();
 });
 
+
+
+$(".btn-room-checkOut").click(function() {
+  frmCheckIn.get(0).reset();
+  var target = $(event.target);
+  if (target.is("div")) {
+    var id = target.data()._id;
+  } else {
+    var id = target.parent().data()._id;
+  }
+  $.ajax({
+    url: "/managefreebookings/room/" + id,
+    beforeSend: function() {
+      $("#modelCheckIn")
+        .find(".lds-ellipsis")
+        .toggleClass("hidden");
+      frmCheckIn.toggleClass("hidden");
+      frmCheckIn.removeClass("showen");
+    },
+    success: function(result) {
+      var room = result[0];
+      for (var prop in room) {
+        if (prop == "roomNumber" || prop == "dailyPrice" || prop == "peakPrice" ) {
+          input = frmCheckIn.find("label[name='" + prop + "']");
+          input.text(":" + room[prop])
+        }      
+      }
+      frmCheckIn.toggleClass("hidden");
+      frmCheckIn.addClass("showen");
+      $("#modelCheckIn")
+        .find(".lds-ellipsis")
+        .toggleClass("hidden");
+    }
+  });
+  
+  // $("#lbl_roomNumber").text(":" + $(this).data().roomnumber);
+  // $("#lbl_dailyPrice").text(":" + $(this).data().dailyprice);
+  // $("#lbl_peakPrice").text(":" + $(this).data().peakprice);
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 var dataSource = new kendo.data.DataSource({
   transport: {
     read: {
