@@ -6,7 +6,7 @@ var globals = require("./globals");
 router.get("/", (req, res, next) => {
   MongoClient.connect(globals.url, (err, db) => {
     if (err) {
-      res.render("Pages/Management/customers", {
+      res.render("Pages/customers", {
         title: "إدارة العملاء",
         Page: {
           title: "إدارة العملاء"
@@ -23,42 +23,63 @@ router.get("/", (req, res, next) => {
           if (err) {
             console.log("Error connecting the database" + err);
           }
-          res.render("Pages/Management/customers", {
+          dbo
+          .collection("settings")
+          .find({})
+          .toArray((err, settings) => {
+            if (err) {
+              res.send(err);
+            }
+          res.render("Pages/customers", {
             title: "إدارة العملاء",
             Page: {
               title: "إدارة العملاء"
             },
-            customers
+            customers,
+            settings
           });
+        });
         });
     }
   });
+  
 });
 
-router.post("/addCustomer", function(req, res) {
-  // req.checkBody("roomNumber", "ﻻ ﺑﺪ ﻣﻦ اﺿﺎﻓﺔ اسم الغرفة").notEmpty();
-  // req.checkBody("floor", "لا بد من اضافة رقم الطابق").notEmpty();
+router.post("/addCustomer", (req, res, next) => {
+  var body = req.body;
+  console.log(body);
 
-  var errors = req.validationErrors();
-  if (errors) {
-    console.log(errors);
-  } else {
-    MongoClient.connect(globals.url, (err, db) => {
+  MongoClient.connect(globals.url, (err, db) => {
+    if (err) throw err;
+
+    dbo = db.db(globals.dbName);
+    var new_customer = {
+      firstName: body.firstName,
+      secondName: body.secondName,
+      thirdName: body.thirdName,
+      lastName: body.lastName,
+      customerType: body.customerType,
+      nationality: body.nationality,
+      idType: body.idType,
+      cardCopyNum: body.cardCopyNum,
+      idNum: body.idNum,
+      issuingPlace: body.issuingPlace,
+      expDate: body.expDate,
+      phone: body.phone,
+      workPhone: body.workPhone,
+      email: body.email,
+      category: body.category,
+      address: body.address,
+      specialNotes: body.specialNotes,
+      notes: body.notes,
+    };
+
+    dbo.collection("customers").save(new_customer, (err, result) => {
       if (err) throw err;
-      dbo = db.db(globals.dbName);
-      var newCustomer = {
-        id:1
-      };
-      dbo.collection("customers").save(newCustomer, (err, result) => {
-        if (err) {
-          throw err;
-        }
-        // res.redirect("/ManageFreeBookings");
-        db.close();
-        res.end();
-      });
+      res.redirect("/ManageFreeBookings");
+      db.close();
     });
-  }
+  });
 });
 
 module.exports = router;

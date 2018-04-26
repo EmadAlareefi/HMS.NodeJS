@@ -15,7 +15,7 @@ var globals = require("./globals");
 router.get("/", function(req, res, next) {
   MongoClient.connect(globals.url, (err, db) => {
     if (err) {
-      res.render("Pages/Management/ManageFreeBookings", {
+      res.render("Pages/ManageFreeBookings", {
         title: "الشقق والتسكين",
         Page: {
           title: "الشقق والتسكين"
@@ -55,7 +55,7 @@ router.get("/", function(req, res, next) {
                       if (err) {
                         res.send(err);
                       }
-                      res.render("Pages/Management/ManageFreeBookings", {
+                      res.render("Pages/ManageFreeBookings", {
                         title: "الشقق والتسكين",
                         Page: {
                           title: "الشقق والتسكين"
@@ -107,6 +107,8 @@ router.post("/checkIn", (req, res, next) => {
     });
   });
 });
+
+
 
 // router.post("/check_in", function(req, res) {
 //   req.checkBody("contract-number", "ﻻ ﺑﺪ ﻣﻦ اﺿﺎﻓﺔ ﺭﻗﻢ اﻟﻌﻘﺪ").notEmpty();

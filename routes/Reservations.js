@@ -7,7 +7,7 @@ var ObjectId = require("mongodb").ObjectId;
 router.get("/", (req, res, next) => {
   MongoClient.connect(globals.url, (err, db) => {
     if (err) {
-      res.render("Pages/Management/reservations", {
+      res.render("Pages/reservations", {
         title: "التأجير والحجوزات",
         Page: {
           title: "التأجير والحجوزات"

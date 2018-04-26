@@ -105,6 +105,9 @@ th {
 .fltl {
   float: left !important;
 }
+.nopd{
+  padding: 0 !important;
+}
 .wid35 {
   width: 35% !important;
 }
@@ -186,6 +189,10 @@ th {
 }
 .dsp-inblock {
   display: inline-block;
+}
+
+.eleBlk * {
+  display: block !important;
 }
 body {
   padding: 0px;
@@ -737,7 +744,7 @@ text-align: right;
 .combobox {
   float: right;
   font-family: Droid_Regular !important;
-  font-size: 11px !important;
+  font-size: 0.6em!important;
   padding: 0px 4px !important;
   height: 24px !important;
 }
