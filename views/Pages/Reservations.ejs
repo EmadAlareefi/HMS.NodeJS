@@ -146,7 +146,7 @@
                                         <option value="-1">-- نوع الإيجار --</option>
                                         <% if(settings[0]){settings[0].bookingTypes.forEach(type => { %>
                                             <option value=<%=type %> >
-                                              <%= type  %>
+                                                <%= type  %>
                                             </option>
                                             <% })} %>
                                     </select>
@@ -209,27 +209,43 @@
                             <tbody>
                                 <% checkIns.forEach(checkIn => { %>
                                     <tr class="tbldatarow">
-                                        <td data-title="Booking No">01728</td>
+                                        <td data-title="Booking No">
+                                            <%=checkIn.contractNum %>
+                                        </td>
                                         <td data-title="Reference ID">- </td>
                                         <td data-title="Apartment">
-                                            <div class="vwApp" data-href="/Pages/Management/Popups/View/ViewApartment.aspx?id= 73788">
-                                                304 غرفه وصاله </div>
+                                            <%= checkIn.roomNumber %>
                                         </td>
                                         <td data-title="Customer">
-                                            <div class="vwCus" data-href="/Pages/Management/Popups/View/ViewCustomer.aspx?cid=68&amp;id=482847">
-                                                (كليةالغد) احمد فتحى احمد عبد اللطيف </div>
+                                            <%= checkIn.customer %>
                                         </td>
-                                        <td data-title="Booking Type">يومي</td>
-                                        <td data-title="Check In">31/12/2017</td>
-                                        <td data-title="Check Out">01/01/2018</td>
-                                        <td data-title="Period">1</td>
-                                        <td data-title="Daily">180</td>
-                                        <td data-title="Daily">180</td>
-                                        <td data-title="VAT">0</td>
-                                        <td data-title="Total">180</td>
-                                        <td data-title="Paid Amount">180</td>
-                                        <td data-title="Creditor" style="color: green; font-weight: bold">-</td>
-                                        <td data-title="Debtor" style="color: red; font-weight: bold">-</td>
+                                        <td data-title="Booking Type">
+                                            <%= checkIn.bookingType %>
+                                        </td>
+                                        <td data-title="Check In">
+                                            <%= checkIn.checkIn %>
+                                        </td>
+                                        <td data-title="Check Out">
+                                            <%= checkIn.checkOut %>
+                                        </td>
+                                        <td data-title="Period">
+                                            <%= checkIn.period %>
+                                        </td>
+                                        <td data-title="Daily">
+                                            <%= checkIn.dailyPrice %>
+                                        </td>
+                                        <td data-title="Daily">
+                                            <%= checkIn.finalPrice %>
+                                        </td>
+                                        <td data-title="VAT">
+                                            <%= checkIn.taxes %>
+                                        </td>
+                                        <td data-title="Total">
+                                            <%= checkIn.total %>
+                                        </td>
+                                        <td data-title="Paid Amount"><%= checkIn.paidAmount %></td>
+                                        <td data-title="Creditor" style="color: green; font-weight: bold"><%= checkIn.creditor %></td>
+                                        <td data-title="Debtor" style="color: red; font-weight: bold"><%= checkIn.debtor %></td>
                                         <td data-title="Actions">
                                             <i class="ViewVouchIco TblIco ViewVoucher" data-href="/Pages/Management/Popups/View/CloseBooking.aspx?cid=68&amp;id=4370878"></i>
                                             <i class="ViewIco TblIco ViewContract" data-href="/Pages/Management/Popups/View/ViewBooking.aspx?cid=68&amp;id=4370878"></i>

@@ -47,7 +47,6 @@ router.get("/", (req, res, next) => {
 
 router.post("/addCustomer", (req, res, next) => {
   var body = req.body;
-  console.log(body);
 
   MongoClient.connect(globals.url, (err, db) => {
     if (err) throw err;
@@ -76,7 +75,8 @@ router.post("/addCustomer", (req, res, next) => {
 
     dbo.collection("customers").save(new_customer, (err, result) => {
       if (err) throw err;
-      res.redirect("/ManageFreeBookings");
+      // res.redirect("/ManageFreeBookings");
+      // res.end();
       db.close();
     });
   });

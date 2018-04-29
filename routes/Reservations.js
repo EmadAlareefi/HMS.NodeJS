@@ -32,7 +32,7 @@ router.get("/", (req, res, next) => {
               if (err) {
                 res.send(err);
               }
-              res.render("Pages/Management/reservations", {
+              res.render("Pages/reservations", {
                 title: "التأجير والحجوزات",
                 Page: {
                   title: "التأجير والحجوزات"

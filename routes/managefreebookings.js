@@ -95,6 +95,7 @@ router.post("/checkIn", (req, res, next) => {
       finalPrice: body.finalPrice,
       taxes: "",
       total: body.total,
+      paidAmount: 0,
       creditor: "",
       debtor: "",
       notes: body.notes

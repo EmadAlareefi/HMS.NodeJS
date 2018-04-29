@@ -9,6 +9,7 @@ var mongojs = require('mongojs');
 //routes
 
 var index = require('./routes/index');
+var login = require('./routes/login');
 var manageFreeBookings = require('./routes/managefreebookings');
 var reservations = require('./routes/Reservations');
 var customers = require('./routes/customers');
@@ -55,6 +56,7 @@ app.use(express.static(path.join(__dirname, 'node_modules', 'hint.css')));
 
 
 app.use('/',index);
+app.use('/LogIn',login);
 app.use('/ManageFreeBookings' , manageFreeBookings);
 app.use('/Reservations' , reservations);
 app.use('/Customers' , customers);
