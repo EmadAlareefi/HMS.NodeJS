@@ -75,8 +75,7 @@ router.get("/", function(req, res, next) {
 
 router.post("/checkIn", (req, res, next) => {
   var body = req.body;
-  console.log(body);
-
+  
 
   MongoClient.connect(globals.url, (err, db) => {
     if (err) throw err;
