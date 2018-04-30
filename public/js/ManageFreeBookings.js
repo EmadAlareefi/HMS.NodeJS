@@ -17,8 +17,8 @@ var btnCreateCustomerClose = $("#btnCreateCustomerClose");
 //   }
 // })
 frmCreateCustomer.submit(() => {
-  alert();
   btnCreateCustomerClose.click();
+  submit();
   return false;
 });
 
