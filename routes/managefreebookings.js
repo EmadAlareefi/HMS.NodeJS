@@ -20,7 +20,7 @@ router.get("/", function(req, res, next) {
         Page: {
           title: "الشقق والتسكين"
         },
-        rooms:[],
+        rooms: [],
         emptyRooms: [],
         usedRooms: [],
         settings: []
@@ -77,6 +77,7 @@ router.post("/checkIn", (req, res, next) => {
   var body = req.body;
   console.log(body);
 
+
   MongoClient.connect(globals.url, (err, db) => {
     if (err) throw err;
 
@@ -95,6 +96,7 @@ router.post("/checkIn", (req, res, next) => {
       finalPrice: body.finalPrice,
       taxes: "",
       total: body.total,
+      paidAmount: 0,
       creditor: "",
       debtor: "",
       notes: body.notes
@@ -107,8 +109,6 @@ router.post("/checkIn", (req, res, next) => {
     });
   });
 });
-
-
 
 // router.post("/check_in", function(req, res) {
 //   req.checkBody("contract-number", "ﻻ ﺑﺪ ﻣﻦ اﺿﺎﻓﺔ ﺭﻗﻢ اﻟﻌﻘﺪ").notEmpty();
@@ -130,13 +130,15 @@ router.post("/checkIn", (req, res, next) => {
 //   }
 // });
 
-router.post("/addingRoom", function(req, res) {
+router.post("/addingRoom", function(req, res,next) {
   req.checkBody("roomNumber", "ﻻ ﺑﺪ ﻣﻦ اﺿﺎﻓﺔ اسم الغرفة").notEmpty();
   req.checkBody("floor", "لا بد من اضافة رقم الطابق").notEmpty();
 
   var errors = req.validationErrors();
   if (errors) {
+    // alert(errors);
     console.log(errors);
+    return res.end();
   } else {
     MongoClient.connect(globals.url, (err, db) => {
       if (err) throw err;

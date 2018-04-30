@@ -1,6 +1,11 @@
 var frmCheckIn = $("#frmCheckIn");
 var frmAddingRoom = $("#frmAddingRoom");
 var frmUpdateRoom = $("#frmUpdateRoom");
+var frmCreateCustomer = $("#frmCreateCustomer");
+var createCustomerModal = $("#createCustomerModal");
+var btnCreateCustomerClose = $("#btnCreateCustomerClose");
+
+
 // var modelAddRoom = $("#modelAddRoom");
 
 // $("#btnAddRoom").on('click', () => {
@@ -11,6 +16,12 @@ var frmUpdateRoom = $("#frmUpdateRoom");
 //     frmAddingRoom.get(0).reset();
 //   }
 // })
+frmCreateCustomer.submit(() => {
+  btnCreateCustomerClose.click();
+  submit();
+  return false;
+});
+
 $(".formClose").on("click", () => {
   frmAddingRoom.get(0).reset();
 });
@@ -73,10 +84,14 @@ $(".btn-room-checkIn").click(function() {
     success: function(result) {
       var room = result[0];
       for (var prop in room) {
-        if (prop == "roomNumber" || prop == "dailyPrice" || prop == "peakPrice" ) {
+        if (
+          prop == "roomNumber" ||
+          prop == "dailyPrice" ||
+          prop == "peakPrice"
+        ) {
           input = frmCheckIn.find("label[name='" + prop + "']");
-          input.text(":" + room[prop])
-        }      
+          input.text(":" + room[prop]);
+        }
       }
       frmCheckIn.toggleClass("hidden");
       frmCheckIn.addClass("showen");
@@ -85,7 +100,7 @@ $(".btn-room-checkIn").click(function() {
         .toggleClass("hidden");
     }
   });
-  
+
   // $("#lbl_roomNumber").text(":" + $(this).data().roomnumber);
   // $("#lbl_dailyPrice").text(":" + $(this).data().dailyprice);
   // $("#lbl_peakPrice").text(":" + $(this).data().peakprice);
@@ -165,8 +180,6 @@ $(".btn-room-update").click(event => {
   // xhttp.send();
 });
 
-
-
 $(".btn-room-checkOut").click(function() {
   frmCheckIn.get(0).reset();
   var target = $(event.target);
@@ -187,10 +200,14 @@ $(".btn-room-checkOut").click(function() {
     success: function(result) {
       var room = result[0];
       for (var prop in room) {
-        if (prop == "roomNumber" || prop == "dailyPrice" || prop == "peakPrice" ) {
+        if (
+          prop == "roomNumber" ||
+          prop == "dailyPrice" ||
+          prop == "peakPrice"
+        ) {
           input = frmCheckIn.find("label[name='" + prop + "']");
-          input.text(":" + room[prop])
-        }      
+          input.text(":" + room[prop]);
+        }
       }
       frmCheckIn.toggleClass("hidden");
       frmCheckIn.addClass("showen");
@@ -199,28 +216,11 @@ $(".btn-room-checkOut").click(function() {
         .toggleClass("hidden");
     }
   });
-  
+
   // $("#lbl_roomNumber").text(":" + $(this).data().roomnumber);
   // $("#lbl_dailyPrice").text(":" + $(this).data().dailyprice);
   // $("#lbl_peakPrice").text(":" + $(this).data().peakprice);
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 var dataSource = new kendo.data.DataSource({
   transport: {
@@ -253,4 +253,3 @@ $(".sandbox-container input").datepicker({
   orientation: "bottom left",
   todayHighlight: true
 });
-
