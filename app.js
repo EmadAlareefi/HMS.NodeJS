@@ -22,6 +22,7 @@ var manageFreeBookings = require('./routes/managefreebookings');
 var reservations = require('./routes/Reservations');
 var customers = require('./routes/customers');
 var settings = require('./routes/settings');
+var Reports = require('./routes/Reports');
 
 var port = 3000;
 var app = express();
@@ -73,6 +74,7 @@ app.use('/ManageFreeBookings' , manageFreeBookings);
 app.use('/Reservations' , reservations);
 app.use('/Customers' , customers);
 app.use('/Settings' , settings);
+app.use('/Reports' , Reports);
 
 
 app.listen(port, function () {
