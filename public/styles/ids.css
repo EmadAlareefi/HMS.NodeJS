@@ -1,0 +1,65 @@
+#frmCreateCustomer label{
+    /* font-size: 16px !important; */
+}
+#frmCreateCustomer input{
+    height: 25px !important;
+}
+
+
+
+#auth {
+    position: absolute;
+    top: 50%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    text-align: center;
+}
+
+#auth_form {
+    width: 100%;
+    max-width: 400px;
+    min-width: 320px;
+    min-height: 580px;
+    margin-top: -300px;
+    padding: 0px 5px;
+    display: inline-block;
+}
+#auth_content {
+    position: relative;
+    padding: 80px 5px 5px 5px;
+    margin-top: 30px;
+    border-radius: 8px;
+}
+
+#sign_footer {
+    padding: 20px 5px 10px 5px;
+}
+
+#auth_account_wz {
+    min-height: 140px;
+    position: absolute;
+    z-index: 20;
+    left: 0px;
+    right: 53px;
+    top: 135px;
+    padding: 8px 25px 8px 10px;
+    white-space: normal;
+    color: #36386d;
+    font-size: 14px;
+    text-align: left;
+    border-radius: 5px;
+    background-color: #fbfbfb;
+    box-shadow: 0px 2px 16px rgba(0,0,0,0.5);
+    -moz-box-shadow: 0px 2px 16px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 0px 2px 16px rgba(0,0,0,0.5);
+}
+
+#account_info_arrow {
+    right: -10px;
+    top: 69px;
+}
+
+
+

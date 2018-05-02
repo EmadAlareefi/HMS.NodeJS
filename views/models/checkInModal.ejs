@@ -1,0 +1,437 @@
+<div id="modelCheckIn" class="modal fade" role="dialog" aria-labelledby="Check In" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title fontDroidBold pdr20" id="CheckInTitme">تسجيل دخول</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="lds-ellipsis hidden">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <form id="frmCheckIn" action="/ManageFreeBookings/checkIn" method="POST">
+          <fieldset>
+            <div class="title">
+              <h4>معلومات الحجز</h4>
+            </div>
+            <div class="field-row" style="grid-template-columns:11% 35%;">
+              <div class="field-cell">
+                <label for="contractNum">رقم العقد</label>
+                <label id="contractNum" name="contractNum" class="pdr10">--.--.--</label>
+
+              </div>
+
+
+              <div class="field-cell">
+                <label for="bookingSrc">مصدر الحجز</label>
+                <select id="bookingSrc" name="bookingSrc" form="frmCheckIn" class="bookingSrc" style="height: 21px;font-family: Droid_Regular;font-size:0.8em;padding-bottom: 3px">
+
+                  <% if(settings[0]){settings[0].bookingSrc.forEach(type => { %>
+                    <option value=<%=type %> >
+                      <%= type  %>
+                    </option>
+                    <% })} %>
+
+                </select>
+              </div>
+            </div>
+            <!-- Allow form submission with keyboard without duplicating the dialog button -->
+            <!-- <input type="submit" tabindex="-1" style="position:absolute; top:-1000px"> -->
+          </fieldset>
+
+          <fieldset>
+            <div class="title">
+              <h4>الفترة</h4>
+            </div>
+
+            <div class="field-row pdt20" style="grid-template-columns:20% 40% 20%;">
+              <div class="field-cell">
+                <table class="wid100">
+                  <tr>
+                    <td>
+                      <label class="" for="bookingType">نوع الايجار</label>
+                    </td>
+                    <td>
+                      <select id="bookingType" name="bookingType" form="frmCheckIn" class="form-control wid100 combobox">
+                        <% if(settings[0]){settings[0].bookingTypes.forEach(type => { %>
+                          <option value=<%=type %> >
+                            <%= type  %>
+                          </option>
+                          <% })} %>
+
+                      </select>
+                  </tr>
+                  </td>
+                  <tr>
+                    <td>
+                      <label class="" for="calander">التقويم</label>
+                    </td>
+                    <td>
+                      <select id="" name="calander" form="frmCheckIn" class="form-control wid100 combobox">
+                        <option value="ميلادي">ميلادي</option>
+                        <option value="هجري">هجري</option>
+                      </select>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+
+
+              <div class="field-cell">
+                <table class="wid100">
+                  <tr>
+                    <td>
+                      <label class="">ميلادي</label>
+                    </td>
+                    <td style="position:relative;">
+                      <label style="position:absolute;top:-16px;">من</label>
+                      <div class="sandbox-container">
+                        <input type="text" class="form-control combobox wid80" name="checkIn">
+                      </div>
+                    </td>
+                    <td style="position:relative;">
+                      <label style="position:absolute;top:-16px">إلى</label>
+                      <div class="sandbox-container">
+                        <input type="text" class="form-control combobox wid80" name="checkOut">
+                      </div>
+                    </td>
+                    <td class="pdr20" style="position:relative;">
+                      <label style="position:absolute;top:-16px">الوقت</label>
+                      <label class="">00:00</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label class="">هجري</label>
+                    </td>
+                    <td>
+                      <div id="sandbox-container">
+                        <input type="text" class="form-control combobox wid80">
+                      </div>
+                    </td>
+                    <td>
+                      <div id="sandbox-container">
+                        <input type="text" class="form-control combobox wid80">
+                      </div>
+                    </td>
+                    <td class="pdr20">
+                      <label class="">00:00</label>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              <div class="field-cell">
+                <label class="fltr pdl20 pdt5 pdr20" for="input_daysNum">عدد الأيام</label>
+                <input id="input_daysNum" class="form-control combobox fltr" type="text" name="daysNum" form="frmCheckIn" value="1" style="width:70px">
+              </div>
+
+
+
+
+
+
+
+            </div>
+            <!-- Allow form submission with keyboard without duplicating the dialog button -->
+          </fieldset>
+          <fieldset>
+            <div class="title">
+              <h4>الشقة والعميل</h4>
+            </div>
+            <div class="field-row" style="grid-template-columns:25% 20% 30%;">
+
+              <div class="field-cell">
+                <table class="wid100">
+                  <tr>
+                    <td style="width: 42%;">
+                      <label class="">الشقة</label>
+                    </td>
+                    <td>
+                      <label name="roomNumber" id="roomNumber">:100</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label class="">سعر الشقة</label>
+                    </td>
+                    <td>
+                      <label name="dailyPrice" id="dailyPrice" class="">:100</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label class="">سعر الذروة</label>
+
+                    </td>
+                    <td>
+                      <label name="peakPrice" id="peakPrice" class="">:150</label>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+
+              <div class="field-cell ">
+                <table class="wid100">
+                  <tr>
+                    <td style="width: 27%;">
+                      <label class="">العميل</label>
+                    </td>
+                    <td>
+                      <label class="" name="customer">:-- -- --</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label class="">الشركة</label>
+                    </td>
+                    <td>
+                      <label class="">:-- -- --</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label class="">المرافقون</label>
+
+                    </td>
+                    <td>
+                      <select name="" id="" class="form-control combobox"></select>
+                    </td>
+                  </tr>
+                </table>
+
+              </div>
+
+              <div class="field-cell">
+                <table class="checkInIcons">
+                  <tr>
+                    <td>
+                      <i class="fas fa-search"></i>
+                    </td>
+                    <td>
+                      <i class="fas fa-plus" data-toggle="modal" data-target="#createCustomerModal"></i>
+                    </td>
+                    <td>
+                      <i class="fas fa-pencil-alt"></i>
+
+                    </td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <i class="fas fa-search"></i>
+                    </td>
+                    <td>
+                      <i class="fas fa-plus"></i>
+                    </td>
+                    <td>
+                      <i class="fas fa-pencil-alt"></i>
+
+                    </td>
+                    <td>
+                      <i class="fas fa-times"></i>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <i class="fas fa-search"></i>
+                    </td>
+                    <td>
+                      <i class="fas fa-plus"></i>
+                    </td>
+                    <td>
+                      <i class="fas fa-pencil-alt"></i>
+
+                    </td>
+                    <td>
+                      <i class="fas fa-times"></i>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+
+            </div>
+
+            <!-- Allow form submission with keyboard without duplicating the dialog button -->
+          </fieldset>
+          <fieldset>
+            <div class="title">
+              <h4>المالية</h4>
+            </div>
+
+            <div class="field-row" style="grid-template-columns:40% 1fr 1fr 1fr;">
+
+              <table class="wid100">
+                <tr>
+                  <td class="wid35">
+                    <label class="ver-align-center">المقبوضات</label>
+                  </td>
+                  <td>
+                    <select name="" id="" class="form-control combobox fltl wid100"></select>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <label class="ver-align-center">المصروفات</label>
+                  </td>
+                  <td>
+                    <select name="" id="" class="form-control combobox fltl wid100"></select>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <label class="ver-align-center">الخدمات</label>
+                  </td>
+                  <td>
+                    <select name="" id="" class="form-control combobox fltl wid100"></select>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <label class="ver-align-center">الايجار اليومي</label>
+                  </td>
+                  <td>
+                    <input type='text' class="form-control fltr wid65 combobox" style="display:inline-block" />
+                    <button style="display:inline-block" class="mybtn-dialog btn btn-primary" type="button">تغيير</button>
+
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <label class="ver-align-center">نوع الخصم</label>
+                  </td>
+                  <td>
+                    <select name="" id="" class="form-control combobox fltl wid100"></select>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <label class="ver-align-center">مبلغ الخصم</label>
+                  </td>
+                  <td>
+                    <select name="" id="" class="form-control combobox fltr wid35"></select>
+                    <input type='text' class="form-control combobox fltr wid35" />
+                    <button style="display:inline-block" class="mybtn-dialog btn btn-primary" type="button">تغيير</button>
+                  </td>
+                </tr>
+
+              </table>
+              <div class="field-cell">
+                <table class="checkInIcons">
+                  <tr>
+                    <td>
+                      <i class="fas fa-print"></i>
+                    </td>
+                    <td>
+                      <i class="fas fa-plus" data-toggle="modal" data-target="#"></i>
+                    </td>
+                    <td>
+                      <i class="fas fa-search"></i>
+
+                    </td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <i class="fas fa-print"></i>
+                    </td>
+                    <td>
+                      <i class="fas fa-plus"></i>
+                    </td>
+                    <td>
+
+                    </td>
+                    <td>
+                      <i></i>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <i class="fas fa-print"></i>
+                    </td>
+                    <td>
+                      <i class="fas fa-plus"></i>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                      <i></i>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+              <div class="field-cell">
+                <table class="wid100">
+                  <tr>
+                    <td>
+                      <label class="">المقبوض</label>
+                    </td>
+                    <td>
+                      <label class="">:0</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label class="">بدل الإيجار</label>
+                    </td>
+                    <td>
+                      <label class="">:0</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label class="">التأمين</label>
+                    </td>
+                    <td>
+                      <label class="">:0</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label class="">التكلفة الكلية</label>
+                    </td>
+                    <td>
+                      <label class="" name="finalPrice">:0</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label class="">التكلفة النهائية</label>
+                    </td>
+                    <td>
+                      <label class="" name="total">:0</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label class="">الرصيد</label>
+                    </td>
+                    <td>
+                      <label class="">:0</label>
+                    </td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </fieldset>
+          <fieldset>
+            <div class="title">
+              <h4>ملاحظات</h4>
+            </div>
+            <div class="wid100 pdt20">
+              <textarea class="form-control frmControlsFs" form="frmCheckIn" name="notes" id="notes" rows="2"></textarea>
+            </div>
+          </fieldset>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button id="btnCheckIn" type="submit" form="frmCheckIn" class="btn btn-primary">حفظ</button>
+        <button id="btnCheckInClose" type="button" class="btn btn-secondary formClose" data-dismiss="modal"> الغاء الأمر</button>
+      </div>
+    </div>
+  </div>
+</div>

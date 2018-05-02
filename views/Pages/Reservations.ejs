@@ -1,0 +1,270 @@
+<% include ../partials/header %>
+
+
+
+    <% include ../partials/sideNav %>
+
+        <div class="myContainer">
+            <div class="content">
+                <% include ../partials/topNav %>
+
+                    <div class="DefOut bookings">
+                        <div class="FrmTtCon" style="display:inline">
+                            <span class="FrmTt fontDroidBold pd10"> البحث المتقدم </span>
+                            <a data-toggle="collapse" href="#collapse3" aria-expanded="false" style="float:left;margin-left:10ox;font-size: 0.6em;">
+                                <i></i>
+                            </a>
+                            <!-- <i onclick="my(this)" class="MinBig"></i> -->
+                            </a>
+                        </div>
+                        <div class="panel-collapse collapse in" id="collapse3">
+                            <div class="form-column control-input frmpd">
+                                <div class="InpCtl">
+                                    <input name="ctl00$MainContent$txtFromDate" type="text" id="txtFromDate" data-toggle="context" class="dp example1 datepicker form-control"
+                                        contenteditable="false" placeholder="من تاريخ" readonly="readonly">
+                                    <span id="MainContent_rev_txtFromDate" style="display:none"></span>
+                                </div>
+                                <div class="InpCtl Wid20">
+                                    <select name="ctl00$MainContent$ddlApartments" id="ddlApartments" class="form-control">
+                                        <option value="0">الشقة</option>
+                                        <option value="137600">1_1 ثلاث غرف وصالة</option>
+                                        <option value="137601">1_2 ثلاث غرف وصالة </option>
+                                        <option value="128084">101</option>
+                                        <option value="130536">101 غرفة وصالة </option>
+                                        <option value="130537">102 غرفة وصالة ,</option>
+                                        <option value="130538">103 غرفة مفردة</option>
+                                        <option value="20601">104 غرفة وصالة</option>
+                                        <option value="130761">104 غرفة وصالة .</option>
+                                        <option value="108811">201 غرفة وصالة</option>
+                                        <option value="130762">201 غرفة وصالة .</option>
+                                        <option value="20602">202 غرفتين وصالة </option>
+                                        <option value="117068">202 غرفتين وصاله</option>
+                                        <option value="117069">203 ثلاث غرف وصاله</option>
+                                        <option value="128086">203 غرفة وصالة</option>
+                                        <option value="130763">204 غرفة وصالة</option>
+                                        <option value="81055">204 غرفة وصالة </option>
+                                        <option value="136175">205 غرفة وصالة </option>
+                                        <option value="81056">205 غرفة وصالة</option>
+                                        <option value="130540">206 ثلاث غرف وصالة </option>
+                                        <option value="81057">206 ثلاث غرف وصاله</option>
+                                        <option value="117063">207 غرفتين وصالة </option>
+                                        <option value="130760">207 غرفتين وصالة .</option>
+                                        <option value="128085">301 غرفة وصالة</option>
+                                        <option value="116342">301 غرفه وصاله</option>
+                                        <option value="130309">301VIP</option>
+                                        <option value="94775">302</option>
+                                        <option value="134727">302 غرفتين وصالة</option>
+                                        <option value="108810">302 غرفتين وصالة</option>
+                                        <option value="20564">303</option>
+                                        <option value="130065">303 غرفة وصالة </option>
+                                        <option value="117070">303 غرفه وصاله</option>
+                                        <option value="126083">304</option>
+                                        <option value="134728">304 غرفة وصالة</option>
+                                        <option value="73788">304 غرفه وصاله</option>
+                                        <option value="130030">305 غرفة وصالة</option>
+                                        <option value="113052">305 غرفة وصالة</option>
+                                        <option value="113053">306 غرفه وصاله</option>
+                                        <option value="130764">306غرفة وصالة</option>
+                                        <option value="127504">307 غرفتين وصالة </option>
+                                        <option value="110073">307 غرفتين وصالة </option>
+                                        <option value="130765">308 غرفة مفردة </option>
+                                        <option value="117114">308 غرفة مفردة</option>
+                                        <option value="130767">309 غرفتين وصالة </option>
+                                        <option value="117115">309 غرفتين وصالة </option>
+                                        <option value="130766">401 غرفة وصالة</option>
+                                        <option value="117118">401 غرفة وصالة </option>
+                                        <option value="127092">401 غرفه وصاله</option>
+                                        <option value="130768">402 غرفتين وصالة </option>
+                                        <option value="117280">402 غرفتين وصالة</option>
+                                        <option value="130769">403 غرفة وصالة</option>
+                                        <option value="117117">403 غرفه وصاله</option>
+                                        <option value="130770">404 غرفة وصالة</option>
+                                        <option value="121313">404 غرفه وصاله</option>
+                                        <option value="134862">405 غرفة وصالة</option>
+                                        <option value="122288">405 غرفه وصاله</option>
+                                        <option value="133213">406 غرفة وصالة </option>
+                                        <option value="117116">406 غرفه وصاله</option>
+                                        <option value="20603">407 غرفتين وصاله</option>
+                                        <option value="21280">408 غرفة مفردة </option>
+                                        <option value="20563">409 غرفتين وصالة </option>
+                                        <option value="117064">501 غرفة وصالة </option>
+                                        <option value="125917">502 غرفة وصالة </option>
+                                        <option value="118017">503 غرفة وصالة</option>
+                                        <option value="126052">504 غرفة وصالة</option>
+                                        <option value="138587">601</option>
+                                        <option value="137598">lمبنى رقم 1</option>
+                                        <option value="130452">Test Ap1 </option>
+                                        <option value="130759">VIP 301</option>
+                                        <option value="137570">صحارى العلا</option>
+                                        <option value="137597">غرفه 444</option>
+                                        <option value="136291">لايوجد</option>
+                                        <option value="130071">ماجد 1</option>
+                                        <option value="130539">مجلس</option>
+                                    </select>
+                                </div>
+                                <div class="InpCtl Wid20">
+                                    <input name="ctl00$MainContent$txtApartmentName" type="text" id="txtApartmentName" title="الشقة" class="form-control" placeholder="الشقة">
+                                </div>
+                                <div class="InpCtl Wid15">
+                                    <input name="ctl00$MainContent$txtBookingID" type="text" id="txtBookingID" title="رقم العقد" class="form-control" placeholder="رقم العقد">
+                                </div>
+                                <div class="InpCtl">
+                                    <select name="ctl00$MainContent$ddlApartmentTypes" id="ddlApartmentTypes" class="form-control">
+                                        <option value="0">-- نوع الغرفة --</option>
+                                        <% if(settings[0]){settings[0].roomTypes.forEach(type => { %>
+                                            <option value=<%=type %> >
+                                                <%= type  %>
+                                            </option>
+                                            <% })} %>
+                                    </select>
+                                </div>
+                                <div class="InpCtl">
+                                    <select name="ctl00$MainContent$ddlFilter" id="ddlFilter" class="form-control">
+                                        <option selected="" value="التأجير و الحجوزات">التأجير و الحجوزات</option>
+                                        <option value="العقود المغلقة">العقود المغلقة</option>
+                                        <option value="غير مغلق في شموس">غير مغلق في شموس</option>
+                                        <option value="العقود الملغاة">العقود الملغاة</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div style="clear:both"></div>
+                            <div class="form-column control-input frmpd">
+                                <div class="InpCtl">
+                                    <input name="ctl00$MainContent$txtToDate" type="text" id="txtToDate" data-toggle="context" class="dp example1 datepicker form-control"
+                                        placeholder="إلى تاريخ" contenteditable="false" readonly="readonly">
+                                    <span id="MainContent_rev_txtToDate" style="display:none"></span>
+                                </div>
+                                <div class="InpCtl Wid20">
+                                    <input name="ctl00$MainContent$txtCustomerName" type="text" id="txtCustomerName" title="إسم العميل" class="form-control"
+                                        placeholder="إسم العميل">
+                                </div>
+                                <div class="InpCtl Wid20">
+                                    <input name="ctl00$MainContent$txtCustomerPhone" type="text" id="txtCustomerPhone" title="الجوال" class="form-control" placeholder="الجوال">
+                                </div>
+                                <div class="InpCtl">
+                                    <select name="ctl00$MainContent$ddlRentalType" id="ddlRentalType" class="form-control">
+                                        <option value="-1">-- نوع الإيجار --</option>
+                                        <% if(settings[0]){settings[0].bookingTypes.forEach(type => { %>
+                                            <option value=<%=type %> >
+                                                <%= type  %>
+                                            </option>
+                                            <% })} %>
+                                    </select>
+                                </div>
+                                <button id="btnSearchRes" type="button" class="btn btn-primary fontDroid">حفظ</button>
+                                <button id="btnExportRes" type="button" class="btn btn-primary fontDroid">تصدير</button>
+                            </div>
+                            <div style="clear:both"></div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <section class="wid100" style="background-color:white">
+                        <div style="height:50px;">
+
+                        </div>
+                        <table id="tblReservations" class="wid100">
+                            <thead>
+                                <tr class="tblHeader1">
+                                    <th colspan="16" class="wid80 fontDroid" style="background-color:#2c91b9;color:white;">التأجير والحجوزات</th>
+                                </tr>
+                                <tr class="tblHeader2">
+                                    <th colspan="4"></th>
+                                    <th colspan="5">الحجز</th>
+                                    <th colspan="3">المطلوب</th>
+                                    <th colspan="3">المالية</th>
+                                    <th colspan="1"></th>
+                                </tr>
+                                <tr class="tblHeader3">
+                                    <th>رقم العقد</th>
+                                    <th>المرجع</th>
+                                    <th>الشقة</th>
+                                    <th>العميل</th>
+                                    <th>نوع الحجز</th>
+                                    <th>الدخول في</th>
+                                    <th>الخروج في</th>
+                                    <th>المدة</th>
+                                    <th>الإيجار</th>
+                                    <th>المبلغ</th>
+                                    <th>الضرائب</th>
+                                    <th>الإجمالي</th>
+                                    <th>المدفوع</th>
+                                    <th>دائن</th>
+                                    <th>مدين</th>
+                                    <th>العمليات</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% checkIns.forEach(checkIn => { %>
+                                    <tr class="tbldatarow">
+                                        <td data-title="Booking No">
+                                            <%=checkIn.contractNum %>
+                                        </td>
+                                        <td data-title="Reference ID">- </td>
+                                        <td data-title="Apartment">
+                                            <%= checkIn.roomNumber %>
+                                        </td>
+                                        <td data-title="Customer">
+                                            <%= checkIn.customer %>
+                                        </td>
+                                        <td data-title="Booking Type">
+                                            <%= checkIn.bookingType %>
+                                        </td>
+                                        <td data-title="Check In">
+                                            <%= checkIn.checkIn %>
+                                        </td>
+                                        <td data-title="Check Out">
+                                            <%= checkIn.checkOut %>
+                                        </td>
+                                        <td data-title="Period">
+                                            <%= checkIn.period %>
+                                        </td>
+                                        <td data-title="Daily">
+                                            <%= checkIn.dailyPrice %>
+                                        </td>
+                                        <td data-title="Daily">
+                                            <%= checkIn.finalPrice %>
+                                        </td>
+                                        <td data-title="VAT">
+                                            <%= checkIn.taxes %>
+                                        </td>
+                                        <td data-title="Total">
+                                            <%= checkIn.total %>
+                                        </td>
+                                        <td data-title="Paid Amount"><%= checkIn.paidAmount %></td>
+                                        <td data-title="Creditor" style="color: green; font-weight: bold"><%= checkIn.creditor %></td>
+                                        <td data-title="Debtor" style="color: red; font-weight: bold"><%= checkIn.debtor %></td>
+                                        <td data-title="Actions">
+                                            <i class="ViewVouchIco TblIco ViewVoucher" data-href="/Pages/Management/Popups/View/CloseBooking.aspx?cid=68&amp;id=4370878"></i>
+                                            <i class="ViewIco TblIco ViewContract" data-href="/Pages/Management/Popups/View/ViewBooking.aspx?cid=68&amp;id=4370878"></i>
+                                        </td>
+                                    </tr>
+                                    <% }) %>
+                            </tbody>
+                            <tfoot></tfoot>
+                        </table>
+                    </section>
+
+
+            </div>
+        </div>
+
+        <% include ../partials/footer %>
+            </body>
+
+
+            </html>
+            <!-- End of Wrapper -->
+            </div>

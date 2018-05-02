@@ -1,141 +1,71 @@
-﻿@import url(http://fonts.googleapis.com/earlyaccess/droidarabickufi.css);
-
 .create-user-interface-animation {
-    animation: openingForm 0.5s ease-in-out forwards;
+  animation: openingForm 0.5s ease-in-out forwards;
 }
 
 @-moz-keyframes openingForm {
-    0% {
-        width: 0%;
-        height: 0px;
-    }
-    100% {
-        width: 50%;
-        height: 600px;
-    }
+  0% {
+    width: 0%;
+    height: 0px;
+  }
+  100% {
+    width: 50%;
+    height: 600px;
+  }
 }
 
 @keyframes openingForm {
-    0% {
-        width: 0%;
-        height: 0px;
-    }
-    100% {
-        width: 50%;
-        height: 600px;
-    }
+  0% {
+    width: 0%;
+    height: 0px;
+  }
+  100% {
+    width: 50%;
+    height: 600px;
+  }
 }
 
 @-webkit-keyframes openingForm {
-    0% {
-        width: 0%;
-        height: 0px;
-    }
-    100% {
-        width: 50%;
-        height: 600px;
-    }
+  0% {
+    width: 0%;
+    height: 0px;
+  }
+  100% {
+    width: 50%;
+    height: 600px;
+  }
 }
 
 .obacity-fade-in {
-    animation: fade-in 1s ease-in-out forwards;
+  animation: fade-in 1s ease-in-out forwards;
 }
 
 @keyframes fade-in {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 100;
-    }
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100;
+  }
 }
 
-.hidden {
-    visibility: hidden;
+#FsAddRoomBasicInfo label:not([class="title"]),
+.FsAddRoomLeft label:not([class="title"]) {
+  font-size: 16px !important;
+  padding-top: 3px;
+}
+#FsAddRoomBasicInfo label:not([class="title"]) {
+  margin-bottom: 0.3rem !important;
 }
 
-
-/*ManageFreeBookings styles*/
-
-.btn-manage-free-booking {
-    width: 150px;
-    height: 150px;
-    margin: 20px;
-    border-radius: 10px;
-    display: inline-block;
-    cursor: pointer;
-    position: relative;
-    background-color: #7aafe4;
+.FsAddRoomLeft label:not([class="title"]),.FsAddRoomLeft input[type="checkbox"] {
+cursor: pointer ;
+}
+#FsAddRoomBasicInfo input,
+#FsAddRoomBasicInfo select {
+  height: 27px !important;
 }
 
-.btn-manage-free-booking:hover {
-    transition: all 0.3s ease-in-out   
-}
-
-.btn-manage-free-booking i {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 80px;
-    color: #0a233c;
-}
-
-.btn-manage-free-booking img {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    max-width: 100px;
-}
-
-.btn-manage-free-booking:nth-child(2) {
-     background-color: #72b6d7; 
-}
-
-.btn-manage-free-booking:nth-child(2):hover .tooltiptext {
-    visibility: visible;
-    animation: fade-in 0.3s ease-in-out forwards;
-    
-}
-
-.btn-manage-free-booking:nth-child(3) {
-     background-color: #73b6d7;
-}
-
-.btn-manage-free-booking:nth-child(3):hover .tooltiptext {
-    visibility: visible;
-    animation: fade-in 0.3s ease-in-out forwards;
-}
-
-.btn-manage-free-booking:nth-child(4) {
-     background-color: #72b6d7; 
-}
-
-.btn-manage-free-booking:nth-child(4):hover .tooltiptext {
-    visibility: visible;
-    animation: fade-in 0.3s ease-in-out forwards;
-}
-
-.btn-manage-free-booking .tooltiptext {
-    font-family: 'Droid Arabic Kufi', serif;
-    visibility: hidden;
-    width: 120px;
-    background-color: black;
-    color: #fff;
-    text-align: center;
-    border-radius: 6px;
-    padding: 5px 0;
-    transform: rotateX(360deg);
-    /* Position the tooltip */
-    position: absolute;
-    bottom: -5px;
-    left: -5px;
-}
-
-
-/*Models */
-
-.manageFreeBookingModels {
-    background-color: #72b6d7;
+.FsAddRoomLeft .form-check-input {
+  width: 25px !important;
+  height: 25px !important;
 }

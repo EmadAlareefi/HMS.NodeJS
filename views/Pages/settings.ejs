@@ -1,0 +1,42 @@
+<% include ../partials/header %>
+
+        <% include ../partials/sideNav %>
+                <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+                <link rel="stylesheet" href="styles/settings.css">
+                <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.1.221/styles/kendo.common-material.min.css" />
+                <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.1.221/styles/kendo.material.min.css" />
+                <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.1.221/styles/kendo.material.mobile.min.css" />
+
+                <div class="myContainer">
+                        <div class="content">
+                                <% include ../partials/topNav %>
+
+
+                                        <a data-toggle="modal" data-target="#modelCheckIn">
+                                                <div id="btnBookingTypes" class="page-btn btn-bookingTypes">
+                                                        <i class="fas fa-list-ul"></i>
+                                                        <span class="tooltiptext">أنواع الغرف</span>
+                                                </div>
+                                        </a>
+
+                                        <div id="btnBookingTypes" class="page-btn btn-bookingTypes">
+                                                <i class="fas fa-list-ul"></i>
+                                                <span class="tooltiptext">أنواع الحجز</span>
+                                        </div>
+                        </div>
+                </div>
+
+
+                <!-- <div id="settings_modules">
+                        <% include ../models/roomTypesModal %>
+
+
+                </div> -->
+                <% include ../partials/footer %>
+                        <!-- End of Wrapper -->
+                        </div>
+
+                        <script src="https://kendo.cdn.telerik.com/2018.1.221/js/jquery.min.js"></script>
+                        <script src="https://kendo.cdn.telerik.com/2018.1.221/js/kendo.all.min.js"></script>
+                        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+                        <script type="text/javascript" src="js/settings.js"></script>

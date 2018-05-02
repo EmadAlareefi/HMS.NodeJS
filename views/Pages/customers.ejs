@@ -1,0 +1,107 @@
+<% include ../partials/header %>
+
+
+
+    <% include ../partials/sideNav %>
+
+        <div class="myContainer">
+            <div class="content">
+                <% include ../partials/topNav %>
+
+                    <div class="DefOut">
+                        <div class="form-column" style="display: inline-flex">
+                            <div class="InpCtl">
+                                <input name="ctl00$MainContent$txtCustomerID" type="text" id="txtCustomerID" title="رقم الإثبات" class="form-control" placeholder="رقم الإثبات">
+                            </div>
+                            <div class="InpCtl">
+                                <input name="ctl00$MainContent$txtCustomerName" type="text" id="txtCustomerName" title="الاسم" class="form-control" placeholder="الاسم">
+                            </div>
+                            <div class="InpCtl">
+                                <input name="ctl00$MainContent$txtCustomerPhone" type="text" id="txtCustomerPhone" title="جوال" class="form-control" placeholder="جوال">
+                            </div>
+                            <div class="InpCtl">
+                                <select name="ctl00$MainContent$ddlCategory" id="ddlCategory" class="form-control">
+                                    <option selected="selected" value="-1">-- التصنيف --</option>
+                                    <option value="165">ذهبي</option>
+                                    <option value="586">عميل بأستمرار</option>
+
+                                </select>
+                            </div>
+                            <button id="btnSearch" type="button" class="btn btn-primary fontDroid">حفظ</button>
+                            <button id="btnExport" type="button" class="btn btn-primary fontDroid">تصدير</button>
+                        </div>
+                        <div class="form-column control-input frmpd">
+                            <div class="InpCtl HtAut">
+                                <label class="fontDroid">
+                                    <input id="chkViewCompanies" type="checkbox" name="ctl00$MainContent$chkViewCompanies" onclick="javascript:setTimeout('__doPostBack(\'ctl00$MainContent$chkViewCompanies\',\'\')', 0)"> عرض الشركات
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <section class="wid100" style="background-color:white">
+                        <div style="height:50px;">
+
+                        </div>
+                        <table id="tblReservations" class="wid100">
+                            <thead>
+                                <tr class="tblHeader1">
+                                    <th colspan="7" class="wid80 fontDroid" style="background-color:#2c91b9;color:white;">إدارة العملاء</th>
+                                </tr>
+                                <tr class="tblHeader2">
+                                    <th>الاسم</th>
+                                    <th>نوع الإثبات</th>
+                                    <th>رقم الإثبات</th>
+                                    <th>مكان الاصدار</th>
+                                    <th>جوال</th>
+                                    <th>البريد الالكتروني</th>
+                                    <th>العمليات</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% customers.forEach(customer => { %>
+                                    <tr class="tbldatarow">
+                                        <td data-title="Name"><%=customer.firstName %> <%=customer.secondName %> <%=customer.thirdName %> <%=customer.lastName %> </td>
+                                        <td data-title="ID Type"><%=customer.idType %></td>
+                                        <td data-title="ID Number"><%=customer.idNum %></td>    
+                                        <td data-title="ID Issue Place"><%=customer.issuingPlace %></td>
+                                        <td data-title="Mobile"><%=customer.phone %></td>
+                                        <td data-title="Email"><%=customer.email %></td>
+                                        <td data-title="Actions">
+                                            <a id="MainContent_lstvw_customers_btnView_0" title="View customer" class="ViewIco TblIco" data-href="/Pages/Management/Popups/View/ViewCustomer.aspx?id=3747766&amp;cid=68"
+                                                href="javascript:__doPostBack('ctl00$MainContent$lstvw_customers$ctrl0$btnView','')"></a>
+                                        </td>
+                                    </tr>
+                                    <% }) %>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td colspan="6" class="pd10">
+                                        <div class="pagination">
+                                                <ul id="MainContent_dPager2" style="display: inline-flex;">
+                                                        <li class="navButton"><a href="#">الأول</a></li>
+                                                        <li class="navButton"><a href="#">السابق</a></li>
+                                                        <li class="navButton site"><a href="#">1</a></li>
+                                                        <li class="navButton back"><a href="#">التالي</a></li>
+                                                        <li class="navButton back"><a href="#">الأخير</a></li>
+                                                      </ul>
+                                        <div class="PagnTxt"></div>
+                                    </td>
+                                    <td>
+                                        <div class="">
+                                            <button id="btnAddRoomClose" type="button" class="btn btn-secondary fontDroid" onclick="location.href='/'">خروج</button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </section>
+            </div>
+        </div>
+
+        <% include ../partials/footer %>
+            </body>
+
+
+            </html>
+            <!-- End of Wrapper -->
+            </div>

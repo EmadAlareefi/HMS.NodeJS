@@ -1,0 +1,141 @@
+<div id="createCustomerModal" class="modal fade" role="dialog" aria-labelledby=" " aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title fontDroidBold pdr20" id="createCustomerTitle">إضافة عميل</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="frmCreateCustomer" action="/customers/addCustomer" method="POST">
+
+                    <div class="field-row nopd" style="grid-template-columns:15% 85%;">
+                        <div class="field-cell eleBlk" style="display: inherit">
+                            <label for="">الاسم كامل</label>
+                            <label for="customerType">نوع العميل</label>
+                            <label for="idType">نوع الاثبات</label>
+                            <label for="idNum">رقم الاقامة</label>
+                            <label for="expDate">تاريخ الانتهاء</label>
+                            <label for="workPhone">هاتف العمل</label>
+                            <label for="email">الايميل</label>
+                            <label for="address">العنوان</label>
+                            <label for="spicialNotes">ملاحظات خاصة</label>
+                            <label for="notes">ملاحظات</label>
+                        </div>
+                        <div class="field-cell ">
+                            <div class="field-row nopd" style="display: flex">
+                                <input type="text" class="form-control combobox" name="firstName">
+                                <input type="text" class="form-control combobox" name="secondName">
+                                <input type="text" class="form-control combobox" name="thirdName">
+                                <input type="text" class="form-control combobox" name="lastName">
+                            </div>
+                            <div class="field-row nopd">
+                                <table>
+                                    <tr>
+                                        <td>
+                                            <select class="form-control combobox wid100" name="customerType" id="customerType">
+                                                    <option value="">
+                                                        اختر
+                                                        </option>
+
+                                                <% if(settings[0]){settings[0].customerTypes.forEach(type => { %>
+                                                    <option value=<%=type %> >
+                                                        <%= type  %>
+                                                    </option>
+                                                    <% })} %>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <label for="nationality">الجنسية </label>
+                                        </td>
+                                        <td>
+                                            <select class="form-control combobox wid100" name="nationality" id="nationality"></select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <select class="form-control combobox wid100" name="idType" id="idType">
+                                                <% if(settings[0]){settings[0].idTypes.forEach(type => { %>
+                                                    <option value=<%=type %> >
+                                                        <%= type  %>
+                                                    </option>
+                                                    <% })} %>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <label for="cardCopyNum">نسخة البطاقة</label>
+                                        </td>
+                                        <td>
+                                            <select class="form-control combobox wid100" name="cardCopyNum" id="cardCopyNum">
+                                                <% for(i=1;i<=25;i++) { %>
+                                                    <option value=<%=i %> >
+                                                        <%=i %>
+                                                    </option>
+                                                    <% } %>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input class="form-control combobox wid100" type="text" name="idNum">
+                                        </td>
+                                        <td>
+                                            <label for="issuingPlace">مكان الاصدار</label>
+                                        </td>
+                                        <td>
+                                            <input class="form-control combobox wid100" type="text" name="issuingPlace">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input class="form-control combobox wid100" type="text" name="expDate">
+                                        </td>
+                                        <td>
+                                            <label for="phone">رقم الجوال</label>
+                                        </td>
+                                        <td>
+                                            <input class="form-control combobox wid100" type="text" name="phone">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input class="form-control combobox wid100" type="text" name="workPhone">
+                                        </td>
+                                        <td>
+                                            <label for="wordPlace">مكان العمل</label>
+                                        </td>
+                                        <td>
+                                            <input class="form-control combobox wid100" type="text" name="wordPlace">
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input class="form-control combobox wid100" type="text" name="email">
+                                        </td>
+                                        <td>
+                                            <label for="category">التصنيف</label>
+                                        </td>
+                                        <td>
+                                            <select class="form-control combobox wid100" name="category" id="category"></select>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="field-row nopd">
+                                <input type="text" class="form-control combobox wid100" style="height: 45px;" name="address">
+                                <input type="text" class="form-control combobox wid100" style="height: 45px;" name="specialNotes">
+                                <input type="text" class="form-control combobox wid100" style="height: 45px;" name="notes">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button id="btnCreateCustomerSave" type="submet" form="frmCreateCustomer" class="btn btn-primary">حفظ</button>
+                <button id="btnCreateCustomerClose" type="button" class="btn btn-secondary" data-dismiss="modal"> الغاء الأمر</button>
+            </div>
+        </div>
+    </div>
+</div>
