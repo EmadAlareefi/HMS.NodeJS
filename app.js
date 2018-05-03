@@ -24,6 +24,8 @@ var customers = require('./routes/customers');
 var settings = require('./routes/settings');
 var Reports = require('./routes/Reports');
 var Services = require('./routes/Services');
+var Bills = require('./routes/Bills');
+
 
 var port = 3000;
 var app = express();
@@ -77,6 +79,7 @@ app.use('/Customers' , customers);
 app.use('/Settings' , settings);
 app.use('/Reports' , Reports);
 app.use('/Services' , Services);
+app.use('/Bills' , Bills);
 
 
 app.listen(port, function () {

@@ -8,9 +8,9 @@ router.get("/", (req, res, next) => {
   MongoClient.connect(globals.url, (err, db) => {
     if (err) {
       res.render("Pages/reservations", {
-        title: "التأجير والحجوزات",
+        title: "الحجوزات",
         Page: {
-          title: "التأجير والحجوزات"
+          title: "الحجوزات"
         },
         checkIns: [],
         settings: []
@@ -33,9 +33,9 @@ router.get("/", (req, res, next) => {
                 res.send(err);
               }
               res.render("Pages/reservations", {
-                title: "التأجير والحجوزات",
+                title: "الحجوزات",
                 Page: {
-                  title: "التأجير والحجوزات"
+                  title: "الحجوزات"
                 },
                 checkIns,
                 settings
