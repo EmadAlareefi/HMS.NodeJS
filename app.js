@@ -23,6 +23,7 @@ var reservations = require('./routes/Reservations');
 var customers = require('./routes/customers');
 var settings = require('./routes/settings');
 var Reports = require('./routes/Reports');
+var Services = require('./routes/Services');
 
 var port = 3000;
 var app = express();
@@ -75,6 +76,7 @@ app.use('/Reservations' , reservations);
 app.use('/Customers' , customers);
 app.use('/Settings' , settings);
 app.use('/Reports' , Reports);
+app.use('/Services' , Services);
 
 
 app.listen(port, function () {

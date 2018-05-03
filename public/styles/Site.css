@@ -145,6 +145,13 @@ th {
 .pdlr30 {
   padding: 0 30px !important;
 }
+.pdlr70 {
+  padding: 0 70px !important;
+}
+
+.pdlr100 {
+  padding: 0 330px !important;
+}
 
 .pdtd10 {
   padding: 10px 0px !important;
@@ -182,6 +189,20 @@ th {
   position: relative;
   top: 50%;
   transform: translateY(-25%);
+}
+
+.center4d {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.center3d {
+  position: absolute;
+  top: 45%;
+  left: 45%;
+  transform: translate(-50%, -50%);
 }
 
 .dsp-block {
@@ -227,8 +248,8 @@ footer {
 }
 
 .footer-distributed {
-  background-color: #001117f2;
-  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+  background-color: rgb(48, 44, 44);
+  box-shadow: 0px 0px 0px 3px rgb(0, 0, 0);
   box-sizing: border-box;
   width: 100%;
   height: var(--footerHeight);
@@ -276,7 +297,7 @@ footer {
   display: inline-block;
   width: 28px;
   height: 28px;
-  background-color: #33383b;
+  background-color: #8d8e8f;
   border-radius: 2px;
   font-size: 15px;
   color: #ffffff !important;
@@ -375,7 +396,7 @@ span {
   min-height: calc(100vh - var(--footerHeight));
   transition: all 0.3s;
   background: linear-gradient(to top, #f1eded, #f5f1f1);
-  box-shadow: inset -3px 0px 0px 0px #67696b;
+  box-shadow: inset -3px 0px 0px 0px #767779;
   text-align: right;
   min-height: calc(100vh - var(--footerHeight));
   height: calc(100vh - var(--footerHeight));
@@ -405,7 +426,7 @@ span {
   padding: 12px 7px 11px 9px;
   font-size: 18px;
 }
-.top-nav a i:hover {
+.top-nav a i.icon:hover {
   color: rgb(114, 114, 114);
 }
 
@@ -577,7 +598,7 @@ nav {
 .page-btn {
   width: 120px;
   height: 120px;
-  margin: 12px;
+  margin: 13px;
   border-radius: 10px;
   display: inline-block;
   cursor: pointer;
@@ -633,10 +654,79 @@ nav {
   left: -5px;
 }
 
+
 [class*="page-btn"]:hover .tooltiptext {
   visibility: visible;
   animation: fade-in 0.3s ease-in-out forwards;
 }
+
+
+/* Pages Buttons */
+.page-btns {
+  width: 150px;
+  height: 140px;
+  margin: 30px 20px 0px 20px;
+  border-radius: 10px;
+  display: inline-block;
+  cursor: pointer;
+  position: relative;
+  background-color: #7aafe4;
+}
+.page-btns .lbl-room_number {
+  position: absolute;
+  left: 44%;
+  top: 29%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+}
+.page-btns:nth-child(odd) {
+  background-color: #5796d4;
+}
+
+.page-btns:hover {
+  transition: all 0.3s ease-in-out;
+}
+
+.page-btns i {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 65px;
+  color: #0a233c;
+}
+
+.page-btns img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 104px;
+}
+
+.page-btns .tooltiptext {
+  font-family: Droid_Regular;
+  font-size: 0.8em;
+  visibility: hidden;
+  width: auto;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 8px;
+  transform: rotateX(360deg);
+  /* Position the tooltip */
+  position: absolute;
+  bottom: -5px;
+  left: -5px;
+}
+
+
+[class*="page-btn"]:hover .tooltiptext {
+  visibility: visible;
+  animation: fade-in 0.3s ease-in-out forwards;
+}
+
 
 [data-status="مؤجرة"] {
   background-color: #f96868 !important;
@@ -645,7 +735,7 @@ nav {
   background-color: #1cdf37 !important;
 }
 [data-status="تنظيف"] {
-  background-color: #7a8186 !important;
+  background-color: #aaadaf !important;
 }
 /* Dialog Properties */
 .mybtn-dialog {
