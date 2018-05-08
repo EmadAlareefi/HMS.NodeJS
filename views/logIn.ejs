@@ -1,154 +1,97 @@
-<html>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
+	<title>Login V15</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="styles/util.css">
+    <link rel="stylesheet" type="text/css" href="styles/login.css">
+    <link rel="stylesheet" type="text/css" href="styles/Site.css">
 
+<!--===============================================================================================-->
 </head>
-
 <body>
-    <div id="auth">
-        <div id="auth_form">
-            <div id="auth_content" class="woody">
-                <div id="auth_account_wz" class="none">
-                    <div id="account_info_arrow" class="popup_arrow_r"></div>
-                    <div class="closecross" data-onclick="BLAZE.global.auth.ssa" style="cursor: pointer;">
-                        <div></div>
-                    </div>
-                    <div>
-                        <p>انشئ حسابك في Winzbro و انظم إلى ألعاب الأون لاين الخاصة بنا الآن !</p>
-                        <p>احصل على دخول مجاني إلى جميع ألعابنا, غرف المحادثة و الكثير من الخدمات الأخرى.</p>
-                        <p>سجل دخولك عن طريق هاتفك المحمول,جهازك اللوحي و لابتوبك والعب ألعاب متعددة اللاعبين مع أصدقائك و لاعبين
-                            من جميع أنحاء العالم!</p>
-                        <p align="center">
-                            <br>
-                            <a target="_blank" href="https://www.winzbro.com/">إضغط هنا لزيارة www.winzbro.com</a>
-                        </p>
-                    </div>
-                </div>
+	
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<div class="login100-form-title" style="background-image: url(images/bg-01.jpg);">
+					<span class="login100-form-title-1 fontDroidBold">
+                        <%= Page.title %>
+                    </span>
+				</div>
 
-                <div id="auth_logo_block">
-                    <div id="auth_logo" data-onclick="BLAZE.global.auth.hpm" style="cursor: pointer;"></div>
-                </div>
-                <div id="sign_stats"> المتواجدين حالياً
-                    <div id="auth_online">4109</div>
-                </div>
-                <div id="sign">
-                    <div id="sign_login" class="sign_button" data-onclick="BLAZE.global.auth.ssp,0" style="cursor: pointer;">
-                        <div class="sign_button_text">تسجيل الدخول</div>
-                    </div>
-                    <div id="sign_reg" class="sign_button" data-onclick="BLAZE.global.auth.ssp,1" style="cursor: pointer;">
-                        <div class="sign_button_text">إنشاء حساب</div>
-                    </div>
-                    <div id="sign_content_login" class="sign_content">
-                        <div id="auth_account_info">
-                            <div id="auth_account_question" data-onclick="BLAZE.global.auth.ssa" style="cursor: pointer;"></div> Winzbro حساب</div>
-                        <div class="clear"></div>
-                        <div id="login_info_alert" class="info_sign_red none"></div>
-                        <form name="f_sign_login" action="javascript:BLAZE.global.auth.lff()">
-                            <div class="input_block authform input_icon email full" data-input-title="البريد الإلكتروني">
-                                <input class="input" id="login_u" type="text" name="login_u" maxlength="100" value="">
-                                <div style="display: none;">البريد الإلكتروني</div>
-                            </div>
-                            <br>
-                            <div class="input_block authform input_icon password full" data-input-title="كلمة المرور">
-                                <input class="input" id="login_p" type="password" name="login_p" maxlength="50" value="" autocomplete="off">
-                                <div style="">كلمة المرور</div>
-                            </div>
-                            <br>
-                            <div id="sign_remember">
-                                <input id="login_remember_flag" type="checkbox" name="login_r" value="" checked="">
-                                <label id="label_login_remember_flag" class="signlabel space" for="login_remember_flag"></label>
-                                <label for="login_remember_flag"> &nbsp; الإحتفاظ بتسجيل الدخول</label>
-                            </div>
-                            <div id="login_access_code" class="sign_text" style="display:none">
-                                <div id="login_access_code_text">رجاءً
-                                    <b>تحقق من بريدك الإلكتروني</b> واعثر على الرمز الخاص لدخول حسابك. إذا لم تتمكن من إيجاده,
-                                    تفقد مجلد الغير هام.</div>
-                                <div class="input_block authform full" data-input-title="رمز الدخول">
-                                    <input class="input" id="login_c" type="text" name="login_c" maxlength="12" value="" autocomplete="off">
-                                    <div>رمز الدخول</div>
-                                </div>
-                            </div>
-                            <input class="button ui full" type="submit" value="تسجيل الدخول">
-                            <div id="sign_recovery">
-                                <a href="https://www.winzbro.com/recovery/" target="_blank">استرجاع الحساب</a>
-                            </div>
-                        </form>
-                    </div>
-                    <div id="sign_content_reg" class="sign_content">
-                        <div id="reg_info_alert" class="info_sign_red none"></div>
-                        <div class="input_block authform input_icon email full" data-input-title="بريد إلكتروني صالح">
-                            <input class="input" id="reg_u" type="text" name="reg_u" maxlength="100" value="" autocomplete="off">
-                            <div>بريد إلكتروني صالح</div>
-                        </div>
-                        <br>
-                        <div class="input_block authform input_icon password full" data-input-title="كلمة المرور">
-                            <input class="input" id="reg_p" type="password" name="reg_p" maxlength="50" value="" autocomplete="off">
-                            <div>كلمة المرور</div>
-                        </div>
-                        <br>
-                        <div id="reg_info_space">اختر اسم العرض:</div>
-                        <div class="input_block authform input_icon nick full" data-input-title="الاسم المستعار">
-                            <input class="input" id="reg_n" type="text" name="reg_n" maxlength="30" value="" autocomplete="off">
-                            <div>الاسم المستعار</div>
-                        </div>
-                        <br>
-                        <input id="reg_captcha" type="hidden" name="captcha" value="">
-                        <form name="f_sign_reg" action="javascript:BLAZE.global.auth.rff()">
-                            <div id="sign_accept">
-                                <input onchange="BLAZE.global.auth.irf()" id="reg_accept_flag" type="checkbox" name="reg_accept"
-                                    value="">
-                                <label style="float:left; margin-right:12px;" id="label_reg_accept_flag" class="signlabel space" for="reg_accept_flag"></label>
-                                <a target="_blank" href="https://www.winzbro.com/legal/terms">الشروط و القوانين</a> أنا أكبر من 13 سنة و أوافق على</div>
-                            <div id="sign_reg_confirmation" style="display:none">
-                                <img id="captcha_image" class="captcha_image" width="80" height="40" alt="" border="0" align="absmiddle">
-                                <div class="input_block authform reg_captcha" data-input-title="الرمز">
-                                    <input class="input" id="reg_code" name="reg_code" maxlength="4" type="text" value="" autocomplete="off">
-                                    <div>الرمز</div>
-                                </div>
-                                <br>
-                                <input class="button ui full offtop" type="submit" value="إنشاء حساب Winzbro">
-                            </div>
-                        </form>
-                    </div>
-                    <div id="sign_standby">
-                        <div class="standby_container">
-                            <div class="standby"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div id="sign_footer">
-                <div id="geo">
-                    <div id="auth_geo_popup" class="none">
-                        <div id="geo_arrow" class="popup_arrow_b"></div>
-                        <div id="auth_geo_list">
-                            <a href="http://www.gamezer.com/en/game/">English</a>
-                            <a href="http://www.gamezer.com/fr/game/">Français</a>
-                            <a href="http://www.gamezer.com/ar/game/">العربية</a>
-                            <a href="http://www.gamezer.com/es/game/">Español</a>
-                            <a href="http://www.gamezer.com/pt/game/">Português</a>
-                            <a href="http://www.gamezer.com/ru/game/">Русский</a>
-                            <a href="http://www.gamezer.com/pl/game/">Polski</a>
-                            <a href="http://www.gamezer.com/ka/game/">ქართული</a>
-                            <a href="http://www.gamezer.com/tr/game/">Türkçe</a>
-                            <a href="http://www.gamezer.com/lv/game/">Latviešu valoda</a>
-                            <a href="http://www.gamezer.com/hr/game/">Hrvatski jezik</a>
-                        </div>
-                    </div>
-                    <div id="auth_geo_current" data-onclick="BLAZE.global.auth.ssg" style="cursor: pointer;">
-                        <div id="auth_geo_icon"></div>
-                        <div id="auth_geo_content">العربية</div>
-                    </div>
-                </div>
-                <div id="sign_footer_info">نحن نستخدم الملفات المؤقتة لتحسين أدائك مع موقعنا. من خلال تصفحك هذا الموقع، أنت تقبل استخدامنا للملفات المؤقتة
-                    لمعرفة المزيد إقرأ
-                    <a target="_blank" href="https://www.winzbro.com/legal/privacy">سياسة الخصوصية</a> و
-                    <a target="_blank" href="https://www.winzbro.com/legal/">المعلومات القانونية</a>
-                    <br>
-                    <br>Winzbro Inc. © جميع الحقوق محفوظة </div>
-            </div>
-        </div>
-    </div>
+				<form class="login100-form validate-form" action="/login/validate" method="POST">
+					<div class="wrap-input100 validate-input m-b-26 fontDroid" data-validate="اسم المستخدم مطلوب">
+						<input class="input100 fontDroid" type="text" name="username" placeholder="اسم المستخدم">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-18 fontDroid" data-validate = "كلمة المرور مطلوبة">
+						<input class="input100 fontDroid" type="password" name="pass" placeholder="كلمة المرور">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="flex-sb-m w-full p-b-30">
+						<div class="contact100-form-checkbox">
+							<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+							<label class="label-checkbox100 fontDroid" for="ckb1">
+								تذكرني
+							</label>
+						</div>
+
+						<div>
+							<a href="#" class="txt1 fontDroid">
+								استعادة كلمة المرور
+							</a>
+						</div>
+					</div>
+
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn fontDroid">
+							تسجيل الدخول
+						</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/daterangepicker/moment.min.js"></script>
+	<script src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="js/login.js"></script>
+
 </body>
-
 </html>
