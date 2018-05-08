@@ -4,7 +4,7 @@ var mongojs = require("mongojs");
 var MongoClient = require("mongodb").MongoClient;
 var globals = require("./globals");
 
-router.get("/", (req, res, next) => {
+router.get("/",globals.ensureAuthenticated, (req, res, next) => {
   // MongoClient.connect(url, (err, db) => {
   //   if (err) throw err;
 

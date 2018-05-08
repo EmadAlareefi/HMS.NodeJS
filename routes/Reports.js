@@ -12,7 +12,7 @@ var globals = require("./globals");
 // var dbName = "hmsdb";
 // var db = mongojs(url + dbName, ["bookingSrc"]);
 
-router.get("/", function(req, res, next) {
+router.get("/",globals.ensureAuthenticated, function(req, res, next) {
  
       res.render("Pages/Reports", {
         title: "التقارير",

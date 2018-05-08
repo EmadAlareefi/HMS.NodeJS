@@ -12,7 +12,7 @@ var globals = require("./globals");
 // var dbName = "hmsdb";
 // var db = mongojs(url + dbName, ["bookingSrc"]);
 
-router.get("/", function(req, res, next) {
+router.get("/",globals.ensureAuthenticated, function(req, res, next) {
   MongoClient.connect(globals.url, (err, db) => {
     if (err) {
       res.render("Pages/ManageFreeBookings", {
@@ -256,7 +256,7 @@ router.post("/updateRoom/:id", function(req, res) {
   }
 });
 
-router.get("/room/:id", function(req, res) {
+router.get("/room/:id",globals.ensureAuthenticated, function(req, res) {
   MongoClient.connect(globals.url, (err, db) => {
     if (err) res.send(err);
     dbo = db.db(globals.dbName);
