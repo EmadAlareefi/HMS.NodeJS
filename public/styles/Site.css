@@ -781,6 +781,10 @@ text-align: right;
 #modelCheckIn .modal-dialog {
   max-width: 65% !important;
 }
+
+#searchCustomerModal .modal-dialog {
+  max-width: 63% !important;
+}
 .modal-footer {
   justify-content: space-between !important;
 }
@@ -799,11 +803,11 @@ text-align: right;
   padding-top: 10px;
   padding-bottom: 3px;
   display: grid;
+  text-align: -webkit-auto;
 }
 
 .ui-dialog fieldset .field-row .field-cell,
-.modal fieldset .field-row .field-cell {
-}
+.modal fieldset .field-row .field-cell {text-align: right;}
 .title{
   position:relative;
 }
@@ -1081,7 +1085,7 @@ text-align: right;
     max-width: 75% !important;
   }
   #modelCheckIn .modal-dialog {
-    max-width: 70% !important;
+    max-width: 75% !important;
   }
 }
 

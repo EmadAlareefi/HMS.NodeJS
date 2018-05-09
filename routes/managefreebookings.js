@@ -12,7 +12,7 @@ var globals = require("./globals");
 // var dbName = "hmsdb";
 // var db = mongojs(url + dbName, ["bookingSrc"]);
 
-router.get("/",globals.ensureAuthenticated, function(req, res, next) {
+router.get("/", globals.ensureAuthenticated, function(req, res, next) {
   MongoClient.connect(globals.url, (err, db) => {
     if (err) {
       res.render("Pages/ManageFreeBookings", {
@@ -55,16 +55,25 @@ router.get("/",globals.ensureAuthenticated, function(req, res, next) {
                       if (err) {
                         res.send(err);
                       }
-                      res.render("Pages/ManageFreeBookings", {
-                        title: "الشقق والتسكين",
-                        Page: {
-                          title: "الشقق والتسكين"
-                        },
-                        rooms,
-                        emptyRooms,
-                        usedRooms,
-                        settings
-                      });
+                      dbo
+                        .collection("customers")
+                        .find({})
+                        .toArray((err, customers) => {
+                          if (err) {
+                            res.send(err);
+                          }
+                          res.render("Pages/ManageFreeBookings", {
+                            title: "الشقق والتسكين",
+                            Page: {
+                              title: "الشقق والتسكين"
+                            },
+                            rooms,
+                            emptyRooms,
+                            usedRooms,
+                            settings,
+                            customers
+                          });
+                        });
                     });
                 });
             });
@@ -75,7 +84,6 @@ router.get("/",globals.ensureAuthenticated, function(req, res, next) {
 
 router.post("/checkIn", (req, res, next) => {
   var body = req.body;
-  
 
   MongoClient.connect(globals.url, (err, db) => {
     if (err) throw err;
@@ -129,7 +137,7 @@ router.post("/checkIn", (req, res, next) => {
 //   }
 // });
 
-router.post("/addingRoom", function(req, res,next) {
+router.post("/addingRoom", function(req, res, next) {
   req.checkBody("roomNumber", "ﻻ ﺑﺪ ﻣﻦ اﺿﺎﻓﺔ اسم الغرفة").notEmpty();
   req.checkBody("floor", "لا بد من اضافة رقم الطابق").notEmpty();
 
@@ -256,7 +264,27 @@ router.post("/updateRoom/:id", function(req, res) {
   }
 });
 
-router.get("/room/:id",globals.ensureAuthenticated, function(req, res) {
+router.get("/getCustomers", globals.ensureAuthenticated, function(req, res) {
+  MongoClient.connect(globals.url, (err, db) => {
+    if (err) res.send(err);
+    dbo = db.db(globals.dbName);
+    // var o_id = new ObjectId(req.params.id);
+
+    dbo
+      .collection("customers")
+      .find()
+      .toArray((err, customers) => {
+        if (err) res.send(err);
+        // console.log(room);
+        // res.send(id = o_id);
+        res.render("searchCustomerModal", {
+          customers
+        });
+      });
+  });
+});
+
+router.get("/room/:id", globals.ensureAuthenticated, function(req, res) {
   MongoClient.connect(globals.url, (err, db) => {
     if (err) res.send(err);
     dbo = db.db(globals.dbName);

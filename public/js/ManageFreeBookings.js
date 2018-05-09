@@ -5,7 +5,6 @@ var frmCreateCustomer = $("#frmCreateCustomer");
 var createCustomerModal = $("#createCustomerModal");
 var btnCreateCustomerClose = $("#btnCreateCustomerClose");
 
-
 // var modelAddRoom = $("#modelAddRoom");
 
 // $("#btnAddRoom").on('click', () => {
@@ -221,6 +220,29 @@ $(".btn-room-checkOut").click(function() {
   // $("#lbl_dailyPrice").text(":" + $(this).data().dailyprice);
   // $("#lbl_peakPrice").text(":" + $(this).data().peakprice);
 });
+
+var btnSearchCustomerModal = $("#btnSearchCustomerModal");
+var searchCustomerModal = $("#searchCustomerModal");
+var searchCustomermodalBody = $("#searchCustomerModal").find(".modal-body");
+
+// btnSearchCustomerModal.click(function() {
+//   $.ajax({
+//     url: "/managefreebookings/getCustomers/",
+//     beforeSend: function() {
+//       searchCustomerModal.find(".lds-ellipsis").toggleClass("hidden");
+//       searchCustomermodalBody.toggleClass("hidden");
+//       searchCustomermodalBody.removeClass("showen");
+//     },
+//     success: function(result) {
+//       customers = result;
+//       searchCustomermodalBody.toggleClass("hidden");
+//       searchCustomermodalBody.addClass("showen");
+//       searchCustomerModal
+//         .find(".lds-ellipsis")
+//         .toggleClass("hidden");
+//     }
+//   });
+// });
 
 var dataSource = new kendo.data.DataSource({
   transport: {

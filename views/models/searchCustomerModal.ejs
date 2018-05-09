@@ -1,0 +1,89 @@
+<div id="searchCustomerModal" class="modal fade" role="dialog" aria-labelledby=" " aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <!-- <div class="modal-header">
+                <h5 class="modal-title fontDroidBold pdr20" id="searchCustomerTitle">Template</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div> -->
+            <div class="lds-ellipsis hidden"><div></div><div></div><div></div><div></div></div>
+
+            <div class="modal-body">
+
+                <div class="field-row wid100" style="grid-template-columns:28% 50%">
+                    <div class="field-cell">
+                        <label for="searchInput" class="fontDroid">بحث عن</label>
+                        <input type="text" id="searchInput" name="searchInput">
+                    </div>
+                    <div class="field-cell">
+                        <input type="radio" id="idTypeChoice1" name="idType" value="idNum">
+                        <label for="idTypeChoice1" class="fontDroid">رقم الاثبات</label>
+
+                        <input type="radio" id="idTypeChoice2" name="idType" value="phone">
+                        <label for="idTypeChoice2" class="fontDroid">الاسم</label>
+
+                        <input type="radio" id="idTypeChoice3" name="idType" value="mail">
+                        <label for="idTypeChoice3" class="fontDroid">جوال</label>
+                        <br>
+                        <input type="radio" id="cusGrpChoice2" name="cusGrp" value="phone">
+                        <label for="cusGrpChoice2" class="fontDroid">عملائي</label>
+
+                        <input type="radio" id="cusGrpChoice3" name="cusGrp" value="mail">
+                        <label for="cusGrpChoice3" class="fontDroid">عملاء النظام</label>
+                        <br>
+                        <button id="" type="submet" form="frmSearchCustomer" class="btn btn-primary" style="padding: 1px 7px;margin-top: 10px;">بحث</button>
+                    </div>
+                </div>
+
+                <div class="field-row wid100" style="height: 400px;">
+                        <table id="tblReservations" class="wid100">
+                                <thead>                          
+                                    <tr class="tblHeader2">
+                                        <th>الاسم</th>
+                                        <th>رقم الإثبات</th>
+                                        <th>جوال</th>
+                                        <th>ملاحظات</th>
+                                        <th>العمليات</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% if (typeof customers == 'object' && customers){customers.forEach(customer => { %>
+                                        <tr class="tbldatarow">
+                                            <td data-title="Name"><%=customer.firstName %> <%=customer.secondName %> <%=customer.thirdName %> <%=customer.lastName %> </td>
+                                            <td data-title="ID Number"><%=customer.idNum %></td>    
+                                            <td data-title="Mobile"><%=customer.phone %></td>
+                                            <td data-title="Notes"><%=customer.notes %></td>
+                                            <td data-title="Actions">
+                                                <a id="MainContent_lstvw_customers_btnView_0" title="View customer" class="ViewIco TblIco" data-href="/Pages/Management/Popups/View/ViewCustomer.aspx?id=3747766&amp;cid=68"
+                                                    href="javascript:__doPostBack('ctl00$MainContent$lstvw_customers$ctrl0$btnView','')"></a>
+                                            </td>
+                                        </tr>
+                                        <% })} %>
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <td colspan="6" class="pd10">
+                                            <div class="pagination">
+                                                    <ul id="MainContent_dPager2" style="display: inline-flex;">
+                                                            <li class="navButton"><a href="#">الأول</a></li>
+                                                            <li class="navButton"><a href="#">السابق</a></li>
+                                                            <li class="navButton site"><a href="#">1</a></li>
+                                                            <li class="navButton back"><a href="#">التالي</a></li>
+                                                            <li class="navButton back"><a href="#">الأخير</a></li>
+                                                          </ul>
+                                            <div class="PagnTxt"></div>
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
+
+
+                </div>
+            </div>
+            <div class="modal-footer" style="display: -webkit-box;">
+                <button id="" type="button" class="btn btn-secondary" data-dismiss="modal"> خروج</button>
+            </div>
+        </div>
+    </div>
+</div>
