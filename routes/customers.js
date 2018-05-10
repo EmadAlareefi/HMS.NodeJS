@@ -46,7 +46,7 @@ router.get("/",globals.ensureAuthenticated, (req, res, next) => {
 
 router.post("/addCustomer", (req, res, next) => {
   var body = req.body;
-  var firstName = firstName;
+  var firstName = body.firstName;
   var secondName = body.secondName;
   var thirdName = body.thirdName;
   var lastName = body.lastName;
@@ -69,7 +69,7 @@ router.post("/addCustomer", (req, res, next) => {
   req.checkBody("secondName", "لا بد من اضافة رقم الطابق").notEmpty();
   req.checkBody("thirdName", "ﻻ ﺑﺪ ﻣﻦ اﺿﺎﻓﺔ اسم الغرفة").notEmpty();
   req.checkBody("lastName", "لا بد من اضافة رقم الطابق").notEmpty();
-  req.checkBody("customerType", "لا بد من اختيار نوع العميل").equals("");
+  // req.checkBody("customerType", "لا بد من اختيار نوع العميل").equals("اختر");
   // req.checkBody("nationality", "لا بد من اضافة جنسية العميل").notEmpty();
   // req.checkBody("roomNumber", "ﻻ ﺑﺪ ﻣﻦ اﺿﺎﻓﺔ اسم الغرفة").notEmpty();
   // req.checkBody("floor", "لا بد من اضافة رقم الطابق").notEmpty();

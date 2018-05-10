@@ -15,11 +15,11 @@ var btnCreateCustomerClose = $("#btnCreateCustomerClose");
 //     frmAddingRoom.get(0).reset();
 //   }
 // })
-frmCreateCustomer.submit(() => {
-  btnCreateCustomerClose.click();
-  submit();
-  return false;
-});
+// frmCreateCustomer.submit(() => {
+//   btnCreateCustomerClose.click();
+//   submit();
+//   return false;
+// });
 
 $(".formClose").on("click", () => {
   frmAddingRoom.get(0).reset();
