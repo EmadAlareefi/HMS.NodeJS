@@ -8,7 +8,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form id="frmAddingRoom" action="/ManageFreeBookings/addingRoom" method="POST">
+                <form id="frmAddingRoom login100-form" action="/ManageFreeBookings/addingRoom" method="POST">
                     <div class="field-row" style="grid-template-columns:50% 50%;">
                         <div class="field-cell">
                             <fieldset id="FsAddRoomBasicInfo" class="pdlr30">
@@ -19,27 +19,38 @@
                                 <div class="wid100 pd20">
                                     <table class="wid100">
                                         <tr>
-                                            <td>
+                                            <td style="min-width: 173px;">
                                                 <label for="name">الاسم</label>
                                             </td>
                                             <td>
-                                                <input class="form-control wid100 fltl" name="roomNumber" form="frmAddingRoom" type="text">
+                                                <div class="wrap-input100 validate-input m-b-26 fontDroid" data-validate="رقم الغرفة مطلوب">
+                                                    <input class="input100 fontDroid" type="text" name="roomNumber" form="frmAddingRoom" placeholder="101">
+                                                    <span class="focus-input100"></span>
+                                                </div>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
+
                                                 <label for="floor">الطابق</label>
                                             </td>
                                             <td>
-                                                <input class="form-control wid100 fltl" name="floor" form="frmAddingRoom" type="text">
+                                                <div class="wrap-input100 validate-input m-b-26 fontDroid" data-validate="رقم الغرفة مطلوب">
+                                                    <input class="input100 fontDroid" type="text" name="floor" form="frmAddingRoom" placeholder="1">
+                                                    <span class="focus-input100"></span>
+                                                </div>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>
+
                                                 <label for="naroomsNumberme">عدد الغرف</label>
                                             </td>
                                             <td>
-                                                <input class="form-control wid100 fltl" name="roomsNumber" form="frmAddingRoom" type="text">
+                                                <div class="wrap-input100 validate-input m-b-26 fontDroid" data-validate="رقم الغرفة مطلوب">
+                                                    <input class="input100 fontDroid" type="text" name="roomsNumber" form="frmAddingRoom" placeholder="10">
+                                                    <span class="focus-input100"></span>
+                                                </div>
                                             </td>
                                         </tr>
                                         <tr>
@@ -47,7 +58,10 @@
                                                 <label for="bathrooms">عدد دورات المياة</label>
                                             </td>
                                             <td>
-                                                <input class="form-control wid100 fltl" name="bathrooms" form="frmAddingRoom" type="text">
+                                                <div class="wrap-input100 validate-input m-b-26 fontDroid" data-validate="رقم الغرفة مطلوب">
+                                                    <input class="input100 fontDroid" type="text" name="bathrooms" form="frmAddingRoom" placeholder="1">
+                                                    <span class="focus-input100"></span>
+                                                </div>
                                             </td>
                                         </tr>
                                         <tr>
@@ -55,7 +69,10 @@
                                                 <label for="singleBeds">عدد الأسرة المفردة</label>
                                             </td>
                                             <td>
-                                                <input class="form-control wid100 fltl" name="singleBeds" form="frmAddingRoom" type="text">
+                                                <div class="wrap-input100 validate-input m-b-26 fontDroid" data-validate="رقم الغرفة مطلوب">
+                                                    <input class="input100 fontDroid" type="text" name="singleBeds" form="frmAddingRoom" placeholder="2">
+                                                    <span class="focus-input100"></span>
+                                                </div>
                                             </td>
                                         </tr>
                                         <tr>
@@ -63,7 +80,10 @@
                                                 <label for="doubleBeds">عدد الأسرة المزدوجة</label>
                                             </td>
                                             <td>
-                                                <input class="form-control wid100 fltl" name="doubleBeds" form="frmAddingRoom" type="text">
+                                                <div class="wrap-input100 validate-input m-b-26 fontDroid" data-validate="رقم الغرفة مطلوب">
+                                                    <input class="input100 fontDroid" type="text" name="doubleBeds" form="frmAddingRoom" placeholder="0">
+                                                    <span class="focus-input100"></span>
+                                                </div>
                                             </td>
                                         </tr>
                                         <tr>
@@ -71,7 +91,10 @@
                                                 <label for="closets">عدد الخزائن</label>
                                             </td>
                                             <td>
-                                                <input class="form-control wid100 fltl" name="closets" form="frmAddingRoom" type="text">
+                                                <div class="wrap-input100 validate-input m-b-26 fontDroid" data-validate="رقم الغرفة مطلوب">
+                                                    <input class="input100 fontDroid" type="text" name="closets" form="frmAddingRoom" placeholder="1">
+                                                    <span class="focus-input100"></span>
+                                                </div>
                                             </td>
                                         </tr>
                                         <tr>
@@ -79,7 +102,10 @@
                                                 <label for="tvs">عدد التلفزونات</label>
                                             </td>
                                             <td>
-                                                <input class="form-control wid100 fltl" name="tvs" form="frmAddingRoom" type="text">
+                                                <div class="wrap-input100 validate-input m-b-26 fontDroid" data-validate="رقم الغرفة مطلوب">
+                                                    <input class="input100 fontDroid" type="text" name="tvs" form="frmAddingRoom" placeholder="1">
+                                                    <span class="focus-input100"></span>
+                                                </div>
                                             </td>
                                         </tr>
                                         <tr>
@@ -87,12 +113,13 @@
                                                 <label for="acType">نوع المكيف</label>
                                             </td>
                                             <td>
-                                                <select class="form-control wid100 fltl combobox" name="acType" id="acType" form="frmAddingRoom">
-                                                        <% if(settings[0]){settings[0].acTypes.forEach(type => { %>
-                                                            <option value=<%=type %> >
-                                                                <%= type  %>
-                                                            </option>
-                                                            <% })} %>
+
+                                                <select class="input100 fontDroid" name="acType" id="acType" form="frmAddingRoom">
+                                                    <% if(settings[0]){settings[0].acTypes.forEach(type => { %>
+                                                        <option value=<%=type %> >
+                                                            <%= type  %>
+                                                        </option>
+                                                        <% })} %>
                                                 </select>
                                             </td>
                                         </tr>
@@ -101,7 +128,7 @@
                                                 <label for="roomType">نوع الغرفة</label>
                                             </td>
                                             <td>
-                                                <select class="form-control wid100 fltl combobox" name="roomType" id="roomType" form="frmAddingRoom">
+                                                <select class="input100 fontDroid" name="roomType" id="roomType" form="frmAddingRoom">
                                                     <% if(settings[0]){settings[0].roomTypes.forEach(type => { %>
                                                         <option value=<%=type %> >
                                                             <%= type  %>
@@ -115,12 +142,12 @@
                                                 <label for="status">الحالة</label>
                                             </td>
                                             <td>
-                                                <select class="form-control wid100 fltl combobox" name="status" id="status" form="frmAddingRoom">
-                                                        <% if(settings[0]){settings[0].statuses.forEach(type => { %>
-                                                            <option value=<%=type %> >
-                                                                <%= type  %>
-                                                            </option>
-                                                            <% })} %>
+                                                <select class="input100 fontDroid" name="status" id="status" form="frmAddingRoom">
+                                                    <% if(settings[0]){settings[0].statuses.forEach(type => { %>
+                                                        <option value=<%=type %> >
+                                                            <%= type  %>
+                                                        </option>
+                                                        <% })} %>
                                                 </select>
                                             </td>
                                         </tr>
@@ -250,7 +277,7 @@
                                     <h4>ملاحظات</h4>
                                 </div>
                                 <div class="wid100 pdt20">
-                                    <textarea class="form-control frmControlsFs" form="frmAddingRoom" name="notes" id="notes" rows="2"></textarea>
+                                    <textarea class="input100 frmControlsFs" form="frmAddingRoom" name="notes" id="notes" rows="2"></textarea>
                                 </div>
                             </fieldset>
                         </div>

@@ -594,7 +594,7 @@ nav {
 }
 
 .online > span {
-  color: green !important;
+  color: rgb(11, 196, 11)!important;
 }
 
 .offline > span {

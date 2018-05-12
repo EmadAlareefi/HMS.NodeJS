@@ -69,3 +69,7 @@ cursor: pointer ;
   width: 25px !important;
   height: 25px !important;
 }
+
+.alert-validate::before{
+  font-size: 9px !important;
+}

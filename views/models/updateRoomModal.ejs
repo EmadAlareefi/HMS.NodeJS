@@ -8,257 +8,288 @@
                 </button>
             </div>
             <div class="modal-body" style="position: relative;">
-                    <!-- <div class="loading hidden">Loading&#8230;</div> -->
-                    <div class="lds-ellipsis hidden"><div></div><div></div><div></div><div></div></div>
-                    <% var id = 1 %>
-                <form id="frmUpdateRoom" action="/ManageFreeBookings/updateRoom" method="POST">
-                    <div class="field-row" style="grid-template-columns:50% 50%;">
-                        <div class="field-cell">
-                            <fieldset id="FsAddRoomBasicInfo" class="pdlr30">
-                                <div class="title">
-                                    <h4>المعلومات الأساسية</h4>
-                                </div>
+                <!-- <div class="loading hidden">Loading&#8230;</div> -->
+                <div class="lds-ellipsis hidden">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <% var id = 1 %>
+                    <form id="frmUpdateRoom" action="/ManageFreeBookings/updateRoom" method="POST">
+                        <div class="field-row" style="grid-template-columns:50% 50%;">
+                            <div class="field-cell">
+                                <fieldset id="FsAddRoomBasicInfo" class="pdlr30">
+                                    <div class="title">
+                                        <h4>المعلومات الأساسية</h4>
+                                    </div>
 
-                                <div class="wid100 pd20">
-                                    <table class="wid100">
-                                        <tr>
-                                            <td>
-                                                <label for="name">الاسم</label>
-                                            </td>
-                                            <td>
-                                                <input class="form-control wid100 fltl" name="roomNumber" form="frmUpdateRoom" type="text">
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <label for="floor">الطابق</label>
-                                            </td>
-                                            <td>
-                                                <input class="form-control wid100 fltl" name="floor" form="frmUpdateRoom" type="text">
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <label for="naroomsNumberme">عدد الغرف</label>
-                                            </td>
-                                            <td>
-                                                <input class="form-control wid100 fltl" name="roomsNumber" form="frmUpdateRoom" type="text">
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <label for="bathrooms">عدد دورات المياة</label>
-                                            </td>
-                                            <td>
-                                                <input class="form-control wid100 fltl" name="bathrooms" form="frmUpdateRoom" type="text">
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <label for="singleBeds">عدد الأسرة المفردة</label>
-                                            </td>
-                                            <td>
-                                                <input class="form-control wid100 fltl" name="singleBeds" form="frmUpdateRoom" type="text">
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <label for="doubleBeds">عدد الأسرة المزدوجة</label>
-                                            </td>
-                                            <td>
-                                                <input class="form-control wid100 fltl" name="doubleBeds" form="frmUpdateRoom" type="text">
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <label for="closets">عدد الخزائن</label>
-                                            </td>
-                                            <td>
-                                                <input class="form-control wid100 fltl" name="closets" form="frmUpdateRoom" type="text">
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <label for="tvs">عدد التلفزونات</label>
-                                            </td>
-                                            <td>
-                                                <input class="form-control wid100 fltl" name="tvs" form="frmUpdateRoom" type="text">
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <label for="acType">نوع المكيف</label>
-                                            </td>
-                                            <td>
-                                                <select class="form-control wid100 fltl combobox" name="acType" id="acType" form="frmUpdateRoom">
+                                    <div class="wid100 pd20">
+                                        <table class="wid100">
+                                            <tr>
+                                                <td style="min-width: 173px;">
+                                                    <label for="name">الاسم</label>
+                                                </td>
+                                                <td>
+                                                    <div class="wrap-input100 validate-input m-b-26 fontDroid" data-validate="رقم الغرفة مطلوب">
+                                                        <input class="input100 fontDroid" type="text" name="roomNumber" form="frmAddingRoom" placeholder="101">
+                                                        <span class="focus-input100"></span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+
+                                                    <label for="floor">الطابق</label>
+                                                </td>
+                                                <td>
+                                                    <div class="wrap-input100 validate-input m-b-26 fontDroid" data-validate="رقم الغرفة مطلوب">
+                                                        <input class="input100 fontDroid" type="text" name="floor" form="frmAddingRoom" placeholder="1">
+                                                        <span class="focus-input100"></span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+
+                                                    <label for="naroomsNumberme">عدد الغرف</label>
+                                                </td>
+                                                <td>
+                                                    <div class="wrap-input100 validate-input m-b-26 fontDroid" data-validate="رقم الغرفة مطلوب">
+                                                        <input class="input100 fontDroid" type="text" name="roomsNumber" form="frmAddingRoom" placeholder="10">
+                                                        <span class="focus-input100"></span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label for="bathrooms">عدد دورات المياة</label>
+                                                </td>
+                                                <td>
+                                                    <div class="wrap-input100 validate-input m-b-26 fontDroid" data-validate="رقم الغرفة مطلوب">
+                                                        <input class="input100 fontDroid" type="text" name="bathrooms" form="frmAddingRoom" placeholder="1">
+                                                        <span class="focus-input100"></span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label for="singleBeds">عدد الأسرة المفردة</label>
+                                                </td>
+                                                <td>
+                                                    <div class="wrap-input100 validate-input m-b-26 fontDroid" data-validate="رقم الغرفة مطلوب">
+                                                        <input class="input100 fontDroid" type="text" name="singleBeds" form="frmAddingRoom" placeholder="2">
+                                                        <span class="focus-input100"></span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label for="doubleBeds">عدد الأسرة المزدوجة</label>
+                                                </td>
+                                                <td>
+                                                    <div class="wrap-input100 validate-input m-b-26 fontDroid" data-validate="رقم الغرفة مطلوب">
+                                                        <input class="input100 fontDroid" type="text" name="doubleBeds" form="frmAddingRoom" placeholder="0">
+                                                        <span class="focus-input100"></span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label for="closets">عدد الخزائن</label>
+                                                </td>
+                                                <td>
+                                                    <div class="wrap-input100 validate-input m-b-26 fontDroid" data-validate="رقم الغرفة مطلوب">
+                                                        <input class="input100 fontDroid" type="text" name="closets" form="frmAddingRoom" placeholder="1">
+                                                        <span class="focus-input100"></span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label for="tvs">عدد التلفزونات</label>
+                                                </td>
+                                                <td>
+                                                    <div class="wrap-input100 validate-input m-b-26 fontDroid" data-validate="رقم الغرفة مطلوب">
+                                                        <input class="input100 fontDroid" type="text" name="tvs" form="frmAddingRoom" placeholder="1">
+                                                        <span class="focus-input100"></span>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label for="acType">نوع المكيف</label>
+                                                </td>
+                                                <td>
+                                                    <select class="input100 fontDroid" name="acType" id="acType" form="frmAddingRoom">
                                                         <% if(settings[0]){settings[0].acTypes.forEach(type => { %>
                                                             <option value=<%=type %> >
                                                                 <%= type  %>
                                                             </option>
                                                             <% })} %>
-                                                </select>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <label for="roomType">نوع الغرفة</label>
-                                            </td>
-                                            <td>
-                                                <select class="form-control wid100 fltl combobox" name="roomType" id="roomType" form="frmUpdateRoom">
-                                                    <% if(settings[0]){settings[0].roomTypes.forEach(type => { %>
-                                                        <option value=<%=type %> >
-                                                            <%= type  %>
-                                                        </option>
-                                                        <% })} %>
-                                                </select>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <label for="status">الحالة</label>
-                                            </td>
-                                            <td>
-                                                <select class="form-control wid100 fltl combobox" name="status" id="status" form="frmUpdateRoom">
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label for="roomType">نوع الغرفة</label>
+                                                </td>
+                                                <td>
+                                                    <select class="input100 fontDroid" name="roomType" id="roomType" form="frmAddingRoom">
+                                                        <% if(settings[0]){settings[0].roomTypes.forEach(type => { %>
+                                                            <option value=<%=type %> >
+                                                                <%= type  %>
+                                                            </option>
+                                                            <% })} %>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <label for="status">الحالة</label>
+                                                </td>
+                                                <td>
+                                                    <select class="input100 fontDroid" name="status" id="status" form="frmAddingRoom">
                                                         <% if(settings[0]){settings[0].statuses.forEach(type => { %>
                                                             <option value=<%=type %> >
                                                                 <%= type  %>
                                                             </option>
                                                             <% })} %>
-                                                </select>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
-                            </fieldset>
-                        </div>
-                        <div class="field-cell">
-                            <fieldset class="FsAddRoomLeft">
-                                <div class="title">
-                                    <h4>المميزات العامة</h4>
-                                </div>
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </fieldset>
+                            </div>
+                            <div class="field-cell">
+                                <fieldset class="FsAddRoomLeft">
+                                    <div class="title">
+                                        <h4>المميزات العامة</h4>
+                                    </div>
 
-                                <div class="wid100 pd20">
-                                    <table class="wid100">
-                                        <tr>
-                                            <td>
-                                                <input class="form-check-input" type="checkbox" form="frmUpdateRoom" name="internet" id="uinternet">
-                                                <label class="pdr30 form-check-label" for="uinternet">
-                                                    انترنت </label>
-                                            </td>
-                                            <td>
-                                                <input class="form-check-input" type="checkbox" form="frmUpdateRoom" name="parking" id="uparking">
-                                                <label class="pdr30 form-check-label" for="uparking">
-                                                    مواقف السيارات </label>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <input class="form-check-input" type="checkbox" form="frmUpdateRoom" name="elevator" id="uelevator">
-                                                <label class="pdr30 form-check-label" for="uelevator">
-                                                    مصعد </label>
-                                            </td>
-                                            <td>
-                                                <input class="form-check-input" type="checkbox" form="frmUpdateRoom" name="cleaning" id="ucleaning">
-                                                <label class="pdr30 form-check-label" for="ucleaning">
-                                                    تنظيف الغرف </label>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
-                            </fieldset>
-                            <fieldset class="FsAddRoomLeft">
-                                <div class="title">
-                                    <h4>المميزات الخاصة</h4>
-                                </div>
+                                    <div class="wid100 pd20">
+                                        <table class="wid100">
+                                            <tr>
+                                                <td>
+                                                    <input class="form-check-input" type="checkbox" form="frmUpdateRoom" name="internet" id="uinternet">
+                                                    <label class="pdr30 form-check-label" for="uinternet">
+                                                        انترنت </label>
+                                                </td>
+                                                <td>
+                                                    <input class="form-check-input" type="checkbox" form="frmUpdateRoom" name="parking" id="uparking">
+                                                    <label class="pdr30 form-check-label" for="uparking">
+                                                        مواقف السيارات </label>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <input class="form-check-input" type="checkbox" form="frmUpdateRoom" name="elevator" id="uelevator">
+                                                    <label class="pdr30 form-check-label" for="uelevator">
+                                                        مصعد </label>
+                                                </td>
+                                                <td>
+                                                    <input class="form-check-input" type="checkbox" form="frmUpdateRoom" name="cleaning" id="ucleaning">
+                                                    <label class="pdr30 form-check-label" for="ucleaning">
+                                                        تنظيف الغرف </label>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </fieldset>
+                                <fieldset class="FsAddRoomLeft">
+                                    <div class="title">
+                                        <h4>المميزات الخاصة</h4>
+                                    </div>
 
-                                <div class="wid100 pd20">
-                                    <table style="width: 63.5%;">
-                                        <tr>
-                                            <td>
-                                                <input class="form-check-input" type="checkbox" form="frmUpdateRoom" name="phoneguide" id="uphoneguide">
-                                                <label class="pdr30 form-check-label" for="uphoneguide">
-                                                    دليل الهاتف </label>
-                                            </td>
-                                            <td>
-                                                <input class="form-check-input" type="checkbox" form="frmUpdateRoom" name="oven" id="uoven">
-                                                <label class="pdr30 form-check-label" for="uoven">
-                                                    فرن </label>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <input class="form-check-input" type="checkbox" form="frmUpdateRoom" name="paper" id="upaper">
-                                                <label class="pdr30 form-check-label" for="upaper">
-                                                    الصحيفة </label>
-                                            </td>
-                                            <td>
-                                                <input class="form-check-input" type="checkbox" form="frmUpdateRoom" name="microwave" id="umicrowave">
-                                                <label class="pdr30 form-check-label" for="umicrowave">
-                                                    مايكرويف </label>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <input class="form-check-input" type="checkbox" form="frmUpdateRoom" name="qiblah" id="uqiblah">
-                                                <label class="pdr30 form-check-label" for="uqiblah">
-                                                    تحديد القبلة </label>
-                                            </td>
-                                            <td>
-                                                <input class="form-check-input" type="checkbox" form="frmUpdateRoom" name="washer" id="uwasher">
-                                                <label class="pdr30 form-check-label" for="uwasher">
-                                                    غسالة </label>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <input class="form-check-input" type="checkbox" form="frmUpdateRoom" name="restaurantslist" id="urestaurantslist">
-                                                <label class="pdr30 form-check-label" for="urestaurantslist">
-                                                    قائمة المطاعم </label>
-                                            </td>
-                                            <td>
-                                                <input class="form-check-input" type="checkbox" form="frmUpdateRoom" name="iron" id="uiron">
-                                                <label class="pdr30 form-check-label" for="uiron">
-                                                    مكوى </label>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <input class="form-check-input" type="checkbox" form="frmUpdateRoom" name="refrigerator" id="urefrigerator">
-                                                <label class="pdr30 form-check-label" for="urefrigerator">
-                                                    ثلاجة </label>
-                                            </td>
-                                            <td>
-                                                <input class="form-check-input" type="checkbox" form="frmUpdateRoom" name="foodtable" id="ufoodtable">
-                                                <label class="pdr30 form-check-label" for="ufoodtable">
-                                                    طاولة طعام </label>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <input class="form-check-input" type="checkbox" form="frmUpdateRoom" name="hall" id="uhall">
-                                                <label class="pdr30 form-check-label" for="uhall">
-                                                    صالة </label>
-                                            </td>
-                                            <td>
-                                                <input class="form-check-input" type="checkbox" form="frmUpdateRoom" name="kitchen" id="ukitchen">
-                                                <label class="pdr30 form-check-label" for="ukitchen">
-                                                    مطبخ </label>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </div>
-                            </fieldset>
-                            <fieldset>
-                                <div class="title">
-                                    <h4>ملاحظات</h4>
-                                </div>
-                                <div class="wid100 pdt20">
-                                    <textarea class="form-control frmControlsFs" form="frmUpdateRoom" name="notes" id="notes" rows="2"></textarea>
-                                </div>
-                            </fieldset>
+                                    <div class="wid100 pd20">
+                                        <table style="width: 63.5%;">
+                                            <tr>
+                                                <td>
+                                                    <input class="form-check-input" type="checkbox" form="frmUpdateRoom" name="phoneguide" id="uphoneguide">
+                                                    <label class="pdr30 form-check-label" for="uphoneguide">
+                                                        دليل الهاتف </label>
+                                                </td>
+                                                <td>
+                                                    <input class="form-check-input" type="checkbox" form="frmUpdateRoom" name="oven" id="uoven">
+                                                    <label class="pdr30 form-check-label" for="uoven">
+                                                        فرن </label>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <input class="form-check-input" type="checkbox" form="frmUpdateRoom" name="paper" id="upaper">
+                                                    <label class="pdr30 form-check-label" for="upaper">
+                                                        الصحيفة </label>
+                                                </td>
+                                                <td>
+                                                    <input class="form-check-input" type="checkbox" form="frmUpdateRoom" name="microwave" id="umicrowave">
+                                                    <label class="pdr30 form-check-label" for="umicrowave">
+                                                        مايكرويف </label>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <input class="form-check-input" type="checkbox" form="frmUpdateRoom" name="qiblah" id="uqiblah">
+                                                    <label class="pdr30 form-check-label" for="uqiblah">
+                                                        تحديد القبلة </label>
+                                                </td>
+                                                <td>
+                                                    <input class="form-check-input" type="checkbox" form="frmUpdateRoom" name="washer" id="uwasher">
+                                                    <label class="pdr30 form-check-label" for="uwasher">
+                                                        غسالة </label>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <input class="form-check-input" type="checkbox" form="frmUpdateRoom" name="restaurantslist" id="urestaurantslist">
+                                                    <label class="pdr30 form-check-label" for="urestaurantslist">
+                                                        قائمة المطاعم </label>
+                                                </td>
+                                                <td>
+                                                    <input class="form-check-input" type="checkbox" form="frmUpdateRoom" name="iron" id="uiron">
+                                                    <label class="pdr30 form-check-label" for="uiron">
+                                                        مكوى </label>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <input class="form-check-input" type="checkbox" form="frmUpdateRoom" name="refrigerator" id="urefrigerator">
+                                                    <label class="pdr30 form-check-label" for="urefrigerator">
+                                                        ثلاجة </label>
+                                                </td>
+                                                <td>
+                                                    <input class="form-check-input" type="checkbox" form="frmUpdateRoom" name="foodtable" id="ufoodtable">
+                                                    <label class="pdr30 form-check-label" for="ufoodtable">
+                                                        طاولة طعام </label>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <input class="form-check-input" type="checkbox" form="frmUpdateRoom" name="hall" id="uhall">
+                                                    <label class="pdr30 form-check-label" for="uhall">
+                                                        صالة </label>
+                                                </td>
+                                                <td>
+                                                    <input class="form-check-input" type="checkbox" form="frmUpdateRoom" name="kitchen" id="ukitchen">
+                                                    <label class="pdr30 form-check-label" for="ukitchen">
+                                                        مطبخ </label>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </fieldset>
+                                <fieldset>
+                                    <div class="title">
+                                        <h4>ملاحظات</h4>
+                                    </div>
+                                    <div class="wid100 pdt20">
+                                        <textarea class="form-control frmControlsFs" form="frmUpdateRoom" name="notes" id="notes" rows="2"></textarea>
+                                    </div>
+                                </fieldset>
+                            </div>
                         </div>
-                    </div>
-                </form>
+                    </form>
             </div>
             <div class="modal-footer">
                 <button id="btnAddRoom" type="submet" form="frmUpdateRoom" class="btn btn-primary">حفظ</button>

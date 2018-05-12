@@ -8,7 +8,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form id="frmCreateCustomer" action="/customers/addCustomer" method="POST">
+                <form class="validate-form" id="frmCreateCustomer" action="/customers/addCustomer" method="POST">
 
                     <div class="field-row nopd" style="grid-template-columns:15% 85%;">
                         <div class="field-cell eleBlk" style="display: inherit">
@@ -25,19 +25,28 @@
                         </div>
                         <div class="field-cell ">
                             <div class="field-row nopd" style="display: flex">
-                                <input type="text" class="form-control combobox" name="firstName">
-                                <input type="text" class="form-control combobox" name="secondName">
-                                <input type="text" class="form-control combobox" name="thirdName">
-                                <input type="text" class="form-control combobox" name="lastName">
+                                <div class="wrap-input100 validate-input fontDroid" data-validate="الاسم الأول مطلوب">
+                                    <input type="text" class="form-control combobox" name="firstName">
+                                </div>
+                                <div class="wrap-input100 validate-input fontDroid" data-validate="الاسم الثاني مطلوب">
+                                    <input type="text" class="form-control combobox" name="secondName">
+                                </div>
+                                <div class="wrap-input100 validate-input fontDroid" data-validate="الاسم الثالث مطلوب">
+                                    <input type="text" class="form-control combobox" name="thirdName">
+                                </div>
+                                <div class="wrap-input100 validate-input fontDroid" data-validate="اللقب مطلوب">
+                                    <input type="text" class="form-control combobox" name="lastName">
+                                </div>
+
                             </div>
                             <div class="field-row nopd">
                                 <table>
                                     <tr>
                                         <td>
                                             <select class="form-control combobox wid100" name="customerType" id="customerType">
-                                                    <option value="">
-                                                        اختر
-                                                        </option>
+                                                <option value="اختر">
+                                                    اختر
+                                                </option>
 
                                                 <% if(settings[0]){settings[0].customerTypes.forEach(type => { %>
                                                     <option value=<%=type %> >
@@ -78,7 +87,9 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                            <input class="form-control combobox wid100" type="text" name="idNum">
+                                                <div class="wrap-input100 validate-input fontDroid" data-validate="رقم الهوية مطلوب">
+                                                        <input class="form-control combobox wid100" type="text" name="idNum">
+                                                    </div>
                                         </td>
                                         <td>
                                             <label for="issuingPlace">مكان الاصدار</label>
