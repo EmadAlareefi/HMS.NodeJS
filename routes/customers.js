@@ -47,6 +47,7 @@ router.get("/", globals.ensureAuthenticated, (req, res, next) => {
   });
 });
 
+<<<<<<< HEAD
 router.post(
   "/addCustomer",
   [
@@ -91,6 +92,37 @@ router.post(
     // req.checkBody("nationality", "لا بد من اضافة جنسية العميل").notEmpty();
     // req.checkBody("roomNumber", "ﻻ ﺑﺪ ﻣﻦ اﺿﺎﻓﺔ اسم الغرفة").notEmpty();
     // req.checkBody("floor", "لا بد من اضافة رقم الطابق").notEmpty();
+=======
+router.post("/addCustomer", (req, res, next) => {
+  var body = req.body;
+  var firstName = body.firstName;
+  var secondName = body.secondName;
+  var thirdName = body.thirdName;
+  var lastName = body.lastName;
+  var customerType = body.customerType;
+  var nationality = body.nationality;
+  var idType = body.idType;
+  var cardCopyNum = body.cardCopyNum;
+  var idNum = body.idNum;
+  var issuingPlace = body.issuingPlace;
+  var expDate = body.expDate;
+  var phone = body.phone;
+  var workPhone = body.workPhone;
+  var email = body.email;
+  var category = body.category;
+  var address = body.address;
+  var specialNotes = body.specialNotes;
+  var notes = body.notes;
+
+  req.checkBody("firstName", "ﻻ ﺑﺪ ﻣﻦ اﺿﺎﻓﺔ اسم الغرفة").notEmpty();
+  req.checkBody("secondName", "لا بد من اضافة رقم الطابق").notEmpty();
+  req.checkBody("thirdName", "ﻻ ﺑﺪ ﻣﻦ اﺿﺎﻓﺔ اسم الغرفة").notEmpty();
+  req.checkBody("lastName", "لا بد من اضافة رقم الطابق").notEmpty();
+  // req.checkBody("customerType", "لا بد من اختيار نوع العميل").equals("اختر");
+  // req.checkBody("nationality", "لا بد من اضافة جنسية العميل").notEmpty();
+  // req.checkBody("roomNumber", "ﻻ ﺑﺪ ﻣﻦ اﺿﺎﻓﺔ اسم الغرفة").notEmpty();
+  // req.checkBody("floor", "لا بد من اضافة رقم الطابق").notEmpty();
+>>>>>>> a47f3fc9df92c228e44012c7fe5f6bfba8fcac18
 
     var errors = req.validationErrors();
 

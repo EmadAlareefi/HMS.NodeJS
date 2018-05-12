@@ -399,7 +399,7 @@ span {
   padding: 20px;
   min-height: calc(100vh - var(--footerHeight));
   transition: all 0.3s;
-  background: linear-gradient(to top, #f1eded, #f5f1f1);
+  background:  #f4f6f7;
   box-shadow: inset -3px 0px 0px 0px #767779;
   text-align: right;
   min-height: calc(100vh - var(--footerHeight));
@@ -736,13 +736,13 @@ nav {
 
 
 [data-status="مؤجرة"] {
-  background-color: #f96868 !important;
+  background-color: #f15151 !important;
 }
 [data-status="فارغة"] {
   background-color: #1cdf37 !important;
 }
 [data-status="تنظيف"] {
-  background-color: #aaadaf !important;
+  background-color: #bcbec0 !important;
 }
 /* Dialog Properties */
 .mybtn-dialog {

@@ -20,6 +20,7 @@ var btnCreateCustomerClose = $("#btnCreateCustomerClose");
 //   submit();
 //   return false;
 // });
+<<<<<<< HEAD
 
 (function($) {
   "use strict";
@@ -85,6 +86,8 @@ var btnCreateCustomerClose = $("#btnCreateCustomerClose");
     $(thisAlert).removeClass("alert-validate");
   }
 })(jQuery);
+=======
+>>>>>>> a47f3fc9df92c228e44012c7fe5f6bfba8fcac18
 
 $(".formClose").on("click", () => {
   frmAddingRoom.get(0).reset();

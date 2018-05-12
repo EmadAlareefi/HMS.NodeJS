@@ -15,34 +15,45 @@
        
         <section class="wid100" style="background-color:white">
 
-            <div class="nav nav-tabs pdr80">
-                    <a id="btn_add_a_room" class="hint--right hint--rounded nav-item nav-link" role="tab" aria-label="إضافة خدمة" style="cursor:pointer"
+            <div class="nav nav-tabs" style="direction: initial">
+                
+                    <a id="btn_add_a_room" class="hint--right hint--rounded nav-item nav-link" role="tab" aria-label="إضافة خدمة" style="cursor:pointer "
                       data-toggle="modal" data-target="#ServicesModel">
                       <i class="fas fa-plus"></i>
                     </a>
+                    <!-- <label class="fontDroid" style="align-self: flex-end;" >اضافة خدمة</label> -->
                   </div>
 
-            <div style="height:50px;">
-
-            </div>
-            <table id="tblReservations" class="wid100">
+            
+            <table id="tblReservations" class="wid100" >
                 <thead>
                     <tr class="tblHeader1">
-                        <th colspan="7" class="wid80 fontDroid" style="background-color:#2c91b9;color:white;">إدارة الخدمات</th>
+                        <th colspan="4" class="wid100 fontDroid" style="background-color:#2c91b9;color:white;">إدارة الخدمات</th>
                     </tr>
                     <tr class="tblHeader2">
                         <th>رقم الخدمة</th>
                         <th>اسم الخدمة</th>
                         <th>نوع الخدمة</th>
                         <th>سعر الخدمة</th>
-                        <th>الكمية </th>
-                        <th>العميل</th>
-                        <th>الغرفة</th>
                     </tr>
                 </thead>
+                <tbody>
+                    <% services.forEach(service => { %>
+                        <tr class="tbldatarow">
+                            <td data-title="Name"><%=service.serviceNumber %></td>
+                            <td data-title="ID Type"><%=service.serviceName %></td>
+                            <td data-title="ID Number"><%=service.serviceType %></td>    
+                            <td data-title="ID Issue Place"><%=service.servicePrice %></td>
+                            <!-- <td data-title="Actions">
+                                <a id="MainContent_lstvw_customers_btnView_0" title="View customer" class="ViewIco TblIco" data-href="/Pages/Management/Popups/View/Viewservice.aspx?id=3747766&amp;cid=68"
+                                    href="javascript:__doPostBack('ctl00$MainContent$lstvw_customers$ctrl0$btnView','')"></a>
+                            </td> -->
+                        </tr>
+                        <% }) %>
+                </tbody>
                 <tfoot>
                     <tr>
-                        <td colspan="6" class="pd10">
+                        <td colspan="3" class="pd10">
                             <div class="pagination">
                                     <ul id="MainContent_dPager2" style="display: inline-flex;">
                                             <li class="navButton" ><a href="#">الأول</a></li>

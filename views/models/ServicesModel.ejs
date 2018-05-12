@@ -8,7 +8,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form id="frmTemplate" action="" method="POST">
+                <form id="frmAddService" action="/Services/addService" method="POST">
                     
                     <div class="field-row" style="grid-template-columns:50% 50%;">
                         <div class="field-cell">
@@ -24,7 +24,7 @@
                                                 <label for="name">رقم الخدمة</label>
                                             </td>
                                             <td>
-                                                <input class="form-control wid100 fltl" name="roomNumber" form="frmAddingRoom" type="text">
+                                                <input class="form-control wid100 fltl" name="serviceNumber" form="frmAddService" type="text">
                                             </td>
                                         </tr>
                                         <tr>
@@ -32,7 +32,7 @@
                                                 <label for="floor">اسم الخدمة</label>
                                             </td>
                                             <td>
-                                                <input class="form-control wid100 fltl" name="floor" form="frmAddingRoom" type="text">
+                                                <input class="form-control wid100 fltl" name="serviceName" form="frmAddService" type="text">
                                             </td>
                                         </tr>
                                         <tr>
@@ -40,7 +40,7 @@
                                                 <label for="naroomsNumberme"> نوع الخدمة</label>
                                             </td>
                                             <td>
-                                                <input class="form-control wid100 fltl" name="roomsNumber" form="frmAddingRoom" type="text">
+                                                <input class="form-control wid100 fltl" name="serviceType" form="frmAddService" type="text">
                                             </td>
                                         </tr>
                                         <tr>
@@ -48,33 +48,10 @@
                                                 <label for="bathrooms">  سعر الخدمة</label>
                                             </td>
                                             <td>
-                                                <input class="form-control wid100 fltl" name="bathrooms" form="frmAddingRoom" type="text">
+                                                <input class="form-control wid100 fltl" name="servicePrice" form="frmAddService" type="text">
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td>
-                                                <label for="singleBeds"> الكمية </label>
-                                            </td>
-                                            <td>
-                                                <input class="form-control wid100 fltl" name="singleBeds" form="frmAddingRoom" type="text">
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <label for="doubleBeds"> العميل</label>
-                                            </td>
-                                            <td>
-                                                <input class="form-control wid100 fltl" name="doubleBeds" form="frmAddingRoom" type="text">
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <label for="closets"> الغرفة</label>
-                                            </td>
-                                            <td>
-                                                <input class="form-control wid100 fltl" name="closets" form="frmAddingRoom" type="text">
-                                            </td>
-                                        </tr>
+                                        
                                        
                                         
                                     </table>
@@ -87,7 +64,7 @@
                 </form>
             </div>
             <div class="modal-footer">
-                <button id="" type="submet" form="frmTemplate" class="btn btn-primary">حفظ</button>
+                <button id="" type="submet" form="frmAddService" class="btn btn-primary">حفظ</button>
                 <button id="" type="button" class="btn btn-secondary" data-dismiss="modal"> الغاء الأمر</button>
             </div>
         </div>
