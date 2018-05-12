@@ -32,7 +32,7 @@
                                                 </td>
                                                 <td>
                                                     <div class="wrap-input100 validate-input m-b-26 fontDroid" data-validate="رقم الغرفة مطلوب">
-                                                        <input class="input100 fontDroid" type="text" name="roomNumber" form="frmAddingRoom" placeholder="101">
+                                                        <input class="input100 fontDroid" type="text" name="roomNumber" form="frmUpdateRoom" placeholder="101">
                                                         <span class="focus-input100"></span>
                                                     </div>
                                                 </td>
@@ -44,7 +44,7 @@
                                                 </td>
                                                 <td>
                                                     <div class="wrap-input100 validate-input m-b-26 fontDroid" data-validate="رقم الغرفة مطلوب">
-                                                        <input class="input100 fontDroid" type="text" name="floor" form="frmAddingRoom" placeholder="1">
+                                                        <input class="input100 fontDroid" type="text" name="floor" form="frmUpdateRoom" placeholder="1">
                                                         <span class="focus-input100"></span>
                                                     </div>
                                                 </td>
@@ -56,7 +56,7 @@
                                                 </td>
                                                 <td>
                                                     <div class="wrap-input100 validate-input m-b-26 fontDroid" data-validate="رقم الغرفة مطلوب">
-                                                        <input class="input100 fontDroid" type="text" name="roomsNumber" form="frmAddingRoom" placeholder="10">
+                                                        <input class="input100 fontDroid" type="text" name="roomsNumber" form="frmUpdateRoom" placeholder="10">
                                                         <span class="focus-input100"></span>
                                                     </div>
                                                 </td>
@@ -67,7 +67,7 @@
                                                 </td>
                                                 <td>
                                                     <div class="wrap-input100 validate-input m-b-26 fontDroid" data-validate="رقم الغرفة مطلوب">
-                                                        <input class="input100 fontDroid" type="text" name="bathrooms" form="frmAddingRoom" placeholder="1">
+                                                        <input class="input100 fontDroid" type="text" name="bathrooms" form="frmUpdateRoom" placeholder="1">
                                                         <span class="focus-input100"></span>
                                                     </div>
                                                 </td>
@@ -78,7 +78,7 @@
                                                 </td>
                                                 <td>
                                                     <div class="wrap-input100 validate-input m-b-26 fontDroid" data-validate="رقم الغرفة مطلوب">
-                                                        <input class="input100 fontDroid" type="text" name="singleBeds" form="frmAddingRoom" placeholder="2">
+                                                        <input class="input100 fontDroid" type="text" name="singleBeds" form="frmUpdateRoom" placeholder="2">
                                                         <span class="focus-input100"></span>
                                                     </div>
                                                 </td>
@@ -89,7 +89,7 @@
                                                 </td>
                                                 <td>
                                                     <div class="wrap-input100 validate-input m-b-26 fontDroid" data-validate="رقم الغرفة مطلوب">
-                                                        <input class="input100 fontDroid" type="text" name="doubleBeds" form="frmAddingRoom" placeholder="0">
+                                                        <input class="input100 fontDroid" type="text" name="doubleBeds" form="frmUpdateRoom" placeholder="0">
                                                         <span class="focus-input100"></span>
                                                     </div>
                                                 </td>
@@ -100,7 +100,7 @@
                                                 </td>
                                                 <td>
                                                     <div class="wrap-input100 validate-input m-b-26 fontDroid" data-validate="رقم الغرفة مطلوب">
-                                                        <input class="input100 fontDroid" type="text" name="closets" form="frmAddingRoom" placeholder="1">
+                                                        <input class="input100 fontDroid" type="text" name="closets" form="frmUpdateRoom" placeholder="1">
                                                         <span class="focus-input100"></span>
                                                     </div>
                                                 </td>
@@ -111,7 +111,7 @@
                                                 </td>
                                                 <td>
                                                     <div class="wrap-input100 validate-input m-b-26 fontDroid" data-validate="رقم الغرفة مطلوب">
-                                                        <input class="input100 fontDroid" type="text" name="tvs" form="frmAddingRoom" placeholder="1">
+                                                        <input class="input100 fontDroid" type="text" name="tvs" form="frmUpdateRoom" placeholder="1">
                                                         <span class="focus-input100"></span>
                                                     </div>
                                                 </td>
@@ -121,7 +121,7 @@
                                                     <label for="acType">نوع المكيف</label>
                                                 </td>
                                                 <td>
-                                                    <select class="input100 fontDroid" name="acType" id="acType" form="frmAddingRoom">
+                                                    <select class="input100 fontDroid" name="acType" id="acType" form="frmUpdateRoom">
                                                         <% if(settings[0]){settings[0].acTypes.forEach(type => { %>
                                                             <option value=<%=type %> >
                                                                 <%= type  %>
@@ -135,7 +135,7 @@
                                                     <label for="roomType">نوع الغرفة</label>
                                                 </td>
                                                 <td>
-                                                    <select class="input100 fontDroid" name="roomType" id="roomType" form="frmAddingRoom">
+                                                    <select class="input100 fontDroid" name="roomType" id="roomType" form="frmUpdateRoom">
                                                         <% if(settings[0]){settings[0].roomTypes.forEach(type => { %>
                                                             <option value=<%=type %> >
                                                                 <%= type  %>
@@ -149,7 +149,7 @@
                                                     <label for="status">الحالة</label>
                                                 </td>
                                                 <td>
-                                                    <select class="input100 fontDroid" name="status" id="status" form="frmAddingRoom">
+                                                    <select class="input100 fontDroid" name="status" id="status" form="frmUpdateRoom">
                                                         <% if(settings[0]){settings[0].statuses.forEach(type => { %>
                                                             <option value=<%=type %> >
                                                                 <%= type  %>
