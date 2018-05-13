@@ -25,6 +25,7 @@ var settings = require("./routes/settings");
 var Reports = require("./routes/Reports");
 var Services = require("./routes/Services");
 var Bills = require("./routes/Bills");
+var Purchases = require("./routes/Purchases");
 var port = 3000;
 var app = express();
 
@@ -100,6 +101,8 @@ app.use("/Settings", settings);
 app.use("/Reports", Reports);
 app.use("/Services", Services);
 app.use("/Bills", Bills);
+app.use("/Purchases", Purchases);
+
 
 
 
