@@ -1,0 +1,94 @@
+<% include ../partials/header %>
+
+
+
+    <% include ../partials/sideNav %>
+
+        <div class="myContainer">
+            <div class="content">
+                <% include ../partials/topNav %>
+
+
+                
+
+
+       
+        <section class="wid100" style="background-color:white">
+
+            <div class="nav nav-tabs" style="direction: initial">
+                
+                    <a id="btn_add_a_room" class="hint--right hint--rounded nav-item nav-link" role="tab" aria-label="إضافة خدمة" style="cursor:pointer "
+                      data-toggle="modal" data-target="#PurchasesModel">
+                      <i class="fas fa-plus"></i>
+                    </a>
+                    <!-- <label class="fontDroid" style="align-self: flex-end;" >اضافة خدمة</label> -->
+                  </div>
+
+            
+            <table id="tblReservations" class="wid100" >
+                <thead>
+                    <tr class="tblHeader1">
+                        <th colspan="6" class="wid100 fontDroid" style="background-color:#2c91b9;color:white;">إدارة المشتريات</th>
+                    </tr>
+                    <tr class="tblHeader2">
+                        <th>رقم المشتريات</th>
+                        <th>اسم المشتريات</th>
+                        <th>نوع المشتريات</th>
+                        <th>الكمية </th>
+                        <th>سعر القطعة</th>
+                        <th> المجموع</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <% Purchases.forEach(Purchase => { %>
+                        <tr class="tbldatarow">
+                            <td data-title="Name"><%=Purchase.PurchaseNumber %></td>
+                            <td data-title="ID Type"><%=Purchase.PurchaseName %></td>
+                            <td data-title="ID Number"><%=Purchase.PurchaseType %></td>    
+                            <td data-title="ID Issue Place"><%=Purchase.Amount %></td>
+                            <td data-title="ID Issue Place"><%=Purchase.PurchasePrice %></td>
+                            <td data-title="ID Issue Place"><%=Purchase.Total %></td>
+
+                            <!-- <td data-title="Actions">
+                                <a id="MainContent_lstvw_customers_btnView_0" title="View customer" class="ViewIco TblIco" data-href="/Pages/Management/Popups/View/ViewPurchase.aspx?id=3747766&amp;cid=68"
+                                    href="javascript:__doPostBack('ctl00$MainContent$lstvw_customers$ctrl0$btnView','')"></a>
+                            </td> -->
+                        </tr>
+                        <% }) %>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="3" class="pd10">
+                            <div class="pagination">
+                                    <ul id="MainContent_dPager2" style="display: inline-flex;">
+                                            <li class="navButton" ><a href="#">الأول</a></li>
+                                            <li class="navButton"><a href="#">السابق</a></li>
+                                            <li class="navButton site"><a href="#">1</a></li>
+                                            <li class="navButton back"><a href="#">التالي</a></li>
+                                            <li class="navButton back"><a href="#">الأخير</a></li>
+                                          </ul>
+                            <div class="PagnTxt"></div>
+                        </td>
+                        <td>
+                            <div class="">
+                                <button id="btnAddRoomClose" type="button" class="btn btn-secondary fontDroid" onclick="location.href='/'">خروج</button>
+                            </div>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </section>
+</div>
+</div>
+
+</div>
+</div>
+
+        <% include ../partials/footer %>
+            </body>
+            <% include ../models/PurchasesModel %>
+
+            </html>
+            <!-- End of Wrapper -->
+            </div>
