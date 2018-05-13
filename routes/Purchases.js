@@ -54,7 +54,7 @@ router.post("/addPurchase", (req, res, next) => {
   var PurchaseType = body.PurchaseType;
   var Amount = body.Amount;
   var PurchasePrice= body.PurchasePrice;
-  var Total= body.PurchasePrice*Amount;
+  var Total= body.Total;
 
 
 
