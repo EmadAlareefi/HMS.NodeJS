@@ -57,10 +57,6 @@ textarea:-moz-placeholder {color: #999999;}
 textarea::-moz-placeholder {color: #999999;}
 textarea:-ms-input-placeholder {color: #999999;}
 
-label {
-  display: block;
-  margin: 0;
-}
 
 /*---------------------------------------------*/
 button {
@@ -392,7 +388,7 @@ input.input100 {
   transform: translateY(-50%);
   left: 2px;
   pointer-events: none;
-  color: #c80000;
+  color: #ff3448;
   font-size: 13px;
   line-height: 1.4;
   text-align: right;

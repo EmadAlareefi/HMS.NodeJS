@@ -25,17 +25,25 @@
                         </div>
                         <div class="field-cell ">
                             <div class="field-row nopd" style="display: flex">
-                                <div class="wrap-input100 validate-input fontDroid" data-validate="الاسم الأول مطلوب">
-                                    <input type="text" class="form-control combobox" name="firstName">
+                                <div class="wrap-input100 validate-input fontDroid" data-validate="الاسم الاول مطلوب">
+                                    <input type="text" class="input100 combobox" name="firstName" placeholder="الاسم الاول">
+                                    <span class="focus-input100"></span>
+
                                 </div>
-                                <div class="wrap-input100 validate-input fontDroid" data-validate="الاسم الثاني مطلوب">
-                                    <input type="text" class="form-control combobox" name="secondName">
+                                <div class="wrap-input100 validate-input fontDroid" data-validate="الاسم الاب مطلوب">
+                                    <input type="text" class="input100 combobox" name="secondName" placeholder="اسم الاب">
+                                    <span class="focus-input100"></span>
+
                                 </div>
                                 <div class="wrap-input100 validate-input fontDroid" data-validate="الاسم الثالث مطلوب">
-                                    <input type="text" class="form-control combobox" name="thirdName">
+                                    <input type="text" class="input100 combobox" name="thirdName" placeholder="اسم الجد">
+                                    <span class="focus-input100"></span>
+
                                 </div>
                                 <div class="wrap-input100 validate-input fontDroid" data-validate="اللقب مطلوب">
-                                    <input type="text" class="form-control combobox" name="lastName">
+                                    <input type="text" class="input100 combobox" name="lastName" placeholder="اللقب">
+                                    <span class="focus-input100"></span>
+
                                 </div>
 
                             </div>
@@ -43,7 +51,7 @@
                                 <table>
                                     <tr>
                                         <td>
-                                            <select class="form-control combobox wid100" name="customerType" id="customerType">
+                                            <select class="input100 combobox" name="customerType" id="customerType">
                                                 <option value="اختر">
                                                     اختر
                                                 </option>
@@ -55,16 +63,16 @@
                                                     <% })} %>
                                             </select>
                                         </td>
-                                        <td>
+                                        <td class="fltl pdl10">
                                             <label for="nationality">الجنسية </label>
                                         </td>
                                         <td>
-                                            <select class="form-control combobox wid100" name="nationality" id="nationality"></select>
+                                            <select class="input100 combobox" name="nationality" id="nationality"></select>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <select class="form-control combobox wid100" name="idType" id="idType">
+                                            <select class="input100 combobox" name="idType" id="idType">
                                                 <% if(settings[0]){settings[0].idTypes.forEach(type => { %>
                                                     <option value=<%=type %> >
                                                         <%= type  %>
@@ -72,11 +80,11 @@
                                                     <% })} %>
                                             </select>
                                         </td>
-                                        <td>
+                                        <td class="fltl pdl10">
                                             <label for="cardCopyNum">نسخة البطاقة</label>
                                         </td>
                                         <td>
-                                            <select class="form-control combobox wid100" name="cardCopyNum" id="cardCopyNum">
+                                            <select class="input100 combobox" name="cardCopyNum" id="cardCopyNum">
                                                 <% for(i=1;i<=25;i++) { %>
                                                     <option value=<%=i %> >
                                                         <%=i %>
@@ -87,56 +95,89 @@
                                     </tr>
                                     <tr>
                                         <td>
-                                                <div class="wrap-input100 validate-input fontDroid" data-validate="رقم الهوية مطلوب">
-                                                        <input class="form-control combobox wid100" type="text" name="idNum">
-                                                    </div>
+                                            <div class="wrap-input100 validate-input fontDroid" data-validate="رقم الهوية مطلوب">
+                                                <input class="input100 combobox" type="text" name="idNum">
+                                                <span class="focus-input100"></span>
+                                            </div>
                                         </td>
-                                        <td>
+                                        <td class="fltl pdl10">
                                             <label for="issuingPlace">مكان الاصدار</label>
                                         </td>
                                         <td>
-                                            <input class="form-control combobox wid100" type="text" name="issuingPlace">
+                                            <div class="wrap-input100 validate-input fontDroid" data-validate="مكان الاصدار مطلوب">
+                                                <input class="input100 combobox" type="text" name="issuingPlace">
+                                                <span class="focus-input100"></span>
+                                            </div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <input class="form-control combobox wid100" type="text" name="expDate">
+                                            <div class="wrap-input100 fontDroid">
+
+                                                <input class="input100 combobox" type="text" name="expDate">
+                                                <span class="focus-input100"></span>
+                                            </div>
                                         </td>
-                                        <td>
+                                        <td class="fltl pdl10">
                                             <label for="phone">رقم الجوال</label>
                                         </td>
                                         <td>
-                                            <input class="form-control combobox wid100" type="text" name="phone">
+                                            <div class="wrap-input100 validate-input fontDroid" data-validate="رقم الجوال مطلوب">
+                                                <input class="input100 combobox" type="text" name="phone">
+                                                <span class="focus-input100"></span>
+                                            </div>
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <input class="form-control combobox wid100" type="text" name="workPhone">
+                                            <div class="wrap-input100 fontDroid">
+                                                <input class="input100 combobox" type="text" name="workPhone">
+                                                <span class="focus-input100"></span>
+                                            </div>
+
                                         </td>
-                                        <td>
+                                        <td class="fltl pdl10">
                                             <label for="wordPlace">مكان العمل</label>
                                         </td>
                                         <td>
-                                            <input class="form-control combobox wid100" type="text" name="wordPlace">
+                                            <div class="wrap-input100 fontDroid">
+                                                <input class="input100 combobox" type="text" name="wordPlace">
+                                                <span class="focus-input100"></span>
+                                            </div>
+
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>
-                                            <input class="form-control combobox wid100" type="text" name="email">
+                                            <div class="wrap-input100 fontDroid">
+
+                                                <input class="input100 combobox" type="text" name="email">
+                                                <span class="focus-input100"></span>
+                                            </div>
                                         </td>
-                                        <td>
+                                        <td class="fltl pdl10">
                                             <label for="category">التصنيف</label>
                                         </td>
                                         <td>
-                                            <select class="form-control combobox wid100" name="category" id="category"></select>
+                                            <select class="input100 combobox" name="category" id="category"></select>
                                         </td>
                                     </tr>
                                 </table>
                             </div>
                             <div class="field-row nopd">
-                                <input type="text" class="form-control combobox wid100" style="height: 45px;" name="address">
-                                <input type="text" class="form-control combobox wid100" style="height: 45px;" name="specialNotes">
-                                <input type="text" class="form-control combobox wid100" style="height: 45px;" name="notes">
+                                <div class="wrap-input100 fontDroid">
+                                    <input type="text" class="input100 combobox" style="height: 45px;" name="address">
+                                    <span class="focus-input100"></span>
+                                </div>
+                                <div class="wrap-input100 fontDroid">
+                                    <input type="text" class="input100 combobox" style="height: 45px;" name="specialNotes">
+                                    <span class="focus-input100"></span>
+                                </div>
+                                <div class="wrap-input100 fontDroid">
+                                    <input type="text" class="input100 combobox" style="height: 45px;" name="notes">
+                                    <span class="focus-input100"></span>
+                                </div>
+
                             </div>
                         </div>
                     </div>

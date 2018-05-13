@@ -57,13 +57,12 @@
                       <label class="" for="bookingType">نوع الايجار</label>
                     </td>
                     <td>
-                      <select id="bookingType" name="bookingType" form="frmCheckIn" class="form-control wid100 combobox">
+                      <select id="bookingType" name="bookingType" form="frmCheckIn" class="input100 fontDroid combobox">
                         <% if(settings[0]){settings[0].bookingTypes.forEach(type => { %>
                           <option value=<%=type %> >
                             <%= type  %>
                           </option>
                           <% })} %>
-
                       </select>
                   </tr>
                   </td>
@@ -72,7 +71,7 @@
                       <label class="" for="calander">التقويم</label>
                     </td>
                     <td>
-                      <select id="" name="calander" form="frmCheckIn" class="form-control wid100 combobox">
+                      <select id="" name="calander" form="frmCheckIn" class="input100 fontDroid combobox">
                         <option value="ميلادي">ميلادي</option>
                         <option value="هجري">هجري</option>
                       </select>
@@ -91,13 +90,13 @@
                     <td style="position:relative;">
                       <label style="position:absolute;top:-16px;">من</label>
                       <div class="sandbox-container">
-                        <input type="text" class="form-control combobox wid80" name="checkIn">
+                        <input type="text" class="input100 fontDroid combobox" name="checkIn">
                       </div>
                     </td>
                     <td style="position:relative;">
                       <label style="position:absolute;top:-16px">إلى</label>
                       <div class="sandbox-container">
-                        <input type="text" class="form-control combobox wid80" name="checkOut">
+                        <input type="text" class="input100 fontDroid combobox" name="checkOut">
                       </div>
                     </td>
                     <td class="pdr20" style="position:relative;">
@@ -111,12 +110,12 @@
                     </td>
                     <td>
                       <div id="sandbox-container">
-                        <input type="text" class="form-control combobox wid80">
+                        <input type="text" class="input100 fontDroid combobox">
                       </div>
                     </td>
                     <td>
                       <div id="sandbox-container">
-                        <input type="text" class="form-control combobox wid80">
+                        <input type="text" class="input100 fontDroid combobox">
                       </div>
                     </td>
                     <td class="pdr20">
@@ -127,7 +126,7 @@
               </div>
               <div class="field-cell">
                 <label class="fltr pdl20 pdt5 pdr20" for="input_daysNum">عدد الأيام</label>
-                <input id="input_daysNum" class="form-control combobox fltr" type="text" name="daysNum" form="frmCheckIn" value="1" style="width:70px">
+                <input id="input_daysNum" class="input100 fontDroid combobox" type="text" name="daysNum" form="frmCheckIn" value="1" style="width:70px">
               </div>
 
 

@@ -1,0 +1,13 @@
+to update data to the server 
+mongodump //as administrator
+mongorestore -h ds255588.mlab.com:55588 -d hmsdb -u EmadAlareefi -p emadalareefi "C:\Program Files\MongoDB\Server\3.6\bin\dump\hmsdb"
+mongorestore -h "C:\Program Files\MongoDB\Server\3.6\bin\dump\hmsdb" -d hmsdb -u EmadAlareefi -p emadalareefi ds255588.mlab.com:55588
+
+
+to export database
+mongodump -h ds255588.mlab.com:55588 -d hmsdb -u EmadAlareefi -p emadalareefi "C:\Program Files\MongoDB\Server\3.6\bin\dump\hmsdb"
+mongodump -h ds255588.mlab.com:55588 -d hmsdb -u EmadAlareefi -p emadalareefi C:\data\db
+
+
+ cd 'C:\Program Files\MongoDB\Server\3.6\bin'
+ cd C:\Program Files\MongoDB\Server\3.6\bin

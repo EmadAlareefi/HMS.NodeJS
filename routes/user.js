@@ -1,7 +1,10 @@
 var mongoose = require('mongoose');
 var bcrypt = require('bcryptjs');
+var globals = require("./globals");
 
-mongoose.connect('mongodb://EmadAlareefi:emadalareefi@ds255588.mlab.com:55588/hmsdb');
+
+
+mongoose.connect(globals.url);
 
 // User Schema
 var UserSchema = mongoose.Schema({
