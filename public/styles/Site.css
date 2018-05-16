@@ -203,7 +203,7 @@ th {
 }
 
 .center3d {
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 45%;
   transform: translate(-50%, -50%);
@@ -377,7 +377,7 @@ span {
 #sidebar {
   direction: ltr;
   text-align: center;
-  min-width: 187px;
+  min-width: 177px;
   max-width: 180px;
   background: rgb(0, 0, 0);
   color: #fff;
@@ -446,7 +446,7 @@ span {
 }
 #sidebar.active {
   min-width: 50px;
-  max-width: 70px;
+  max-width: 80px;
   text-align: center;
 }
 #sidebar.active .sidebar-header h3 {
@@ -485,7 +485,7 @@ span {
   text-align: center;
 }
 #sidebar ul.components {
-  padding: 2px 0;
+  padding: 0px 0;
 }
 
 #sidebar ul li a {
@@ -687,7 +687,7 @@ nav {
   font-size: 20px;
 }
 .page-btns:nth-child(odd) {
-  background-color: #5796d4;
+  background-color: #5795d4;
 }
 
 .page-btns:hover {
