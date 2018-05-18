@@ -7,6 +7,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
+
             <div class="modal-body">
                 <form id="frmTemplate" action="" method="POST">
 
@@ -26,7 +27,16 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                   
+                                        <% Purchases.forEach(Purchase => { %>
+                                            <tr class="tbldatarow">
+                                                <td data-title="Name"><%=Purchase.PurchaseNumber %></td>
+                                                <td data-title="ID Type"><%=Purchase.PurchaseName %></td>
+                                                <td data-title="ID Number"><%=Purchase.PurchaseType %></td>    
+                                                <td data-title="ID Issue Place"><%=Purchase.Amount %></td>
+                                                <td data-title="ID Issue Place"><%=Purchase.PurchasePrice %></td>
+                                                <td data-title="ID Issue Place"><%=Purchase.PurchasePrice*Purchase.Amount%></td>
+                                            </tr>
+                                            <% }) %>
                                 </tbody>
                             </table>
                     
