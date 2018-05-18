@@ -36,7 +36,7 @@
                     </div>
                 </div>
 
-                <div class="field-row wid100" style="height: 400px;">
+                <div class="field-row wid100 overflow" style="height: 400px;">
                         <table id="tblReservations" class="wid100">
                                 <thead>                          
                                     <tr class="tblHeader2">
@@ -55,8 +55,9 @@
                                             <td data-title="Mobile"><%=customer.phone %></td>
                                             <td data-title="Notes"><%=customer.notes %></td>
                                             <td data-title="Actions">
-                                                <a id="MainContent_lstvw_customers_btnView_0" title="View customer" class="ViewIco TblIco" data-href="/Pages/Management/Popups/View/ViewCustomer.aspx?id=3747766&amp;cid=68"
-                                                    href="javascript:__doPostBack('ctl00$MainContent$lstvw_customers$ctrl0$btnView','')"></a>
+                                                <a title="اختيار العميل" data-href="/viewCustomer?id=<%=customer._id %>;">
+                                                    <i class="far fa-hand-point-right" style="cursor: pointer;"></i>
+                                                </a>
                                             </td>
                                         </tr>
                                         <% })} %>

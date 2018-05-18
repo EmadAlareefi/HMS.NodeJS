@@ -78,6 +78,10 @@ th {
   padding: 5px;
   border: #b6d8fa 1.5px solid;
 }
+.overflow{
+  overflow-y: auto;
+  overflow-x: hidden;
+}
 .hidden {
   visibility: hidden;
   opacity: 0;
@@ -385,8 +389,6 @@ span {
   z-index: 98;
   min-height: calc(100vh - var(--footerHeight));
   height: calc(100vh - var(--footerHeight));
-  overflow-y: auto;
-  overflow-x: hidden;
 }
 
 .myContainer {

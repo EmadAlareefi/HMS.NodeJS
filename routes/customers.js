@@ -5,6 +5,8 @@ var express = require("express");
 var router = express.Router();
 var MongoClient = require("mongodb").MongoClient;
 var globals = require("./globals");
+var ObjectId = require("mongodb").ObjectId;
+
 
 router.get("/", globals.ensureAuthenticated, (req, res, next) => {
   MongoClient.connect(globals.url, (err, db) => {
@@ -155,56 +157,55 @@ router.post("/addCustomer", (req, res, next) => {
       var currentTime = new Date();
       var year = currentTime.getFullYear();
 
-
-      dbo.collection("accounts").find().limit(1).sort({$natural:-1}).toArray(function(err, account) {
-        if (err) throw err;
-        if (account[0]) {
-          console.log(getAccountByAccNum(account[0].accountNumber))
-
-          var newNum = (account[0].accountNumber).substr(4);
-  
-          var new_account = {
-            accountNumber:  year + (parseInt(newNum) + 1).toString(),
-            accountName: firstName + " " + secondName + " " + thirdName + " " + lastName,
-            balance: 0
-          };
-        } else {
-          var new_account = {
-            accountNumber:  year + "10001",
-            accountName: firstName + " " + secondName + " " + thirdName + " " + lastName,
-            balance: 0
-          };
-        }
-       
-
-        dbo.collection("customers").save(new_customer, (err, result) => {
+      dbo
+        .collection("accounts")
+        .find()
+        .limit(1)
+        .sort({ $natural: -1 })
+        .toArray(function(err, account) {
           if (err) throw err;
-          dbo.collection("accounts").save(new_account, (err, result) => {
+          if (account[0]) {
+            console.log(getAccountByAccNum(account[0]._id));
+
+            var newNum = account[0].accountNumber.substr(4);
+
+            var new_account = {
+              accountNumber: year + (parseInt(newNum) + 1).toString(),
+              accountName:
+                firstName + " " + secondName + " " + thirdName + " " + lastName,
+              balance: 0
+            };
+          } else {
+            var new_account = {
+              accountNumber: year + "10001",
+              accountName:
+                firstName + " " + secondName + " " + thirdName + " " + lastName,
+              balance: 0
+            };
+          }
+
+          dbo.collection("customers").save(new_customer, (err, result) => {
             if (err) throw err;
-  
-            res.redirect("/ManageFreeBookings");
-            // res.end();
-            db.close();
+            dbo.collection("accounts").save(new_account, (err, result) => {
+              if (err) throw err;
+
+              res.redirect("/ManageFreeBookings");
+              // res.end();
+              db.close();
+            });
           });
         });
-      
-      });   
-       
     });
   }
 });
-
 
 function getAccountByAccNum(accNum) {
   MongoClient.connect(globals.url, (err, db) => {
     if (err) throw err;
     dbo = db.db(globals.dbName);
-    dbo.collection("accounts").find({}, { accountNumber: accNum }).toArray((err, account)=> {
-      if (account[0]) {
-        return account[0];
-      }
-      return "Not exist";
-    })
+    dbo.collection("customers").find({
+      _id: ObjectId(accNum)
+    });
   });
 }
 module.exports = router;
