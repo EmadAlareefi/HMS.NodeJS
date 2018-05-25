@@ -1,0 +1,81 @@
+<div id="UpdatePurchasesModel" class="modal fade" role="dialog" aria-labelledby=" " aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title fontDroidBold pdr20" id="AddRoomTitle">تعديل مشتريات</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="frmUpdatePurchase" action="/Purchases/addPurchase" method="POST">
+                    
+                    <div class="field-row" style="grid-template-columns:50% 50%;">
+                        <div class="field-cell">
+                            <fieldset id="FsAddRoomBasicInfo" class="pdlr30">
+                                <div class="title">
+                                    <h4>المعلومات الأساسية</h4>
+                                </div>
+
+                                <div class="wid100 pd20">
+                                    <table class="wid100">
+                                        <tr>
+                                            <td>
+                                                <label for="name">رقم المشتريات</label>
+                                            </td>
+                                            <td>
+                                                <input class="form-control wid100 fltl" name="PurchaseNumber" form="frmUpdatePurchase" type="text">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label for="floor">اسم المشتريات </label>
+                                            </td>
+                                            <td>
+                                                <input class="form-control wid100 fltl" name="PurchaseName" form="frmUpdatePurchase" type="text">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <label for="naroomsNumberme"> نوع المشتريات</label>
+                                            </td>
+                                            <td>
+                                                <input class="form-control wid100 fltl" name="PurchaseType" form="frmUpdatePurchase" type="text">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>
+                                                    <label for="bathrooms">  الكمية </label>
+                                                </td>
+                                                <td>
+                                                    <input class="form-control wid100 fltl" name="Amount" form="frmUpdatePurchase" type="text">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                    <td>
+                                                        <label for="bathrooms">  سعر القطعة</label>
+                                                    </td>
+                                                    <td>
+                                                        <input class="form-control wid100 fltl" name="PurchasePrice" form="frmUpdatePurchase" type="text">
+                                                    </td>
+                                                </tr>
+                                                
+                                        
+                                       
+                                        
+                                    </table>
+                                </div>
+                            </fieldset>
+                        </div>
+                        
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button id="" type="submet" form="frmUpdatePurchase" class="btn btn-primary">حفظ</button>
+                <button id="" type="button" class="btn btn-secondary" data-dismiss="modal"> الغاء الأمر</button>
+            </div>
+        </div>
+    </div>
+</div>

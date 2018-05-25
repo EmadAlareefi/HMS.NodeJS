@@ -1,0 +1,70 @@
+<div id="servicesReportModel" class="modal fade" role="dialog" aria-labelledby=" " aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title fontDroidBold pdr20" id="AddRoomTitle">Template</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <form id="frmTemplate" action="" method="POST">
+
+                        <table id="tblReservations" class="wid100" >
+                                
+
+                                                <thead>
+                                                    <tr class="tblHeader1">
+                                                        <th colspan="4" class="wid100 fontDroid" style="background-color:#2c91b9;color:white;">تقرير الخدمات</th>
+                                                    </tr>
+                                                    <tr class="tblHeader2">
+                                                        <th>رقم الخدمة</th>
+                                                        <th>اسم الخدمة</th>
+                                                        <th>نوع الخدمة</th>
+                                                        <th>سعر الخدمة</th>
+                                                    
+                                                    </tr>
+                                                </thead>
+
+                                            <tbody>
+
+                                                <% services.forEach(service => { %>
+                                                    <tr class="tbldatarow">
+                                                        <td data-title="Name"><%=service.serviceNumber %></td>
+                                                        <td data-title="ID Type"><%=service.serviceName %></td>
+                                                        <td data-title="ID Number"><%=service.serviceType %></td>    
+                                                        <td data-title="ID Issue Place"><%=service.servicePrice %></td>
+                                                        <!-- <td data-title="Actions">
+                                                            <a id="MainContent_lstvw_customers_btnView_0" title="View customer" class="ViewIco TblIco" data-href="/Pages/Management/Popups/View/Viewservice.aspx?id=3747766&amp;cid=68"
+                                                                href="javascript:__doPostBack('ctl00$MainContent$lstvw_customers$ctrl0$btnView','')"></a>
+                                                        </td> -->
+                                                    </tr>
+                                                    <% }) %>
+
+
+
+
+                                                    
+                                </tbody>
+                            </table>
+                    
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button id="" type="button" form="frmTemplate" class="btn btn-primary">طباعة</button>
+                <button id="" type="button" class="btn btn-secondary" data-dismiss="modal"> الغاء الأمر</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
