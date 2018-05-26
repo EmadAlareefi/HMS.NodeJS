@@ -142,7 +142,7 @@
                                                 <label for="status">الحالة</label>
                                             </td>
                                             <td>
-                                                <select class="input100 fontDroid" name="status" id="status" form="frmAddingRoom">
+                                                <select class="input100 fontDroid" name="status" id="status" form="frmAddingRoom" disabled="disabled" style="color: green">
                                                     <% if(settings[0]){settings[0].statuses.forEach(type => { %>
                                                         <option value=<%=type %> >
                                                             <%= type  %>

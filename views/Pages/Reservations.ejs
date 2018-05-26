@@ -205,8 +205,13 @@
                                     <th>مدين</th>
                                     <th>العمليات</th>
                                 </tr>
+                                
+                                
                             </thead>
                             <tbody>
+                                    <% if(checkIns.length == 0){ %>
+                                        <tr><h3 class="fontDroidBold" style="color: brown; opacity: 0.7;padding: 11px">لا توجد أي حجوزات في الوقت الحالي</h3></tr>
+                                           <% }%>
                                 <% checkIns.forEach(checkIn => { %>
                                     <tr class="tbldatarow">
                                         <td data-title="Booking No">
@@ -247,11 +252,17 @@
                                         <td data-title="Creditor" style="color: green; font-weight: bold"><%= checkIn.creditor %></td>
                                         <td data-title="Debtor" style="color: red; font-weight: bold"><%= checkIn.debtor %></td>
                                         <td data-title="Actions">
-                                            <i class="ViewVouchIco TblIco ViewVoucher" data-href="/Pages/Management/Popups/View/CloseBooking.aspx?cid=68&amp;id=4370878"></i>
-                                            <i class="ViewIco TblIco ViewContract" data-href="/Pages/Management/Popups/View/ViewBooking.aspx?cid=68&amp;id=4370878"></i>
-                                        </td>
+                                                <a class="btnUpdateReservation" title="تعديل الحجز">
+                                                        <i class="fas fa-edit" style="cursor: pointer;"></i>
+                                                    </a>
+                                            </td>
+
+                                        
                                     </tr>
+
                                     <% }) %>
+
+                                    
                             </tbody>
                             <tfoot></tfoot>
                         </table>

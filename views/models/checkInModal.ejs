@@ -14,7 +14,7 @@
           <div></div>
           <div></div>
         </div>
-        <form id="frmCheckIn" action="/ManageFreeBookings/checkIn" method="POST">
+        <form id="frmCheckIn" class="validate-form">
           <fieldset>
             <div class="title">
               <h4>معلومات الحجز</h4>
@@ -29,7 +29,7 @@
 
               <div class="field-cell">
                 <label for="bookingSrc">مصدر الحجز</label>
-                <select id="bookingSrc" name="bookingSrc" form="frmCheckIn" class="bookingSrc" style="height: 21px;font-family: Droid_Regular;font-size:0.8em;padding-bottom: 3px">
+                <select id="bookingSrc" name="bookingSrc" form="frmCheckIn" class="input100 fontDroid combobox">
 
                   <% if(settings[0]){settings[0].bookingSrc.forEach(type => { %>
                     <option value=<%=type %> >
@@ -49,7 +49,7 @@
               <h4>الفترة</h4>
             </div>
 
-            <div class="field-row pdt20" style="grid-template-columns:20% 40% 20%;">
+            <div class="field-row pdt20" style="grid-template-columns:20% 40% 10%;">
               <div class="field-cell">
                 <table class="wid100">
                   <tr>
@@ -90,13 +90,15 @@
                     <td style="position:relative;">
                       <label style="position:absolute;top:-16px;">من</label>
                       <div class="sandbox-container">
-                        <input type="text" class="input100 fontDroid combobox" name="checkIn">
+                        <input type="date" class="input100 fontDroid combobox" name="checkIn">
                       </div>
+                      
+                    
                     </td>
                     <td style="position:relative;">
                       <label style="position:absolute;top:-16px">إلى</label>
                       <div class="sandbox-container">
-                        <input type="text" class="input100 fontDroid combobox" name="checkOut">
+                        <input type="date" class="input100 fontDroid combobox" name="checkOut">
                       </div>
                     </td>
                     <td class="pdr20" style="position:relative;">
@@ -110,12 +112,12 @@
                     </td>
                     <td>
                       <div id="sandbox-container">
-                        <input type="text" class="input100 fontDroid combobox">
+                        <input type="date" class="input100 fontDroid combobox">
                       </div>
                     </td>
                     <td>
                       <div id="sandbox-container">
-                        <input type="text" class="input100 fontDroid combobox">
+                        <input type="date" class="input100 fontDroid combobox">
                       </div>
                     </td>
                     <td class="pdr20">
@@ -126,7 +128,11 @@
               </div>
               <div class="field-cell">
                 <label class="fltr pdl20 pdt5 pdr20" for="input_daysNum">عدد الأيام</label>
-                <input id="input_daysNum" class="input100 fontDroid combobox" type="text" name="daysNum" form="frmCheckIn" value="1" style="width:70px">
+
+                <div class="wrap-input100 validate-input fontDroid" data-validate="الاسم الاب مطلوب" style="display:table-cell">
+                  <input id="input_daysNum" class="input100 fontDroid combobox" type="text" name="daysNum" form="frmCheckIn" value="1">
+                  <span class="focus-input100"></span>
+              </div>
               </div>
 
 
@@ -151,7 +157,7 @@
                       <label class="">الشقة</label>
                     </td>
                     <td>
-                      <label name="roomNumber" id="roomNumber">:100</label>
+                      <label name="roomNumber" id="roomNumber">100</label>
                     </td>
                   </tr>
                   <tr>
@@ -159,7 +165,7 @@
                       <label class="">سعر الشقة</label>
                     </td>
                     <td>
-                      <label name="dailyPrice" id="dailyPrice" class="">:100</label>
+                      <label name="dailyPrice" id="dailyPrice" class="">100</label>
                     </td>
                   </tr>
                   <tr>
@@ -168,7 +174,7 @@
 
                     </td>
                     <td>
-                      <label name="peakPrice" id="peakPrice" class="">:150</label>
+                      <label name="peakPrice" id="peakPrice" class="">150</label>
                     </td>
                   </tr>
                 </table>
@@ -198,7 +204,7 @@
 
                     </td>
                     <td>
-                      <select name="" id="" class="form-control combobox"></select>
+                      <select name="" id="" class="input100 fontDroid combobox"></select>
                     </td>
                   </tr>
                 </table>
@@ -270,7 +276,7 @@
                     <label class="ver-align-center">المقبوضات</label>
                   </td>
                   <td>
-                    <select name="" id="" class="form-control combobox fltl wid100"></select>
+                    <select name="" id="" class="input100 fontDroid combobox"></select>
                   </td>
                 </tr>
                 <tr>
@@ -278,7 +284,7 @@
                     <label class="ver-align-center">المصروفات</label>
                   </td>
                   <td>
-                    <select name="" id="" class="form-control combobox fltl wid100"></select>
+                    <select name="" id="" class="input100 fontDroid combobox"></select>
                   </td>
                 </tr>
                 <tr>
@@ -286,7 +292,7 @@
                     <label class="ver-align-center">الخدمات</label>
                   </td>
                   <td>
-                    <select name="" id="" class="form-control combobox fltl wid100"></select>
+                    <select name="" id="" class="input100 fontDroid combobox"></select>
                   </td>
                 </tr>
                 <tr>
@@ -294,7 +300,7 @@
                     <label class="ver-align-center">الايجار اليومي</label>
                   </td>
                   <td>
-                    <input type='text' class="form-control fltr wid65 combobox" style="display:inline-block" />
+                    <input type='text' class="input100 fontDroid wid65 combobox" style="display:inline-block" />
                     <button style="display:inline-block" class="mybtn-dialog btn btn-primary" type="button">تغيير</button>
 
                   </td>
@@ -304,7 +310,7 @@
                     <label class="ver-align-center">نوع الخصم</label>
                   </td>
                   <td>
-                    <select name="" id="" class="form-control combobox fltl wid100"></select>
+                    <select name="" id="" class="input100 fontDroid combobox"></select>
                   </td>
                 </tr>
                 <tr>
@@ -312,8 +318,8 @@
                     <label class="ver-align-center">مبلغ الخصم</label>
                   </td>
                   <td>
-                    <select name="" id="" class="form-control combobox fltr wid35"></select>
-                    <input type='text' class="form-control combobox fltr wid35" />
+                    <select name="" id="" class="input100 fontDroid combobox fltr wid35"></select>
+                    <input type='text' class="input100 fontDroid combobox fltr wid35" />
                     <button style="display:inline-block" class="mybtn-dialog btn btn-primary" type="button">تغيير</button>
                   </td>
                 </tr>
@@ -367,50 +373,50 @@
                 <table class="wid100">
                   <tr>
                     <td>
-                      <label class="">المقبوض</label>
+                      <label>المقبوض</label>
                     </td>
                     <td>
-                      <label class="">:0</label>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <label class="">بدل الإيجار</label>
-                    </td>
-                    <td>
-                      <label class="">:0</label>
+                      <label name="payed">0</label>
                     </td>
                   </tr>
                   <tr>
                     <td>
-                      <label class="">التأمين</label>
+                      <label>بدل الإيجار</label>
                     </td>
                     <td>
-                      <label class="">:0</label>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <label class="">التكلفة الكلية</label>
-                    </td>
-                    <td>
-                      <label class="" name="finalPrice">:0</label>
+                      <label name="rent">0</label>
                     </td>
                   </tr>
                   <tr>
                     <td>
-                      <label class="">التكلفة النهائية</label>
+                      <label>التأمين</label>
                     </td>
                     <td>
-                      <label class="" name="total">:0</label>
+                      <label name="insurence">0</label>
                     </td>
                   </tr>
                   <tr>
                     <td>
-                      <label class="">الرصيد</label>
+                      <label>التكلفة الكلية</label>
                     </td>
                     <td>
-                      <label class="">:0</label>
+                      <label name="total">0</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label>التكلفة النهائية</label>
+                    </td>
+                    <td>
+                      <label name="finalPrice">0</label>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label>الرصيد</label>
+                    </td>
+                    <td>
+                      <label name="balance">0</label>
                     </td>
                   </tr>
                 </table>

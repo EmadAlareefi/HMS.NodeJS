@@ -6,6 +6,8 @@
     <!-- <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"> -->
     <link rel="stylesheet" href="styles/ManageFreeBookings.css">
     <link rel="stylesheet" href="styles/login.css">
+    <link rel="stylesheet" href="css/bootstrap-datetimepicker.css">
+    <link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css">
     <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.1.221/styles/kendo.common-material.min.css" />
     <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.1.221/styles/kendo.material.min.css" />
     <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.1.221/styles/kendo.material.mobile.min.css" />
@@ -111,9 +113,10 @@
 
 
             </div>
+            
             <div id="checkOut" class="tab-pane fade" role="tabpanel">
               <% usedRooms.forEach(room => { %>
-                <a data-toggle="modal" data-target="#modelCheckIn">
+                <a data-toggle="modal" data-target="#modelCheckOut">
                   <div class="page-btn btn-room btn-room-checkOut"
                   <% for(var propertyName in room) { if(propertyName != "GeneralFeatures" && propertyName != "SpecialFeatures"){ %>
                     data-<%=propertyName %> = <%=room[propertyName]%> 
@@ -151,6 +154,8 @@
     <script language="javascript" src="js/Site.js"></script> -->
 
     <% include ../models/checkInModal %>
+      <% include ../models/checkOutModal %>
+
       <% include ../models/addRoomModal %>
         <% include ../models/updateRoomModal %>
            <% include ../models/createCustomerModal %>

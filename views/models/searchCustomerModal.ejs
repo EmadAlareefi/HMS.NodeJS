@@ -55,7 +55,7 @@
                                             <td data-title="Mobile"><%=customer.phone %></td>
                                             <td data-title="Notes"><%=customer.notes %></td>
                                             <td data-title="Actions">
-                                                <a title="اختيار العميل" data-href="/viewCustomer?id=<%=customer._id %>;">
+                                                <a class="btnSelectCustomer" title="اختيار العميل">
                                                     <i class="far fa-hand-point-right" style="cursor: pointer;"></i>
                                                 </a>
                                             </td>
@@ -63,7 +63,7 @@
                                         <% })} %>
                                 </tbody>
                                 <tfoot>
-                                    <tr>
+                                    <!-- <tr>
                                         <td colspan="6" class="pd10">
                                             <div class="pagination">
                                                     <ul id="MainContent_dPager2" style="display: inline-flex;">
@@ -75,7 +75,7 @@
                                                           </ul>
                                             <div class="PagnTxt"></div>
                                         </td>
-                                    </tr>
+                                    </tr> -->
                                 </tfoot>
                             </table>
 

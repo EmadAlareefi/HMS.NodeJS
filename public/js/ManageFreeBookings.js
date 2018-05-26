@@ -4,31 +4,19 @@ var frmUpdateRoom = $("#frmUpdateRoom");
 var frmCreateCustomer = $("#frmCreateCustomer");
 var createCustomerModal = $("#createCustomerModal");
 var btnCreateCustomerClose = $("#btnCreateCustomerClose");
+var searchCustomerModal = $("#searchCustomerModal");
+var btnSearchCustomerModal = $("#btnSearchCustomerModal");
+var searchCustomerModal = $("#searchCustomerModal");
+var searchCustomermodalBody = $("#searchCustomerModal").find(".modal-body");
 
-// var modelAddRoom = $("#modelAddRoom");
-
-// $("#btnAddRoom").on('click', () => {
-//   frmAddingRoom.submit();
-// })
-// modelAddRoom.on("change",() =>{
-//   if ($(this).attr("aria-hidden") == "true") {
-//     frmAddingRoom.get(0).reset();
-//   }
-// })
-// frmCreateCustomer.submit(() => {
-//   btnCreateCustomerClose.click();
-//   submit();
-//   return false;
-// });
-
-(function($) {
+(function ($) {
   "use strict";
 
   /*==================================================================
     [ Validate ]*/
   var input = $(".validate-input .combobox");
 
-  $(".validate-form").on("submit", function() {
+  $(".validate-form").on("submit", function () {
     var check = true;
 
     for (var i = 0; i < input.length; i++) {
@@ -37,12 +25,11 @@ var btnCreateCustomerClose = $("#btnCreateCustomerClose");
         check = false;
       }
     }
-
     return check;
   });
 
-  $(".validate-form .combobox").each(function() {
-    $(this).focus(function() {
+  $(".validate-form .combobox").each(function () {
+    $(this).focus(function () {
       hideValidate(this);
     });
   });
@@ -63,14 +50,14 @@ var btnCreateCustomerClose = $("#btnCreateCustomerClose");
     //     return false;
     //   }
     // } else {
-      if (
-        $(input)
-          .val()
-          .trim() == ""
-      ) {
-        return false;
-      }
+    if (
+      $(input)
+      .val()
+      .trim() == ""
+    ) {
+      return false;
     }
+  }
   // }
 
   function showValidate(input) {
@@ -84,52 +71,133 @@ var btnCreateCustomerClose = $("#btnCreateCustomerClose");
 
     $(thisAlert).removeClass("alert-validate");
   }
+
+
 })(jQuery);
 
 
-$(".formClose").on("click", () => {
-  frmAddingRoom.get(0).reset();
+frmCreateCustomer.on("submit", function (e) {
+  e.preventDefault();
+
+  var customer = {
+    firstName: frmCreateCustomer.find("[name*='firstName']").val(),
+    secondName: frmCreateCustomer.find("[name*='secondName']").val(),
+    thirdName: frmCreateCustomer.find("[name*='thirdName']").val(),
+    lastName: frmCreateCustomer.find("[name*='lastName']").val(),
+    customerType: frmCreateCustomer.find("[name*='customerType']").val(),
+    nationality: frmCreateCustomer.find("[name*='nationality']").val(),
+    idType: frmCreateCustomer.find("[name*='idType']").val(),
+    cardCopyNum: frmCreateCustomer.find("[name*='cardCopyNum']").val(),
+    idNum: frmCreateCustomer.find("[name*='idNum']").val(),
+    issuingPlace: frmCreateCustomer.find("[name*='issuingPlace']").val(),
+    expDate: frmCreateCustomer.find("[name*='expDate']").val(),
+    phone: frmCreateCustomer.find("[name*='phone']").val(),
+    workPhone: frmCreateCustomer.find("[name*='workPhone']").val(),
+    email: frmCreateCustomer.find("[name*='email']").val(),
+    category: frmCreateCustomer.find("[name*='category']").val(),
+    address: frmCreateCustomer.find("[name*='address']").val(),
+    specialNotes: frmCreateCustomer.find("[name*='specialNotes']").val(),
+    notes: frmCreateCustomer.find("[name*='notes']").val(),
+  };
+
+  strCustomer = JSON.stringify(customer);
+
+  $.ajax({
+    type: "POST",
+    url: "/customers/addCustomer/" + strCustomer,
+    beforeSend: function () {
+      frmCreateCustomer.toggleClass("hidden");
+      createCustomerModal
+        .find(".lds-ellipsis")
+        .toggleClass("hidden");
+    },
+    success: function (result) {
+      if (result == "true") {
+        customerName = frmCreateCustomer.find("[name*='firstName']").val() + " " + frmCreateCustomer.find("[name*='secondName']").val() + " " + frmCreateCustomer.find("[name*='thirdName']").val() + " " + frmCreateCustomer.find("[name*='lastName']").val();
+        frmCheckIn.find("[name='customer']").text(customerName);
+        frmCheckIn.find("[name='customer']").val(customerName);
+        frmCheckIn.find("[name='customer']").attr('idNum',customer.idNum);
+        createCustomerModal.find("button[data-dismiss='modal']").click();
+        createCustomerModal
+          .find(".lds-ellipsis")
+          .toggleClass("hidden");
+        // showDialog('تم إضافة العميل بنجاح');
+        frmCreateCustomer.toggleClass("hidden");
+        frmCreateCustomer.get(0).reset();
+
+      }
+    }
+  });
 });
 
-// var logIn_dialog = $("#modelCheckIn").dialog({
-//   title: "تسجيل دخول",
-//   autoOpen: false,
-//   draggable: false,
-//   width: "70vw",
-//   show: {
-//     effect: "fade",
-//     duration: 500
-//   },
-//   hide: {
-//     effect: "Transfer",
-//     duration: 200
-//   },
-//   modal: true,
-//   buttons: [
-//     {
-//       text: "حفظ",
-//       class: "mybtn-dialog mybtn-dialog-save",
-//     //   type: "submit",
-//     //   form: "frmCheckIn",
-//       click: () => {
-//         frmCheckIn.submit();
-//       }
-//     },
-//     {
-//       text: "الغاء الأمر",
-//       class: "mybtn-dialog mybtn-dialog-save",
-//       click: () => {
-//         logIn_dialog.dialog("close");
-//       }
-//     }
-//   ],
-//   close: function() {
-//     //  form[0].reset();
-//     //   allFields.removeClass( "ui-state-error" );
-//   }
-// });
 
-$(".btn-room-checkIn").click(function() {
+
+$(".formClose").on("click", (e) => {
+  var form = $("#" + $(e.target).attr("form"));
+  // form.get(0).reset();
+});
+
+
+
+
+
+
+
+
+
+
+
+frmCheckIn.on("submit", (e) => {
+  e.preventDefault();
+
+  var reservation = {
+    contractNum: frmCheckIn.find("[name*=contractNum]").val(),
+    referenceID: frmCheckIn.find("[name*=referenceID]").val(),
+    roomNumber: frmCheckIn.find("[name*=roomNumber]").val(),
+    customer: frmCheckIn.find("[name*=customer]").val(),
+    bookingType: frmCheckIn.find("[name*=bookingType]").val(),
+    bookingSrc: frmCheckIn.find("[name*=bookingSrc]").val(),
+    checkIn: frmCheckIn.find("[name*=checkIn]").val(),
+    checkOut: frmCheckIn.find("[name*=checkOut]").val(),
+    period: frmCheckIn.find("[name*=period]").val(),
+    dailyPrice: frmCheckIn.find("[name*=dailyPrice]").val(),
+    finalPrice: frmCheckIn.find("[name*=dailyPrice]").val() * frmCheckIn.find("[name*=period]").val(),
+    total: frmCheckIn.find("[name*=total]").val(),
+    notes: frmCheckIn.find("[name*=notes]").val(),
+  };
+
+  strReservation = JSON.stringify(reservation);
+  alert(strReservation);
+  $.ajax({
+    type: "POST",
+    url: "/managefreebookings/checkIn/" + strReservation,
+    // beforeSend: function() {
+    //   $("#modelCheckIn")
+    //     .find(".lds-ellipsis")
+    //     .toggleClass("hidden");
+    //   frmCheckIn.toggleClass("hidden");
+    //   frmCheckIn.removeClass("showen");
+    // },
+    success: function (result) {
+      if (result == "true") {
+        showDialog(result);
+      }
+    }
+  });
+})
+
+
+$(".btnSelectCustomer i").click((event) => {
+  customerName = $(event.target).parent().parent().parent().find("[data-title='Name']").text();
+  idNum = $(event.target).parent().parent().parent().find("[data-title='ID Number']").text();
+  frmCheckIn.find("[name='customer']").text(customerName);
+  frmCheckIn.find("[name='customer']").val(customerName);
+  frmCheckIn.find("[name='customer']").attr('idNum',idNum);
+  searchCustomerModal.find("button[data-dismiss='modal']").click();
+  getAccount(idNum);
+});
+
+$(".btn-room-checkIn").click(function () {
   frmCheckIn.get(0).reset();
   var target = $(event.target);
   if (target.is("div")) {
@@ -139,15 +207,16 @@ $(".btn-room-checkIn").click(function() {
   }
   $.ajax({
     url: "/managefreebookings/room/" + id,
-    beforeSend: function() {
+    beforeSend: function () {
       $("#modelCheckIn")
         .find(".lds-ellipsis")
         .toggleClass("hidden");
       frmCheckIn.toggleClass("hidden");
       frmCheckIn.removeClass("showen");
     },
-    success: function(result) {
+    success: function (result) {
       var room = result[0];
+      setSelectedRoom(room);
       for (var prop in room) {
         if (
           prop == "roomNumber" ||
@@ -155,9 +224,11 @@ $(".btn-room-checkIn").click(function() {
           prop == "peakPrice"
         ) {
           input = frmCheckIn.find("label[name='" + prop + "']");
-          input.text(":" + room[prop]);
+          input.text(room[prop]);
+          input.val(room[prop]);
         }
       }
+      updateCheckIn();
       frmCheckIn.toggleClass("hidden");
       frmCheckIn.addClass("showen");
       $("#modelCheckIn")
@@ -183,14 +254,14 @@ $(".btn-room-update").click(event => {
   // JQuary Ajax
   $.ajax({
     url: "/managefreebookings/room/" + id,
-    beforeSend: function() {
+    beforeSend: function () {
       $("#updateRoomModal")
         .find(".lds-ellipsis")
         .toggleClass("hidden");
       $("#frmUpdateRoom").toggleClass("hidden");
       $("#frmUpdateRoom").removeClass("showen");
     },
-    success: function(result) {
+    success: function (result) {
       var room = result[0];
       $(frmUpdateRoom).attr(
         "action",
@@ -245,70 +316,95 @@ $(".btn-room-update").click(event => {
   // xhttp.send();
 });
 
-$(".btn-room-checkOut").click(function() {
-  frmCheckIn.get(0).reset();
-  var target = $(event.target);
-  if (target.is("div")) {
-    var id = target.data()._id;
-  } else {
-    var id = target.parent().data()._id;
-  }
-  $.ajax({
-    url: "/managefreebookings/room/" + id,
-    beforeSend: function() {
-      $("#modelCheckIn")
-        .find(".lds-ellipsis")
-        .toggleClass("hidden");
-      frmCheckIn.toggleClass("hidden");
-      frmCheckIn.removeClass("showen");
-    },
-    success: function(result) {
-      var room = result[0];
-      for (var prop in room) {
-        if (
-          prop == "roomNumber" ||
-          prop == "dailyPrice" ||
-          prop == "peakPrice"
-        ) {
-          input = frmCheckIn.find("label[name='" + prop + "']");
-          input.text(":" + room[prop]);
-        }
-      }
-      frmCheckIn.toggleClass("hidden");
-      frmCheckIn.addClass("showen");
-      $("#modelCheckIn")
-        .find(".lds-ellipsis")
-        .toggleClass("hidden");
-    }
-  });
+$(".btn-room-checkOut").click(function () {
+  // frmCheckIn.get(0).reset();
+  // var target = $(event.target);
+  // if (target.is("div")) {
+  //   var id = target.data()._id;
+  // } else {
+  //   var id = target.parent().data()._id;
+  // }
+  // $.ajax({
+  //   url: "/managefreebookings/room/" + id,
+  //   beforeSend: function () {
+  //     $("#modelCheckIn")
+  //       .find(".lds-ellipsis")
+  //       .toggleClass("hidden");
+  //     frmCheckIn.toggleClass("hidden");
+  //     frmCheckIn.removeClass("showen");
+  //   },
+  //   success: function (result) {
+  //     var room = result[0];
+  //     for (var prop in room) {
+  //       if (
+  //         prop == "roomNumber" ||
+  //         prop == "dailyPrice" ||
+  //         prop == "peakPrice"
+  //       ) {
+  //         input = frmCheckIn.find("label[name='" + prop + "']");
+  //         input.text(":" + room[prop]);
+  //       }
+  //     }
+  //     frmCheckIn.toggleClass("hidden");
+  //     frmCheckIn.addClass("showen");
+  //     $("#modelCheckIn")
+  //       .find(".lds-ellipsis")
+  //       .toggleClass("hidden");
+  //   }
+  // });
 
   // $("#lbl_roomNumber").text(":" + $(this).data().roomnumber);
   // $("#lbl_dailyPrice").text(":" + $(this).data().dailyprice);
   // $("#lbl_peakPrice").text(":" + $(this).data().peakprice);
 });
 
-var btnSearchCustomerModal = $("#btnSearchCustomerModal");
-var searchCustomerModal = $("#searchCustomerModal");
-var searchCustomermodalBody = $("#searchCustomerModal").find(".modal-body");
+inputDays = $("#input_daysNum");
 
-// btnSearchCustomerModal.click(function() {
-//   $.ajax({
-//     url: "/managefreebookings/getCustomers/",
-//     beforeSend: function() {
-//       searchCustomerModal.find(".lds-ellipsis").toggleClass("hidden");
-//       searchCustomermodalBody.toggleClass("hidden");
-//       searchCustomermodalBody.removeClass("showen");
-//     },
-//     success: function(result) {
-//       customers = result;
-//       searchCustomermodalBody.toggleClass("hidden");
-//       searchCustomermodalBody.addClass("showen");
-//       searchCustomerModal
-//         .find(".lds-ellipsis")
-//         .toggleClass("hidden");
-//     }
-//   });
-// });
+inputDays.keyup(function() {
+  updateCheckIn();
+});
+
+function showDialog(string) {
+  alert(string);
+}
+
+function setSelectedRoom(room) {
+  window.selectedRoom = room;
+  return true;
+}
+
+
+
+function updateCheckIn() {
+  var payed = frmCheckIn.find("[name='payed']");
+  var rent = frmCheckIn.find("[name='rent']");
+  var insurence = frmCheckIn.find("[name='insurence']");
+  var finalPrice = frmCheckIn.find("[name='finalPrice']");
+  var total = frmCheckIn.find("[name='total']");
+  var balance = frmCheckIn.find("[name='balance']");
+  var dailyPrice = frmCheckIn.find("[name='dailyPrice']");
+  var inputDays = $("#input_daysNum");
+
+  price = parseInt(inputDays.val()) * parseFloat(dailyPrice.text());
+  finalPrice.text(price);
+  total.text(price);
+}
+
+function getAccount(idNum) {
+  var finalPrice = frmCheckIn.find("[name='finalPrice']");
+  var payed = frmCheckIn.find("[name='payed']");
+  var balance = frmCheckIn.find("[name='balance']");
+  // var idNum = frmCheckIn.find("[name='customer']").attr("idnum");
+  $.ajax({
+    url: "/customers/getAccount/" + idNum,
+    beforeSend: function () {
+     
+    },
+    success: function (result) {
+     alert(result[0].accountNumber)
+    }
+  });
+}
 
 var dataSource = new kendo.data.DataSource({
   transport: {
@@ -319,25 +415,4 @@ var dataSource = new kendo.data.DataSource({
   }
 });
 
-// $(".combobox").kendoComboBox();
-// $('#datetimepicker1').datetimepicker();
-// $('.datePicker').datepicker({format: "dd.mm.yyyy"});
-$("#bookingSrc").kendoComboBox({
-  placeholder: "اختر مصدر الحجز",
-  // dataTextField: "ProductName",
-  // dataValueField: "ProductID",
-  filter: "contains",
-  suggest: true,
-  index: 1
-});
-
-var select = $("#bookingSrc").data("kendoComboBox");
-/*====================================================================End of ComboBox Jquary */
-$(".sandbox-container input").datepicker({
-  weekStart: 6,
-  maxViewMode: 3,
-  todayBtn: "linked",
-  language: "ar",
-  orientation: "bottom left",
-  todayHighlight: true
-});
+// var select = $("#bookingSrc").data("kendoComboBox");

@@ -1,6 +1,12 @@
 var express = require("express");
-const { check, validationResult } = require("express-validator/check");
-const { matchedData, sanitize } = require("express-validator/filter");
+const {
+  check,
+  validationResult
+} = require("express-validator/check");
+const {
+  matchedData,
+  sanitize
+} = require("express-validator/filter");
 var router = express.Router();
 var mongojs = require("mongojs");
 var MongoClient = require("mongodb").MongoClient;
@@ -12,7 +18,7 @@ var globals = require("./globals");
 // var dbName = "hmsdb";
 // var db = mongojs(url + dbName, ["bookingSrc"]);
 
-router.get("/", globals.ensureAuthenticated, function(req, res, next) {
+router.get("/", globals.ensureAuthenticated, function (req, res, next) {
   MongoClient.connect(globals.url, (err, db) => {
     if (err) {
       res.render("Pages/ManageFreeBookings", {
@@ -36,14 +42,18 @@ router.get("/", globals.ensureAuthenticated, function(req, res, next) {
           }
           dbo
             .collection("rooms")
-            .find({ status: "فارغة" })
+            .find({
+              status: "فارغة"
+            })
             .toArray((err, emptyRooms) => {
               if (err) {
                 res.send(err);
               }
               dbo
                 .collection("rooms")
-                .find({ status: "مؤجرة" })
+                .find({
+                  status: "مؤجرة"
+                })
                 .toArray((err, usedRooms) => {
                   if (err) {
                     res.send(err);
@@ -82,39 +92,37 @@ router.get("/", globals.ensureAuthenticated, function(req, res, next) {
   });
 });
 
-router.post("/checkIn", (req, res, next) => {
+router.post("/checkIn/:reservation", (req, res) => {
   var body = req.body;
+  var reservation = JSON.parse(req.params.reservation);
 
   MongoClient.connect(globals.url, (err, db) => {
     if (err) throw err;
 
     dbo = db.db(globals.dbName);
-    var new_checkIn = {
-      contractNum: body.contractNum,
-      referenceID: "",
-      roomNumber: body.roomNumber,
-      customer: body.customer,
-      bookingType: body.bookingType,
-      bookingSrc: body.bookingSrc,
-      checkIn: new Date(body.checkIn),
-      checkOut: new Date(body.checkOut),
-      period: body.daysNum,
-      dailyPrice: body.dailyPrice,
-      finalPrice: body.finalPrice,
-      taxes: "",
-      total: body.total,
-      paidAmount: 0,
-      creditor: "",
-      debtor: "",
-      notes: body.notes
-    };
 
-    dbo.collection("checkIns").save(new_checkIn, (err, result) => {
+    dbo.collection("checkIns").save(reservation, (err, result) => {
       if (err) throw err;
-      res.redirect("/ManageFreeBookings");
-      db.close();
+      dbo.collection("rooms").update({ roomNumber: reservation.roomNumber }, { $set:
+             {
+               status: "مؤجرة",
+             }
+          }, (err, result) => {
+        if (err) {
+          throw err;
+        }
+        db.close();
+      });
     });
+
+
+    for (var prop in reservation) {
+      console.log(reservation[prop]);
+    }
   });
+  res.send("true");
+
+
 });
 
 // router.post("/check_in", function(req, res) {
@@ -137,9 +145,7 @@ router.post("/checkIn", (req, res, next) => {
 //   }
 // });
 
-router.post("/addingRoom", function(req, res, next) {
-  req.checkBody("roomNumber", "ﻻ ﺑﺪ ﻣﻦ اﺿﺎﻓﺔ اسم الغرفة").notEmpty();
-  req.checkBody("floor", "لا بد من اضافة رقم الطابق").notEmpty();
+router.post("/addingRoom", function (req, res, next) {
 
   var errors = req.validationErrors();
   if (errors) {
@@ -161,33 +167,29 @@ router.post("/addingRoom", function(req, res, next) {
         tvs: req.body.tvs,
         acType: req.body.acType,
         roomType: req.body.roomType,
-        dailyPrice: req.body.dailyPrice,
-        peakPrice: req.body.peakPrice,
+        dailyPrice: 100,
+        peakPrice: 150,
         status: req.body.status,
-        GeneralFeatures: [
-          {
-            internet: req.body.internet ? true : false,
-            parking: req.body.parking ? true : false,
-            elevator: req.body.elevator ? true : false,
-            cleaning: req.body.cleaning ? true : false
-          }
-        ],
-        SpecialFeatures: [
-          {
-            phoneguide: req.body.phoneguide ? true : false,
-            oven: req.body.oven ? true : false,
-            paper: req.body.paper ? true : false,
-            microwave: req.body.microwave ? true : false,
-            washer: req.body.washer ? true : false,
-            qiblah: req.body.qiblah ? true : false,
-            restaurantslist: req.body.restaurantslist ? true : false,
-            iron: req.body.iron ? true : false,
-            refrigerator: req.body.refrigerator ? true : false,
-            foodtable: req.body.foodtable ? true : false,
-            hall: req.body.hall ? true : false,
-            kitchen: req.body.kitchen ? true : false
-          }
-        ],
+        GeneralFeatures: [{
+          internet: req.body.internet ? true : false,
+          parking: req.body.parking ? true : false,
+          elevator: req.body.elevator ? true : false,
+          cleaning: req.body.cleaning ? true : false
+        }],
+        SpecialFeatures: [{
+          phoneguide: req.body.phoneguide ? true : false,
+          oven: req.body.oven ? true : false,
+          paper: req.body.paper ? true : false,
+          microwave: req.body.microwave ? true : false,
+          washer: req.body.washer ? true : false,
+          qiblah: req.body.qiblah ? true : false,
+          restaurantslist: req.body.restaurantslist ? true : false,
+          iron: req.body.iron ? true : false,
+          refrigerator: req.body.refrigerator ? true : false,
+          foodtable: req.body.foodtable ? true : false,
+          hall: req.body.hall ? true : false,
+          kitchen: req.body.kitchen ? true : false
+        }],
         notes: req.body.notes
       };
       dbo.collection("rooms").save(newRoom, (err, result) => {
@@ -201,7 +203,7 @@ router.post("/addingRoom", function(req, res, next) {
   }
 });
 
-router.post("/updateRoom/:id", function(req, res) {
+router.post("/updateRoom/:id", function (req, res) {
   req.checkBody("roomNumber", "ﻻ ﺑﺪ ﻣﻦ اﺿﺎﻓﺔ اسم الغرفة").notEmpty();
   req.checkBody("floor", "لا بد من اضافة رقم الطابق").notEmpty();
 
@@ -226,34 +228,32 @@ router.post("/updateRoom/:id", function(req, res) {
         dailyPrice: 100,
         peakPrice: 150,
         status: req.body.status,
-        GeneralFeatures: [
-          {
-            internet: req.body.internet ? true : false,
-            parking: req.body.parking ? true : false,
-            elevator: req.body.elevator ? true : false,
-            cleaning: req.body.cleaning ? true : false
-          }
-        ],
-        SpecialFeatures: [
-          {
-            phoneguide: req.body.phoneguide ? true : false,
-            oven: req.body.oven ? true : false,
-            paper: req.body.paper ? true : false,
-            microwave: req.body.microwave ? true : false,
-            washer: req.body.washer ? true : false,
-            qiblah: req.body.qiblah ? true : false,
-            restaurantslist: req.body.restaurantslist ? true : false,
-            iron: req.body.iron ? true : false,
-            refrigerator: req.body.refrigerator ? true : false,
-            foodtable: req.body.foodtable ? true : false,
-            hall: req.body.hall ? true : false,
-            kitchen: req.body.kitchen ? true : false
-          }
-        ],
+        GeneralFeatures: [{
+          internet: req.body.internet ? true : false,
+          parking: req.body.parking ? true : false,
+          elevator: req.body.elevator ? true : false,
+          cleaning: req.body.cleaning ? true : false
+        }],
+        SpecialFeatures: [{
+          phoneguide: req.body.phoneguide ? true : false,
+          oven: req.body.oven ? true : false,
+          paper: req.body.paper ? true : false,
+          microwave: req.body.microwave ? true : false,
+          washer: req.body.washer ? true : false,
+          qiblah: req.body.qiblah ? true : false,
+          restaurantslist: req.body.restaurantslist ? true : false,
+          iron: req.body.iron ? true : false,
+          refrigerator: req.body.refrigerator ? true : false,
+          foodtable: req.body.foodtable ? true : false,
+          hall: req.body.hall ? true : false,
+          kitchen: req.body.kitchen ? true : false
+        }],
         notes: req.body.notes
       };
       var o_id = new ObjectId(req.params.id);
-      dbo.collection("rooms").update({ _id: o_id }, newRoom, (err, result) => {
+      dbo.collection("rooms").update({
+        _id: o_id
+      }, newRoom, (err, result) => {
         if (err) {
           throw err;
         }
@@ -264,7 +264,7 @@ router.post("/updateRoom/:id", function(req, res) {
   }
 });
 
-router.get("/getCustomers", globals.ensureAuthenticated, function(req, res) {
+router.get("/getCustomers", globals.ensureAuthenticated, function (req, res) {
   MongoClient.connect(globals.url, (err, db) => {
     if (err) res.send(err);
     dbo = db.db(globals.dbName);
@@ -284,7 +284,7 @@ router.get("/getCustomers", globals.ensureAuthenticated, function(req, res) {
   });
 });
 
-router.get("/room/:id", globals.ensureAuthenticated, function(req, res) {
+router.get("/room/:id", globals.ensureAuthenticated, function (req, res) {
   MongoClient.connect(globals.url, (err, db) => {
     if (err) res.send(err);
     dbo = db.db(globals.dbName);
@@ -292,7 +292,9 @@ router.get("/room/:id", globals.ensureAuthenticated, function(req, res) {
 
     dbo
       .collection("rooms")
-      .find({ _id: o_id })
+      .find({
+        _id: o_id
+      })
       .toArray((err, room) => {
         if (err) res.send(err);
         // console.log(room);

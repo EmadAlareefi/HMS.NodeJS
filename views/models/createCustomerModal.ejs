@@ -8,7 +8,13 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form class="validate-form" id="frmCreateCustomer" action="/customers/addCustomer" method="POST">
+                    <div class="lds-ellipsis hidden">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                <form class="" id="frmCreateCustomer" method="POST">
 
                     <div class="field-row nopd" style="grid-template-columns:15% 85%;">
                         <div class="field-cell eleBlk" style="display: inherit">
@@ -43,7 +49,6 @@
                                 <div class="wrap-input100 validate-input fontDroid" data-validate="اللقب مطلوب">
                                     <input type="text" class="input100 combobox" name="lastName" placeholder="اللقب">
                                     <span class="focus-input100"></span>
-
                                 </div>
 
                             </div>
@@ -67,7 +72,9 @@
                                             <label for="nationality">الجنسية </label>
                                         </td>
                                         <td>
-                                            <select class="input100 combobox" name="nationality" id="nationality"></select>
+                                            <select class="input100 combobox" name="nationality" id="nationality">
+                                                <option value="يمني">يمني</option>
+                                            </select>
                                         </td>
                                     </tr>
                                     <tr>
@@ -114,7 +121,7 @@
                                         <td>
                                             <div class="wrap-input100 fontDroid">
 
-                                                <input class="input100 combobox" type="text" name="expDate">
+                                                <input class="input100 combobox" type="date" name="expDate" dir="ltr">
                                                 <span class="focus-input100"></span>
                                             </div>
                                         </td>
@@ -186,7 +193,7 @@
             </div>
             <div class="modal-footer">
                 <button id="btnCreateCustomerSave" type="submet" form="frmCreateCustomer" class="btn btn-primary">حفظ</button>
-                <button id="btnCreateCustomerClose" type="button" class="btn btn-secondary" data-dismiss="modal"> الغاء الأمر</button>
+                <button id="btnCreateCustomerClose" type="button" form="frmCreateCustomer" class="btn btn-secondary formClose" data-dismiss="modal"> الغاء الأمر</button>
             </div>
         </div>
     </div>
