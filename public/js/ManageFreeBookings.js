@@ -2,6 +2,7 @@ var frmCheckIn = $("#frmCheckIn");
 var frmAddingRoom = $("#frmAddingRoom");
 var frmUpdateRoom = $("#frmUpdateRoom");
 var frmCreateCustomer = $("#frmCreateCustomer");
+var frmUpdateService = $("#frmUpdateService");
 var createCustomerModal = $("#createCustomerModal");
 var btnCreateCustomerClose = $("#btnCreateCustomerClose");
 var searchCustomerModal = $("#searchCustomerModal");
@@ -159,9 +160,9 @@ frmCheckIn.on("submit", (e) => {
     bookingSrc: frmCheckIn.find("[name*=bookingSrc]").val(),
     checkIn: frmCheckIn.find("[name*=checkIn]").val(),
     checkOut: frmCheckIn.find("[name*=checkOut]").val(),
-    period: frmCheckIn.find("[name*=period]").val(),
+    period: frmCheckIn.find("[name*=daysNum]").val(),
     dailyPrice: frmCheckIn.find("[name*=dailyPrice]").val(),
-    finalPrice: frmCheckIn.find("[name*=dailyPrice]").val() * frmCheckIn.find("[name*=period]").val(),
+    finalPrice: parseFloat(frmCheckIn.find("[name*=dailyPrice]").val()) * parseFloat(frmCheckIn.find("[name*=period]").val()),
     total: frmCheckIn.find("[name*=total]").val(),
     notes: frmCheckIn.find("[name*=notes]").val(),
   };
@@ -180,7 +181,8 @@ frmCheckIn.on("submit", (e) => {
     // },
     success: function (result) {
       if (result == "true") {
-        showDialog(result);
+        window.location = "/Reservations";
+        // showDialog(result);
       }
     }
   });
@@ -194,7 +196,7 @@ $(".btnSelectCustomer i").click((event) => {
   frmCheckIn.find("[name='customer']").val(customerName);
   frmCheckIn.find("[name='customer']").attr('idNum',idNum);
   searchCustomerModal.find("button[data-dismiss='modal']").click();
-  getAccount(idNum);
+  var account = getAccount(idNum);
 });
 
 $(".btn-room-checkIn").click(function () {
@@ -240,6 +242,43 @@ $(".btn-room-checkIn").click(function () {
   // $("#lbl_roomNumber").text(":" + $(this).data().roomnumber);
   // $("#lbl_dailyPrice").text(":" + $(this).data().dailyprice);
   // $("#lbl_peakPrice").text(":" + $(this).data().peakprice);
+});
+
+$(".modify").click(event => {
+  $("#frmUpdateService").get(0).reset();
+  var target = $(event.target);
+  var id = target.data()._id;
+
+  $.ajax({
+    url: "/Services/service/" + id,
+    beforeSend: function () {
+      $("#UpdateServicesModel")
+        .find(".lds-ellipsis")
+        .toggleClass("hidden");
+      $("#frmUpdateService").toggleClass("hidden");
+      $("#frmUpdateService").removeClass("showen");
+    },
+    success: function (result) {
+      var service = result[0];
+      $("#frmUpdateService").attr(
+        "action",
+        "/Services/updateService/" + service._id
+      );
+      for (var prop in service) {
+        if (prop != "_id") {
+          input = $("#frmUpdateService").find("input[name='" + prop + "']");
+          if (input.attr("type") == "text") {
+            input.val(service[prop]);
+          }
+        }
+      }
+      $("#frmUpdateService").toggleClass("hidden");
+      $("#frmUpdateService").addClass("showen");
+      $("#UpdateServicesModel")
+        .find(".lds-ellipsis")
+        .toggleClass("hidden");
+    }
+  });
 });
 
 $(".btn-room-update").click(event => {
@@ -401,18 +440,23 @@ function getAccount(idNum) {
      
     },
     success: function (result) {
-     alert(result[0].accountNumber)
+        return result[0];
     }
   });
 }
 
-var dataSource = new kendo.data.DataSource({
-  transport: {
-    read: {
-      url: "//public/products.json",
-      dataType: "jsonp"
+function addInvoice(ammount) {
+  $.ajax({
+    type:"POST",
+    url: "/customers/addInvoice/" + ammount,
+    beforeSend: function () {
+     
+    },
+    success: function (result) {
+        return result[0];
     }
-  }
-});
+  });
+}
+
 
 // var select = $("#bookingSrc").data("kendoComboBox");

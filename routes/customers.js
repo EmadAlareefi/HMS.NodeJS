@@ -131,14 +131,14 @@ router.post("/addCustomer/:customer", (req, res, next) => {
             accountNumber: year + (parseInt(newNum) + 1).toString(),
             accountName: customer.firstName + " " + customer.secondName + " " + customer.thirdName + " " + customer.lastName,
             idNum: customer.idNum,
-            balance: 0
+            balance: 0.0
           };
         } else {
           var new_account = {
             accountNumber: year + "10001",
             accountName: customer.firstName + " " + customer.secondName + " " + customer.thirdName + " " + customer.lastName,
             idNum: customer.idNum,
-            balance: 0
+            balance: 0.0
           };
         }
 
