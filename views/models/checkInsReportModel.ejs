@@ -1,0 +1,67 @@
+<div id="checkInsReportModel" class="modal fade" role="dialog" aria-labelledby=" " aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title fontDroidBold pdr20" id="AddRoomTitle">Template</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+
+            <div class="modal-body">
+                <form id="frmTemplate" action="" method="POST">
+
+                        <table id="tblReservations" class="wid100" >
+                                <thead>
+                                    <tr class="tblHeader1">
+                                        <th colspan="6" class="wid100 fontDroid" style="background-color:#2c91b9;color:white;"> تقرير الحجوزات</th>
+                                    </tr>
+                                    <tr class="tblHeader2">
+                                        <th>رقم العقد</th>
+                                        <th>رقم الغرفة</th>
+                                        <th>العميل </th>
+                                        <th>الدخول </th>
+                                        <th>الخروج </th>
+                                        <th> السعر</th>
+                
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                        <% checkIns.forEach(checkIns => { %>
+                                            <% customers.forEach(customer => { %>
+                                            <tr class="tbldatarow">
+                                                <td data-title="Name"><%=checkIns.contractNum %></td>
+                                                <td data-title="ID Type"><%=checkIns.roomNumber %></td>
+                                                <td data-title="Name"><%=customer.firstName %> <%=customer.secondName %> <%=customer.thirdName %> <%=customer.lastName %> </td>
+                                                <td data-title="ID Issue Place"><%=checkIns.checkIn %></td>
+                                                <td data-title="ID Issue Place"><%=checkIns.checkOut %></td>
+                                                <td data-title="ID Issue Place"><%=checkIns.finalPrice%></td>
+                                            </tr>
+                                            <% }) %>
+                                            <% }) %>
+
+
+
+                                          
+                                </tbody>
+                            </table>
+                    
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button id="" type="button" form="frmTemplate" class="btn btn-primary">طباعة</button>
+                <button id="" type="button" class="btn btn-secondary" data-dismiss="modal"> الغاء الأمر</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+

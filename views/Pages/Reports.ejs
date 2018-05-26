@@ -14,7 +14,7 @@
 
         <div class="center3d">
         
-          <a data-toggle="modal" data-target="#ReportsModel">
+          <a data-toggle="modal" data-target="#checkInsReportModel">
             <div class="page-btns reportDiv" id="checkIns"  >
               
                    <label class="lbl-room_number">
@@ -29,7 +29,7 @@
           </a>
 
 
-          <a data-toggle="modal" data-target="#ReportsModel">
+          <a data-toggle="modal" data-target="#customersReportModel">
               <div class="page-btns reportDiv" id="customers" >
                     
                      <label class="lbl-room_number">
@@ -44,7 +44,7 @@
             </a>
 
 
-            <a data-toggle="modal" data-target="#ReportsModel">
+            <a data-toggle="modal" data-target="#accountsReportModel">
                 <div class="page-btns reportDiv" id="accounts" >
                       
                        <label class="lbl-room_number">
@@ -59,7 +59,7 @@
               </a>
 
 
-              <a data-toggle="modal" data-target="#ReportsModel">
+              <a data-toggle="modal" data-target="#servicesReportModel">
                   <div class="page-btns reportDiv" id="services" >
                         
                          <label class="lbl-room_number">
@@ -74,7 +74,7 @@
                 </a>
 
 
-                <a data-toggle="modal" data-target="#ReportsModel">
+                <a data-toggle="modal" data-target="#PurchasesReportModel">
                     <div class="page-btns reportDiv" id="Purchases" >
                           
                            <label class="lbl-room_number">
@@ -89,7 +89,7 @@
                   </a>
 
 
-                  <a data-toggle="modal" data-target="#ReportsModel">
+                  <a data-toggle="modal" data-target="#roomsReportModel">
                       <div class="page-btns reportDiv" id="rooms" >
                             
                              <label class="lbl-room_number">
@@ -97,7 +97,7 @@
                              </label>
                              <img src="imgs/room.png">
                              <span class="tooltiptext ">
-                            تقرير حالة الغرف
+                            تقرير الغرف
                             
                               </span>
                       </div>
@@ -114,7 +114,14 @@
     <% include ../partials/footer %>
       </body>
       <% include ../models/ReportsModel %>
-      <% include ../models/ShowReportModel %>
+      <% include ../models/accountsReportModel %>
+      <% include ../models/checkInsReportModel %>
+      <% include ../models/customersReportModel %>
+      <% include ../models/PurchasesReportModel %>
+      <% include ../models/roomsReportModel %>
+      <% include ../models/servicesReportModel %>
+
+
 
 
       <script src="https://kendo.cdn.telerik.com/2018.1.221/js/jquery.min.js"></script>
