@@ -53,7 +53,10 @@
                                   </a>
                             </td>
                             <td data-title="ID Issue Place">
-                                <button type="button" class="btn btn-secondary fontDroid modify" data-_id="<%= service._id %>" data-toggle="modal" data-target="#UpdateServicesModel">تعديل</button>
+                                    <a class="btnUpdateReservation" title="تعديل الحجز">
+                                            <!-- <button type="button" class="btn btn-secondary fontDroid modify" >تعديل</button> -->
+                                            <i class="fas fa-edit modify" style="cursor: pointer;" data-_id="<%= service._id %>" data-toggle="modal" data-target="#UpdateServicesModel"></i>
+                                        </a>
 
                             </td>
 
