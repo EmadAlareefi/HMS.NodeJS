@@ -28,16 +28,14 @@
                                 </thead>
                                 <tbody>
                                         <% checkIns.forEach(checkIns => { %>
-                                            <% customers.forEach(customer => { %>
                                             <tr class="tbldatarow">
                                                 <td data-title="Name"><%=checkIns.contractNum %></td>
                                                 <td data-title="ID Type"><%=checkIns.roomNumber %></td>
-                                                <td data-title="Name"><%=customer.firstName %> <%=customer.secondName %> <%=customer.thirdName %> <%=customer.lastName %> </td>
+                                                <td data-title="ID Type"><%=checkIns.customer %></td>
                                                 <td data-title="ID Issue Place"><%=checkIns.checkIn %></td>
                                                 <td data-title="ID Issue Place"><%=checkIns.checkOut %></td>
                                                 <td data-title="ID Issue Place"><%=checkIns.finalPrice%></td>
                                             </tr>
-                                            <% }) %>
                                             <% }) %>
 
 

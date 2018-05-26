@@ -4,7 +4,7 @@
 // var url = 'mongodb://localhost:27017/hmsdb'
 
 var Globals = {
-    url:'mongodb://localhost:27017/hmsdb',
+    url:'mongodb://EmadAlareefi:emadalareefi@ds255588.mlab.com:55588/hmsdb',
     dbName:"hmsdb",
     ensureAuthenticated: function ensureAuthenticated(req, res, next){
         if(req.isAuthenticated()){
