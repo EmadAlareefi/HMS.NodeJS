@@ -46,22 +46,10 @@
                             <td data-title="ID Number"><%=service.serviceType %></td>    
                             <td data-title="ID Issue Place"><%=service.servicePrice %></td>
                             <td data-title="ID Issue Place">
-<<<<<<< HEAD
-                                    <a id="btn_add_a_room" class="hint--top hint--rounded nav-item nav-link" role="tab" aria-label="إضافة لعميل" style="cursor:pointer "
-                                    data-toggle="modal" data-target="#searchCustomerModal">
-                                    <i class="fas fa-plus"></i>
-                                  </a>
-                            </td>
-                            <td data-title="ID Issue Place">
                                     <a class="btnUpdateReservation" title="تعديل الحجز">
                                             <!-- <button type="button" class="btn btn-secondary fontDroid modify" >تعديل</button> -->
                                             <i class="fas fa-edit modify" style="cursor: pointer;" data-_id="<%= service._id %>" data-toggle="modal" data-target="#UpdateServicesModel"></i>
                                         </a>
-=======
-                                <button  id="" type="button" class="btn btn-secondary fontDroid" onclick="" data-toggle="modal" data-target="#UpdateServicesModel">تعديل</button>
-                                <button id="" type="button" class="btn btn-secondary fontDroid" onclick="">حذف</button>
->>>>>>> 48af21eb16ea35a5c327c4486203aaa73fe3ce3d
-
                             </td>
 
                             <!-- <td data-title="Actions">
@@ -105,6 +93,7 @@
             <% include ../models/UpdateServicesModel %>
             <% include ../models/searchCustomerModal %>
 
+            <script language="javascript" src="js/ManageFreeBookings.js"></script>
 
             
 
