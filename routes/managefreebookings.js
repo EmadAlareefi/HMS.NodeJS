@@ -103,25 +103,21 @@ router.post("/checkIn/:reservation", (req, res) => {
 
     dbo.collection("checkIns").save(reservation, (err, result) => {
       if (err) throw err;
-      dbo.collection("rooms").update({ roomNumber: reservation.roomNumber }, { $set:
-             {
-               status: "مؤجرة",
-             }
-          }, (err, result) => {
+      dbo.collection("rooms").update({
+        roomNumber: reservation.roomNumber
+      }, {
+        $set: {
+          status: "مؤجرة",
+        }
+      }, (err, result) => {
         if (err) {
           throw err;
         }
         db.close();
       });
     });
-
-
-    for (var prop in reservation) {
-      console.log(reservation[prop]);
-    }
   });
   res.send("true");
-
 
 });
 
@@ -284,6 +280,41 @@ router.get("/getCustomers", globals.ensureAuthenticated, function (req, res) {
   });
 });
 
+
+router.get("/getLastCheckIn", globals.ensureAuthenticated, function (req, res) {
+  MongoClient.connect(globals.url, (err, db) => {
+    if (err) res.send(err);
+    dbo = db.db(globals.dbName);
+    // var o_id = new ObjectId(req.params.id);
+
+    dbo
+      .collection("checkIns")
+      .find()
+      .limit(1)
+      .sort({
+        $natural: -1
+      })
+      .toArray(function (err, checkIn) {
+        if (err) throw err;
+        if (checkIn[0]) {
+
+          var newNum = checkIn[0].contractNum;
+
+          var new_contractNum = {
+            contractNum: (parseInt(newNum) + 1).toString(),
+          };
+          res.json(new_contractNum);
+        } else {
+          var new_contractNum = {
+            contractNum: "10001",
+          };
+          res.json(new_contractNum);
+        }
+      });
+  });
+
+});
+
 router.get("/room/:id", globals.ensureAuthenticated, function (req, res) {
   MongoClient.connect(globals.url, (err, db) => {
     if (err) res.send(err);
@@ -303,4 +334,7 @@ router.get("/room/:id", globals.ensureAuthenticated, function (req, res) {
       });
   });
 });
+
+
+
 module.exports = router;

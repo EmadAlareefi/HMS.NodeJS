@@ -87,6 +87,9 @@
             </div>
 
             <div id="checkIn" class="tab-pane fade" role="tabpanel">
+                <% if(emptyRooms.length == 0){ %>
+                  <h3 class="fontDroidBold" style="color: brown; opacity: 0.7;">لا توجد غرف فارغة</h3>
+                <% }%>
               <% emptyRooms.forEach(room => { %>
                 <a data-toggle="modal" data-target="#modelCheckIn">
                   <div class="page-btn btn-room btn-room-checkIn" 
@@ -115,6 +118,9 @@
             </div>
             
             <div id="checkOut" class="tab-pane fade" role="tabpanel">
+                <% if(usedRooms.length == 0){ %>
+                  <h3 class="fontDroidBold" style="color: brown; opacity: 0.7;">لا توجد غرف مؤجرة</h3>
+                <% }%>
               <% usedRooms.forEach(room => { %>
                 <a data-toggle="modal" data-target="#modelCheckOut">
                   <div class="page-btn btn-room btn-room-checkOut"

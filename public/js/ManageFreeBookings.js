@@ -215,8 +215,23 @@ $(".btn-room-checkIn").click(function () {
         .toggleClass("hidden");
       frmCheckIn.toggleClass("hidden");
       frmCheckIn.removeClass("showen");
+      $.ajax({
+        url: "/managefreebookings/getLastCheckIn/",
+        beforeSend: function () {
+          
+        },
+        success: function (result) {
+          var contractNum = frmCheckIn.find("[name='contractNum']");
+          contractNum.text(result.contractNum);
+          contractNum.attr("data-conNum", result.contractNum);
+        }
+        });
     },
     success: function (result) {
+
+      
+        
+
       var room = result[0];
       setSelectedRoom(room);
       for (var prop in room) {
@@ -436,6 +451,21 @@ function getAccount(idNum) {
   // var idNum = frmCheckIn.find("[name='customer']").attr("idnum");
   $.ajax({
     url: "/customers/getAccount/" + idNum,
+    beforeSend: function () {
+     
+    },
+    success: function (result) {
+        return result[0];
+    }
+  });
+}
+
+function refreshCheckIn() {
+  var contractNum = frmCheckIn.find("[name='contractNum']").data('connum');
+
+
+  $.ajax({
+    url: "/managefreebookings/getCheckIn/" + contractNum,
     beforeSend: function () {
      
     },
