@@ -16,6 +16,7 @@ router.get("/",globals.ensureAuthenticated,(req, res, next) => {
         Page: {
           title: "الرئيسية"
         },
+        //In case there is no connection to the database
         rooms: []
       });
       console.log("Error connecting the database" + err);

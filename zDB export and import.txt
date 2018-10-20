@@ -5,13 +5,18 @@ mongorestore -h "C:\Program Files\MongoDB\Server\3.6\bin\dump\hmsdb" -d hmsdb -u
 
 
 to export database
-mongodump -h ds255588.mlab.com:55588 -d hmsdb -u EmadAlareefi -p emadalareefi "C:\Program Files\MongoDB\Server\3.6\bin\dump\hmsdb"
-mongodump -h ds255588.mlab.com:55588 -d hmsdb -u EmadAlareefi -p emadalareefi C:\data\db
+mongodump -h ds255588.mlab.com:55588 -d hmsdb -u EmadAlareefi -p emadalareefi -o "C:\Program Files\MongoDB\Server\3.6\bin\dump\hmsdb"
+mongodump -h ds255588.mlab.com:55588 -d hmsdb -u EmadAlareefi -p emadalareefi -o C:\data\db
 
 
+restore datebase to localhost
+mongorestore --port 27017 -d hmsdb c:\data\db\hmsdb
 
 connect to mongo remote
 mongo ds255588.mlab.com:55588/hmsdb -u EmadAlareefi -p emadalareefi
 
- cd 'C:\Program Files\MongoDB\Server\3.6\bin'
- cd C:\Program Files\MongoDB\Server\3.6\bin
+run mongo as a windows service
+mongod --dbpath=c:\data\db --logpath=c:\data\log.txt --install
+
+ cd 'C:\Program Files\MongoDB\Server\4.0\bin'
+ cd C:\Program Files\MongoDB\Server\4.0\bin

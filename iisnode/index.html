@@ -1,0 +1,87 @@
+<html>
+<head>
+    <title>iisnode logs</title>
+    <style type="text/css">
+        body
+        {
+            font-family: "Trebuchet MS" , Arial, Helvetica, sans-serif;
+        }
+        table
+        {
+            border-collapse: collapse;
+        }
+        td, th
+        {
+            border: 1px solid lightgray;
+            padding: 3px 7px 2px 7px;
+        }
+        th
+        {
+            text-align: left;
+            padding-top: 5px;
+            padding-bottom: 4px;
+            background-color: Gray;
+            color: #ffffff;
+        }
+        td.stderr
+        {
+            color: Red;
+        }
+    </style>
+</head>
+<body>
+    <table id="logFilesTable">
+        <tr>
+            <th>
+                Computer name
+            </th>
+            <th>
+                PID
+            </th>
+            <th>
+                Type
+            </th>
+            <th>
+                Created
+            </th>
+            <th>
+                Link
+            </th>
+        </tr>
+    </table>
+    <p id="lastUpdated"></p>
+    <script type="text/javascript">
+
+        // this is replaced with actual data at runtime by code in interceptor.js
+        var logFiles = [{"file":"VMI201326-11928-stderr-1539437404623.txt","computername":"VMI201326","pid":11928,"type":"stderr","created":1539437404623},{"file":"VMI201326-11928-stdout-1539437404608.txt","computername":"VMI201326","pid":11928,"type":"stdout","created":1539437404608},{"file":"VMI201326-12392-stderr-1539437775150.txt","computername":"VMI201326","pid":12392,"type":"stderr","created":1539437775150},{"file":"VMI201326-12392-stdout-1539437775148.txt","computername":"VMI201326","pid":12392,"type":"stdout","created":1539437775148},{"file":"VMI201326-12900-stderr-1539437926332.txt","computername":"VMI201326","pid":12900,"type":"stderr","created":1539437926332},{"file":"VMI201326-12900-stdout-1539437926332.txt","computername":"VMI201326","pid":12900,"type":"stdout","created":1539437926332},{"file":"VMI201326-1932-stderr-1539437156014.txt","computername":"VMI201326","pid":1932,"type":"stderr","created":1539437156014},{"file":"VMI201326-1932-stdout-1539437156014.txt","computername":"VMI201326","pid":1932,"type":"stdout","created":1539437156014},{"file":"VMI201326-4120-stderr-1539437459749.txt","computername":"VMI201326","pid":4120,"type":"stderr","created":1539437459749},{"file":"VMI201326-4120-stdout-1539437459733.txt","computername":"VMI201326","pid":4120,"type":"stdout","created":1539437459733},{"file":"VMI201326-6300-stderr-1539438520396.txt","computername":"VMI201326","pid":6300,"type":"stderr","created":1539438520396},{"file":"VMI201326-6300-stdout-1539438520393.txt","computername":"VMI201326","pid":6300,"type":"stdout","created":1539438520393},{"file":"VMI201326-9724-stderr-1539438105616.txt","computername":"VMI201326","pid":9724,"type":"stderr","created":1539438105616},{"file":"VMI201326-9724-stdout-1539438105613.txt","computername":"VMI201326","pid":9724,"type":"stdout","created":1539438105613}];
+        var lastUpdated = 1539438522351;
+        var date = new Date();
+
+        date.setTime(lastUpdated);
+        document.getElementById('lastUpdated').innerHTML = 'Index was last updated ' + date;
+
+        logFiles.sort(function (a, b) {
+            return b.created - a.created;
+        });
+
+        var logFilesTable = document.getElementById("logFilesTable");
+        for (var i = 0; i < logFiles.length; i++) {
+            var logFile = logFiles[i];
+            date.setTime(logFile.created);
+            var row = logFilesTable.insertRow(-1);
+            var computerNameCell = row.insertCell(0);
+            var pidCell = row.insertCell(1);
+            var typeCell = row.insertCell(2);
+            var dateCell = row.insertCell(3);
+            var logCell = row.insertCell(4);
+            computerNameCell.innerHTML = logFile.computername;
+            pidCell.innerHTML = logFile.pid.toString();
+            typeCell.innerHTML = logFile.type;
+            typeCell.setAttribute('class', logFile.type);
+            dateCell.innerHTML = date.toString();
+            logCell.innerHTML = '<a href="' + logFile.file + '">log</a>';
+        };
+
+    </script>
+</body>
+</html>
